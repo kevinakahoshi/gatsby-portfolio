@@ -1,10 +1,24 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+const dotenv = require('dotenv');
+
+dotenv.config({ path: '.env' });
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: 'Kevin Akahoshi // Software Engineer in OC',
+    siteUrl: 'https://kevinakahoshi.com/',
+    description: 'Experienced with React.js, JavaScript (ES5 + ES6), Shopify, and more',
+  },
+  plugins: [
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: '4l2zpa34',
+        dataset: 'product',
+        watchmode: true,
+        token: process.env.SANITY_TOKEN
+      }
+    }
+  ],
 }
