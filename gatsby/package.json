@@ -12,6 +12,14 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "eslintConfig": {
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "react/prop-types": 0
+    }
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
     "dotenv": "^8.2.0",
