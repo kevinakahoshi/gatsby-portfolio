@@ -17,11 +17,6 @@ const LogoStyles = styled.div`
   text-align: center;
   cursor: pointer;
 
-  &::selection {
-    background: none;
-    color: transparent;
-  }
-
   .first-name,
   .last-name {
     display: grid;
@@ -43,14 +38,27 @@ const LogoStyles = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: transparent;
 
     &::after {
       content: '';
       position: absolute;
-      width: 90%;
-      padding-bottom: 90%;
+      width: 98%;
+      padding-bottom: 98%;
       background: var(--red);
       border-radius: 100%;
+      top: 3px;
+      margin: auto;
+    }
+  }
+
+  span {
+    ::-moz-selection {
+      background: none;
+    }
+
+    ::selection {
+      background: none;
     }
   }
 `;
