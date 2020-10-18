@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import Layout from '../components/Layout';
 import Img from 'gatsby-image';
-import Logo from "../components/header/Logo";
+import Header from "../components/header/Header";
 
 export const query = graphql`
   query {
@@ -67,6 +67,11 @@ const HomeStyles = styled.div`
     justify-self: center;
     margin: auto;
   }
+
+  .test-div {
+    min-height: 100vh;
+    border: 2px solid var(--dark-grey);
+  }
 `;
 
 export default function Home({ data }) {
@@ -116,12 +121,15 @@ export default function Home({ data }) {
   return (
     <Layout>
       <HomeStyles>
-        <Logo />
+        <Header />
         <div className="image-grid">
           { images }
         </div>
         <Img fluid={data.aboutMe.edges[0].node.headshot.asset.fluid}
           backgroundColor="white" style={{ maxWidth: '300px'}} />
+          <div className="test-div"></div>
+          <div className="test-div"></div>
+          <div className="test-div" id="about"></div>
       </HomeStyles>
     </Layout>
   )

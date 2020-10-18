@@ -1,20 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  animateScroll as scroll
+} from 'react-scroll';
 
 const LogoStyles = styled.div`
   display: grid;
-  grid-gap: 2vw;
-  grid-template-columns: 1fr auto;
-  font-size: clamp(2rem, 6vw, 3rem);
+  grid-gap: 1.5rem;
+  grid-template-columns: auto auto;
+  padding: 1rem;
+  border: 2px solid #222222;
+  font-size: .75rem;
   font-weight: bold;
-  width: fit-content;
+  width: fit-content
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+
+  &::selection {
+    background: none;
+    color: transparent;
+  }
 
   .first-name,
   .last-name {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
+    gap: .5rem;
+  }
+
+  .first-name {
+    grid-template-columns: repeat(5, auto);
+  }
+
+  .last-name {
+    grid-template-columns: repeat(8, auto);
   }
 
   .letter-o {
@@ -28,7 +49,7 @@ const LogoStyles = styled.div`
       position: absolute;
       width: 90%;
       padding-bottom: 90%;
-      background: red;
+      background: var(--red);
       border-radius: 100%;
     }
   }
@@ -36,7 +57,9 @@ const LogoStyles = styled.div`
 
 const Logo = () => {
   return (
-    <LogoStyles>
+    <LogoStyles
+      onClick={() => scroll.scrollToTop()}
+    >
       <div className="first-name">
         <span>K</span>
         <span>E</span>
