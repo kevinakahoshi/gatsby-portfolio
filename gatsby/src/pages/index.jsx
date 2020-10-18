@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import Layout from '../components/Layout';
 import Img from 'gatsby-image';
+import Logo from "../components/header/Logo";
 
 export const query = graphql`
   query {
@@ -78,7 +79,7 @@ export default function Home({ data }) {
   return (
     <Layout>
       <HomeStyles>
-        <h1>Hello World</h1>
+        <Logo />
         <div className="image-grid">
           { images }
         </div>
