@@ -43,8 +43,8 @@ const LogoStyles = styled.div`
     &::after {
       content: '';
       position: absolute;
+      height: 10px;
       width: 10px;
-      padding-bottom: 100%;
       background: var(--red);
       border-radius: 100%;
       top: 3px;
