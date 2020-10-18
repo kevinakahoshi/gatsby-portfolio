@@ -7,7 +7,7 @@ import Logo from "../components/header/Logo";
 
 export const query = graphql`
   query {
-    tech: allSanityTechnology(filter: {currentlyUsing: {eq: true}}) {
+    tech: allSanityTechnology(filter: {currentlyUsing: {eq: true}}, sort: {fields: order}) {
       nodes {
         altText
         displayText
@@ -70,11 +70,48 @@ const HomeStyles = styled.div`
 `;
 
 export default function Home({ data }) {
-  const images = data.tech.nodes.map(image => {
-    return <img src={image.logo.asset.fluid.src} key={image.id} alt={image.alt} className="container-image" />
-  })
+  // TODO: Decide if the order should be managed within GraphQL or if the order
+  // should be managed within the component
 
-  console.log(data.aboutMe);
+  const sortOrder = {
+    'JavaScript': null,
+    'React.js': null,
+    'Vue.js': null,
+    'Gatsby.js': null,
+    'Node.js': null,
+    'Express': null,
+    'GraphQL': null,
+    'Liquid': null,
+    'PostgreSQL': null,
+    'MySQL': null,
+    'jQuery': null,
+    'PHP': null,
+    'Material UI': null,
+    'HTML5': null,
+    'CSS3': null,
+    'Bootstrap': null
+  }
+
+  const sortedArr = [];
+
+  for (const technology of data.tech.nodes) {
+    sortOrder[technology.displayText] = technology;
+  }
+
+  for (const item in sortOrder) {
+    sortedArr.push(sortOrder[item]);
+  }
+
+  const images = sortedArr.map((tech) => (
+    <img
+      key={tech.id}
+      alt={tech.altText}
+      src={tech.logo.asset.fluid.src}
+      title={tech.altText}
+      className="container-image"
+    />))
+
+  console.log(images);
 
   return (
     <Layout>
