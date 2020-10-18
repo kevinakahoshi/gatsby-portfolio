@@ -56,7 +56,7 @@ const NavigationStyles = styled.div`
 `;
 
 const Navigation = ({ header }) => {
-  const offset = -(header.current?.clientHeight) || -81;
+  const offset = -81;
 
   return (
     <NavigationStyles>
