@@ -1,4 +1,5 @@
 import React, {
+  useCallback,
   useEffect,
   useState
 } from 'react';
@@ -28,19 +29,19 @@ const HeaderStyles = styled.div`
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
+  const navLinksOrHamburger = width > 850 ? <Navigation /> : <Hamburger />
 
   useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-    return () => window.removeEventListener('resize', setWidth(window.innerWidth));
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <HeaderStyles>
       <Logo />
       <div className="link-wrapper">
-        { width > 850
-        ? <Navigation />
-        : <Hamburger /> }
+        { navLinksOrHamburger }
       </div>
     </HeaderStyles>
   )

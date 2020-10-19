@@ -14,9 +14,6 @@ const LogoStyles = styled.div`
   grid-template-columns: auto auto;
   border: 2px solid #222222;
   font-weight: bold;
-  width: fit-content
-  position: relative;
-  text-align: center;
   cursor: pointer;
 
 @media (min-width: ${mobileWidth + 1}px) {
@@ -63,22 +60,20 @@ const LogoStyles = styled.div`
 
     &::after {
       content: '';
-      height: var(--after-height);
-      width: var(--after-width);
+      height: var(--after-size);
+      width: var(--after-size);
       top: var(--after-top);
       position: absolute;
       background: var(--red);
       border-radius: 100%;
 
       @media (min-width: ${mobileWidth + 1}px) {
-        --after-height: 10px;
-        --after-width: 10px;
+        --after-size: 10px;
         --after-top: 3px;
       }
 
       @media (max-width: ${mobileWidth}px) {
-        --after-height: 9px;
-        --after-width: 9px;
+        --after-size: 9px;
         --after-top: 3px;
       }
     }
