@@ -55,7 +55,7 @@ const NavigationStyles = styled.div`
   }
 `;
 
-const Navigation = ({ header }) => {
+const Navigation = () => {
   const offset = -81;
 
   return (

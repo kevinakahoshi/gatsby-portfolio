@@ -4,25 +4,46 @@ import {
   animateScroll as scroll
 } from 'react-scroll';
 
+const mobileWidth = 335;
+
 const LogoStyles = styled.div`
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: var(--logo-gap);
+  padding: var(--logo-padding);
+  font-size: var(--logo-font-size);
   grid-template-columns: auto auto;
-  padding: 1rem;
   border: 2px solid #222222;
-  font-size: .75rem;
   font-weight: bold;
   width: fit-content
   position: relative;
   text-align: center;
   cursor: pointer;
 
+@media (min-width: ${mobileWidth + 1}px) {
+    --logo-gap: 1.5rem;
+    --logo-padding: 1rem;
+    --logo-font-size: .75rem;
+  }
+
+  @media (max-width: ${mobileWidth}px) {
+    --logo-gap: 1.25rem;
+    --logo-padding: .75rem;
+    --logo-font-size: .75rem;
+  }
+
   .first-name,
   .last-name {
     display: grid;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
+
+    @media (min-width: ${mobileWidth + 1}px) {
+      grid-gap: .5rem;
+    }
+
+    @media (max-width: ${mobileWidth}px) {
+      grid-gap: .4rem;
+    }
   }
 
   .first-name {
@@ -42,12 +63,24 @@ const LogoStyles = styled.div`
 
     &::after {
       content: '';
+      height: var(--after-height);
+      width: var(--after-width);
+      top: var(--after-top);
       position: absolute;
-      height: 10px;
-      width: 10px;
       background: var(--red);
       border-radius: 100%;
-      top: 3px;
+
+      @media (min-width: ${mobileWidth + 1}px) {
+        --after-height: 10px;
+        --after-width: 10px;
+        --after-top: 3px;
+      }
+
+      @media (max-width: ${mobileWidth}px) {
+        --after-height: 9px;
+        --after-width: 9px;
+        --after-top: 3px;
+      }
     }
   }
 
