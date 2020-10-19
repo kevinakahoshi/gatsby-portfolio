@@ -1,6 +1,9 @@
-import React from 'react';
-import { useRef } from 'react';
+import React, {
+  useEffect,
+  useState
+} from 'react';
 import styled from 'styled-components';
+import Hamburger from './Hamburger';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
@@ -14,15 +17,30 @@ const HeaderStyles = styled.div`
   background: #FFFFFF;
   top: 0;
   z-index: 1;
+
+  .link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+  }
 `;
 
 const Header = () => {
-  const header = useRef(null);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  }, []);
 
   return (
-    <HeaderStyles ref={header}>
+    <HeaderStyles>
       <Logo />
-      <Navigation header={header} />
+      <div className="link-wrapper">
+        { width > 850
+        ? <Navigation />
+        : <Hamburger /> }
+      </div>
     </HeaderStyles>
   )
 }
