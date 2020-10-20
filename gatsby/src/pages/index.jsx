@@ -1,6 +1,4 @@
-import React, {
-  useState
-} from "react"
+import React from "react"
 import { graphql } from "gatsby";
 import styled from "styled-components"
 
@@ -79,8 +77,6 @@ const HomeStyles = styled.div`
 `;
 
 const Home = ({ data }) => {
-  const [open, setOpen] = useState(true);
-
   // TODO: Decide if the order should be managed within GraphQL or if the order
   // should be managed within the component
   const sortOrder = {
@@ -120,8 +116,6 @@ const Home = ({ data }) => {
       title={tech.altText}
       className="container-image"
     />))
-
-  // console.log(images);
 
   return (
     <Layout>

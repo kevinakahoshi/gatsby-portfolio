@@ -65,7 +65,7 @@ const Header = () => {
     : <NavigationMobile
         offset={offset}
         navigationItems={navigationItems}
-      />
+      />;
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
