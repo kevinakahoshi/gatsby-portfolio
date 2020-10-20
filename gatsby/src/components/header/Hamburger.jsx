@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HamburgerStyles = styled.div`
+const HamburgerStyles = styled.button`
+  padding: 0;
+  background: none;
+  outline: none;
+  border: none;
+
   .top-line,
   .middle-line,
   .bottom-line {
@@ -14,7 +19,10 @@ const HamburgerStyles = styled.div`
 
 const Hamburger = () => {
   return (
-    <HamburgerStyles>
+    <HamburgerStyles
+      role="button"
+      name="hamburger"
+    >
       <div className="top-line" />
       <div className="middle-line" />
       <div className="bottom-line" />
