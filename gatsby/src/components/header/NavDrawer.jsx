@@ -1,22 +1,42 @@
 import React from 'react';
-import {
-  Link,
-} from 'react-scroll';
 import styled from 'styled-components';
+import CloseButton from './CloseButton';
+import Hamburger from './Hamburger';
 
 // Components
 import NavigationLink from './NavigationLink';
 
-const NavigationStyles = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 3rem;
+const NavDrawerStyles = styled.div`
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: .2fr .8fr;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: .3s all;
+
+  .overlay {
+    background: #000000;
+    filter: opacity(.2);
+  }
+
+  .drawer {
+    padding: 1rem;
+    background: #ffffff;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    display: grid;
+    align-items: center;
+    grid-gap: 2rem;
+    grid-template-rows: repeat(auto-fill, minmax(3rem, 1fr));
+  }
 
   a {
     position: relative;
     padding: .5rem 0;
     transition: .3s all;
+    text-align: center;
+    font-size: 1.25rem;
 
     &:not(.active) {
       color: rgba(0,0,0,.5);
@@ -58,10 +78,10 @@ const NavigationStyles = styled.div`
   }
 `;
 
-const Navigation = ({ navigationItems }) => {
-  const offset = -81;
+const offset = -81;
 
-  const navigationLinks = navigationItems.map((navItem) => {
+const NavDrawer = ({ navigationItems }) => {
+  const drawerLinks = navigationItems.map((navItem) => {
     return (
       <NavigationLink
         key={navItem.to}
@@ -73,10 +93,14 @@ const Navigation = ({ navigationItems }) => {
   })
 
   return (
-    <NavigationStyles>
-      { navigationLinks }
-    </NavigationStyles>
+    <NavDrawerStyles>
+      <div className="overlay" />
+      <div className="drawer">
+        <CloseButton />
+        { drawerLinks }
+      </div>
+    </NavDrawerStyles>
   )
-};
+}
 
-export default Navigation;
+export default NavDrawer;

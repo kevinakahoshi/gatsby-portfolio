@@ -6,6 +6,7 @@ import React, {
 import styled from 'styled-components';
 import Hamburger from './Hamburger';
 import Logo from './Logo';
+import NavDrawer from './NavDrawer';
 import Navigation from './Navigation';
 
 const HeaderStyles = styled.div`
@@ -27,10 +28,36 @@ const HeaderStyles = styled.div`
   }
 `;
 
+const navigationItems = [
+  {
+    to: 'about',
+    text: 'About Me'
+  },
+  {
+    to: 'skills',
+    text: 'Skills'
+  },
+  {
+    to: 'tools',
+    text: 'Tools'
+  },
+  {
+    to: 'applications',
+    text: 'Applications'
+  },
+  {
+    to: 'contact',
+    text: 'Contact'
+  }
+]
+
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
-  const navLinksOrHamburger = width > 850 ? <Navigation /> : <Hamburger />
+  const navLinksOrHamburger = width > 850
+    ? <Navigation navigationItems={navigationItems} />
+    : <NavDrawer navigationItems={navigationItems} />
+    // : <Hamburger navigationItems={navigationItems} />
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
