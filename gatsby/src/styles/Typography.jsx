@@ -14,6 +14,10 @@ const Typography = createGlobalStyle`
     font-family: 'Corsa Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--dark-grey)
   }
+
+  .center {
+    text-align: center;
+  }
 `;
 
 export default Typography;

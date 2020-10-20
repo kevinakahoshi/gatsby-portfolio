@@ -6,10 +6,16 @@ import styled from "styled-components"
 import Layout from '../components/Layout';
 import Img from 'gatsby-image';
 import Header from "../components/header/Header";
+import Hero from "../components/hero/Hero";
+import About from "../components/about/About";
+import Skills from '../components/skills/Skills';
+import Tools from "../components/tools/Tools";
+import Contact from '../components/contact/Contact';
+import Applications from "../components/applications/Applications";
 
 export const query = graphql`
   query {
-    tech: allSanityTechnology(filter: {currentlyUsing: {eq: true}}, sort: {fields: order}) {
+    skills: allSanityTechnology(filter: {currentlyUsing: {eq: true}}, sort: {fields: order}) {
       nodes {
         altText
         displayText
@@ -77,58 +83,22 @@ const HomeStyles = styled.div`
 `;
 
 const Home = ({ data }) => {
-  // TODO: Decide if the order should be managed within GraphQL or if the order
-  // should be managed within the component
-  const sortOrder = {
-    'JavaScript': null,
-    'React.js': null,
-    'Vue.js': null,
-    'Gatsby.js': null,
-    'Node.js': null,
-    'Express': null,
-    'GraphQL': null,
-    'Liquid': null,
-    'PostgreSQL': null,
-    'MySQL': null,
-    'jQuery': null,
-    'PHP': null,
-    'Material UI': null,
-    'HTML5': null,
-    'CSS3': null,
-    'Bootstrap': null
-  }
+  const skills = data.skills.nodes;
 
-  const sortedArr = [];
-
-  for (const technology of data.tech.nodes) {
-    sortOrder[technology.displayText] = technology;
-  }
-
-  for (const item in sortOrder) {
-    sortedArr.push(sortOrder[item]);
-  }
-
-  const images = sortedArr.map((tech) => (
-    <img
-      key={tech.id}
-      alt={tech.altText}
-      src={tech.logo.asset.fluid.src}
-      title={tech.altText}
-      className="container-image"
-    />))
 
   return (
     <Layout>
       <HomeStyles>
         <Header />
-        <div className="image-grid">
-          { images }
-        </div>
+        <Hero />
+        <About />
+        <Skills
+          skills={skills} />
+        <Tools />
+        <Applications />
+        <Contact />
         <Img fluid={data.aboutMe.edges[0].node.headshot.asset.fluid}
           backgroundColor="white" style={{ maxWidth: '300px'}} />
-          <div className="test-div"></div>
-          <div className="test-div"></div>
-          <div className="test-div" id="about"></div>
       </HomeStyles>
     </Layout>
   )
