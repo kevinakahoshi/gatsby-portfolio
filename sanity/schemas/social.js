@@ -22,6 +22,11 @@ export default {
       name: 'logo',
       title: 'Logo',
       type: 'image'
+    },
+    {
+      name: 'file',
+      title: 'File Upload',
+      type: 'file'
     }
   ]
 }
