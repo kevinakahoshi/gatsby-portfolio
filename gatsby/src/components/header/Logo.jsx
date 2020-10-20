@@ -16,7 +16,12 @@ const LogoStyles = styled.div`
   font-weight: bold;
   cursor: pointer;
 
-@media (min-width: ${mobileWidth + 1}px) {
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  @media (min-width: ${mobileWidth + 1}px) {
     --logo-gap: 1.5rem;
     --logo-padding: 1rem;
     --logo-font-size: .75rem;

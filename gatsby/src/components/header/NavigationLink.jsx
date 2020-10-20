@@ -3,7 +3,7 @@ import {
   Link
 } from 'react-scroll';
 
-const NavigationLink = ({ to, offset, text }) => {
+const NavigationLink = ({ to, offset, text, handleClose = null }) => {
   return (
     <Link
       activeClass="active"
@@ -12,6 +12,7 @@ const NavigationLink = ({ to, offset, text }) => {
       smooth={true}
       offset={offset}
       duration={1000}
+      onClick={handleClose}
     >
       { text }
     </Link>

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  useMemo
+} from 'react';
 import {
   Link,
 } from 'react-scroll';
@@ -58,10 +60,8 @@ const NavigationStyles = styled.div`
   }
 `;
 
-const Navigation = ({ navigationItems }) => {
-  const offset = -81;
-
-  const navigationLinks = navigationItems.map((navItem) => {
+const NavigationDesktop = ({ offset, navigationItems }) => {
+  const navigationLinks = useMemo(() => navigationItems.map((navItem) => {
     return (
       <NavigationLink
         key={navItem.to}
@@ -70,7 +70,7 @@ const Navigation = ({ navigationItems }) => {
         text={navItem.text}
       />
     )
-  })
+  }), [navigationItems]);
 
   return (
     <NavigationStyles>
@@ -79,4 +79,4 @@ const Navigation = ({ navigationItems }) => {
   )
 };
 
-export default Navigation;
+export default NavigationDesktop;

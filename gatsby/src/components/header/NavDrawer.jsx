@@ -1,24 +1,46 @@
-import React from 'react';
+import React, {
+  useCallback
+} from 'react';
 import styled from 'styled-components';
 import CloseButton from './CloseButton';
 import Hamburger from './Hamburger';
 
 // Components
 import NavigationLink from './NavigationLink';
+import useMenu from '../hooks/useMenu';
+import { useMemo } from 'react';
+import { useState } from 'react';
+
+// TODO: Create the nav drawer with overlay and the drawer as part of the inside
+// of the main element
 
 const NavDrawerStyles = styled.div`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: .2fr .8fr;
+  /* grid-template-columns: .2fr .8fr; */
+  grid-template-columns: 0fr 1fr;
   position: fixed;
   top: 0;
   right: 0;
-  transition: .3s all;
+  transition: .5s all;
+/*
+  background: #00000090;
 
-  .overlay {
-    background: #000000;
-    filter: opacity(.2);
+  &:not(.open) {
+    display: none;
+  }
+
+  &.open {
+    display: block;
+  } */
+
+  &:not(.open) {
+      transform: translateX(150%);
+    }
+
+  &.open {
+    transform: translateX(0%);
   }
 
   .drawer {
@@ -29,6 +51,17 @@ const NavDrawerStyles = styled.div`
     align-items: center;
     grid-gap: 2rem;
     grid-template-rows: repeat(auto-fill, minmax(3rem, 1fr));
+    background: #ffffff;
+    transition: .3s all;
+    height: 100%;
+
+    /* &:not(.open) {
+      transform: translateX(150%);
+    }
+
+    &.open {
+      transform: translateX(0%);
+    } */
   }
 
   a {
@@ -78,25 +111,37 @@ const NavDrawerStyles = styled.div`
   }
 `;
 
-const offset = -81;
-
-const NavDrawer = ({ navigationItems }) => {
-  const drawerLinks = navigationItems.map((navItem) => {
-    return (
-      <NavigationLink
-        key={navItem.to}
-        to={navItem.to}
-        offset={offset}
-        text={navItem.text}
-      />
-    )
-  })
+const NavDrawer = ({
+  offset,
+  navigationItems,
+  open,
+  sliding,
+  handleOpen,
+  handleClose,
+  handleSlideOpen,
+  handleSlideClose
+}) => {
+  const drawerLinks = useMemo(() => navigationItems.map((navItem) => {
+      return (
+        <NavigationLink
+          key={navItem.to}
+          to={navItem.to}
+          offset={offset}
+          text={navItem.text}
+          handleClose={handleClose}
+        />
+      )
+    }), [navigationItems]);
 
   return (
-    <NavDrawerStyles>
+    <NavDrawerStyles
+      className={open ? 'open' : ''}>
       <div className="overlay" />
-      <div className="drawer">
-        <CloseButton />
+      <div className={`drawer`}
+        onAnimationEnd={handleClose}>
+        <CloseButton
+          handleClose={handleClose}
+        />
         { drawerLinks }
       </div>
     </NavDrawerStyles>

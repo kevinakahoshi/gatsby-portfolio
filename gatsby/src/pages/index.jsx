@@ -1,6 +1,8 @@
-import { graphql } from "gatsby";
 import React from "react"
+import { graphql } from "gatsby";
 import styled from "styled-components"
+
+// Components
 import Layout from '../components/Layout';
 import Img from 'gatsby-image';
 import Header from "../components/header/Header";
@@ -57,7 +59,7 @@ const HomeStyles = styled.div`
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-tempalte-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 1rem;
   }
 
@@ -74,10 +76,9 @@ const HomeStyles = styled.div`
   }
 `;
 
-export default function Home({ data }) {
+const Home = ({ data }) => {
   // TODO: Decide if the order should be managed within GraphQL or if the order
   // should be managed within the component
-
   const sortOrder = {
     'JavaScript': null,
     'React.js': null,
@@ -116,8 +117,6 @@ export default function Home({ data }) {
       className="container-image"
     />))
 
-  console.log(images);
-
   return (
     <Layout>
       <HomeStyles>
@@ -133,4 +132,6 @@ export default function Home({ data }) {
       </HomeStyles>
     </Layout>
   )
-}
+};
+
+export default Home;

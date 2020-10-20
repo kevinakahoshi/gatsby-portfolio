@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useMenu from '../hooks/useMenu';
 
 const HamburgerStyles = styled.button`
   padding: 0;
@@ -17,11 +18,12 @@ const HamburgerStyles = styled.button`
   }
 `;
 
-const Hamburger = () => {
+const Hamburger = ({ handleOpen }) => {
   return (
     <HamburgerStyles
       role="button"
       name="hamburger"
+      onClick={handleOpen}
     >
       <div className="top-line" />
       <div className="middle-line" />
