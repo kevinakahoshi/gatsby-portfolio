@@ -4,10 +4,11 @@ import React, {
   useState
 } from 'react';
 import styled from 'styled-components';
-import Hamburger from './Hamburger';
+
+// Components
 import Logo from './Logo';
-import NavDrawer from './NavDrawer';
-import Navigation from './Navigation';
+import NavigationDesktop from './NavigationDesktop';
+import NavigationMobile from './NavigationMobile';
 
 const HeaderStyles = styled.div`
   display: grid;
@@ -54,10 +55,17 @@ const navigationItems = [
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
-  const navLinksOrHamburger = width > 850
-    ? <Navigation navigationItems={navigationItems} />
-    : <NavDrawer navigationItems={navigationItems} />
-    // : <Hamburger navigationItems={navigationItems} />
+  const offset = -81;
+
+  const desktopOrMobile = width > 850
+    ? <NavigationDesktop
+        offset={offset}
+        navigationItems={navigationItems}
+      />
+    : <NavigationMobile
+        offset={offset}
+        navigationItems={navigationItems}
+      />
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -68,7 +76,7 @@ const Header = () => {
     <HeaderStyles>
       <Logo />
       <div className="link-wrapper">
-        { navLinksOrHamburger }
+        { desktopOrMobile }
       </div>
     </HeaderStyles>
   )

@@ -25,13 +25,19 @@ const CloseButtonStyles = styled.button`
   &::after {
     transform: rotate(90deg);
   }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
 `;
 
-const CloseButton = () => {
+const CloseButton = ({ handleClose }) => {
   return (
     <CloseButtonStyles
       role="button"
       name="close-button"
+      onClick={handleClose}
     />
   )
 }
