@@ -1,5 +1,5 @@
 export default {
-  title: 'About Me',
+  title: 'About Me Section',
   name: 'aboutMe',
   type: 'document',
   fields: [
