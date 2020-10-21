@@ -1,9 +1,8 @@
 export default {
-  title: 'Technologies',
-  name: 'technology',
+  title: 'Tools Content',
+  name: 'tool',
   type: 'document',
-  fields: [
-    {
+  fields: [{
       name: 'name',
       title: 'Name',
       type: 'string'
@@ -33,7 +32,7 @@ export default {
     },
     {
       name: 'order',
-      title: 'Order Number',
+      title: 'Order',
       type: 'number'
     }
   ]
