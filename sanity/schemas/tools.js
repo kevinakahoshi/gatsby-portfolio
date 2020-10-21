@@ -29,6 +29,11 @@ export default {
       name: 'currentlyUsing',
       title: 'Currently Using',
       type: 'boolean'
+    },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number'
     }
   ]
 }
