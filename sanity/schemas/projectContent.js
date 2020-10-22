@@ -32,6 +32,12 @@ export default {
       type: 'text',
     },
     {
+      name: 'technologiesUsed',
+      title: 'Technologies Used',
+      type: 'array',
+      of: [{ type: 'string' }]
+    },
+    {
       name: 'gitHubLink',
       title: 'GitHub Link',
       type: 'url'

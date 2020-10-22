@@ -84,6 +84,27 @@ export const query = graphql`
         }
       }
     }
+    projects: allSanityProjectsSection {
+      nodes {
+        allProjects: projectsSelectionAndOrder {
+          altText
+          gitHubLink
+          id
+          liveLink
+          mainDescription
+          projectName
+          shortDescription
+          technologiesUsed
+          thumbnail {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -118,6 +139,7 @@ const Home = ({ data }) => {
   const aboutMe = data.aboutMe.nodes[0];
   const skills = data.skills.nodes[0].tech;
   const tools = data.tools.nodes[0].tools;
+  const projects = data.projects.nodes[0].allProjects;
 
   return (
     <Layout>
@@ -133,7 +155,9 @@ const Home = ({ data }) => {
         <Tools
           tools={tools}
         />
-        <Applications />
+        <Applications
+          projects={projects}
+        />
         <Contact />
       </HomeStyles>
     </Layout>
