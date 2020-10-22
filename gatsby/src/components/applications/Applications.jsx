@@ -5,10 +5,13 @@ const ApplicationsStyles = styled.section`
   background: #ffffff;
 `;
 
-const Applications = () => {
+const Applications = ({ projects }) => {
+  console.log(projects);
+
   return (
     <ApplicationsStyles id="applications" className="section">
       <h1>APPLICATIONS SECTION</h1>
+      { projects.map((project) => project.projectName) }
     </ApplicationsStyles>
   )
 }
