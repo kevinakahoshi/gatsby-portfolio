@@ -2,14 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TechnicalSkillOrToolStyles = styled.div`
-  display: flex;
-  flex-direction: column;
   text-align: center;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-gap: 1rem;
 
   img {
     width: 100%;
     max-width: 100px;
     margin: auto;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 

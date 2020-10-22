@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import topographic from '../../assets/images/topographic.svg';
+import SectionHeading from '../shared/SectionHeading';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const ToolsStyles = styled.section`
@@ -20,7 +22,11 @@ const ToolsStyles = styled.section`
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 850px) and (min-width: 501) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 500px) {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -41,7 +47,9 @@ const Tools = ({ tools }) => {
 
   return (
     <ToolsStyles id="tools" className="section">
-      <h3 className="center">Tools</h3>
+      <SectionHeading>
+        Tools
+      </SectionHeading>
       <div className="tools-grid">
         { toolsUsed }
       </div>
