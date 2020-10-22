@@ -15,9 +15,43 @@ import Applications from "../components/applications/Applications";
 
 export const query = graphql`
   query {
+    aboutMe: allSanityAboutMe {
+      nodes {
+        social {
+          url
+          name
+          file {
+            asset {
+              url
+            }
+          }
+          logo {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+        altText
+        bio {
+          children {
+            _key
+            text
+          }
+        }
+        headshot {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid_noBase64
+            }
+          }
+        }
+      }
+    }
     skills: allSanityTechnologiesSection {
       nodes {
-        technologiesSelectionAndOrder {
+        tech: technologiesSelectionAndOrder {
           name
           id
           displayText
@@ -34,7 +68,7 @@ export const query = graphql`
     }
     tools: allSanityToolsSection {
       nodes {
-        toolsSelectionAndOrder {
+        tools: toolsSelectionAndOrder {
           name
           id
           displayText
@@ -44,27 +78,6 @@ export const query = graphql`
               fluid {
                 src
               }
-            }
-          }
-        }
-      }
-    }
-    aboutMe: allSanityAboutMe {
-      edges {
-        node {
-          headshot {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid_noBase64
-              }
-              id
-            }
-          }
-          altText
-          bio {
-            children {
-              text
-              _key
             }
           }
         }
@@ -101,15 +114,18 @@ const HomeStyles = styled.div`
 `;
 
 const Home = ({ data }) => {
-  const skills = data.skills.nodes[0].technologiesSelectionAndOrder;
-  const tools = data.tools.nodes[0].toolsSelectionAndOrder;
+  const aboutMe = data.aboutMe.nodes[0];
+  const skills = data.skills.nodes[0].tech;
+  const tools = data.tools.nodes[0].tools;
 
   return (
     <Layout>
       <HomeStyles>
         <Header />
         <Hero />
-        <About />
+        <About
+          aboutMe={aboutMe}
+        />
         <Skills
           skills={skills}
         />
@@ -118,8 +134,6 @@ const Home = ({ data }) => {
         />
         <Applications />
         <Contact />
-        <Img fluid={data.aboutMe.edges[0].node.headshot.asset.fluid}
-          backgroundColor="white" style={{ maxWidth: '300px'}} />
       </HomeStyles>
     </Layout>
   )
