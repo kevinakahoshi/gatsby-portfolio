@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import topographic from '../../assets/images/topographic.svg';
+import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const ToolsStyles = styled.section`
   background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
@@ -26,12 +27,24 @@ const ToolsStyles = styled.section`
 `;
 
 
-const Tools = () => {
+const Tools = ({ tools }) => {
+  const toolsUsed = tools.map((skill) => {
+    return (
+      <TechnicalSkillOrTool
+        key={skill.id}
+        src={skill.logo.asset.fluid.src}
+        altText={skill.altText}
+        displayText={skill.displayText}
+      />
+    )
+  });
 
   return (
     <ToolsStyles id="tools" className="section">
       <h3 className="center">Tools</h3>
-
+      <div className="tools-grid">
+        { toolsUsed }
+      </div>
     </ToolsStyles>
   )
 }
