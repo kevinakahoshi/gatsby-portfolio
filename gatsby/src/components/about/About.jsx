@@ -17,10 +17,25 @@ const AboutStyles = styled.section`
 
     @media (min-width: 501px) {
       --columns: 1fr 2fr;
+
+      .image-wrapper h3 {
+        display: none;
+      }
     }
 
     @media (max-width: 500px) {
       --columns: 1fr;
+
+      .bio-wrapper h3 {
+        display: none;
+      }
+    }
+
+    .bio-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
     }
   }
 `;
@@ -33,6 +48,9 @@ const About = ({ aboutMe }) => {
       <SectionContentWrapper>
         <div className="about-wrapper">
           <div className="image-wrapper">
+            <SectionHeading>
+              About Me
+            </SectionHeading>
             <Img
               alt={altText}
               fluid={headshot.asset.fluid}

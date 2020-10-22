@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --light-grey: #f8f9fA;
   }
 
-  a:hover {
+  a, button {
     cursor: pointer;
   }
 
