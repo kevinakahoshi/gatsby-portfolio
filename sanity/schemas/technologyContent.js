@@ -25,16 +25,6 @@ export default {
       name: 'altText',
       title: 'Alt Text',
       type: 'string'
-    },
-    {
-      name: 'currentlyUsing',
-      title: 'Currently Using',
-      type: 'boolean'
-    },
-    {
-      name: 'order',
-      title: 'Order Number',
-      type: 'number'
     }
   ]
 }
