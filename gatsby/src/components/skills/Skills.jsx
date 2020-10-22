@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { useMemo } from 'react';
 
+import SectionHeading from '../shared/SectionHeading';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const SkillsStyles = styled.section`
@@ -38,7 +39,9 @@ const Skills = ({ skills }) => {
 
   return (
     <SkillsStyles id="skills" className="section">
-      <h3 className="center">Technical Skills</h3>
+      <SectionHeading>
+        Technical Skills
+      </SectionHeading>
       <div className="technologies-grid">
         { technicalSkills }
       </div>
