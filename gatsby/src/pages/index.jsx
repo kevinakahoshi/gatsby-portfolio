@@ -18,7 +18,10 @@ export const query = graphql`
     skills: allSanityTechnologiesSection {
       nodes {
         technologiesSelectionAndOrder {
+          name
           id
+          displayText
+          altText
           logo {
             asset {
               fluid {
@@ -26,9 +29,23 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+    tools: allSanityToolsSection {
+      nodes {
+        toolsSelectionAndOrder {
           name
-          altText
+          id
           displayText
+          altText
+          logo {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -85,6 +102,7 @@ const HomeStyles = styled.div`
 
 const Home = ({ data }) => {
   const skills = data.skills.nodes[0].technologiesSelectionAndOrder;
+  const tools = data.tools.nodes[0].toolsSelectionAndOrder;
 
   return (
     <Layout>
@@ -93,8 +111,11 @@ const Home = ({ data }) => {
         <Hero />
         <About />
         <Skills
-          skills={skills} />
-        <Tools />
+          skills={skills}
+        />
+        <Tools
+          tools={tools}
+        />
         <Applications />
         <Contact />
         <Img fluid={data.aboutMe.edges[0].node.headshot.asset.fluid}

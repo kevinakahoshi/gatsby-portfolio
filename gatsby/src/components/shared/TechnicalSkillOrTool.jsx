@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TechnicalSkillStyles = styled.div`
+const TechnicalSkillOrToolStyles = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -13,19 +13,19 @@ const TechnicalSkillStyles = styled.div`
   }
 `;
 
-const TechnicalSkill = ({ src, altText, displayText }) => {
+const TechnicalSkillOrTool = ({ src, altText, displayText }) => {
   return (
-    <TechnicalSkillStyles>
+    <TechnicalSkillOrToolStyles>
       <img
         src={src}
         alt={altText}
         title={altText}
       />
       <p>
-        { displayText }
+        {displayText}
       </p>
-    </TechnicalSkillStyles>
+    </TechnicalSkillOrToolStyles>
   )
 }
 
-export default TechnicalSkill;
+export default TechnicalSkillOrTool;
