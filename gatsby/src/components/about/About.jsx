@@ -1,20 +1,55 @@
 import React from 'react';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
+
+import SectionContentWrapper from '../shared/SectionContentWrapper';
+import SectionHeading from '../shared/SectionHeading';
+import AboutBioParagraphs from './AboutBioParagraphs';
+import AboutSocialLinks from './AboutSocialLinks';
 
 const AboutStyles = styled.section`
   background: var(--light-grey);
+
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-gap: 1.5rem;
+
+    @media (min-width: 501px) {
+      --columns: 1fr 2fr;
+    }
+
+    @media (max-width: 500px) {
+      --columns: 1fr;
+    }
+  }
 `;
 
-const About = () => {
+const About = ({ aboutMe }) => {
+  const { altText, bio, headshot, social } = aboutMe;
+
   return (
     <AboutStyles id="about" className="section">
-      <div className="about-image"></div>
-      <div className="about-text">
-        <h1>About Me</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur aut excepturi asperiores magni eius. Nostrum doloribus, exercitationem minima dolorum accusamus aliquam hic quo eius, similique, eum sint error repellendus neque?</p>
-        <p>Fugit, molestiae labore! Et eaque odit reprehenderit fuga molestiae sit porro minus illum ab? Optio a non reiciendis voluptatem fugit officiis quas tempore enim soluta. Tenetur repellat numquam facere cupiditate!</p>
-        <p>Enim iusto quaerat ipsam est illo, aliquid doloremque mollitia facere nemo eius incidunt sit, tempora voluptas dolores quod porro autem minima cumque id ad nesciunt! Quas doloremque nulla ea animi?</p>
-      </div>
+      <SectionContentWrapper>
+        <div className="about-wrapper">
+          <div className="image-wrapper">
+            <Img
+              alt={altText}
+              fluid={headshot.asset.fluid}
+              backgroundColor="var(--light-grey)"
+            />
+            <AboutSocialLinks social={social} />
+          </div>
+          <div className="bio-wrapper">
+            <SectionHeading>
+              About Me
+            </SectionHeading>
+            <div className="bio-content-wrapper">
+              <AboutBioParagraphs bio={bio} />
+            </div>
+          </div>
+        </div>
+      </SectionContentWrapper>
     </AboutStyles>
   )
 }

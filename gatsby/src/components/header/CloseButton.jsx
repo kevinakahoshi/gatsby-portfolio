@@ -10,7 +10,7 @@ const CloseButtonStyles = styled.button`
   position: relative;
   transform: rotate(45deg);
   background: #ffffff;
-  border: 2px solid var(--dark-grey);
+  border: none;
   border-radius: 100%;
 
   &::before,
@@ -18,7 +18,7 @@ const CloseButtonStyles = styled.button`
     content: '';
     height: 80%;
     width: 2px;
-    background: var(--dark-grey);
+    background: rgba(0,0,0,.5);
     position: absolute;
   }
 

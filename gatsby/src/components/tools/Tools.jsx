@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import topographic from '../../assets/images/topographic.svg';
+import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
+import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const ToolsStyles = styled.section`
@@ -11,25 +13,6 @@ const ToolsStyles = styled.section`
   background-size: contain;
   background-repeat: repeat;
   color: var(--white);
-
-  .tools-grid {
-    max-width: 1140px;
-    margin: auto;
-    display: grid;
-    grid-gap: 1rem;
-
-    @media (min-width: 851px) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    @media (max-width: 850px) and (min-width: 501) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    @media (max-width: 500px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
 `;
 
 
@@ -47,12 +30,14 @@ const Tools = ({ tools }) => {
 
   return (
     <ToolsStyles id="tools" className="section">
-      <SectionHeading>
-        Tools
-      </SectionHeading>
-      <div className="tools-grid">
-        { toolsUsed }
-      </div>
+      <SectionContentWrapper>
+        <SectionHeading>
+          Tools
+        </SectionHeading>
+        <SkillsAndToolsGrid>
+          { toolsUsed }
+        </SkillsAndToolsGrid>
+      </SectionContentWrapper>
     </ToolsStyles>
   )
 }
