@@ -8,12 +8,16 @@ import aboutMeSection from './aboutMeSection';
 import socialContent from './socialContent';
 import toolsContent from './toolsContent';
 import projectContent from './projectContent';
+import toolsSection from './toolsSection';
+import technologiesSection from './technologiesSection';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     aboutMeSection,
+    technologiesSection,
+    toolsSection,
     projectContent,
     socialContent,
     technologyContent,

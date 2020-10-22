@@ -15,19 +15,20 @@ import Applications from "../components/applications/Applications";
 
 export const query = graphql`
   query {
-    skills: allSanityTechnology(filter: {currentlyUsing: {eq: true}}, sort: {fields: order}) {
+    skills: allSanityTechnologiesSection {
       nodes {
-        altText
-        displayText
-        name
-        currentlyUsing
-        id
-        logo {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
+        technologiesSelectionAndOrder {
+          id
+          logo {
+            asset {
+              fluid {
+                src
+              }
             }
           }
+          name
+          altText
+          displayText
         }
       }
     }
@@ -83,8 +84,7 @@ const HomeStyles = styled.div`
 `;
 
 const Home = ({ data }) => {
-  const skills = data.skills.nodes;
-
+  const skills = data.skills.nodes[0].technologiesSelectionAndOrder;
 
   return (
     <Layout>

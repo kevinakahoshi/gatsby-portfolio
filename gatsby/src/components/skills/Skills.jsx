@@ -24,7 +24,7 @@ const SkillsStyles = styled.section`
 `;
 
 const Skills = ({ skills }) => {
-  const technicalSkills = useMemo(() => skills.map((skill) => {
+  const technicalSkills = skills.map((skill) => {
     return (
       <TechnicalSkill
         key={skill.id}
@@ -33,7 +33,7 @@ const Skills = ({ skills }) => {
         displayText={skill.displayText}
       />
     )
-  }), [skills])
+  })
 
   return (
     <SkillsStyles id="skills" className="section">
