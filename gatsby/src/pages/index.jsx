@@ -32,6 +32,7 @@ export const query = graphql`
               }
             }
           }
+          id
         }
         altText
         bio {

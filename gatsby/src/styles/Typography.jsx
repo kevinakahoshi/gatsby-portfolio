@@ -18,6 +18,13 @@ const Typography = createGlobalStyle`
   .center {
     text-align: center;
   }
+
+  p {
+    margin-top: 0;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export default Typography;
