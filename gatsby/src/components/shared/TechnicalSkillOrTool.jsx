@@ -10,8 +10,16 @@ const TechnicalSkillOrToolStyles = styled.div`
 
   img {
     width: 100%;
-    max-width: 100px;
+    max-width: var(--logo-width);
     margin: auto;
+  }
+
+  @media (min-width: 551px) {
+    --logo-width: 100px;
+  }
+
+  @media (max-width: 550px) {
+    --logo-width: 80px;
   }
 
   p {

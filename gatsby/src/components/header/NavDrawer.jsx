@@ -54,6 +54,7 @@ const NavDrawerStyles = styled.div`
     background: #ffffff;
     transition: .3s all;
     height: 100%;
+    overflow-y: scroll;
 
     /* &:not(.open) {
       transform: translateX(150%);
@@ -62,6 +63,11 @@ const NavDrawerStyles = styled.div`
     &.open {
       transform: translateX(0%);
     } */
+
+    &::after {
+      content: '';
+      height: 1rem;
+    }
   }
 
   a {
