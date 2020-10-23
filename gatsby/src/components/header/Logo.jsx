@@ -10,7 +10,6 @@ const LogoStyles = styled.div`
   display: grid;
   grid-gap: var(--logo-gap);
   padding: var(--logo-padding);
-  font-size: var(--logo-font-size);
   grid-template-columns: auto auto;
   border: 2px solid #222222;
   font-weight: bold;
@@ -19,6 +18,10 @@ const LogoStyles = styled.div`
   &:focus,
   &:active {
     outline: none;
+  }
+
+  span {
+    font-size: var(--logo-font-size);
   }
 
   @media (min-width: ${mobileWidth + 1}px) {
