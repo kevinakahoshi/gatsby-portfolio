@@ -9,6 +9,11 @@ const GlobalStyles = createGlobalStyle`
     --light-grey: #f8f9fA;
   }
 
+  * {
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
   a, button {
     cursor: pointer;
   }
