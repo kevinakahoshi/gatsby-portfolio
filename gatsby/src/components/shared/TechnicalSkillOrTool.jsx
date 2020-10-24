@@ -29,7 +29,7 @@ const TechnicalSkillOrToolStyles = styled.div`
 
 const TechnicalSkillOrTool = ({ src, altText, displayText }) => {
   return (
-    <TechnicalSkillOrToolStyles>
+    <TechnicalSkillOrToolStyles className="technical">
       <img
         src={src}
         alt={altText}

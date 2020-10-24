@@ -16,10 +16,10 @@ const Skills = ({ skills }) => {
   const technicalSkills = skills.map((skill) => {
     return (
       <TechnicalSkillOrTool
-      key={skill.id}
-      src={skill.logo.asset.fluid.src}
-      altText={skill.altText}
-      displayText={skill.displayText}
+        key={skill.id}
+        src={skill.logo.asset.fluid.src}
+        altText={skill.altText}
+        displayText={skill.displayText}
       />
       )
     });

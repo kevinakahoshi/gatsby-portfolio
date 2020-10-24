@@ -7,13 +7,22 @@ import {
   FiMail as Email,
   FiFileText as Resume
 } from 'react-icons/fi';
+import { useState } from 'react';
 
 const AboutSocialLinksStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: .5rem;
-  width: max-content;
-  margin: 1rem auto;
+  overflow: auto;
+  min-height: 4.5rem;
+
+  .social-wrapper {
+    animation: slide-up .3s;
+    animation-fill-mode: both;
+    animation-delay: .3s;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: .5rem;
+    width: max-content;
+    margin: 1rem auto;
+  }
 
   a {
     height: 2.5rem;
@@ -27,7 +36,8 @@ const AboutSocialLinksStyles = styled.div`
     border-width: 2px;
     border-style: solid;
     border-color: rgba(0,0,0,.5);
-    animation: slide-up .3s;
+    animation: slide-up .5s;
+    animation-fill-mode: both;
 
     &:hover {
       border-color: rgba(0,0,0,.7);
@@ -42,7 +52,7 @@ const AboutSocialLinksStyles = styled.div`
   @keyframes slide-up {
     0% {
       opacity: 0;
-      transform: translateY(-50%);
+      transform: translateY(50%);
     }
 
     100% {
@@ -54,7 +64,8 @@ const AboutSocialLinksStyles = styled.div`
 
 const AboutSocialLinks = ({ social }) => {
   const processURL = (item) => item.url ? item.url : item.file.asset.url;
-  const delay = 0.2;
+  const [links, setLinks] = useState(null);
+  const delay = 0.1;
   const socialIcons = {
     GitHub: <GitHub className="social-icon"  />,
     LinkedIn: <LinkedIn className="social-icon" />,
@@ -78,8 +89,11 @@ const AboutSocialLinks = ({ social }) => {
   ))
 
   return (
-    <AboutSocialLinksStyles>
-      { allLinks }
+    <AboutSocialLinksStyles
+      onAnimationEnd={() => setLinks(allLinks)}>
+      <div className="social-wrapper">
+        { links }
+      </div>
     </AboutSocialLinksStyles>
   )
 }

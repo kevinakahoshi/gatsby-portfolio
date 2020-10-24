@@ -15,7 +15,7 @@ const AboutStyles = styled.section`
     grid-template-columns: var(--columns);
     grid-gap: 1.5rem;
 
-    @media (min-width: 501px) {
+    @media (min-width: 551px) {
       --columns: 1fr 2fr;
 
       .image-wrapper h3 {
@@ -23,7 +23,7 @@ const AboutStyles = styled.section`
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
       --columns: 1fr;
 
       .bio-wrapper h3 {
