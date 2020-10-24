@@ -7,6 +7,15 @@ const ApplicationTechnologyBadgeStyles = styled.span`
   width: fit-content;
   transition: .3s all;
   font-weight: 300;
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
 `;
 
 const ApplicationTechnologyBadge = ({ technologyName }) => {
