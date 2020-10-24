@@ -5,6 +5,7 @@ import ApplicationTechnologyBadge from './ApplicationTechnologyBadge';
 const ApplicationsCardTechnologiesStyles = styled.div`
   h5 {
     text-align: center;
+    margin-bottom: 1rem;
   }
 
   .technologies-wrapper {

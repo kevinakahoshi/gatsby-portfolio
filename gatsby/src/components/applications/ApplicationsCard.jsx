@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ApplicationsCardImage from './ApplicationsCardImage';
 import ApplicationsCardDescription from './ApplicationsCardDescription';
 import ApplicationsCardTechnologies from './ApplicationsCardTechnologies';
+import ApplicationsCardButtons from './ApplicationsCardButtons';
 
 const ApplicationsCardStyles = styled.div`
   background: var(--white);
@@ -44,6 +45,7 @@ const ApplicationsCard = ({ application }) => {
       <ApplicationsCardTechnologies
         technologiesUsed={technologiesUsed}
       />
+      <ApplicationsCardButtons />
     </ApplicationsCardStyles>
   )
 };
