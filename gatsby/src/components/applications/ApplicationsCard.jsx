@@ -7,6 +7,7 @@ import ApplicationsCardDescription from './ApplicationsCardDescription';
 import ApplicationsCardTechnologies from './ApplicationsCardTechnologies';
 import ApplicationsCardButtons from './ApplicationsCardButtons';
 import ApplicationsCardSkeletonDescription from './ApplicationsSkeletonDescription';
+import ApplicationsSkeletonTechnologies from './ApplicationsSkeletonTechnologies';
 
 const ApplicationsCardStyles = styled.div`
   background: var(--white);
@@ -44,7 +45,11 @@ const ApplicationsCard = ({ application }) => {
 
   const descriptionBlock = liveLink
     ? <ApplicationsCardDescription shortDescription={shortDescription} />
-    : <ApplicationsCardSkeletonDescription />
+    : <ApplicationsCardSkeletonDescription />;
+
+  const technologiesBlock = liveLink
+    ? <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
+    : <ApplicationsSkeletonTechnologies />;
 
   return (
     <ApplicationsCardStyles>
@@ -61,10 +66,11 @@ const ApplicationsCard = ({ application }) => {
         />
       </a>
       { descriptionBlock }
-      <ApplicationsCardTechnologies
-        technologiesUsed={technologiesUsed}
+      { technologiesBlock }
+      <ApplicationsCardButtons
+        gitHubLink={gitHubLink}
+        liveLink={liveLink}
       />
-      <ApplicationsCardButtons />
     </ApplicationsCardStyles>
   )
 };
