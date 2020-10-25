@@ -10,11 +10,11 @@ const ApplicationsGridStyles = styled.div`
     --columns: 1fr 1fr 1fr;
   }
 
-  @media (max-width: 850px) and (min-width: 501px) {
+  @media (max-width: 850px) and (min-width: 768px) {
     --columns: 1fr 1fr;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 767px) {
     --columns: 1fr;
   }
 `;
