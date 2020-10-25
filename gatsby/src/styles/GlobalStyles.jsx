@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
   @keyframes skelly-swipe {
     0% {
-      background-position: 200%;
+      background-position: 100%;
     }
 
     100% {
