@@ -22,6 +22,16 @@ const GlobalStyles = createGlobalStyle`
   .section {
     padding: 5rem 1rem;
   }
+
+  @keyframes skelly-swipe {
+    0% {
+      background-position: 200%;
+    }
+
+    100% {
+      background-position: -100%;
+    }
+  }
 `;
 
 export default GlobalStyles;

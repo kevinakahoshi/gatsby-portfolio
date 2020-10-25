@@ -43,6 +43,7 @@ const ApplicationsCardButtons = ({ gitHubLink = null, liveLink = null }) => {
         href={gitHubLink}
         rel="noopener noreferrer"
         target="_blank"
+        data-deployed={!!liveLink}
       >
         <GitHub className="icon" />
         <span>
@@ -54,6 +55,7 @@ const ApplicationsCardButtons = ({ gitHubLink = null, liveLink = null }) => {
         href={liveLink}
         rel="noopener noreferrer"
         target="_blank"
+        data-deployed={!!liveLink}
       >
         <ExternalLink className="icon" />
         <span>

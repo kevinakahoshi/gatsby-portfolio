@@ -6,6 +6,7 @@ import ApplicationsCardImage from './ApplicationsCardImage';
 import ApplicationsCardDescription from './ApplicationsCardDescription';
 import ApplicationsCardTechnologies from './ApplicationsCardTechnologies';
 import ApplicationsCardButtons from './ApplicationsCardButtons';
+import ApplicationsCardSkeletonDescription from './ApplicationsSkeletonDescription';
 
 const ApplicationsCardStyles = styled.div`
   background: var(--white);
@@ -15,9 +16,18 @@ const ApplicationsCardStyles = styled.div`
   display: grid;
   grid-gap: 1rem;
   grid-template-rows: auto 1fr 1fr;
+  max-width: 500px;
+  margin: auto;
+  height: 100%;
+  width: 100%;
 
   p {
     margin-bottom: 0;
+  }
+
+  a[data-deployed="false"] {
+    opacity: .5;
+    pointer-events: none;
   }
 `;
 
@@ -32,16 +42,25 @@ const ApplicationsCard = ({ application }) => {
     thumbnail
   } = application;
 
+  const descriptionBlock = liveLink
+    ? <ApplicationsCardDescription shortDescription={shortDescription} />
+    : <ApplicationsCardSkeletonDescription />
+
   return (
     <ApplicationsCardStyles>
-      <ApplicationsCardImage
-        altText={altText}
-        projectName={projectName}
-        thumbnail={thumbnail}
-      />
-      <ApplicationsCardDescription
-        shortDescription={shortDescription}
-      />
+      <a
+        href={liveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-deployed={!!liveLink}
+      >
+        <ApplicationsCardImage
+          altText={altText}
+          projectName={projectName}
+          thumbnail={thumbnail}
+        />
+      </a>
+      { descriptionBlock }
       <ApplicationsCardTechnologies
         technologiesUsed={technologiesUsed}
       />
