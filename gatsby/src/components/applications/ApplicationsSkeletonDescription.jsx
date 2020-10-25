@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ApplicationsSkeletonDescriptionStyles = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, minmax(1.25rem, 1.35rem));
   grid-gap: .25rem;
 
   .top-bar,
@@ -13,7 +13,7 @@ const ApplicationsSkeletonDescriptionStyles = styled.div`
     border-radius: .25rem;
     background: #f8f8f8;
     background-image: linear-gradient(45deg, var(--light-grey) 10%, #f1f1f1 30%, var(--light-grey) 50%);
-    background-size: 500px;
+    background-size: 200%;
     animation: skelly-swipe 1.25s linear infinite;
   }
 
