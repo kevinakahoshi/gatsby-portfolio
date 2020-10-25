@@ -9,8 +9,6 @@ const ApplicationsCardButtonsStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--medium-grey);
 
   a {
     text-align: center;
@@ -22,6 +20,7 @@ const ApplicationsCardButtonsStyles = styled.div`
     align-items: center;
     justify-content: center;
     gap: .5rem;
+    text-decoration: none;
 
     &:hover {
       color: #000000B3;
@@ -35,7 +34,7 @@ const ApplicationsCardButtonsStyles = styled.div`
   }
 `;
 
-const ApplicationsCardButtons = ({ gitHubLink = null, liveLink = null }) => {
+const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
   return (
     <ApplicationsCardButtonsStyles>
       <a
@@ -44,6 +43,7 @@ const ApplicationsCardButtons = ({ gitHubLink = null, liveLink = null }) => {
         rel="noopener noreferrer"
         target="_blank"
         data-deployed={!!liveLink}
+        disabled={!liveLink}
       >
         <GitHub className="icon" />
         <span>
@@ -56,6 +56,7 @@ const ApplicationsCardButtons = ({ gitHubLink = null, liveLink = null }) => {
         rel="noopener noreferrer"
         target="_blank"
         data-deployed={!!liveLink}
+        disabled={!liveLink}
       >
         <ExternalLink className="icon" />
         <span>

@@ -11,13 +11,14 @@ const ApplicationsSkeletonDescriptionStyles = styled.div`
   .bottom-bar {
     width: 100%;
     border-radius: .25rem;
-    background: #f8f8f8;
-    background-image: linear-gradient(45deg, var(--light-grey) 10%, #f1f1f1 30%, var(--light-grey) 50%);
+    background: #f1f1f1;
+    /* background-image: linear-gradient(45deg, var(--light-grey) 10%, #f1f1f1 30%, var(--light-grey) 50%);
     background-size: 200%;
-    animation: skelly-swipe 1.25s linear infinite;
+    animation: skelly-swipe 1.25s linear infinite; */
+    animation: pulse 1.25s linear infinite;
   }
 
-  .top-bar {
+  /* .top-bar {
     animation-delay: .2s;
   }
 
@@ -27,7 +28,7 @@ const ApplicationsSkeletonDescriptionStyles = styled.div`
 
   .bottom-bar {
     animation-delay: .0s;
-  }
+  } */
 `;
 
 const ApplicationsSkeletonDescription = () => {
