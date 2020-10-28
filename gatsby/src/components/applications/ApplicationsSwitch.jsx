@@ -3,14 +3,21 @@ import styled from 'styled-components';
 
 const ApplicationsSwitchStyles = styled.button`
   width: 3rem;
-  background: var(--medium-grey);
-  margin: auto;
+  margin: 0;
   border-radius: .25rem;
-  margin-bottom: 2rem;
   font-size: 0;
   padding: 0;
   outline: none;
   border: none;
+  transition: .3s all;
+
+  &:not(:hover) {
+    background: rgba(0,0,0,.5);
+  }
+
+  &:hover {
+    background: rgba(0,0,0,.7);
+  }
 
   .toggler {
     height: 1.5rem;
