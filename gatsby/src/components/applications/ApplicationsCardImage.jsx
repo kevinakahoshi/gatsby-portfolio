@@ -20,11 +20,18 @@ const ApplicationsCardImageStyles = styled.div`
     font-weight: 400;
     width: 100%;
     padding: 1rem 1.5rem;
-    font-size: clamp(1.75rem, 1.75vw, 2rem)
+
+    &[data-view="grid"] {
+      font-size: clamp(1.75rem, 1.75vw, 2rem)
+    }
+
+    &[data-view="carousel"] {
+      font-size: clamp(2rem, 3.25vw, 3rem)
+    }
   }
 `;
 
-const ApplicationsCardImage = ({ altText, projectName, thumbnail }) => {
+const ApplicationsCardImage = ({ altText, projectName, thumbnail, view }) => {
   return (
     <ApplicationsCardImageStyles>
       <Img
@@ -32,7 +39,10 @@ const ApplicationsCardImage = ({ altText, projectName, thumbnail }) => {
         alt={altText}
         className="application-image"
       />
-      <h4 className="application-name">
+      <h4
+        className="application-name"
+        data-view={view}
+      >
         { projectName }
       </h4>
     </ApplicationsCardImageStyles>

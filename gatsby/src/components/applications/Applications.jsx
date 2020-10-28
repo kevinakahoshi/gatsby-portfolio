@@ -10,6 +10,7 @@ import ApplicationsCard from './ApplicationsCard';
 import ApplicationsGrid from './ApplicationsGrid';
 import ApplicationsSwitchWrapper from './ApplicationsSwitchWrapper';
 import ApplicationsSwitch from './ApplicationsSwitch';
+import ApplicationsCarousel from './ApplicationsCarousel';
 
 const ApplicationsStyles = styled.section`
   background: #ffffff;
@@ -18,7 +19,7 @@ const ApplicationsStyles = styled.section`
 const Applications = ({ projects }) => {
   const [view, setView] = useState('grid');
 
-  const applications = useMemo(() => projects.map((project) => {
+  const applications = useMemo(() => projects.map((project, index) => {
     return (
       <ApplicationsCard
         key={project.id}
@@ -41,9 +42,14 @@ const Applications = ({ projects }) => {
           setView={setView}
           view={view}
         />
-        <ApplicationsGrid>
-          { applications }
-        </ApplicationsGrid>
+        {view === 'grid'
+          ? <ApplicationsGrid>
+            { applications }
+          </ApplicationsGrid>
+          : <ApplicationsCarousel
+              projects={projects}
+            />
+        }
       </SectionContentWrapper>
     </ApplicationsStyles>
   )

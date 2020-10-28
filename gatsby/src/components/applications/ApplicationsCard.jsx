@@ -63,6 +63,7 @@ const ApplicationsCard = ({ application }) => {
           altText={altText}
           projectName={projectName}
           thumbnail={thumbnail}
+          view="grid"
         />
       </a>
       { descriptionBlock }

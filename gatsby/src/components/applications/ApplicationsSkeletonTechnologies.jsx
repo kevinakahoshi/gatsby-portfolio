@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  useMemo
+} from 'react';
 import styled from 'styled-components';
 
 const generateWidth = () => {
@@ -33,7 +35,7 @@ const ApplicationsSkeletonTechnologies = ({ technologiesUsed }) => {
   const numberOfBadges = 7;
   let maxDelay = 0.1 * numberOfBadges ;
 
-  const allSkeletonTech = new Array(numberOfBadges)
+  const allSkeletonTech = useMemo(() => new Array(numberOfBadges)
     .fill(undefined)
     .map((element, index) => {
       const width = generateWidth();
@@ -48,7 +50,7 @@ const ApplicationsSkeletonTechnologies = ({ technologiesUsed }) => {
           }}
         />
       )
-    });
+    }), [numberOfBadges]);
 
   return (
     <ApplicationsSkeletonTechnologiesStyles>
