@@ -7,6 +7,7 @@ import {
 
 // Components
 import ApplicationsSwitch from './ApplicationsSwitch';
+import ApplicationsToggleTooltip from './ApplicationsToggleTooltip';
 
 const ApplicationsSwitchWrapperStyles = styled.div`
   display: flex;
@@ -16,34 +17,42 @@ const ApplicationsSwitchWrapperStyles = styled.div`
   margin: 2rem 0;
   transition: .3s all;
 
-  &:not(:hover) {
-    color: rgba(0,0,0,.5);
-  }
-
-  &:hover {
-    color: rgba(0,0,0,.7);
-  }
-
   .icons {
     cursor: pointer;
+
+    &:not(:hover) {
+      color: rgba(0,0,0,.5);
+    }
+
+    &:hover {
+      color: rgba(0,0,0,.7);
+    }
   }
 `;
 
 const ApplicationsSwitchWrapper = ({ handleToggle, setView, view }) => {
   return (
     <ApplicationsSwitchWrapperStyles>
-      <Grid
-        onClick={() => view !== 'grid' && setView('grid')}
-        className="icons"
-      />
+      <ApplicationsToggleTooltip
+        direction="left"
+        text="Grid View">
+        <Grid
+          onClick={() => view !== 'grid' && setView('grid')}
+          className="icons"
+        />
+      </ApplicationsToggleTooltip>
       <ApplicationsSwitch
         handleToggle={handleToggle}
         view={view}
       />
-      <Carousel
-        onClick={() => view !== 'carousel' && setView('carousel')}
-        className="icons"
-      />
+      <ApplicationsToggleTooltip
+        direction="right"
+        text="Carousel View">
+        <Carousel
+          onClick={() => view !== 'carousel' && setView('carousel')}
+          className="icons"
+        />
+      </ApplicationsToggleTooltip>
     </ApplicationsSwitchWrapperStyles>
   )
 };
