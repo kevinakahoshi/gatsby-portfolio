@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-const ApplicationsCardImageStyles = styled.div`
+const ApplicationsImageStyles = styled.div`
   position: relative;
 
   .application-image {
@@ -20,23 +20,33 @@ const ApplicationsCardImageStyles = styled.div`
     font-weight: 400;
     width: 100%;
     padding: 1rem 1.5rem;
-    font-size: clamp(1.75rem, 1.75vw, 2rem)
+
+    &[data-view="grid"] {
+      font-size: clamp(1.75rem, 1.75vw, 2rem)
+    }
+
+    &[data-view="carousel"] {
+      font-size: clamp(2rem, 3.25vw, 3rem)
+    }
   }
 `;
 
-const ApplicationsCardImage = ({ altText, projectName, thumbnail }) => {
+const ApplicationsImage = ({ altText, projectName, thumbnail, view }) => {
   return (
-    <ApplicationsCardImageStyles>
+    <ApplicationsImageStyles>
       <Img
         fluid={thumbnail.asset.fluid}
         alt={altText}
         className="application-image"
       />
-      <h4 className="application-name">
+      <h4
+        className="application-name"
+        data-view={view}
+      >
         { projectName }
       </h4>
-    </ApplicationsCardImageStyles>
+    </ApplicationsImageStyles>
   )
 };
 
-export default ApplicationsCardImage;
+export default ApplicationsImage;
