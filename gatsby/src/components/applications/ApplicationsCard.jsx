@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import ApplicationsCardImage from './ApplicationsCardImage';
+import ApplicationsImage from './ApplicationsImage';
 import ApplicationsCardDescription from './ApplicationsCardDescription';
 import ApplicationsCardTechnologies from './ApplicationsCardTechnologies';
 import ApplicationsCardButtons from './ApplicationsCardButtons';
@@ -59,7 +59,7 @@ const ApplicationsCard = ({ application }) => {
         rel="noopener noreferrer"
         data-deployed={!!liveLink}
       >
-        <ApplicationsCardImage
+        <ApplicationsImage
           altText={altText}
           projectName={projectName}
           thumbnail={thumbnail}

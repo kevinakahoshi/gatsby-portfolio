@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-const ApplicationsCardImageStyles = styled.div`
+const ApplicationsImageStyles = styled.div`
   position: relative;
 
   .application-image {
@@ -31,9 +31,9 @@ const ApplicationsCardImageStyles = styled.div`
   }
 `;
 
-const ApplicationsCardImage = ({ altText, projectName, thumbnail, view }) => {
+const ApplicationsImage = ({ altText, projectName, thumbnail, view }) => {
   return (
-    <ApplicationsCardImageStyles>
+    <ApplicationsImageStyles>
       <Img
         fluid={thumbnail.asset.fluid}
         alt={altText}
@@ -45,8 +45,8 @@ const ApplicationsCardImage = ({ altText, projectName, thumbnail, view }) => {
       >
         { projectName }
       </h4>
-    </ApplicationsCardImageStyles>
+    </ApplicationsImageStyles>
   )
 };
 
-export default ApplicationsCardImage;
+export default ApplicationsImage;

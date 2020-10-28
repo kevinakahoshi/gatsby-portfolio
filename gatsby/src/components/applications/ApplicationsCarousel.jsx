@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 // Components
-import ApplicationsCardImage from './ApplicationsCardImage';
+import ApplicationsImage from './ApplicationsImage';
 
 const ApplicationsCarouselStyles = styled.div`
   display: grid;
@@ -13,7 +13,7 @@ const ApplicationsCarouselStyles = styled.div`
 
 const ApplicationsCarousel = ({ projects }) => {
   const applicationImages = projects.map((project) => {
-    return <ApplicationsCardImage
+    return <ApplicationsImage
             key={project.id}
             altText={project.altText}
             projectName={project.projectName}

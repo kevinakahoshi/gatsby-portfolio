@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ApplicationsCardImage from './ApplicationsCardImage';
+import ApplicationsImage from './ApplicationsImage';
 
 const ApplicationsSkeletonCardStyles = styled.div`
   background: var(--white);
@@ -20,7 +20,7 @@ const ApplicationsSkeletonCardStyles = styled.div`
 const ApplicationsSkeletonCard = ({ application }) => {
   return (
     <ApplicationsSkeletonCardStyles>
-      <ApplicationsCardImage
+      <ApplicationsImage
         projectName={projectName}
       />
       <div className="short-description-wrapper">
