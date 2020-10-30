@@ -76,6 +76,8 @@ const NavDrawerStyles = styled.div`
     transition: .3s all;
     text-align: center;
     font-size: 1.25rem;
+    width: fit-content;
+    margin: auto;
 
     &:not(.active) {
       color: rgba(0,0,0,.5);

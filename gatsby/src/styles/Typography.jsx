@@ -1,12 +1,16 @@
-import { createGlobalStyle } from 'styled-components';
-
-import * as font from '../assets/fonts/index';
+import {
+  createGlobalStyle
+} from 'styled-components';
+import {
+  CorsaWoff2,
+  CorsaWoff
+} from '../assets/fonts/index';
 
 const Typography = createGlobalStyle`
   @font-face {
     font-family: 'Corsa Grotesk';
-    src: url(${font.CorsaWoff2}) format('woff2'),
-      url(${font.CorsaWoff}) format('woff');
+    src: url(${CorsaWoff2}) format('woff2'),
+      url(${CorsaWoff}) format('woff');
   }
 
   html {
