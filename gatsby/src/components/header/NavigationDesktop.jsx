@@ -10,10 +10,11 @@ import styled from 'styled-components';
 import NavigationLink from './NavigationLink';
 
 const NavigationStyles = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
   align-items: center;
-  gap: 3rem;
+  justify-content: center;
+  grid-gap: 3rem;
 
   a {
     position: relative;
@@ -61,7 +62,7 @@ const NavigationStyles = styled.div`
 `;
 
 const NavigationDesktop = ({ offset, navigationItems }) => {
-  const navigationLinks = useMemo(() => navigationItems.map((navItem) => {
+  const navigationLinks = navigationItems.map((navItem) => {
     return (
       <NavigationLink
         key={navItem.to}
@@ -70,7 +71,7 @@ const NavigationDesktop = ({ offset, navigationItems }) => {
         text={navItem.text}
       />
     )
-  }), [navigationItems]);
+  });
 
   return (
     <NavigationStyles>

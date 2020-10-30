@@ -74,6 +74,7 @@ const LogoStyles = styled.div`
       position: absolute;
       background: var(--red);
       border-radius: 100%;
+      left: 0;
 
       @media (min-width: ${mobileWidth + 1}px) {
         --after-size: 10px;
