@@ -23,6 +23,23 @@ const GlobalStyles = createGlobalStyle`
     padding: 5rem 1rem;
   }
 
+  .fade-up {
+    animation: fade-up 1s forwards;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
   @keyframes skelly-swipe {
     0% {
       background-position: 100%;
