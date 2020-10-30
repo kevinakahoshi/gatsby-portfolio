@@ -10,18 +10,39 @@ import styled from 'styled-components';
 import ApplicationsImage from './ApplicationsImage';
 
 const ApplicationsCarouselStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 100%);
-  grid-gap: 3rem;
   overflow: auto;
+
+  .applications-slides {
+    display: grid;
+    grid-template-columns: repeat(6, 100%);
+    grid-gap: 3rem;
+    transition: .125s all;
+
+    a.active,
+    a.inactive {
+
+
+      &:hover {
+        cursor: grab;
+      }
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  }
 `;
 
 const ApplicationsCarousel = ({ projects }) => {
   const [slide, setSlide] = useState(0);
 
   const applicationImages = projects.map((project, index) => (
-    <div
+    <a
       key={project.id}
+      href={project.liveLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-deployed={!!project.liveLink}
       className={index === slide ? 'active' : 'inactive'}
     >
       <ApplicationsImage
@@ -30,7 +51,7 @@ const ApplicationsCarousel = ({ projects }) => {
         thumbnail={project.thumbnail}
         view="carousel"
       />
-    </div>
+    </a>
   ));
 
   const nextSlide = () => setSlide((currentSlide) =>
@@ -39,17 +60,21 @@ const ApplicationsCarousel = ({ projects }) => {
   const previousSlide = () => setSlide((currentSlide) =>
     currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 5000);
-  //   return () => clearInterval(interval);
-  // }, [slide]);
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [slide]);
 
   return (
-    <ApplicationsCarouselStyles
-      style={{
-        transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
-      }}>
-      { applicationImages }
+    <ApplicationsCarouselStyles>
+      <div
+        className="applications-slides"
+        style={{
+          transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+        }}
+      >
+        { applicationImages }
+      </div>
     </ApplicationsCarouselStyles>
   )
 }
