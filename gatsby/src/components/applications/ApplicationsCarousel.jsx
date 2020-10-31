@@ -8,6 +8,8 @@ import styled from 'styled-components';
 
 // Components
 import ApplicationsImage from './ApplicationsImage';
+import { useCallback } from 'react';
+import ApplicationsCarouselIndicators from './ApplicationsCarouselIndicators';
 
 const ApplicationsCarouselStyles = styled.div`
   overflow: auto;
@@ -16,7 +18,7 @@ const ApplicationsCarouselStyles = styled.div`
     display: grid;
     grid-template-columns: repeat(6, 100%);
     grid-gap: 3rem;
-    transition: .125s all;
+    transition: .5s all;
 
     a.active,
     a.inactive {
@@ -35,6 +37,7 @@ const ApplicationsCarouselStyles = styled.div`
 
 const ApplicationsCarousel = ({ projects }) => {
   const [slide, setSlide] = useState(0);
+  const [slideInterval, setSlideInterval] = useState(() => setInterval(nextSlide, 5000));
 
   const applicationImages = projects.map((project, index) => (
     <a
@@ -60,22 +63,41 @@ const ApplicationsCarousel = ({ projects }) => {
   const previousSlide = () => setSlide((currentSlide) =>
     currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
 
+  const stopTimer = () => setSlideInterval(0);
+
+  const startTimer = () => setSlideInterval(5000);
+
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [slide]);
 
   return (
-    <ApplicationsCarouselStyles>
-      <div
-        className="applications-slides"
-        style={{
-          transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
-        }}
-      >
-        { applicationImages }
-      </div>
-    </ApplicationsCarouselStyles>
+    <div>
+      <ApplicationsCarouselStyles>
+        <div
+          className="applications-slides"
+          style={{
+            transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+          }}
+        >
+          { applicationImages }
+        </div>
+      </ApplicationsCarouselStyles>
+      <ApplicationsCarouselIndicators
+        numberOfApplications={projects.length}
+        setSlide={setSlide}
+        slide={slide}
+      />
+      <button
+        onClick={previousSlide}>
+        Previous
+      </button>
+      <button
+        onClick={nextSlide}>
+        Next
+      </button>
+    </div>
   )
 }
 
