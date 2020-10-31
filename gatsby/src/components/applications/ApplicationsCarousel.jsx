@@ -8,29 +8,47 @@ import styled from 'styled-components';
 
 // Components
 import ApplicationsImage from './ApplicationsImage';
-import { useCallback } from 'react';
 import ApplicationsCarouselIndicators from './ApplicationsCarouselIndicators';
+import ApplicationsCarouselButtons from './ApplicationsCarouselButtons';
 
 const ApplicationsCarouselStyles = styled.div`
-  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
 
-  .applications-slides {
+  .carousel-image-section {
     display: grid;
-    grid-template-columns: repeat(6, 100%);
-    grid-gap: 3rem;
-    transition: .5s all;
+    grid-gap: 1rem;
 
-    a.active,
-    a.inactive {
+    .slides-wrapper {
+      overflow: auto;
+    }
+
+    .applications-slides {
+      display: grid;
+      grid-template-columns: repeat(6, 100%);
+      grid-gap: 3rem;
+      transition: .5s all;
+
+      a.active,
+      a.inactive {
 
 
-      &:hover {
-        cursor: grab;
+        &:hover {
+          cursor: grab;
+        }
+
+        &:active {
+          cursor: grabbing;
+        }
       }
+    }
 
-      &:active {
-        cursor: grabbing;
-      }
+    .controls-wrapper {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 1rem;
+      align-items: center;
     }
   }
 `;
@@ -63,9 +81,10 @@ const ApplicationsCarousel = ({ projects }) => {
   const previousSlide = () => setSlide((currentSlide) =>
     currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
 
-  const stopTimer = () => setSlideInterval(0);
-
-  const startTimer = () => setSlideInterval(5000);
+  // TODO:
+  //   1. Timer start and stop
+  //   2. Infinite forward and backward sliding
+  //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
@@ -73,31 +92,31 @@ const ApplicationsCarousel = ({ projects }) => {
   }, [slide]);
 
   return (
-    <div>
-      <ApplicationsCarouselStyles>
-        <div
-          className="applications-slides"
-          style={{
-            transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
-          }}
-        >
-          { applicationImages }
+    <ApplicationsCarouselStyles>
+      <div className="carousel-image-section">
+        <div className="slides-wrapper">
+          <div
+            className="applications-slides"
+            style={{
+              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+            }}
+          >
+            { applicationImages }
+          </div>
         </div>
-      </ApplicationsCarouselStyles>
-      <ApplicationsCarouselIndicators
-        numberOfApplications={projects.length}
-        setSlide={setSlide}
-        slide={slide}
-      />
-      <button
-        onClick={previousSlide}>
-        Previous
-      </button>
-      <button
-        onClick={nextSlide}>
-        Next
-      </button>
-    </div>
+        <div className="controls-wrapper">
+          <ApplicationsCarouselIndicators
+            numberOfApplications={projects.length}
+            setSlide={setSlide}
+            slide={slide}
+          />
+          <ApplicationsCarouselButtons
+            previousSlide={previousSlide}
+            nextSlide={nextSlide}
+          />
+        </div>
+      </div>
+    </ApplicationsCarouselStyles>
   )
 }
 

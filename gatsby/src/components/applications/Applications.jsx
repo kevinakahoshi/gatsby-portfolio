@@ -10,7 +10,7 @@ import ApplicationsCard from './ApplicationsCard';
 import ApplicationsGrid from './ApplicationsGrid';
 import ApplicationsSwitchWrapper from './ApplicationsSwitchWrapper';
 import ApplicationsSwitch from './ApplicationsSwitch';
-import ApplicationsCarouselView from './ApplicationsCarouselView';
+import ApplicationsCarousel from './ApplicationsCarousel';
 
 const ApplicationsStyles = styled.section`
   background: #ffffff;
@@ -46,7 +46,7 @@ const Applications = ({ projects }) => {
           ? <ApplicationsGrid>
             { applications }
           </ApplicationsGrid>
-          : <ApplicationsCarouselView
+          : <ApplicationsCarousel
               projects={projects}
             />
         }
