@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  FiChevronLeft as Previous,
+  FiChevronRight as Next
+} from 'react-icons/fi';
 
 const ApplicationsCarouselButtonsStyles = styled.div`
   display: grid;
@@ -16,19 +20,30 @@ const ApplicationsCarouselButtonsStyles = styled.div`
     align-items: center;
     position: relative;
     background: var(--white);
-    border: 1px solid var(--medium-grey);
+    outline: none;
+    transition: .3s all;
 
-    &::before,
-    &::after {
-      content: '';
-      height: .75rem;
-      width: .125rem;
-      background: var(--medium-grey);
-      position: absolute;
+    &:not(:hover) {
+      color: var(--medium-grey);
+      border: 1px solid var(--medium-grey);
     }
 
-    &::after {
-      transform: rotate(90deg);
+    &:hover {
+      color: var(--dark-grey);
+      border: 1px solid var(--dark-grey);
+    }
+
+    &:focus:not(:hover) {
+      box-shadow: 0rem 0rem 0rem .125rem var(--medium-grey);
+    }
+
+    &:focus:hover {
+      box-shadow: 0rem 0rem 0rem .125rem var(--dark-grey);
+    }
+
+    .chevron {
+      width: 1.25rem;
+      height: auto;
     }
   }
 `;
@@ -40,12 +55,16 @@ const ApplicationsCarouselButtons = ({ previousSlide, nextSlide }) => {
         className="previous"
         onClick={previousSlide}
         role="button"
-      />
+      >
+        <Previous className="chevron" />
+      </button>
       <button
         className="next"
         onClick={nextSlide}
         role="button"
-      />
+      >
+        <Next className="chevron" />
+      </button>
     </ApplicationsCarouselButtonsStyles>
   )
 };

@@ -13,7 +13,8 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
     .indicator {
       height: 1rem;
       width: 1rem;
-      border: 1px solid var(--medium-grey);
+      border-width: 1px;
+      border-style: solid;
       border-radius: 1rem;
       transition: .3s all;
       cursor: pointer;
@@ -22,8 +23,22 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
         background: var(--white);
       }
 
+      &:not(:hover) {
+        border-color: var(--medium-grey);
+      }
+
+      &:hover {
+        border-color: var(--dark-grey);
+      }
+
       &.active {
-        background: var(--medium-grey);
+        &:not(:hover) {
+          background: var(--medium-grey);
+        }
+
+        &:hover {
+          background: var(--dark-grey);
+        }
       }
     }
   }

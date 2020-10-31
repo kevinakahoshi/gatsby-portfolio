@@ -13,37 +13,43 @@ import ApplicationsCarouselButtons from './ApplicationsCarouselButtons';
 
 const ApplicationsCarouselStyles = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
 
-  .slides-wrapper {
-    overflow: auto;
-  }
-
-  .applications-slides {
+  .carousel-image-section {
     display: grid;
-    grid-template-columns: repeat(6, 100%);
-    grid-gap: 3rem;
-    transition: .5s all;
+    grid-gap: 1rem;
 
-    a.active,
-    a.inactive {
+    .slides-wrapper {
+      overflow: auto;
+    }
+
+    .applications-slides {
+      display: grid;
+      grid-template-columns: repeat(6, 100%);
+      grid-gap: 3rem;
+      transition: .5s all;
+
+      a.active,
+      a.inactive {
 
 
-      &:hover {
-        cursor: grab;
-      }
+        &:hover {
+          cursor: grab;
+        }
 
-      &:active {
-        cursor: grabbing;
+        &:active {
+          cursor: grabbing;
+        }
       }
     }
-  }
 
-  .controls-wrapper {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 1rem;
-    align-items: center;
+    .controls-wrapper {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 1rem;
+      align-items: center;
+    }
   }
 `;
 
@@ -86,7 +92,8 @@ const ApplicationsCarousel = ({ projects }) => {
   }, [slide]);
 
   return (
-      <ApplicationsCarouselStyles>
+    <ApplicationsCarouselStyles>
+      <div className="carousel-image-section">
         <div className="slides-wrapper">
           <div
             className="applications-slides"
@@ -107,6 +114,7 @@ const ApplicationsCarousel = ({ projects }) => {
             previousSlide={previousSlide}
             nextSlide={nextSlide}
           />
+        </div>
       </div>
     </ApplicationsCarouselStyles>
   )
