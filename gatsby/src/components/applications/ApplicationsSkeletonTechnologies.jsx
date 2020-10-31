@@ -32,25 +32,17 @@ const ApplicationsSkeletonTechnologiesStyles = styled.div`
 `;
 
 const ApplicationsSkeletonTechnologies = ({ technologiesUsed }) => {
-  const numberOfBadges = 7;
-  let maxDelay = 0.1 * numberOfBadges ;
-
-  const allSkeletonTech = useMemo(() => new Array(numberOfBadges)
+  const badgeWidths = useMemo(() => [6, 5, 3, 5, 3, 6, 3]);
+  const allSkeletonTech = useMemo(() => new Array(badgeWidths.length)
     .fill(undefined)
-    .map((element, index) => {
-      const width = generateWidth();
-      const delay = maxDelay;
-      maxDelay -= 0.1;
-
-      return (
+    .map((element, index) => (
         <div className="skeleton-badge"
-          key={`${width}--${index}`}
+          key={`${badgeWidths[index]}--${index}`}
           style={{
-            width: `${width}rem`
+            width: `${badgeWidths[index]}rem`
           }}
         />
-      )
-    }), [numberOfBadges]);
+      )), [badgeWidths]);
 
   return (
     <ApplicationsSkeletonTechnologiesStyles>
