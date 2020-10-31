@@ -2,23 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ApplicationsCarouselIndicatorsStyles = styled.div`
-  display: grid;
-  grid-gap: .5rem;
+  display: flex;
+  justify-content: flex-start;
 
-  .indicator {
-    height: 1rem;
-    width: 1rem;
-    border: 1px solid var(--medium-grey);
-    border-radius: 1rem;
-    transition: .3s all;
-    cursor: pointer;
+  .indicators-wrapper {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
 
-    &:not(.active) {
-      background: var(--white);
-    }
+    .indicator {
+      height: 1rem;
+      width: 1rem;
+      border: 1px solid var(--medium-grey);
+      border-radius: 1rem;
+      transition: .3s all;
+      cursor: pointer;
 
-    &.active {
-      background: var(--medium-grey);
+      &:not(.active) {
+        background: var(--white);
+      }
+
+      &.active {
+        background: var(--medium-grey);
+      }
     }
   }
 `;
@@ -35,7 +41,9 @@ const ApplicationsCarouselIndicators = ({ numberOfApplications, setSlide, slide 
 
   return (
     <ApplicationsCarouselIndicatorsStyles>
-      { indicators }
+      <div className="indicators-wrapper">
+        { indicators }
+      </div>
     </ApplicationsCarouselIndicatorsStyles>
   );
 };
