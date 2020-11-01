@@ -97,8 +97,11 @@ const ApplicationsCarousel = ({ projects }) => {
   const applicationsDescriptions = projects.map((project, index) => (
     <ApplicationsCarouselDescription
       key={project.id}
+      gitHubLink={project.gitHubLink}
+      liveLink={project.liveLink}
       projectName={project.projectName}
       mainDescription={project.mainDescription}
+      technologiesUsed={project.technologiesUsed}
     />
   ))
 

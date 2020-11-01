@@ -11,7 +11,7 @@ const ApplicationsCardTechnologiesStyles = styled.div`
   .technologies-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: .25rem;
+    margin: -.125rem;
   }
 `;
 
