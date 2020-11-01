@@ -10,11 +10,13 @@ import styled from 'styled-components';
 import ApplicationsImage from './ApplicationsImage';
 import ApplicationsCarouselIndicators from './ApplicationsCarouselIndicators';
 import ApplicationsCarouselButtons from './ApplicationsCarouselButtons';
+import ApplicationsCarouselDescription from './ApplicationsCarouselDescription';
 
 const ApplicationsCarouselStyles = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   grid-gap: 3rem;
+  align-items: center;
 
   .carousel-image-section {
     display: grid;
@@ -29,6 +31,10 @@ const ApplicationsCarouselStyles = styled.div`
       grid-template-columns: repeat(6, 100%);
       grid-gap: 3rem;
       transition: .5s all;
+
+      a[data-deployed="false"] {
+        opacity: .5;
+      }
 
       a.active,
       a.inactive {
@@ -49,6 +55,19 @@ const ApplicationsCarouselStyles = styled.div`
       grid-template-columns: 1fr auto;
       grid-gap: 1rem;
       align-items: center;
+    }
+  }
+
+  .carousel-content-section {
+    .descriptions-wrapper {
+      overflow: auto;
+    }
+
+    .applications-descriptions {
+      display: grid;
+      grid-template-columns: repeat(6, 100%);
+      grid-gap: 3rem;
+      transition: .5s all;
     }
   }
 `;
@@ -75,6 +94,14 @@ const ApplicationsCarousel = ({ projects }) => {
     </a>
   ));
 
+  const applicationsDescriptions = projects.map((project, index) => (
+    <ApplicationsCarouselDescription
+      key={project.id}
+      projectName={project.projectName}
+      mainDescription={project.mainDescription}
+    />
+  ))
+
   const nextSlide = () => setSlide((currentSlide) =>
     currentSlide < projects.length - 1 ? currentSlide + 1 : 0);
 
@@ -86,10 +113,10 @@ const ApplicationsCarousel = ({ projects }) => {
   //   2. Infinite forward and backward sliding
   //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [slide]);
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 5000);
+  //   return () => clearInterval(interval);
+  // }, [slide]);
 
   return (
     <ApplicationsCarouselStyles>
@@ -114,6 +141,18 @@ const ApplicationsCarousel = ({ projects }) => {
             previousSlide={previousSlide}
             nextSlide={nextSlide}
           />
+        </div>
+      </div>
+      <div className="carousel-content-section">
+        <div className="descriptions-wrapper">
+          <div
+            className="applications-descriptions"
+            style={{
+              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+            }}
+          >
+            { applicationsDescriptions }
+          </div>
         </div>
       </div>
     </ApplicationsCarouselStyles>
