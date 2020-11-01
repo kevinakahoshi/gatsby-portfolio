@@ -3,10 +3,6 @@ import React, {
 } from 'react';
 import styled from 'styled-components';
 
-const generateWidth = () => {
-  return Math.floor(Math.random() * 4 + 3);
-};
-
 const ApplicationsSkeletonTechnologiesStyles = styled.div`
   h5 {
     text-align: center;
@@ -17,12 +13,13 @@ const ApplicationsSkeletonTechnologiesStyles = styled.div`
   .skeleton-badge-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: .25rem;
+    margin: -.125rem;
 
     .skeleton-badge {
       border-radius: .25rem;
       height: 1.125rem;
       background: #f1f1f1;
+      margin: .125rem;
       /* background-image: linear-gradient(45deg, var(--light-grey) 10%, #f1f1f1 30%, var(--light-grey) 50%); */
       /* background-size: 200%; */
       animation: pulse 1.25s linear infinite;
