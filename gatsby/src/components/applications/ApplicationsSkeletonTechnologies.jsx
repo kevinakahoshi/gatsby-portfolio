@@ -13,7 +13,7 @@ const ApplicationsSkeletonTechnologiesStyles = styled.div`
   .skeleton-badge-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin: -.125rem;
+    /* margin: -.125rem; */
 
     .skeleton-badge {
       border-radius: .25rem;

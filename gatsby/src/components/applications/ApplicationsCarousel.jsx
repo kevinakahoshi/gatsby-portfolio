@@ -14,7 +14,7 @@ import ApplicationsCarouselDescription from './ApplicationsCarouselDescription';
 
 const ApplicationsCarouselStyles = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 3rem;
   align-items: center;
 
@@ -59,15 +59,17 @@ const ApplicationsCarouselStyles = styled.div`
   }
 
   .carousel-content-section {
+    overflow: hidden;
+
     .descriptions-wrapper {
       overflow: auto;
     }
 
     .applications-descriptions {
-      display: grid;
+      /* display: grid;
       grid-template-columns: repeat(6, 100%);
       grid-gap: 3rem;
-      transition: .5s all;
+      transition: .5s all; */
     }
   }
 `;
@@ -150,11 +152,11 @@ const ApplicationsCarousel = ({ projects }) => {
         <div className="descriptions-wrapper">
           <div
             className="applications-descriptions"
-            style={{
-              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
-            }}
+            // style={{
+            //   transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+            // }}
           >
-            { applicationsDescriptions }
+            { applicationsDescriptions[slide] }
           </div>
         </div>
       </div>

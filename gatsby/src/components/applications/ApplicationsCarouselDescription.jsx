@@ -7,6 +7,10 @@ import ApplicationsSkeletonTechnologies from './ApplicationsSkeletonTechnologies
 import ApplicationTechnologyBadge from './ApplicationTechnologyBadge';
 
 const ApplicationsCarouselDescriptionStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   .skeleton-wrapper {
     margin: 1rem 0rem;
   }
@@ -23,7 +27,7 @@ const ApplicationsCarouselDescriptionStyles = styled.div`
     .technologies-used {
       display: flex;
       flex-wrap: wrap;
-      margin: -.125rem;
+      /* margin: -.125rem; */
 
       span {
         margin: .125rem;
@@ -65,9 +69,14 @@ const ApplicationsCarouselDescription = ({
           { technologiesBlock }
         </div>
       </div>
-      <div className="links-wrapper">
-
-      </div>
+      {/* <div className="links-wrapper">
+        <a href="">
+          GitHub
+        </a>
+        <a href="">
+          Live
+        </a>
+      </div> */}
     </ApplicationsCarouselDescriptionStyles>
   )
 }
