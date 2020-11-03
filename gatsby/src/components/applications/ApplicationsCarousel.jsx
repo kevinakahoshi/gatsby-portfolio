@@ -14,16 +14,25 @@ import ApplicationsCarouselDescription from './ApplicationsCarouselDescription';
 
 const ApplicationsCarouselStyles = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
   align-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+  }
 
   .carousel-image-section {
     display: grid;
     grid-gap: 1rem;
 
     .slides-wrapper {
-      overflow: auto;
+      overflow: hidden;
+      border-radius: .25rem;
     }
 
     .applications-slides {
@@ -38,8 +47,6 @@ const ApplicationsCarouselStyles = styled.div`
 
       a.active,
       a.inactive {
-
-
         &:hover {
           cursor: grab;
         }
@@ -59,10 +66,23 @@ const ApplicationsCarouselStyles = styled.div`
   }
 
   .carousel-content-section {
-    overflow: hidden;
+    /* overflow: hidden; */
+    height: 100%;
+    display: flex;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 767px) {
+      justify-content: flex-start;
+    }
 
     .descriptions-wrapper {
-      overflow: auto;
+      /* overflow: auto; */
+      width: 100%;
+
     }
 
     .applications-descriptions {
@@ -150,8 +170,7 @@ const ApplicationsCarousel = ({ projects }) => {
       </div>
       <div className="carousel-content-section">
         <div className="descriptions-wrapper">
-          <div
-            className="applications-descriptions"
+          <div className="applications-descriptions"
             // style={{
             //   transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
             // }}

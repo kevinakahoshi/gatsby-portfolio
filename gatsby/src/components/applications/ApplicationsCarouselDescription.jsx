@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ApplicationsCarouselLinks from './ApplicationsCarouselLinks';
 
 // Components
 import ApplicationSkeletonDescription from './ApplicationsSkeletonDescription';
@@ -75,14 +76,10 @@ const ApplicationsCarouselDescription = ({
           { technologiesBlock }
         </div>
       </div>
-      {/* <div className="links-wrapper">
-        <a href="">
-          GitHub
-        </a>
-        <a href="">
-          Live
-        </a>
-      </div> */}
+      <ApplicationsCarouselLinks
+        liveLink={liveLink}
+        gitHubLink={gitHubLink}
+      />
     </ApplicationsCarouselDescriptionStyles>
   )
 }
