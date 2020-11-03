@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const ApplicationsSkeletonTechnologiesStyles = styled.div`
   h5 {
-    text-align: center;
     margin-bottom: 1rem;
     opacity: .5;
   }

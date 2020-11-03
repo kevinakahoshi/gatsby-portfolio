@@ -11,6 +11,12 @@ const ApplicationsCarouselDescriptionStyles = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  .project-description-wrapper {
+    h4[data-deployed="false"] {
+      opacity: .5;
+    }
+  }
+
   .skeleton-wrapper {
     margin: 1rem 0rem;
   }
@@ -58,7 +64,7 @@ const ApplicationsCarouselDescription = ({
   return (
     <ApplicationsCarouselDescriptionStyles>
       <div className="project-description-wrapper">
-        <h4>
+        <h4 data-deployed={!!liveLink}>
           { projectName }
         </h4>
         { descriptionBlock }
