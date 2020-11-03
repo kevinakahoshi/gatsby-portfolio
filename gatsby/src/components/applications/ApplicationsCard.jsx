@@ -30,6 +30,10 @@ const ApplicationsCardStyles = styled.div`
     opacity: .5;
     pointer-events: none;
   }
+
+  .skeleton-wrapper {
+    text-align: center;
+  }
 `;
 
 const ApplicationsCard = ({ application }) => {
@@ -49,7 +53,9 @@ const ApplicationsCard = ({ application }) => {
 
   const technologiesBlock = liveLink
     ? <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
-    : <ApplicationsSkeletonTechnologies />;
+    : <div className="skeleton-wrapper">
+        <ApplicationsSkeletonTechnologies />
+      </div>;
 
   return (
     <ApplicationsCardStyles>
