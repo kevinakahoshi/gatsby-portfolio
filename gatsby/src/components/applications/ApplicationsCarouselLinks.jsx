@@ -6,42 +6,56 @@ import {
 } from 'react-icons/fi'
 
 const ApplicationsCarouselLinksStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  display: flex;
+  justify-content: flex-start;
+
+  .link-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 1rem;
+
+    a {
+      display: grid;
+      grid-gap: .5rem;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+  }
 `;
 
 const ApplicationsCarouselLinks = ({ liveLink, gitHubLink }) => {
   return (
     <ApplicationsCarouselLinksStyles>
-      <a
-        data-deployed={!!liveLink}
-        disabled={!liveLink}
-        href={gitHubLink}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <GitHub />
-        <span>
-          GitHub
+      <div className="link-wrapper">
+        <a
+          data-deployed={!!liveLink}
+          disabled={!liveLink}
+          href={gitHubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHub />
+          <span>
+            GitHub
+          </span>
+        </a>
+        <span
+          className="separator">
+          |
         </span>
-      </a>
-      <span
-        className="separator">
-        |
-      </span>
-      <a
-        data-deployed={!!liveLink}
-        disabled={!liveLink}
-        href={liveLink}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ExternalLink />
-        <span>
-          Live
-        </span>
-      </a>
+        <a
+          data-deployed={!!liveLink}
+          disabled={!liveLink}
+          href={liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ExternalLink />
+          <span>
+            Live
+          </span>
+        </a>
+      </div>
     </ApplicationsCarouselLinksStyles>
   )
 };

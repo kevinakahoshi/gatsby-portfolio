@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ApplicationsSkeletonDescriptionStyles = styled.div`
   display: grid;
-  grid-template-rows: repeat(${({ numberOfRows }) => numberOfRows || 3}, minmax(1.25rem, 1.35rem));
+  grid-template-rows: repeat(${({ numberOfRows }) => numberOfRows || 3}, 1.35rem);
   grid-gap: .25rem;
 
 ${({ groupSelectorString }) => groupSelectorString || '.row-1-bar, .row-2-bar, .row-3-bar'} {
