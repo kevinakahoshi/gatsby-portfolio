@@ -30,7 +30,7 @@ ${({ groupSelectorString }) => groupSelectorString || '.row-1-bar, .row-2-bar, .
 `;
 
 const ApplicationsSkeletonDescription = ({ numberOfRows = 0 }) => {
-  if (typeof numberOfRows !== 'number') {
+  if (typeof numberOfRows !== 'number' || numberOfRows < 0) {
     numberOfRows = 0;
   }
 
@@ -43,7 +43,7 @@ const ApplicationsSkeletonDescription = ({ numberOfRows = 0 }) => {
 
   const groupSelectorString = rowClasses
     .map((name) => `.${name}`)
-    .join(', ')
+    .join(', ');
 
   return (
     <ApplicationsSkeletonDescriptionStyles
