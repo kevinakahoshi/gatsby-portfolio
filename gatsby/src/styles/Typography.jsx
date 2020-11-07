@@ -73,6 +73,11 @@ const Typography = createGlobalStyle`
     &.active {
       color: rgba(0,0,0,.9);
     }
+
+    &[data-deployed="false"] {
+      opacity: .5;
+      pointer-events: none;
+    }
   }
 `;
 

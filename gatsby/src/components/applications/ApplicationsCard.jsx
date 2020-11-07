@@ -26,11 +26,6 @@ const ApplicationsCardStyles = styled.div`
     margin-bottom: 0;
   }
 
-  a[data-deployed="false"] {
-    opacity: .5;
-    pointer-events: none;
-  }
-
   .skeleton-wrapper {
     text-align: center;
   }

@@ -26,11 +26,6 @@ const ApplicationsCardButtonsStyles = styled.div`
       color: #000000B3;
       border-color: #000000B3;
     }
-
-    .icon {
-      height: 18px;
-      width: auto;
-    }
   }
 `;
 
