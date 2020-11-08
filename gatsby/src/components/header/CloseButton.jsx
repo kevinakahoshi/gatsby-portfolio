@@ -18,7 +18,7 @@ const CloseButtonStyles = styled.button`
     content: '';
     height: 80%;
     width: 2px;
-    background: rgba(0,0,0,.5);
+    background: var(--link-inactive-grey);
     position: absolute;
   }
 

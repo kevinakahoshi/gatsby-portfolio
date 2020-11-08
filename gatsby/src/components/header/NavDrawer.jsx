@@ -80,11 +80,11 @@ const NavDrawerStyles = styled.div`
     margin: auto;
 
     &:not(.active) {
-      color: rgba(0,0,0,.5);
+      color: var(--link-inactive-grey);
     }
 
     &:hover {
-      color: rgba(0,0,0,.7);
+      color: var(--link-inactive-hover-grey);
 
       &::after {
         width: 100%;
@@ -93,7 +93,7 @@ const NavDrawerStyles = styled.div`
     }
 
     &.active {
-      color: rgba(0,0,0,.9);
+      color: var(--link-active-grey);
     }
 
     &::before,

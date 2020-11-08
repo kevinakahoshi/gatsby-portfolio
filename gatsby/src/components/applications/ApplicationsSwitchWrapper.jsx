@@ -21,11 +21,11 @@ const ApplicationsSwitchWrapperStyles = styled.div`
     cursor: pointer;
 
     &:not(:hover) {
-      color: rgba(0,0,0,.5);
+      color: var(--link-inactive-grey);
     }
 
     &:hover {
-      color: rgba(0,0,0,.7);
+      color: var(--link-inactive-hover-grey);
     }
   }
 `;

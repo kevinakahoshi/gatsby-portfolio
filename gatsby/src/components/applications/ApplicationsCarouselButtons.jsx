@@ -24,21 +24,21 @@ const ApplicationsCarouselButtonsStyles = styled.div`
     transition: .3s all;
 
     &:not(:hover) {
-      color: var(--medium-grey);
-      border: 1px solid var(--medium-grey);
+      color: var(--link-inactive-grey);
+      border: 1px solid var(--link-inactive-grey);
     }
 
     &:hover {
-      color: var(--dark-grey);
-      border: 1px solid var(--dark-grey);
+      color: var(--link-inactive-hover-grey);
+      border: 1px solid var(--link-inactive-hover-grey);
     }
 
     &:focus:not(:hover) {
-      box-shadow: 0rem 0rem 0rem .125rem var(--medium-grey);
+      box-shadow: 0rem 0rem 0rem .125rem var(--link-inactive-grey);
     }
 
     &:focus:hover {
-      box-shadow: 0rem 0rem 0rem .125rem var(--dark-grey);
+      box-shadow: 0rem 0rem 0rem .125rem var(--link-inactive-hover-grey);
     }
 
     .chevron {

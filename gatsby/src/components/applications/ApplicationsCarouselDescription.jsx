@@ -8,14 +8,8 @@ import ApplicationsSkeletonTechnologies from './ApplicationsSkeletonTechnologies
 import ApplicationTechnologyBadge from './ApplicationTechnologyBadge';
 
 const ApplicationsCarouselDescriptionStyles = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-
   display: grid;
   grid-gap: 1rem;
-  justify-content: center;
-  align-items: center;
 
   .project-description-wrapper {
     h4[data-deployed="false"] {

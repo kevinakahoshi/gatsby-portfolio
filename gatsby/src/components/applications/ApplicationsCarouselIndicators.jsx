@@ -24,20 +24,20 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
       }
 
       &:not(:hover) {
-        border-color: var(--medium-grey);
+        border-color: var(--link-inactive-grey);
       }
 
       &:hover {
-        border-color: var(--dark-grey);
+        border-color: var(--link-inactive-hover-grey);
       }
 
       &.active {
         &:not(:hover) {
-          background: var(--medium-grey);
+          background: var(--link-inactive-grey);
         }
 
         &:hover {
-          background: var(--dark-grey);
+          background: var(--link-inactive-hover-grey);
         }
       }
     }

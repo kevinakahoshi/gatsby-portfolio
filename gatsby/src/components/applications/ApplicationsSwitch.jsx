@@ -12,11 +12,11 @@ const ApplicationsSwitchStyles = styled.button`
   transition: .3s all;
 
   &:not(:hover) {
-    background: rgba(0,0,0,.5);
+    background: var(--link-inactive-grey);
   }
 
   &:hover {
-    background: rgba(0,0,0,.7);
+    background: var(--link-inactive-hover-grey);
   }
 
   .toggler {
