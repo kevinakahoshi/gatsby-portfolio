@@ -7,7 +7,10 @@ const GlobalStyles = createGlobalStyle`
     --red: #E64242;
     --dark-grey: #212529;
     --medium-grey: #CCCCCC;
-    --light-grey: #f8f9fA;
+    --light-grey: #F8F9FA;
+    --link-inactive-grey: #7F7F7F;
+    --link-inactive-hover-grey: #4C4C4C;
+    --link-active-grey: #191919;
   }
 
   * {

@@ -22,13 +22,14 @@ const ApplicationsCarouselStyles = styled.div`
   }
 
   @media (max-width: 767px) {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-gap: 1rem;
   }
 
   .carousel-image-section {
     display: grid;
     grid-gap: 1rem;
+    align-self: self-start;
 
     .slides-wrapper {
       overflow: hidden;

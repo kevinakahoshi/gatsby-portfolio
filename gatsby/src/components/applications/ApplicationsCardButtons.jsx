@@ -12,8 +12,8 @@ const ApplicationsCardButtonsStyles = styled.div`
 
   a {
     text-align: center;
-    color: #00000080;
-    border: 2px solid #00000080;
+    color: var(--link-inactive-grey);
+    border: 2px solid var(--link-inactive-grey);
     padding: .75rem;
     border-radius: .25rem;
     display: flex;

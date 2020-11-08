@@ -35,12 +35,12 @@ const AboutSocialLinksStyles = styled.div`
     align-items: center;
     border-width: 2px;
     border-style: solid;
-    border-color: rgba(0,0,0,.5);
+    border-color: var(--link-inactive-grey);
     animation: slide-up .5s;
     animation-fill-mode: both;
 
     &:hover {
-      border-color: rgba(0,0,0,.7);
+      border-color: var(--link-inactive-hover-grey);
     }
   }
 

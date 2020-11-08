@@ -63,15 +63,15 @@ const Typography = createGlobalStyle`
     transition: .3s all;
 
     &:not(.active) {
-      color: rgba(0,0,0,.5);
+      color: var(--link-inactive-grey);
     }
 
     &:hover {
-      color: rgba(0,0,0,.7);
+      color: var(--link-inactive-hover-grey);
     }
 
     &.active {
-      color: rgba(0,0,0,.9);
+      color: var(--link-active-grey);
     }
 
     &[data-deployed="false"] {
