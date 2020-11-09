@@ -19,7 +19,7 @@ const ApplicationsStyles = styled.section`
 const Applications = ({ projects }) => {
   const [view, setView] = useState('grid');
 
-  const applications = useMemo(() => projects.map((project, index) => {
+  const applicationsCards = useMemo(() => projects.map((project, index) => {
     return (
       <ApplicationsCard
         key={project.id}
@@ -44,7 +44,7 @@ const Applications = ({ projects }) => {
         />
         {view === 'grid'
           ? <ApplicationsGrid>
-            { applications }
+            { applicationsCards }
           </ApplicationsGrid>
           : <ApplicationsCarousel
               projects={projects}

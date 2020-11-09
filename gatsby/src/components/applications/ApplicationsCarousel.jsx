@@ -97,7 +97,7 @@ const ApplicationsCarouselStyles = styled.div`
 
 const ApplicationsCarousel = ({ projects }) => {
   const [slide, setSlide] = useState(0);
-  const [slideInterval, setSlideInterval] = useState(() => setInterval(nextSlide, 5000));
+  // const [style, setStyle] = useState();
 
   const applicationImages = projects.map((project, index) => (
     <a
@@ -151,7 +151,8 @@ const ApplicationsCarousel = ({ projects }) => {
           <div
             className="applications-slides"
             style={{
-              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
+              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`,
+              transitionDuration: '.3s'
             }}
           >
             { applicationImages }
