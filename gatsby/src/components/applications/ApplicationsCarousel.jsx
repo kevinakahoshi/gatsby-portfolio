@@ -123,7 +123,7 @@ const ApplicationsCarousel = ({ projects }) => {
       gitHubLink={project.gitHubLink}
       liveLink={project.liveLink}
       projectName={project.projectName}
-      mainDescription={project.mainDescription}
+      mainDescription={project.mainDescription?.replace(/\\/g, '')}
       technologiesUsed={project.technologiesUsed}
     />
   ))
@@ -140,7 +140,7 @@ const ApplicationsCarousel = ({ projects }) => {
   //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
   // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 5000);
+  //   const interval = setInterval(nextSlide, 10000);
   //   return () => clearInterval(interval);
   // }, [slide]);
 
