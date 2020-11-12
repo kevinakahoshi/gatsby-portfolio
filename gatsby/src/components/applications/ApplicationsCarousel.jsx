@@ -97,6 +97,7 @@ const ApplicationsCarouselStyles = styled.div`
 
 const ApplicationsCarousel = ({ projects }) => {
   const [slide, setSlide] = useState(0);
+  const [isActive, setIsActive] = useState(true);
   // const [style, setStyle] = useState();
 
   const applicationImages = projects.map((project, index) => (
@@ -134,19 +135,32 @@ const ApplicationsCarousel = ({ projects }) => {
   const previousSlide = () => setSlide((currentSlide) =>
     currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
 
+  const pauseSlides = () => setIsActive((bool) => false);
+
+  const startSlides = () => setIsActive((bool) => true);
+
   // TODO:
   //   1. Timer start and stop
   //   2. Infinite forward and backward sliding
   //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 10000);
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(nextSlide, 10000);
+    } else {
+      clearInterval(interval);
+    }
     return () => clearInterval(interval);
-  }, [slide]);
+  }, [slide, isActive]);
 
   return (
     <ApplicationsCarouselStyles>
-      <div className="carousel-image-section">
+      <div
+        className="carousel-image-section"
+        onMouseOver={pauseSlides}
+        onMouseLeave={startSlides}
+      >
         <div className="slides-wrapper">
           <div
             className="applications-slides"
@@ -170,7 +184,11 @@ const ApplicationsCarousel = ({ projects }) => {
           />
         </div>
       </div>
-      <div className="carousel-content-section">
+      <div
+        className="carousel-content-section"
+        onMouseOver={pauseSlides}
+        onMouseLeave={startSlides}
+      >
         <div className="descriptions-wrapper">
           <div className="applications-descriptions"
             // style={{
