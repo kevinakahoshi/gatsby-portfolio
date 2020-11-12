@@ -139,10 +139,10 @@ const ApplicationsCarousel = ({ projects }) => {
   //   2. Infinite forward and backward sliding
   //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 10000);
-  //   return () => clearInterval(interval);
-  // }, [slide]);
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 10000);
+    return () => clearInterval(interval);
+  }, [slide]);
 
   return (
     <ApplicationsCarouselStyles>
