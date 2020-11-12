@@ -3,10 +3,13 @@ import React, {
   useEffect,
   useState
 } from 'react';
+import {
+  animateScroll as scroll
+} from 'react-scroll';
 import styled from 'styled-components';
 
 // Components
-import Logo from './Logo';
+import Logo from '../shared/Logo';
 import NavigationDesktop from './NavigationDesktop';
 import NavigationMobile from './NavigationMobile';
 
@@ -20,6 +23,10 @@ const HeaderStyles = styled.div`
   background: #FFFFFF;
   top: 0;
   z-index: 1;
+
+  .logo-wrapper {
+    cursor: pointer;
+  }
 
   .link-wrapper {
     display: flex;
@@ -74,7 +81,12 @@ const Header = () => {
 
   return (
     <HeaderStyles>
-      <Logo />
+      <div
+        className="logo-wrapper"
+        onClick={() => scroll.scrollToTop()}
+      >
+        <Logo />
+      </div>
       <div className="link-wrapper">
         { desktopOrMobile }
       </div>
