@@ -78,6 +78,55 @@ const Typography = createGlobalStyle`
       opacity: .5;
       pointer-events: none;
     }
+
+    &.animated-underline {
+      position: relative;
+      padding: .5rem 0;
+      transition: .3s all;
+      text-align: center;
+      font-size: 1.25rem;
+      width: fit-content;
+      margin: auto;
+      text-decoration: none;
+
+      &:not(.active) {
+        color: var(--link-inactive-grey);
+      }
+
+      &:hover {
+        color: var(--link-inactive-hover-grey);
+
+        &::after {
+          width: 100%;
+          transition: .3s all;
+        }
+      }
+
+      &.active {
+        color: var(--link-active-grey);
+      }
+
+      &::before,
+      &::after  {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 3px;
+        width: 100%;
+        background-color: transparent;
+        z-index: 1;
+        display: inline-block;
+        transition: .3s all;
+      }
+
+      &::after {
+        width: 0%;
+        background: linear-gradient(-45deg, #e64242, #e67442);
+      }
+    }
   }
 `;
 

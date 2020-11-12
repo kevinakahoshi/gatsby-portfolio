@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  animateScroll as scroll
-} from 'react-scroll';
 
 const mobileWidth = 335;
 
@@ -13,7 +10,8 @@ const LogoStyles = styled.div`
   grid-template-columns: auto auto;
   border: 2px solid #222222;
   font-weight: bold;
-  cursor: pointer;
+  pointer-events: none;
+  width: max-content;
 
   &:focus,
   &:active {
@@ -101,9 +99,7 @@ const LogoStyles = styled.div`
 
 const Logo = () => {
   return (
-    <LogoStyles
-      onClick={() => scroll.scrollToTop()}
-    >
+    <LogoStyles>
       <div className="first-name">
         <span>K</span>
         <span>E</span>
