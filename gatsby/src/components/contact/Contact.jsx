@@ -7,6 +7,8 @@ import {
 import Logo from '../shared/Logo';
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import ContactLinks from './ContactLinks';
+import ContactLogoDividers from './ContactLogoDividers';
+import ContactCopyright from './ContactCopyright';
 
 
 const ContactStyles = styled.section`
@@ -19,18 +21,10 @@ const ContactStyles = styled.section`
   .contact-wrapper {
     display: grid;
     grid-gap: 1.5rem;
+    text-align: center;
 
-    .logo-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 1.5rem;
-      align-items: center;
-
-      .divider {
-        height: 1px;
-        width: 100%;
-        background: var(--medium-grey);
-      }
+    p {
+      margin-bottom: 0;
     }
   }
 `;
@@ -40,12 +34,9 @@ const Contact = () => {
     <ContactStyles id="contact" className="section">
       <SectionContentWrapper>
         <div className="contact-wrapper">
-          <div className="logo-wrapper">
-            <div className="divider" />
-            <Logo />
-            <div className="divider" />
-          </div>
+          <ContactLogoDividers />
           <ContactLinks />
+          <ContactCopyright />
         </div>
       </SectionContentWrapper>
     </ContactStyles>
