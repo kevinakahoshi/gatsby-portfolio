@@ -9,6 +9,7 @@ import SectionContentWrapper from '../shared/SectionContentWrapper';
 import ContactLinks from './ContactLinks';
 import ContactLogoDividers from './ContactLogoDividers';
 import ContactCopyright from './ContactCopyright';
+import AboutSocialLinks from '../about/AboutSocialLinks';
 
 
 const ContactStyles = styled.section`
@@ -29,13 +30,16 @@ const ContactStyles = styled.section`
   }
 `;
 
-const Contact = () => {
+const Contact = ({ social }) => {
   return (
     <ContactStyles id="contact" className="section">
       <SectionContentWrapper>
         <div className="contact-wrapper">
           <ContactLogoDividers />
           <ContactLinks />
+          <AboutSocialLinks
+            social={social}
+          />
           <ContactCopyright />
         </div>
       </SectionContentWrapper>
