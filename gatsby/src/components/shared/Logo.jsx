@@ -12,6 +12,7 @@ const LogoStyles = styled.div`
   font-weight: bold;
   pointer-events: none;
   width: max-content;
+  background: var(--white);
 
   &:focus,
   &:active {

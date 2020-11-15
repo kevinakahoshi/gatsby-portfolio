@@ -158,7 +158,9 @@ const Home = ({ data }) => {
         <Applications
           projects={projects}
         />
-        <Contact />
+        <Contact
+          social={aboutMe.social}
+        />
       </HomeStyles>
     </Layout>
   )
