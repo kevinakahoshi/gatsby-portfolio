@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import hero from '../../assets/images/hero.svg';
+import topographicHero from '../../assets/images/topographic-hero.svg';
 
 const HeroStyles = styled.section`
   background: #ffffff;
   min-height: 75vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-gap: 3rem;
   padding: 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .hero-text {
     display: flex;
@@ -22,10 +25,20 @@ const HeroStyles = styled.section`
   }
 
   .hero-image {
-    background-image: url(${hero});
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${topographicHero});
     background-repeat: no-repeat;
-    background-position: right;
+    background-size: contain;
+
+    @media (min-width: 768px) {
+      background-position: 100% 50%;
+    }
+
+    @media (max-width: 767px) {
+      grid-row: 1;
+    }
   }
 `;
 
@@ -36,7 +49,9 @@ const Hero = () => {
         <h1>Kevin Akahoshi</h1>
         <h2>Software Engineer</h2>
       </div>
-      <div className="hero-image"></div>
+      <div className="hero-image">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil non minus molestiae quidem culpa cumque maiores odio exercitationem iure optio quasi suscipit voluptatibus expedita ipsa, qui tenetur. Autem, itaque?
+      </div>
     </HeroStyles>
   )
 }
