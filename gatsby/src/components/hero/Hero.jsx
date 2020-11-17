@@ -15,6 +15,10 @@ const HeroStyles = styled.section`
     flex-direction: column;
     justify-self: center;
     align-self: center;
+
+    h2 {
+      color: var(--link-inactive-grey);
+    }
   }
 
   .hero-image {

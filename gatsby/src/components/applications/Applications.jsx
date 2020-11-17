@@ -19,14 +19,14 @@ const ApplicationsStyles = styled.section`
 const Applications = ({ projects }) => {
   const [view, setView] = useState('grid');
 
-  const applicationsCards = useMemo(() => projects.map((project, index) => {
+  const applicationsCards = projects.map((project, index) => {
     return (
       <ApplicationsCard
         key={project.id}
         application={project}
       />
     )
-  }), [projects]);
+  });
 
   const handleToggle = () =>
     setView((sectionView) => sectionView === 'grid' ? 'carousel' : 'grid');
