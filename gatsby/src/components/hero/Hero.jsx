@@ -7,17 +7,32 @@ const HeroStyles = styled.section`
   min-height: 75vh;
   display: grid;
   grid-gap: 3rem;
-  padding: 0;
+  background-image: url(${topographicHero});
+  background-repeat: no-repeat;
 
   @media (min-width: 768px) {
+    background-position: 100% 50%;
+    background-size: contain;
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 767px) {
+    background-position: 250% 50%;
   }
 
   .hero-text {
     display: flex;
     flex-direction: column;
-    justify-self: center;
-    align-self: center;
+
+    @media (min-width: 768px) {
+      align-self: center;
+      justify-self: center;
+    }
+
+    @media (max-width: 767px) {
+      align-self: flex-start;
+      justify-self: flex-start;
+    }
 
     h2 {
       color: var(--link-inactive-grey);
@@ -28,13 +43,6 @@ const HeroStyles = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(${topographicHero});
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    @media (min-width: 768px) {
-      background-position: 100% 50%;
-    }
 
     @media (max-width: 767px) {
       grid-row: 1;
