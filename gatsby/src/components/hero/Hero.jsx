@@ -7,11 +7,11 @@ const HeroStyles = styled.section`
   min-height: 75vh;
   display: grid;
   grid-gap: 3rem;
-  background-image: url(${topographicHero});
-  background-repeat: no-repeat;
 
   @media (min-width: 768px) {
-    background-position: 100% 50%;
+    background-image: url(${topographicHero});
+    background-repeat: no-repeat;
+    background-position: right -15% top;
     background-size: contain;
     grid-template-columns: 1fr 1fr;
   }
