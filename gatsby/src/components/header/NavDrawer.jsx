@@ -10,20 +10,18 @@ import NavigationLink from './NavigationLink';
 import useMenu from '../hooks/useMenu';
 import { useMemo } from 'react';
 import { useState } from 'react';
+import Overlay from './Overlay';
 
 // TODO: Create the nav drawer with overlay and the drawer as part of the inside
 // of the main element
 
 const NavDrawerStyles = styled.div`
   height: 100%;
-  width: 100%;
-  display: grid;
-  /* grid-template-columns: .2fr .8fr; */
-  grid-template-columns: 0fr 1fr;
+  width: 80%;
   position: fixed;
   top: 0;
   right: 0;
-  transition: .5s all;
+  transition: .3s all;
 /*
   background: #00000090;
 
@@ -36,14 +34,15 @@ const NavDrawerStyles = styled.div`
   } */
 
   &:not(.open) {
-      transform: translateX(150%);
-    }
+    transform: translateX(150%);
+  }
 
   &.open {
     transform: translateX(0%);
   }
 
   .drawer {
+    grid-column: 2;
     padding: 1rem;
     background: #ffffff;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
@@ -124,10 +123,8 @@ const NavDrawer = ({
   navigationItems,
   open,
   sliding,
-  handleOpen,
   handleClose,
-  handleSlideOpen,
-  handleSlideClose
+  toggleShowOverlay
 }) => {
   const drawerLinks = useMemo(() => navigationItems.map((navItem) => {
       return (
@@ -141,12 +138,16 @@ const NavDrawer = ({
       )
     }), [navigationItems]);
 
+  const handleTransition = () => {
+    if (open) return;
+    toggleShowOverlay();
+  }
+
   return (
     <NavDrawerStyles
-      className={open ? 'open' : ''}>
-      <div className="overlay" />
-      <div className={`drawer`}
-        onAnimationEnd={handleClose}>
+      className={open ? 'open' : ''}
+      onTransitionEnd={handleTransition}>
+      <div className={`drawer`}>
         <CloseButton
           handleClose={handleClose}
         />
