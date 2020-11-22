@@ -1,52 +1,40 @@
-import React, {
-  useCallback
-} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import CloseButton from './CloseButton';
-import Hamburger from './Hamburger';
 
 // Components
+import CloseButton from './CloseButton';
+import Hamburger from './Hamburger';
 import NavigationLink from './NavigationLink';
-import useMenu from '../hooks/useMenu';
-import { useMemo } from 'react';
-import { useState } from 'react';
-
-// TODO: Create the nav drawer with overlay and the drawer as part of the inside
-// of the main element
 
 const NavDrawerStyles = styled.div`
   height: 100%;
-  width: 100%;
-  display: grid;
-  /* grid-template-columns: .2fr .8fr; */
-  grid-template-columns: 0fr 1fr;
+  width: 80%;
+  max-width: 400px;
   position: fixed;
   top: 0;
   right: 0;
-  transition: .5s all;
-/*
-  background: #00000090;
+  transition: .3s all;
 
   &:not(.open) {
-    display: none;
-  }
+    transform: translateX(100%);
 
-  &.open {
-    display: block;
-  } */
-
-  &:not(.open) {
-      transform: translateX(150%);
+    .drawer {
+      box-shadow: none;
     }
+  }
 
   &.open {
     transform: translateX(0%);
+
+    .drawer {
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    }
   }
 
   .drawer {
+    grid-column: 2;
     padding: 1rem;
     background: #ffffff;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
     display: grid;
     align-items: center;
     grid-gap: 2rem;
@@ -55,14 +43,6 @@ const NavDrawerStyles = styled.div`
     transition: .3s all;
     height: 100%;
     overflow-y: scroll;
-
-    /* &:not(.open) {
-      transform: translateX(150%);
-    }
-
-    &.open {
-      transform: translateX(0%);
-    } */
 
     &::after {
       content: '';
@@ -122,38 +102,40 @@ const NavDrawerStyles = styled.div`
 const NavDrawer = ({
   offset,
   navigationItems,
-  open,
+  openMobileNav,
   sliding,
-  handleOpen,
   handleClose,
-  handleSlideOpen,
-  handleSlideClose
+  handleHideOverlay,
+  showOverlay
 }) => {
-  const drawerLinks = useMemo(() => navigationItems.map((navItem) => {
-      return (
-        <NavigationLink
-          key={navItem.to}
-          to={navItem.to}
-          offset={offset}
-          text={navItem.text}
-          handleClose={handleClose}
-        />
-      )
-    }), [navigationItems]);
+  const navClass = openMobileNav ? 'open' : '';
+  const navDrawerLinks = navigationItems.map((navItem) => (
+    <NavigationLink
+      key={navItem.to}
+      to={navItem.to}
+      offset={offset}
+      text={navItem.text}
+      handleClose={handleClose}
+    />
+  ));
+
+  const handleTransition = () => {
+    if (openMobileNav || !showOverlay) return;
+    handleHideOverlay();
+  }
 
   return (
     <NavDrawerStyles
-      className={open ? 'open' : ''}>
-      <div className="overlay" />
-      <div className={`drawer`}
-        onAnimationEnd={handleClose}>
+      className={navClass}
+      onTransitionEnd={handleTransition}>
+      <div className="drawer" >
         <CloseButton
           handleClose={handleClose}
         />
-        { drawerLinks }
+        { navDrawerLinks }
       </div>
     </NavDrawerStyles>
-  )
+  );
 }
 
 export default NavDrawer;

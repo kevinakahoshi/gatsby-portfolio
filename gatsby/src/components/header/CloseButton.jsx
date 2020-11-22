@@ -32,14 +32,12 @@ const CloseButtonStyles = styled.button`
   }
 `;
 
-const CloseButton = ({ handleClose }) => {
-  return (
-    <CloseButtonStyles
-      role="button"
-      name="close-button"
-      onClick={handleClose}
-    />
-  )
-}
+const CloseButton = ({ handleClose }) => (
+  <CloseButtonStyles
+    role="button"
+    name="close-button"
+    onClick={handleClose}
+  />
+);
 
 export default CloseButton;
