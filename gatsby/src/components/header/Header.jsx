@@ -57,7 +57,7 @@ const navigationItems = [
     to: 'contact',
     text: 'Contact'
   }
-]
+];
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -79,11 +79,13 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleScrollTop = () => scroll.scrollToTop();
+
   return (
     <HeaderStyles>
       <div
         className="logo-wrapper"
-        onClick={() => scroll.scrollToTop()}
+        onClick={handleScrollTop}
       >
         <Logo />
       </div>

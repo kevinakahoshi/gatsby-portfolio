@@ -12,24 +12,22 @@ const HamburgerStyles = styled.button`
   .middle-line,
   .bottom-line {
     width: 2rem;
-    height: .25rem;
+    height: 2px;
     background: var(--dark-grey);
-    margin: .25rem 0;
+    margin: 6px 0;
   }
 `;
 
-const Hamburger = ({ handleOpen }) => {
-  return (
-    <HamburgerStyles
-      role="button"
-      name="hamburger"
-      onClick={handleOpen}
-    >
-      <div className="top-line" />
-      <div className="middle-line" />
-      <div className="bottom-line" />
-    </HamburgerStyles>
-  )
-}
+const Hamburger = ({ handleOpen }) => (
+  <HamburgerStyles
+    role="button"
+    name="hamburger"
+    onClick={handleOpen}
+  >
+    <div className="top-line" />
+    <div className="middle-line" />
+    <div className="bottom-line" />
+  </HamburgerStyles>
+);
 
 export default Hamburger;

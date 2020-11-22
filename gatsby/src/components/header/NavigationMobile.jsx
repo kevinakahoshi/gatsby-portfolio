@@ -5,54 +5,42 @@ import React, {
 // Components
 import Hamburger from './Hamburger';
 import NavDrawer from './NavDrawer';
-import useMenu from '../hooks/useMenu';
 import Overlay from './Overlay';
-import styled from 'styled-components';
-
-const NavigationMobileStyles = styled.nav`
-  &:not(.open) {
-    .overlay {
-      opacity: 0;
-    }
-  }
-
-  &.open {
-    .overlay {
-      opacity: .5;
-    }
-  }
-`;
 
 const NavigationMobile = ({ offset, navigationItems }) => {
-  const [open, setOpen] = useState(false);
-  const [sliding, setSliding] = useState(false);
-
+  const [openMobileNav, setOpenMobileNav] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const toggleShowOverlay = () => setShowOverlay((currentBool) => !currentBool);
+  const handleShowOverlay = () => setShowOverlay(true);
+  const handleHideOverlay = () => setShowOverlay(false);
   const handleOpen = () => {
-    setOpen(true);
-    toggleShowOverlay();
+    setOpenMobileNav(true);
+    handleShowOverlay();
   };
-  const handleClose = () => setOpen(false);
+  const handleClose = () => setOpenMobileNav(false);
+
+  const navClass = openMobileNav ? 'open' : '';
+
+  const hideOrShowOverlay = showOverlay
+    ? <Overlay
+      handleClose={handleClose}
+      openMobileNav={openMobileNav}
+    />
+    : null;
 
   return (
-    <NavigationMobileStyles
-      className={open ? 'open' : ''}
-    >
+    <nav className={navClass}>
       <Hamburger handleOpen={handleOpen} />
-      { showOverlay
-        ? <Overlay handleClose={handleClose} />
-        : null }
+      { hideOrShowOverlay }
       <NavDrawer
         offset={offset}
         navigationItems={navigationItems}
-        open={open}
-        sliding={sliding}
+        openMobileNav={openMobileNav}
         handleClose={handleClose}
-        toggleShowOverlay={toggleShowOverlay}
+        handleHideOverlay={handleHideOverlay}
+        showOverlay={showOverlay}
       />
-    </NavigationMobileStyles>
+    </nav>
   )
 }
 
