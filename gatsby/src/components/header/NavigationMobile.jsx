@@ -1,6 +1,7 @@
 import React, {
   useState
 } from 'react';
+import { useEffect } from 'react';
 
 // Components
 import Hamburger from './Hamburger';
@@ -10,6 +11,7 @@ import Overlay from './Overlay';
 const NavigationMobile = ({ offset, navigationItems }) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+  const body = document.querySelector('body');
 
   const handleShowOverlay = () => setShowOverlay(true);
   const handleHideOverlay = () => setShowOverlay(false);
@@ -18,6 +20,11 @@ const NavigationMobile = ({ offset, navigationItems }) => {
     handleShowOverlay();
   };
   const handleClose = () => setOpenMobileNav(false);
+
+  // TODO: Find out how to do this the Gatsby way and not this unsophisticated way
+  useEffect(() => {
+    openMobileNav ? body.classList.add('no-scroll') : body.classList.remove('no-scroll');
+  }, [openMobileNav])
 
   const navClass = openMobileNav ? 'open' : '';
 

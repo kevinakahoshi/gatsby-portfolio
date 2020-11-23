@@ -1,18 +1,8 @@
 import {
   createGlobalStyle
 } from 'styled-components';
-import {
-  CorsaWoff2,
-  CorsaWoff
-} from '../assets/fonts/index';
 
 const Typography = createGlobalStyle`
-  @font-face {
-    font-family: 'Corsa Grotesk';
-    src: url(${CorsaWoff2}) format('woff2'),
-      url(${CorsaWoff}) format('woff');
-  }
-
   html {
     font-family: 'Corsa Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--dark-grey)
@@ -29,7 +19,7 @@ const Typography = createGlobalStyle`
   }
 
   h1 {
-
+    font-size: 3rem;
   }
 
   h2 {
