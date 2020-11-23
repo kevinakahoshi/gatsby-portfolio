@@ -32,6 +32,14 @@ const GlobalStyles = createGlobalStyle`
     animation-fill-mode: both;
   }
 
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .no-js {
+    opacity: 0;
+  }
+
   @keyframes fade-up {
     0% {
       opacity: 0;

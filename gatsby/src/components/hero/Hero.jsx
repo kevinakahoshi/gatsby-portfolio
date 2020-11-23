@@ -51,6 +51,8 @@ const HeroStyles = styled.section`
 `;
 
 const Hero = () => {
+  console.log('Rendered');
+
   return (
     <HeroStyles id="hero" className="section">
       <div className="hero-text">

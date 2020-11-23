@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby";
-import styled from "styled-components"
 
 // Components
 import Layout from '../components/Layout';
@@ -108,33 +107,6 @@ export const query = graphql`
   }
 `;
 
-const HomeStyles = styled.div`
-  h1 {
-    font-size: 3rem;
-  }
-
-  .image-grid {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-gap: 1rem;
-  }
-
-  .container-image {
-    max-width: 100px;
-    display: flex;
-    justify-self: center;
-    margin: auto;
-  }
-
-  .test-div {
-    min-height: 100vh;
-    border: 2px solid var(--dark-grey);
-  }
-`;
-
 const Home = ({ data }) => {
   const aboutMe = data.aboutMe.nodes[0];
   const skills = data.skills.nodes[0].tech;
@@ -143,25 +115,13 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      <HomeStyles>
-        <Header />
-        <Hero />
-        <About
-          aboutMe={aboutMe}
-        />
-        <Skills
-          skills={skills}
-        />
-        <Tools
-          tools={tools}
-        />
-        <Applications
-          projects={projects}
-        />
-        <Contact
-          social={aboutMe.social}
-        />
-      </HomeStyles>
+      <Header />
+      <Hero />
+      <About aboutMe={aboutMe} />
+      <Skills skills={skills} />
+      <Tools tools={tools} />
+      <Applications projects={projects} />
+      <Contact social={aboutMe.social} />
     </Layout>
   )
 };
