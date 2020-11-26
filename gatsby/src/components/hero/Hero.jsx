@@ -17,7 +17,7 @@ const HeroStyles = styled.section`
   }
 
   @media (max-width: 767px) {
-    background-position: 250% 50%;
+    // TODO: Figure out what you want here
   }
 
   .hero-text {
