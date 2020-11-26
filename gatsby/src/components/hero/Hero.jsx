@@ -11,7 +11,7 @@ const HeroStyles = styled.section`
   @media (min-width: 768px) {
     background-image: url(${topographicHero});
     background-repeat: no-repeat;
-    background-position: right -15% top;
+    background-position: right -25vh top;
     background-size: contain;
     grid-template-columns: 1fr 1fr;
   }
