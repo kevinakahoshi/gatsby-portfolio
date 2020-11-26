@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import Logo from '../shared/Logo';
 import NavigationDesktop from './NavigationDesktop';
 import NavigationMobile from './NavigationMobile';
+import NavigationMobileExperiment from './NavigationMobileExperiment';
 
 const HeaderStyles = styled.div`
   display: grid;
@@ -64,15 +65,25 @@ const Header = () => {
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const offset = -81;
 
+  // const desktopOrMobile = width > 850
+  //   ? <NavigationDesktop
+  //       offset={offset}
+  //       navigationItems={navigationItems}
+  //     />
+  //   : <NavigationMobile
+  //       offset={offset}
+  //       navigationItems={navigationItems}
+  //     />;
+
   const desktopOrMobile = width > 850
     ? <NavigationDesktop
-        offset={offset}
-        navigationItems={navigationItems}
-      />
-    : <NavigationMobile
-        offset={offset}
-        navigationItems={navigationItems}
-      />;
+      offset={offset}
+      navigationItems={navigationItems}
+    />
+    : <NavigationMobileExperiment
+      offset={offset}
+      navigationItems={navigationItems}
+    />;
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);

@@ -9,7 +9,7 @@ import HamburgerExperiment from './HamburgerExperiment';
 import NavDrawer from './NavDrawer';
 import Overlay from './Overlay';
 
-const NavigationMobile = ({ offset, navigationItems }) => {
+const NavigationMobileExperiment = ({ offset, navigationItems }) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const body = document.querySelector('body');
@@ -38,7 +38,7 @@ const NavigationMobile = ({ offset, navigationItems }) => {
 
   return (
     <nav className={navClass}>
-      <Hamburger handleOpen={handleOpen} />
+      <HamburgerExperiment />
       { hideOrShowOverlay }
       <NavDrawer
         offset={offset}
@@ -52,4 +52,4 @@ const NavigationMobile = ({ offset, navigationItems }) => {
   )
 }
 
-export default NavigationMobile;
+export default NavigationMobileExperiment;
