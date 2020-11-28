@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Hamburger from './Hamburger';
 import HamburgerExperiment from './HamburgerExperiment';
 import NavDrawer from './NavDrawer';
+import NavDrawerExperiment from './NavDrawerExperiment';
 import Overlay from './Overlay';
 
 const NavigationMobileExperiment = ({ offset, navigationItems }) => {
@@ -38,9 +39,13 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
 
   return (
     <nav className={navClass}>
-      <HamburgerExperiment />
+      <HamburgerExperiment
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        handleHideOverlay={handleHideOverlay}
+      />
       { hideOrShowOverlay }
-      <NavDrawer
+      <NavDrawerExperiment
         offset={offset}
         navigationItems={navigationItems}
         openMobileNav={openMobileNav}
