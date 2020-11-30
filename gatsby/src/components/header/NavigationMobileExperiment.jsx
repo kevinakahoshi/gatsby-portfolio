@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Hamburger from './Hamburger';
 import HamburgerExperiment from './HamburgerExperiment';
 import NavDrawer from './NavDrawer';
+import NavDrawerExperiment from './NavDrawerExperiment';
 import Overlay from './Overlay';
 
 const NavigationMobileExperiment = ({ offset, navigationItems }) => {
@@ -31,16 +32,21 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
 
   const hideOrShowOverlay = showOverlay
     ? <Overlay
-      handleClose={handleClose}
-      openMobileNav={openMobileNav}
-    />
+        handleClose={handleClose}
+        openMobileNav={openMobileNav}
+      />
     : null;
 
   return (
     <nav className={navClass}>
-      <HamburgerExperiment />
-      { hideOrShowOverlay }
-      <NavDrawer
+      <HamburgerExperiment
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        handleHideOverlay={handleHideOverlay}
+        openMobileNav={openMobileNav}
+      />
+      {/* { hideOrShowOverlay } */}
+      <NavDrawerExperiment
         offset={offset}
         navigationItems={navigationItems}
         openMobileNav={openMobileNav}

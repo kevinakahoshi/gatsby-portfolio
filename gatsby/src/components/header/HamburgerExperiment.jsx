@@ -93,13 +93,18 @@ const HamburgerExperimentStyles = styled.button`
   }
 `;
 
-const HamburgerExperiment = () => {
+const HamburgerExperiment = ({ handleOpen, handleClose, handleHideOverlay }) => {
   const [navOpen, setNavOpen] = useState(false);
+
+  const handleClick = () => {
+    setNavOpen((bool) => !bool)
+    navOpen ? handleClose() : handleOpen();
+  }
 
   return (
     <HamburgerExperimentStyles
       data-nav-open={navOpen}
-      onClick={() => setNavOpen((bool) => !bool)}
+      onClick={handleClick}
     >
       <div className="hamburger-bar" id="bar-1" />
       <div className="hamburger-bar" id="bar-2" />
