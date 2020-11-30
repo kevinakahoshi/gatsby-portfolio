@@ -32,9 +32,9 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
 
   const hideOrShowOverlay = showOverlay
     ? <Overlay
-      handleClose={handleClose}
-      openMobileNav={openMobileNav}
-    />
+        handleClose={handleClose}
+        openMobileNav={openMobileNav}
+      />
     : null;
 
   return (
@@ -43,8 +43,9 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
         handleOpen={handleOpen}
         handleClose={handleClose}
         handleHideOverlay={handleHideOverlay}
+        openMobileNav={openMobileNav}
       />
-      { hideOrShowOverlay }
+      {/* { hideOrShowOverlay } */}
       <NavDrawerExperiment
         offset={offset}
         navigationItems={navigationItems}

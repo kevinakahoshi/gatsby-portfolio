@@ -98,7 +98,7 @@ const HamburgerExperiment = ({ handleOpen, handleClose, handleHideOverlay }) => 
 
   const handleClick = () => {
     setNavOpen((bool) => !bool)
-    handleOpen();
+    navOpen ? handleClose() : handleOpen();
   }
 
   return (

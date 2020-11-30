@@ -14,16 +14,16 @@ import NavigationDesktop from './NavigationDesktop';
 import NavigationMobile from './NavigationMobile';
 import NavigationMobileExperiment from './NavigationMobileExperiment';
 
-const HeaderStyles = styled.div`
+const HeaderStyles = styled.header`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: auto 1fr;
   padding: 1rem;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  /* box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175); */
+  border-bottom: 1px solid var(--medium-grey);
   position: sticky;
   background: #FFFFFF;
   top: 0;
-  z-index: 1;
 
   .logo-wrapper {
     cursor: pointer;
@@ -93,7 +93,7 @@ const Header = () => {
   const handleScrollTop = () => scroll.scrollToTop();
 
   return (
-    <HeaderStyles>
+    <HeaderStyles id="header">
       <div
         className="logo-wrapper"
         onClick={handleScrollTop}

@@ -7,28 +7,25 @@ import Hamburger from './Hamburger';
 import NavigationLink from './NavigationLink';
 
 const NavDrawerStyles = styled.div`
-  height: calc(100% - 81px);
+  height: calc(100vh - 81px);
   width: 80%;
   max-width: 400px;
   position: fixed;
-  bottom: 0;
+  top: 81px;
   right: 0;
   transition: .3s all;
 
   &:not(.open) {
     transform: translateX(100%);
-
-    .drawer {
+    box-shadow: none;
+    /* .drawer {
       box-shadow: none;
-    }
+    } */
   }
 
   &.open {
-    transform: translateX(0%);
-
-    .drawer {
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-    }
+    transform: translateX(0%) translateZ(-1px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   }
 
   .drawer {
