@@ -32,6 +32,16 @@ const GlobalStyles = createGlobalStyle`
     animation-fill-mode: both;
   }
 
+  .slide-in {
+    animation: slide-in .75s forwards;
+    animation-fill-mode: both;
+  }
+
+  .slide-out {
+    animation: slide-out .75s forwards;
+    animation-fill-mode: both;
+  }
+
   .no-scroll {
     overflow: hidden;
   }
@@ -73,6 +83,30 @@ const GlobalStyles = createGlobalStyle`
 
     100% {
       opacity: .5;
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      /* transform: translateX(50%); */
+    }
+
+    100% {
+      opacity: 1;
+      /* transform: translateX(0%); */
+    }
+  }
+
+  @keyframes slide-out {
+    0% {
+      opacity: 1;
+      /* transform: translateX(0%); */
+    }
+
+    100% {
+      opacity: 0;
+      /* transform: translateX(50%); */
     }
   }
 `;

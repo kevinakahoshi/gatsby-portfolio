@@ -24,7 +24,7 @@ const NavDrawerStyles = styled.div`
   }
 
   &.open {
-    transform: translateX(0%) translateZ(-1px);
+    transform: translateX(0%);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   }
 
@@ -40,6 +40,7 @@ const NavDrawerStyles = styled.div`
     transition: .3s all;
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     &::after {
       content: '';
@@ -106,13 +107,17 @@ const NavDrawerExperiment = ({
   showOverlay
 }) => {
   const navClass = openMobileNav ? 'open' : '';
-  const navDrawerLinks = navigationItems.map((navItem) => (
+  const navDrawerLinks = navigationItems.map((navItem, index) => (
     <NavigationLink
       key={navItem.to}
       to={navItem.to}
       offset={offset}
       text={navItem.text}
       handleClose={handleClose}
+      customClass={openMobileNav ? 'slide-in' : 'slide-out'}
+      customInlineStyles={{
+        animationDelay: `${index * 0.1}s`
+      }}
     />
   ));
 
