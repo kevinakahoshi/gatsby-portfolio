@@ -30,7 +30,7 @@ const HamburgerExperimentStyles = styled.button`
   &[data-nav-open="true"] {
     .hamburger-bar {
       &#bar-1 {
-        transform: translateY(0px) rotate(45deg);
+        transform: translateY(0px) rotate(135deg);
       }
 
       &#bar-2 {
@@ -39,7 +39,7 @@ const HamburgerExperimentStyles = styled.button`
       }
 
       &#bar-3 {
-        transform: translateY(0px) rotate(-45deg);
+        transform: translateY(0px) rotate(-135deg);
       }
     }
   }
