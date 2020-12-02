@@ -15,15 +15,12 @@ const NavDrawerStyles = styled.div`
   right: 0;
   transition: .3s all;
 
-  &:not(.open) {
+  &[data-open="false"] {
     transform: translateX(100%);
     box-shadow: none;
-    /* .drawer {
-      box-shadow: none;
-    } */
   }
 
-  &.open {
+  &[data-open="true"] {
     transform: translateX(0%);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   }
@@ -106,7 +103,6 @@ const NavDrawerExperiment = ({
   handleHideOverlay,
   showOverlay
 }) => {
-  const navClass = openMobileNav ? 'open' : '';
   const navDrawerLinks = navigationItems.map((navItem, index) => (
     <NavigationLink
       key={navItem.to}
@@ -128,7 +124,7 @@ const NavDrawerExperiment = ({
 
   return (
     <NavDrawerStyles
-      className={navClass}
+      data-open={openMobileNav}
       onTransitionEnd={handleTransition}>
       <div className="drawer" >
         { navDrawerLinks }
