@@ -12,7 +12,7 @@ import ContactCopyright from './ContactCopyright';
 import AboutSocialLinks from '../about/AboutSocialLinks';
 
 
-const ContactStyles = styled.section`
+const ContactStyles = styled.footer`
   background: var(--white);
   min-height: calc(100vh - 81px);
   display: flex;

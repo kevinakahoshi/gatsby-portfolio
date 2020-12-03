@@ -4,9 +4,15 @@ import useMenu from '../hooks/useMenu';
 
 const HamburgerStyles = styled.button`
   padding: 0;
-  background: none;
-  outline: none;
+  outline: 0;
+  height: 2rem;
+  width: 2rem;
   border: none;
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .top-line,
   .middle-line,
@@ -14,7 +20,15 @@ const HamburgerStyles = styled.button`
     width: 2rem;
     height: 2px;
     background: var(--dark-grey);
-    margin: 6px 0;
+    position: absolute;
+  }
+
+  .top-line {
+    transform: translateY(-8px);
+  }
+
+  .bottom-line {
+    transform: translateY(8px);
   }
 `;
 

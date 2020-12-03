@@ -28,8 +28,6 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
     openMobileNav ? body.classList.add('no-scroll') : body.classList.remove('no-scroll');
   }, [openMobileNav])
 
-  const navClass = openMobileNav ? 'open' : '';
-
   const hideOrShowOverlay = showOverlay
     ? <Overlay
         handleClose={handleClose}
@@ -38,7 +36,7 @@ const NavigationMobileExperiment = ({ offset, navigationItems }) => {
     : null;
 
   return (
-    <nav className={navClass}>
+    <nav>
       <HamburgerExperiment
         handleOpen={handleOpen}
         handleClose={handleClose}

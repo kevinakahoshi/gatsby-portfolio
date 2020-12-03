@@ -6,7 +6,7 @@ import CloseButton from './CloseButton';
 import Hamburger from './Hamburger';
 import NavigationLink from './NavigationLink';
 
-const NavDrawerStyles = styled.div`
+const NavDrawerStyles = styled.aside`
   height: calc(100vh - 81px);
   width: 80%;
   max-width: 400px;
@@ -14,6 +14,7 @@ const NavDrawerStyles = styled.div`
   top: 81px;
   right: 0;
   transition: .3s all;
+  z-index: 1;
 
   &[data-open="false"] {
     transform: translateX(100%);
@@ -27,7 +28,7 @@ const NavDrawerStyles = styled.div`
 
   .drawer {
     grid-column: 2;
-    padding: 1rem;
+    padding: 2rem 1rem 1rem;
     background: #ffffff;
     display: grid;
     align-items: center;
