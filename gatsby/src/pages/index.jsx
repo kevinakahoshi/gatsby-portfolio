@@ -1,17 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby";
+import Img from 'gatsby-image';
 
 // Components
 import Layout from '../components/Layout';
-import Img from 'gatsby-image';
 import Header from "../components/header/Header";
-import HeaderExperiment from '../components/header/HeaderExperiment';
+import HeaderExperiment from "../components/header/HeaderExperiment";
 import Hero from "../components/hero/Hero";
 import About from "../components/about/About";
 import Skills from '../components/skills/Skills';
 import Tools from "../components/tools/Tools";
-import Contact from '../components/contact/Contact';
 import Applications from "../components/applications/Applications";
+import Contact from '../components/contact/Contact';
+
 
 export const query = graphql`
   query {
