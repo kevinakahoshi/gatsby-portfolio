@@ -59,10 +59,11 @@ const navigationItems = [
   }
 ];
 
+const offset = -81;
+
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
-  const offset = -81;
 
   const desktopOrMobile = width > 850
     ? <NavigationDesktop

@@ -10,19 +10,22 @@ const HamburgerExperimentStyles = styled.button`
   border: none;
   background: none;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &[data-nav-open="false"] {
     .hamburger-bar {
       &#bar-1 {
-        transform: translateY(-8px);
+        transform: translateY(-8px) rotate(0deg);
       }
 
       &#bar-2 {
-        transform: translateY(0px);
+        opacity: 1;
       }
 
       &#bar-3 {
-        transform: translateY(8px);
+        transform: translateY(8px) rotate(0deg);
       }
     }
   }
@@ -30,16 +33,15 @@ const HamburgerExperimentStyles = styled.button`
   &[data-nav-open="true"] {
     .hamburger-bar {
       &#bar-1 {
-        transform: translateY(0px) rotate(135deg);
+        transform: translateY(0px) rotate(45deg);
       }
 
       &#bar-2 {
-        transform: translateY(0px);
         opacity: 0;
       }
 
       &#bar-3 {
-        transform: translateY(0px) rotate(-135deg);
+        transform: translateY(0px) rotate(-45deg);
       }
     }
   }
@@ -49,61 +51,18 @@ const HamburgerExperimentStyles = styled.button`
     height: 2px;
     background: var(--black);
     position: absolute;
-    transition: .2s transform;
-  }
-
-  @keyframes outer-open {
-    0% {
-
-    }
-
-    100% {
-
-    }
-  }
-
-  @keyframes outer-close {
-    0% {
-
-    }
-
-    100% {
-
-    }
-  }
-
-  @keyframes middle-open {
-    0% {
-
-    }
-
-    100% {
-
-    }
-  }
-
-  @keyframes middle-close {
-    0% {
-
-    }
-
-    100% {
-
-    }
+    transition: .3s all;
   }
 `;
 
-const HamburgerExperiment = ({ handleOpen, handleClose, handleHideOverlay }) => {
-  const [navOpen, setNavOpen] = useState(false);
-
+const HamburgerExperiment = ({ handleOpen, handleClose, handleHideOverlay, openMobileNav }) => {
   const handleClick = () => {
-    setNavOpen((bool) => !bool)
-    navOpen ? handleClose() : handleOpen();
+    openMobileNav ? handleClose() : handleOpen();
   }
 
   return (
     <HamburgerExperimentStyles
-      data-nav-open={navOpen}
+      data-nav-open={openMobileNav}
       onClick={handleClick}
     >
       <div className="hamburger-bar" id="bar-1" />

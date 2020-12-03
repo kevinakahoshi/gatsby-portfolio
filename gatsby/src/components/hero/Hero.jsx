@@ -51,8 +51,6 @@ const HeroStyles = styled.section`
 `;
 
 const Hero = () => {
-  console.log('Rendered');
-
   return (
     <HeroStyles id="hero" className="section">
       <div className="hero-text">
@@ -60,7 +58,6 @@ const Hero = () => {
         <h2>Software Engineer</h2>
       </div>
       <div className="hero-image">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nihil non minus molestiae quidem culpa cumque maiores odio exercitationem iure optio quasi suscipit voluptatibus expedita ipsa, qui tenetur. Autem, itaque?
       </div>
     </HeroStyles>
   )

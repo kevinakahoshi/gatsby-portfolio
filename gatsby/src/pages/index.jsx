@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Layout from '../components/Layout';
 import Img from 'gatsby-image';
 import Header from "../components/header/Header";
+import HeaderExperiment from '../components/header/HeaderExperiment';
 import Hero from "../components/hero/Hero";
 import About from "../components/about/About";
 import Skills from '../components/skills/Skills';
@@ -115,7 +116,8 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      <Header />
+      {/* <Header /> */}
+      <HeaderExperiment />
       <Hero />
       <About aboutMe={aboutMe} />
       <Skills skills={skills} />

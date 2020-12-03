@@ -14,6 +14,7 @@ const NavDrawerStyles = styled.div`
   top: 0;
   right: 0;
   transition: .3s all;
+  z-index: 2;
 
   &[data-open="false"] {
     transform: translateX(100%);
