@@ -19,6 +19,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  button,
+  a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
   a, button {
     cursor: pointer;
   }
