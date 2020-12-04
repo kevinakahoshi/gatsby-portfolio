@@ -26,6 +26,7 @@ const HeaderStyles = styled.header`
 
   .logo-wrapper {
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   .link-wrapper {
