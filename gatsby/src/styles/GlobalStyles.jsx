@@ -94,24 +94,24 @@ const GlobalStyles = createGlobalStyle`
   @keyframes slide-in {
     0% {
       opacity: 0;
-      /* transform: translateX(50%); */
+      transform: translateY(25%);
     }
 
     100% {
       opacity: 1;
-      /* transform: translateX(0%); */
+      transform: translateY(0%);
     }
   }
 
   @keyframes slide-out {
     0% {
       opacity: 1;
-      /* transform: translateX(0%); */
+      transform: translateY(0%);
     }
 
     100% {
       opacity: 0;
-      /* transform: translateX(50%); */
+      transform: translateY(25%);
     }
   }
 `;
