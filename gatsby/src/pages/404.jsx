@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import topographicHero from '../assets/images/topographic-hero.svg';
+import topographic from '../assets/images/topographic.svg';
 
 const NotFoundStyles = styled.section`
   height: 100%;
@@ -14,6 +14,10 @@ const NotFoundStyles = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
 
   .not-found-content-wrapper {
     display: grid;
@@ -22,12 +26,13 @@ const NotFoundStyles = styled.section`
     h1,
     h2 {
       text-align: center;
+      color: var(--white);
     }
 
     a {
       text-align: center;
-      color: var(--link-inactive-grey);
-      border: 2px solid var(--link-inactive-grey);
+      color: var(--white);
+      border: 2px solid var(--white);
       padding: .75rem;
       border-radius: .25rem;
       gap: .5rem;
@@ -35,11 +40,6 @@ const NotFoundStyles = styled.section`
       display: block;
       width: fit-content;
       margin: auto;
-
-      &:hover {
-        color: #000000B3;
-        border-color: #000000B3;
-      }
     }
   }
 
