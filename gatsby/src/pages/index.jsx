@@ -5,7 +5,6 @@ import Img from 'gatsby-image';
 // Components
 import Layout from '../components/Layout';
 import Header from "../components/header/Header";
-import HeaderExperiment from "../components/header/HeaderExperiment";
 import Hero from "../components/hero/Hero";
 import About from "../components/about/About";
 import Skills from '../components/skills/Skills';
@@ -117,8 +116,7 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      {/* <Header /> */}
-      <HeaderExperiment />
+      <Header />
       <Hero />
       <About aboutMe={aboutMe} />
       <Skills skills={skills} />
