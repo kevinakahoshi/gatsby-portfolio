@@ -11,6 +11,7 @@ import Skills from '../components/skills/Skills';
 import Tools from "../components/tools/Tools";
 import Applications from "../components/applications/Applications";
 import Contact from '../components/contact/Contact';
+import SEO from "../components/seo/SEO";
 
 
 export const query = graphql`
