@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const HamburgerExperimentStyles = styled.button`
+const NavigationHamburgerStyles = styled.button`
   padding: 0;
   outline: 0;
   height: 2rem;
@@ -55,21 +55,21 @@ const HamburgerExperimentStyles = styled.button`
   }
 `;
 
-const HamburgerExperiment = ({ handleOpen, handleClose, handleHideOverlay, openMobileNav }) => {
+const NavigationHamburger = ({ handleOpen, handleClose, handleHideOverlay, openMobileNav }) => {
   const handleClick = () => {
     openMobileNav ? handleClose() : handleOpen();
   }
 
   return (
-    <HamburgerExperimentStyles
+    <NavigationHamburgerStyles
       data-nav-open={openMobileNav}
       onClick={handleClick}
     >
       <div className="hamburger-bar" id="bar-1" />
       <div className="hamburger-bar" id="bar-2" />
       <div className="hamburger-bar" id="bar-3" />
-    </HamburgerExperimentStyles>
+    </NavigationHamburgerStyles>
   )
 }
 
-export default HamburgerExperiment;
+export default NavigationHamburger;

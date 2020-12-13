@@ -2,19 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Components
-import CloseButton from './CloseButton';
-import Hamburger from './Hamburger';
 import NavigationLink from './NavigationLink';
 
-const NavDrawerStyles = styled.aside`
-  height: calc(100vh - 81px);
+const NavigationMobileDrawerStyles = styled.aside`
+  height: calc(100% - var(--drawer-height));
   width: 80%;
   max-width: 400px;
   position: fixed;
-  top: 81px;
   right: 0;
   transition: .3s all;
   z-index: 1;
+
+  @media (min-width: 336px) {
+    --drawer-height: 81px;
+  }
+
+  @media (max-width: 335px) {
+    --drawer-height: 73px;
+  }
 
   &[data-open="false"] {
     transform: translateX(100%);
@@ -95,7 +100,7 @@ const NavDrawerStyles = styled.aside`
   }
 `;
 
-const NavDrawerExperiment = ({
+const NavigationMobileDrawer = ({
   offset,
   navigationItems,
   openMobileNav,
@@ -124,14 +129,14 @@ const NavDrawerExperiment = ({
   }
 
   return (
-    <NavDrawerStyles
+    <NavigationMobileDrawerStyles
       data-open={openMobileNav}
       onTransitionEnd={handleTransition}>
       <div className="drawer" >
         { navDrawerLinks }
       </div>
-    </NavDrawerStyles>
+    </NavigationMobileDrawerStyles>
   );
 }
 
-export default NavDrawerExperiment;
+export default NavigationMobileDrawer;
