@@ -23,6 +23,8 @@ const SEO = ({ location, children }) => {
   `);
 
   // TODO: Replace og:image URL so that it is not the favicon
+  // TODO: Update mobile navigation drawer logic to use context and update the
+  //       className on the body tag here
   return (
     <Helmet>
       <html lang="en-us" />
@@ -46,7 +48,9 @@ const SEO = ({ location, children }) => {
         content={description}
         key="ogdescription"
       />
-      { children }
+      <body>
+        { children }
+      </body>
     </Helmet>
   )
 }
