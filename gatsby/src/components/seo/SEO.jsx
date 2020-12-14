@@ -29,26 +29,26 @@ const SEO = ({ location, children }) => {
   // TODO: Replace og:image URL so that it is not the favicon
   return (
     <Helmet>
-      <html lang="en-us" />
+      <html lang='en-us' />
       <title>
         { title }
       </title>
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta charset="UTF-8" />
-      <meta name="description" content={description} />
-      <meta property="og:url" content={location} />
-      <meta property="og:image" content="/favicon.svg" />
-      <meta property="og:title" content={title} key="ogtitle" />
+      <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <meta charset='UTF-8' />
+      <meta name='description' content={description} />
+      <meta property='og:url' content={location} />
+      <meta property='og:image' content='/favicon.svg' />
+      <meta property='og:title' content={title} key='ogtitle' />
       <meta
-        property="og:site_name"
+        property='og:site_name'
         content={title}
-        key="ogsitename"
+        key='ogsitename'
       />
       <meta
-        property="og:description"
+        property='og:description'
         content={description}
-        key="ogdescription"
+        key='ogdescription'
       />
       <body className={bodyClass}>
         { children }
