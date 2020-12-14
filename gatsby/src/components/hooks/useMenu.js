@@ -1,17 +1,31 @@
 import React, {
+  useContext,
   useState
 } from 'react';
-
+import MenuContext from '../context/MenuContext';
 
 const useMenu = () => {
-  const [open, setOpen] = useState(false);
-  const [sliding, setSliding] = useState(false);
+  const { openMobileNav, setOpenMobileNav } = useContext(MenuContext);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleClose = () => setOpenMobileNav(() => false);
+
+  const handleHideOverlay = () => setShowOverlay(() => false);
+
+  const handleShowOverlay = () => setShowOverlay(() => true);
+
+  const handleOpen = () => {
+    setOpenMobileNav(() => true);
+    handleShowOverlay();
+  };
 
   return {
-    open,
-    setOpen,
-    sliding,
-    setSliding
+    openMobileNav,
+    showOverlay,
+    handleClose,
+    handleOpen,
+    handleHideOverlay,
+    handleShowOverlay
   };
 };
 

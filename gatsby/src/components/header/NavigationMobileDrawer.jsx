@@ -5,20 +5,21 @@ import styled from 'styled-components';
 import NavigationLink from './NavigationLink';
 
 const NavigationMobileDrawerStyles = styled.aside`
-  height: calc(100% - var(--drawer-height));
+  height: calc(100% - var(--offset));
   width: 80%;
   max-width: 400px;
   position: fixed;
+  top: var(--offset);
   right: 0;
   transition: .3s all;
   z-index: 1;
 
   @media (min-width: 336px) {
-    --drawer-height: 81px;
+    --offset: 81px;
   }
 
   @media (max-width: 335px) {
-    --drawer-height: 73px;
+    --offset: 73px;
   }
 
   &[data-open="false"] {
