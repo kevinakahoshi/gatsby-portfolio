@@ -1,5 +1,6 @@
 import React, {
   useCallback,
+  useContext,
   useEffect,
   useState
 } from 'react';
@@ -14,6 +15,7 @@ import NavigationHamburger from './NavigationHamburger';
 import NavigationMobileDrawer from './NavigationMobileDrawer';
 import NavigationDesktop from './NavigationDesktop';
 import Overlay from './Overlay';
+import useMenu from '../hooks/useMenu';
 
 const HeaderStyles = styled.header`
   background: var(--white);
@@ -73,18 +75,18 @@ const body = document.querySelector('body');
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [openMobileNav, setOpenMobileNav] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const handleScrollTop = () => scroll.scrollToTop();
-  const handleShowOverlay = () => setShowOverlay(() => true);
-  const handleHideOverlay = () => setShowOverlay(() => false);
-  const handleClose = () => setOpenMobileNav(() => false);
-  const handleOpen = () => {
-    setOpenMobileNav(() => true);
-    handleShowOverlay();
-  };
+  const {
+    openMobileNav,
+    showOverlay,
+    handleShowOverlay,
+    handleHideOverlay,
+    handleClose,
+    handleOpen
+  } = useMenu();
+
   const handleLogoClick = () => {
     if (!isDesktop && openMobileNav) {
       handleClose();
@@ -131,9 +133,6 @@ const Header = () => {
     } else {
       setIsDesktop(() => false);
     }
-
-    // TODO: Find out how to do this the Gatsby way and not this unsophisticated way
-    openMobileNav ? body.classList.add('no-scroll') : body.classList.remove('no-scroll');
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

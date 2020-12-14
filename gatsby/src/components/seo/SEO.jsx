@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
+import useMenu from '../hooks/useMenu';
 
 
 const SEO = ({ location, children }) => {
@@ -22,9 +23,10 @@ const SEO = ({ location, children }) => {
     }
   `);
 
+  const { openMobileNav } = useMenu();
+  const bodyClass = openMobileNav ? 'no-scroll' : '';
+
   // TODO: Replace og:image URL so that it is not the favicon
-  // TODO: Update mobile navigation drawer logic to use context and update the
-  //       className on the body tag here
   return (
     <Helmet>
       <html lang="en-us" />
@@ -48,7 +50,7 @@ const SEO = ({ location, children }) => {
         content={description}
         key="ogdescription"
       />
-      <body>
+      <body className={bodyClass}>
         { children }
       </body>
     </Helmet>
