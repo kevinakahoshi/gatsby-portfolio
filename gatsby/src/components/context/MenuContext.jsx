@@ -8,10 +8,10 @@ const MenuContext = createContext();
 export const MenuProvider = ({ children }) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
-  const menuContextValue = {
+  const menuContextValue = [
     openMobileNav,
     setOpenMobileNav,
-  };
+  ];
 
   return (
     <MenuContext.Provider value={menuContextValue}>

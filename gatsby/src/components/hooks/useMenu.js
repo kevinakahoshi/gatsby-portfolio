@@ -5,7 +5,7 @@ import React, {
 import MenuContext from '../context/MenuContext';
 
 const useMenu = () => {
-  const { openMobileNav, setOpenMobileNav } = useContext(MenuContext);
+  const [openMobileNav, setOpenMobileNav] = useContext(MenuContext);
   const [showOverlay, setShowOverlay] = useState(false);
 
   const handleClose = () => setOpenMobileNav(() => false);
