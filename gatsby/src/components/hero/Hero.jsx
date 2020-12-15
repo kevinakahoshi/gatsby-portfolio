@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import topographicHero from '../../assets/images/topographic-hero.svg';
+import HeroImage from './HeroImage';
 
 const HeroStyles = styled.section`
   background: #ffffff;
@@ -11,7 +12,7 @@ const HeroStyles = styled.section`
   @media (min-width: 768px) {
     background-image: url(${topographicHero});
     background-repeat: no-repeat;
-    background-position: right -25vh top;
+    background-position: right -25vh bottom 0vh;
     background-size: contain;
     grid-template-columns: 1fr 1fr;
   }
@@ -58,6 +59,7 @@ const Hero = () => {
         <h2>Software Engineer</h2>
       </div>
       <div className="hero-image">
+        <HeroImage />
       </div>
     </HeroStyles>
   )
