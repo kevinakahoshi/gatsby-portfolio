@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Corsa Grotesk';
   src: url('../assets/fonts/corsa-grotesk-regular.woff2') format('woff2'),
     url('../assets/fonts/corsa-grotesk-regular.woff') format('woff');
@@ -12,4 +12,34 @@
     url('../assets/fonts/corsa-grotesk-regular.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+} */
+
+@font-face {
+  font-family: 'Corsa Grotesk';
+  src: url('../assets/fonts/corsa-grotesk-regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'Corsa Grotesk';
+  src: url('../assets/fonts/corsa-grotesk-regular.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: 'Corsa Grotesk';
+  src: url('../assets/fonts/corsa-grotesk-regular-test.woff2') format('woff2'),
+    url('../assets/fonts/corsa-grotesk-regular-test.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Corsa Grotesk';
+  src: url('../assets/fonts/corsa-grotesk-regular-test.woff2') format('woff2'),
+    url('../assets/fonts/corsa-grotesk-regular-test.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+} */

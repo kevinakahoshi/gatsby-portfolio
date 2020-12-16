@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import HeroImageAboveTheFold from './HeroImageAboveTheFold';
+import HeroImageAbout from './HeroImageAbout';
 import HeroImageShadowDOM from './HeroImageShadowDOM';
 import HeroImageTextLine from './HeroImageTextLine';
 import HeroImageValueProp from './HeroImageValueProp';
+import HeroImageValueProps from './HeroImageValueProps';
+import HeroImageHeader from './HeroImageHeader';
 
 const HeroImageStyles = styled.div`
   position: relative;
@@ -28,80 +32,31 @@ const HeroImageStyles = styled.div`
     height: var(--wrapper-height);
     max-height: var(--wrapper-max-height);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-    display: grid;
-    grid-template-rows: var(--inner-grid-rows);
-    grid-gap: var(--inner-gap);
-    overflow: scroll;
+    overflow: hidden;
 
     @media (min-width: 851px) {
       --wrapper-height: 50vh;
       --wrapper-max-height: 450px;
-      --inner-grid-rows: 4fr 5fr;
-      --inner-gap: 2rem;
     }
 
     @media (max-width: 850px) {
       --wrapper-height: 35vh;
       --wrapper-max-height: 300px;
-      --inner-grid-rows: 1fr 1fr;
-      --inner-gap: 1.25rem;
     }
 
-    .above-the-fold {
-      background: var(--medium-grey);
-      border-radius: .25rem;
-      min-height: 100px;
-    }
+    .content-wrapper {
+      /* display: grid;
+      grid-gap: var(--content-wrapper-gap); */
+      /* animation: scroll 15s infinite ease-in-out; */
+      animation-delay: .3s;
 
-    .below-the-fold {
-      @media (min-width: 851px) {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        grid-gap: 2.5rem;
+      /* @media (min-width: 851px) {
+        --content-wrapper-gap: 2.5rem;
       }
 
       @media (max-width: 850px) {
-        display: block;
-      }
-
-      .mock-about-section {
-        height: 100%;
-        display: grid;
-        grid-gap: 1rem;
-
-        @media (min-width: 851px) {
-          grid-template-columns: 4fr 8fr;
-        }
-
-        .about-image {
-          padding-bottom: 100%;
-          background: #ccc;
-          border-radius: .25rem;
-
-          @media (max-width: 850px) {
-            display: none;
-          }
-        }
-
-        .about-text {
-          display: grid;
-          grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-          grid-gap: .5rem;
-          height: 100%auto;
-        }
-      }
-
-      .mock-value-props {
-        @media (min-width: 851px) {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-gap: 1rem;
-        }
-
-        @media (max-width: 850px) {
-          display: none;
-        }
-      }
+        --content-wrapper-gap: 1.5rem;
+      } */
     }
   }
 
@@ -118,13 +73,27 @@ const HeroImageStyles = styled.div`
       transform: translateY(0%) translateX(0%);
     }
   }
+
+  @keyframes scroll {
+    0%, 25% {
+      transform: translateY(0%);
+    }
+
+    25%, 50% {
+      transform: translateY(-33%);
+    }
+
+    50%, 75% {
+      transform: translateY(-33%);
+    }
+
+    75%, 100% {
+      transform: translateY(0%);
+    }
+  }
 `;
 
 const HeroImage = () => {
-  const heroImageTextLines = new Array(5)
-    .fill(undefined)
-    .map((_, index) => <HeroImageTextLine index={index} key={index} />);
-
   const heroImageValueProps = new Array(12)
     .fill(undefined)
     .map((_, index) => <HeroImageValueProp key={index} />);
@@ -132,17 +101,11 @@ const HeroImage = () => {
   return(
     <HeroImageStyles>
       <div className="inner-wrapper">
-        <div className="above-the-fold" />
-        <div className="below-the-fold">
-          <div className="mock-about-section">
-            <div className="about-image" />
-            <div className="about-text">
-              { heroImageTextLines }
-            </div>
-          </div>
-          <div className="mock-value-props">
-            { heroImageValueProps }
-          </div>
+        <div className="content-wrapper">
+          <HeroImageHeader />
+          <HeroImageAboveTheFold />
+          <HeroImageAbout />
+          <HeroImageValueProps />
         </div>
       </div>
       <HeroImageShadowDOM />
