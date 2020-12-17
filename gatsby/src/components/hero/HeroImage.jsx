@@ -23,6 +23,13 @@ const HeroImageStyles = styled.div`
     --hero-width: 200px;
   }
 
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 25%;
+    right: 1rem;
+    z-index: 0;
+  }
+
   .inner-wrapper {
     background: var(--white);
     padding: 1rem;

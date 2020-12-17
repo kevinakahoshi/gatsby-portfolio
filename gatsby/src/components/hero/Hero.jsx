@@ -24,6 +24,7 @@ const HeroStyles = styled.section`
   .hero-text {
     display: flex;
     flex-direction: column;
+    z-index: 1;
 
     @media (min-width: 768px) {
       align-self: center;
@@ -44,6 +45,7 @@ const HeroStyles = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     @media (max-width: 767px) {
       grid-row: 1;
