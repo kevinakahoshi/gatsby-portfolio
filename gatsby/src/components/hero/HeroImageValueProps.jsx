@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import HeroImageValueProp from './HeroImageValueProp';
 
 const HeroImageValuePropsStyles = styled.div`
+  padding: 2rem 0rem;
+
   @media (min-width: 851px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

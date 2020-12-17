@@ -7,6 +7,7 @@ import HeroImageTextLine from './HeroImageTextLine';
 import HeroImageValueProp from './HeroImageValueProp';
 import HeroImageValueProps from './HeroImageValueProps';
 import HeroImageHeader from './HeroImageHeader';
+import HeroImageTools from './HeroImageTools';
 
 const HeroImageStyles = styled.div`
   position: relative;
@@ -47,7 +48,7 @@ const HeroImageStyles = styled.div`
     .content-wrapper {
       /* display: grid;
       grid-gap: var(--content-wrapper-gap); */
-      /* animation: scroll 15s infinite ease-in-out; */
+      animation: scroll 15s infinite ease-in-out;
       animation-delay: .3s;
 
       /* @media (min-width: 851px) {
@@ -80,11 +81,11 @@ const HeroImageStyles = styled.div`
     }
 
     25%, 50% {
-      transform: translateY(-33%);
+      transform: translateY(-50%);
     }
 
     50%, 75% {
-      transform: translateY(-33%);
+      transform: translateY(-50%);
     }
 
     75%, 100% {
@@ -106,6 +107,7 @@ const HeroImage = () => {
           <HeroImageAboveTheFold />
           <HeroImageAbout />
           <HeroImageValueProps />
+          <HeroImageTools />
         </div>
       </div>
       <HeroImageShadowDOM />
