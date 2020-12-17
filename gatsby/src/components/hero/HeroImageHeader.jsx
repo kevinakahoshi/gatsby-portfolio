@@ -6,6 +6,8 @@ const HeroImageHeaderStyles = styled.div`
   grid-template-columns: 25% auto;
   grid-gap: 5rem;
   margin-bottom: 1rem;
+  border-bottom: 2px solid #CCCCCC80;
+  padding-bottom: .5rem;
 
   .icon {
     border: 2px solid var(--medium-grey);
@@ -41,6 +43,12 @@ const HeroImageHeaderStyles = styled.div`
       height: 25%;
     }
   }
+
+  .burger {
+    height: 25%;
+    background: var(--medium-grey);
+    grid-column: 5;
+  }
 `;
 
 const HeroImageHeader = () => {
@@ -51,10 +59,16 @@ const HeroImageHeader = () => {
     ));
 
   const links = new Array(5)
-  .fill(undefined)
-  .map((_, index) => (
-    <div id={index} className="link" />
-  ));
+    .fill(undefined)
+    .map((_, index) => (
+      <div key={index} className="link" />
+    ));
+
+  const burger = <div className="burger" />;
+
+  const linksOrBurger = window.innerWidth > 850
+    ? links
+    : burger;
 
   return (
     <HeroImageHeaderStyles>
@@ -62,7 +76,7 @@ const HeroImageHeader = () => {
         { letters }
       </div>
       <div className="link-list">
-        { links }
+        { linksOrBurger }
       </div>
     </HeroImageHeaderStyles>
   )
