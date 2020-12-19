@@ -14,16 +14,6 @@ const GlobalStyles = createGlobalStyle`
     --link-active-grey: #191919;
   }
 
-  html {
-    overflow: hidden;
-    height: 100%;
-  }
-
-  body {
-      height: 100%;
-      overflow: auto;
-  }
-
   * {
     font-size: 1rem;
     box-sizing: border-box;
