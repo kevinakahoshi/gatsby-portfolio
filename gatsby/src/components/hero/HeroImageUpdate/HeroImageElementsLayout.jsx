@@ -1,0 +1,28 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const HeroImageElementsLayoutStyles = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 1rem;
+  left: -1rem;
+  display: grid;
+  grid-template-rows: auto 1fr 1fr;
+  grid-gap: 1rem;
+  z-index: 3;
+
+  * {
+    background: white;
+  }
+`;
+
+const HeroImageElementsLayout = ({ children }) => {
+  return (
+    <HeroImageElementsLayoutStyles>
+      { children }
+    </HeroImageElementsLayoutStyles>
+  )
+};
+
+export default HeroImageElementsLayout;
