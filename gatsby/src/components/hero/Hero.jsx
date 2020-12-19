@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import topographicHero from '../../assets/images/topographic-hero.svg';
 import HeroImage from './HeroImage';
+import HeroImageUpdate from './HeroImageUpdate/HeroImageUpdate';
 
 const HeroStyles = styled.section`
   background: #ffffff;
@@ -61,7 +62,8 @@ const Hero = () => {
         <h2>Software Engineer</h2>
       </div>
       <div className="hero-image">
-        <HeroImage />
+        {/* <HeroImage /> */}
+        <HeroImageUpdate />
       </div>
     </HeroStyles>
   )
