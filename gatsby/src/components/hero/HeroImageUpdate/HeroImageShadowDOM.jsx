@@ -12,6 +12,7 @@ const HeroImageShadowDOMStyles = styled.div`
   z-index: 1;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   animation: float 5s infinite ease-in-out;
+  animation-delay: .5s;
 `;
 
 const HeroImageShadowDOM = () => {

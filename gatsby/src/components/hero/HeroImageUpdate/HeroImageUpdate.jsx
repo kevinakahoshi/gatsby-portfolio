@@ -14,6 +14,7 @@ const HeroImageUpdateStyles = styled.div`
 
   * {
     border-radius: .25rem;
+    animation-delay: .3s;
   }
 
   @media (min-width: 851px) {

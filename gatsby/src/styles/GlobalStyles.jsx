@@ -118,15 +118,29 @@ const GlobalStyles = createGlobalStyle`
 
   @keyframes float {
     0% {
-      transform: translateY(0vmin) translateX(0vmin);
+      transform: translateY(0%) translateX(0%);
     }
 
     50% {
-      transform: translateY(-0.5vmin) translateX(-0.25vmin);
+      transform: translateY(-1.5%) translateX(-0.5%);
     }
 
     100% {
-      transform: translateY(0vmin) translateX(0vmin);
+      transform: translateY(0%) translateX(0%);
+    }
+  }
+
+  @keyframes element-float {
+    0% {
+      transform: translateY(0%) translateX(0%);
+    }
+
+    50% {
+      transform: translateY(-7.5%) translateX(-2.5%);
+    }
+
+    100% {
+      transform: translateY(0%) translateX(0%);
     }
   }
 `;

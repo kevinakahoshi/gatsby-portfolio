@@ -18,7 +18,7 @@ const HeroImageHeroStyles = styled.div`
     grid-gap: .5rem;
     position: relative;
     z-index: 3;
-    animation: float 5s infinite ease-in-out;
+    animation: element-float 7.5s infinite ease-in-out;
 
     .hero-text-element {
       background: var(--white);
