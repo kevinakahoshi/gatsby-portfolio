@@ -16,7 +16,7 @@ const HeroImageHeaderStyles = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    animation: float 5s infinite ease-in-out;
+    animation: element-float 7.5s infinite ease-in-out;
     cursor: pointer;
 
     .circle {
@@ -41,7 +41,7 @@ const HeroImageHeaderStyles = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     grid-gap: .5rem;
     align-items: center;
-    animation: float 5s infinite ease-in-out;
+    animation: element-float 7.5s infinite ease-in-out;
 
     .header-link {
       padding: .25rem;

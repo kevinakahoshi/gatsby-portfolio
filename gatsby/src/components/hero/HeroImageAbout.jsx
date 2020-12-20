@@ -30,7 +30,7 @@ const HeroImageAboutStyles = styled.div`
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
     grid-gap: .5rem;
-    height: 100%auto;
+    height: 100%;
   }
 `;
 
