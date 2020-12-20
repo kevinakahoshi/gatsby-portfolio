@@ -11,10 +11,7 @@ const HeroImageElementsLayoutStyles = styled.div`
   grid-template-rows: auto 1fr 1fr;
   grid-gap: 1rem;
   z-index: 3;
-
-  * {
-    background: white;
-  }
+  animation: float 5s infinite ease-in-out;
 `;
 
 const HeroImageElementsLayout = ({ children }) => {

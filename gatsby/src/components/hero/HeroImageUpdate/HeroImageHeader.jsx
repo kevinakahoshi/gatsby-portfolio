@@ -10,18 +10,20 @@ const HeroImageHeaderStyles = styled.div`
   padding: .5rem;
   grid-gap: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  animation: float 5s infinite ease-in-out;
 
   .logo {
     position: relative;
     display: flex;
     align-items: center;
+    animation: float 5s infinite ease-in-out;
+    cursor: pointer;
 
     .circle {
       padding: 2vmin;
       background: var(--red);
       border-radius: 100%;
-      opacity: .5;
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
     }
 
     .text {
@@ -30,7 +32,7 @@ const HeroImageHeaderStyles = styled.div`
       background: var(--medium-grey);
       position: absolute;
       left: 1rem;
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
     }
   }
 
@@ -39,12 +41,23 @@ const HeroImageHeaderStyles = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     grid-gap: .5rem;
     align-items: center;
+    animation: float 5s infinite ease-in-out;
 
     .header-link {
       padding: .25rem;
       height: min-content;
-      background: var(--medium-grey);
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+      background: var(--dark-grey);
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .5);
+      cursor: pointer;
+      transition: .3s all;
+
+      &:not(:hover) {
+        opacity: .25;
+      }
+
+      &:hover {
+        opacity: .5;
+      }
     }
   }
 `;

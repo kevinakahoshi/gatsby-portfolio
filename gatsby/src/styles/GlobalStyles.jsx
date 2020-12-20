@@ -114,6 +114,21 @@ const GlobalStyles = createGlobalStyle`
       transform: translateY(25%);
     }
   }
+
+
+  @keyframes float {
+    0% {
+      transform: translateY(0vmin) translateX(0vmin);
+    }
+
+    50% {
+      transform: translateY(-0.5vmin) translateX(-0.25vmin);
+    }
+
+    100% {
+      transform: translateY(0vmin) translateX(0vmin);
+    }
+  }
 `;
 
 export default GlobalStyles;
