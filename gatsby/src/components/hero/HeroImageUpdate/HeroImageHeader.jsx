@@ -10,13 +10,13 @@ const HeroImageHeaderStyles = styled.div`
   padding: .5rem;
   grid-gap: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-  animation: float 5s infinite ease-in-out;
+  /* animation: float 5s infinite ease-in-out; */
 
   .logo {
     position: relative;
     display: flex;
     align-items: center;
-    animation: element-float 7.5s infinite ease-in-out;
+    /* animation: element-float 7.5s infinite ease-in-out; */
     cursor: pointer;
 
     .circle {
@@ -41,7 +41,7 @@ const HeroImageHeaderStyles = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     grid-gap: .5rem;
     align-items: center;
-    animation: element-float 7.5s infinite ease-in-out;
+    /* animation: element-float 7.5s infinite ease-in-out; */
 
     .header-link {
       padding: .25rem;

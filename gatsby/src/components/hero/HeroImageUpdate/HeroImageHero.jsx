@@ -11,14 +11,14 @@ const HeroImageHeroStyles = styled.div`
   padding: 1.5rem;
   display: flex;
   align-items: center;
-  animation: float 5s infinite ease-in-out;
+  /* animation: float 5s infinite ease-in-out; */
 
   .hero-text-wrapper {
     display: grid;
     grid-gap: .5rem;
     position: relative;
     z-index: 3;
-    animation: element-float 7.5s infinite ease-in-out;
+    /* animation: element-float 7.5s infinite ease-in-out; */
 
     .hero-text-element {
       background: var(--white);
@@ -53,7 +53,7 @@ const HeroImageHeroStyles = styled.div`
 
       .hero-text-button-text {
         display: block;
-        padding: .125vmin;
+        padding: .25vmin;
         width: 100%;
       }
     }
