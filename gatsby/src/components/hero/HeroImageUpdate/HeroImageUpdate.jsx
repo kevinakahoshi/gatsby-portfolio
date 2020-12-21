@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // Components
 import HeroImageBackground from './HeroImageBackground';
+import HeroImageBelowTheFold from './HeroImageBelowTheFold';
 import HeroImageElementsLayout from './HeroImageElementsLayout';
 import HeroImageHeader from './HeroImageHeader';
 import HeroImageHero from './HeroImageHero';
@@ -10,7 +11,7 @@ import HeroImageSHadowDOM from './HeroImageShadowDOM';
 
 const HeroImageUpdateStyles = styled.div`
   position: relative;
-  transform: perspective(1250px) rotateY(-30deg) rotateX(15deg);
+  /* transform: perspective(1250px) rotateY(-30deg) rotateX(15deg); */
 
   * {
     border-radius: .25rem;
@@ -35,7 +36,7 @@ const HeroImageUpdate = () => {
       <HeroImageElementsLayout>
         <HeroImageHeader />
         <HeroImageHero />
-        <div></div>
+        <HeroImageBelowTheFold />
       </HeroImageElementsLayout>
       <HeroImageBackground />
       <HeroImageSHadowDOM />
