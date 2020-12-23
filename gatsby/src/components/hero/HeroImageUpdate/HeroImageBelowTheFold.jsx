@@ -19,12 +19,32 @@ const HeroImageBelowTheFoldStyles = styled.div`
     background: var(--white);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
     /* animation: float 5s infinite ease-in-out; */
-    border: 2px solid var(--medium-grey);
   }
 
   .image {
     height: 100%;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .circle {
+    &__inner {
+      box-shadow: 0 1rem 2rem inset rgba(0, 0, 0, .25);
+      padding: 2rem;
+      border-radius: 2rem;
+      background: var(--white);
+    }
+
+    &__outer {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
+      padding: 2rem;
+      border-radius: 4rem;
+      position: absolute;
+      top: 50%;
+      left: -25%;
+      background: var(--red);
+    }
   }
 `;
 
@@ -32,7 +52,11 @@ const HeroImageBelowTheFold = () => {
   return (
     <HeroImageBelowTheFoldStyles>
       <div className="btf-left">
-        <div className="image" />
+        <div className="image">
+          <div className="circle__outer">
+            <div className="circle__inner" />
+          </div>
+        </div>
       </div>
       <div className="btf-right">
         <div className="col-1" />
