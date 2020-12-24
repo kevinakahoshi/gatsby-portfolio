@@ -14,8 +14,8 @@ const HeroImageBelowTheFoldStyles = styled.div`
   }
 
   .image,
-  .col-1,
-  .col-2 {
+  .row-1,
+  .row-2 {
     background: var(--white);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
     /* animation: float 5s infinite ease-in-out; */
@@ -31,15 +31,15 @@ const HeroImageBelowTheFoldStyles = styled.div`
   .circle {
     &__inner {
       box-shadow: 0 1rem 2rem inset rgba(0, 0, 0, .25);
-      padding: 2rem;
-      border-radius: 2rem;
+      padding: 5vh;
+      border-radius: 5vh;
       background: var(--white);
     }
 
     &__outer {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
-      padding: 2rem;
-      border-radius: 4rem;
+      padding: 3.5vh;
+      border-radius: 100vh;
       position: absolute;
       top: 50%;
       left: -25%;
@@ -59,8 +59,8 @@ const HeroImageBelowTheFold = () => {
         </div>
       </div>
       <div className="btf-right">
-        <div className="col-1" />
-        <div className="col-2" />
+        <div className="row-1" />
+        <div className="row-2" />
       </div>
     </HeroImageBelowTheFoldStyles>
   )

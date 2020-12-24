@@ -8,7 +8,7 @@ const OverlayStyles = styled.div`
   left: 0;
   right: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 19;
 
   // TODO: Make these more DRY
   &.fade-in {

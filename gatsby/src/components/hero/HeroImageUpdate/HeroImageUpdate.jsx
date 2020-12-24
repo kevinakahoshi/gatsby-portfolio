@@ -25,7 +25,7 @@ const HeroImageUpdateStyles = styled.div`
 
   @media (max-width: 850px) {
     height: 35vh;
-    width: 100%;
+    width: 35vh;
     max-width: 350px;
   }
 `;

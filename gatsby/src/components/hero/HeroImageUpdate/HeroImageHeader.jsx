@@ -31,7 +31,7 @@ const HeroImageHeaderStyles = styled.div`
       width: 10vmin;
       background: var(--medium-grey);
       position: absolute;
-      left: 1rem;
+      left: 2vmin;
       box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
     }
   }
