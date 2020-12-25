@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import HeroImageTextBlock from './HeroImageTextBlock';
+
+// Components
+
 
 const HeroImageBelowTheFoldStyles = styled.div`
   display: grid;
@@ -13,8 +17,7 @@ const HeroImageBelowTheFoldStyles = styled.div`
     grid-gap: 1rem;
   }
 
-  .image,
-  .row {
+  .image {
     background: var(--white);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
     /* animation: float 5s infinite ease-in-out; */
@@ -46,32 +49,9 @@ const HeroImageBelowTheFoldStyles = styled.div`
     }
   }
 
-  .row {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-gap: .5rem;
-    align-items: center;
-    padding: .5rem;
-
-    &-image {
-      background: var(--medium-grey);
-      padding: 1rem;
-      border-radius: 5rem;
-      height: min-content;
-      width: min-content;
-    }
-
-    &-text {
-      display: grid;
-      grid-gap: .125rem;
-      grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-      height: 100%;
-
-      .text-line {
-        width: 100%;
-        background: var(--medium-grey);
-      }
-    }
+  .text-line {
+    width: 100%;
+    background: var(--medium-grey);
   }
 `;
 
@@ -90,18 +70,12 @@ const HeroImageBelowTheFold = () => {
         </div>
       </div>
       <div className="btf-right">
-        <div className="row">
-          <div className="row-image" />
-          <div className="row-text">
-            { textLines }
-          </div>
-        </div>
-        <div className="row">
-          <div className="row-image" />
-          <div className="row-text">
-            { textLines }
-          </div>
-        </div>
+        <HeroImageTextBlock>
+          { textLines }
+        </HeroImageTextBlock>
+        <HeroImageTextBlock>
+          { textLines }
+        </HeroImageTextBlock>
       </div>
     </HeroImageBelowTheFoldStyles>
   )
