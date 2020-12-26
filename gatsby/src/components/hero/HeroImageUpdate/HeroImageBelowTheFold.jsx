@@ -19,7 +19,7 @@ const HeroImageBelowTheFoldStyles = styled.div`
 
   .image {
     background: var(--white);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, .175);
     /* animation: float 5s infinite ease-in-out; */
   }
 
@@ -33,19 +33,37 @@ const HeroImageBelowTheFoldStyles = styled.div`
   .circle {
     &__inner {
       box-shadow: 0 1rem 2rem inset rgba(0, 0, 0, .25);
-      padding: 5vh;
-      border-radius: 5vh;
+      padding: 5vmin;
+      border-radius: 100vh;
       background: var(--white);
     }
 
     &__outer {
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, .25);
-      padding: 3.5vh;
+      box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, .25);
+      padding: 5vmin;
       border-radius: 100vh;
       position: absolute;
-      top: 50%;
-      left: -25%;
+      top: 12vmin;
+      left: -7vmin;
       background: var(--red);
+    }
+  }
+
+  .square {
+    &__inner {
+      box-shadow: 0.5rem 0.5rem 2rem inset rgba(0, 0, 0, .25);
+      padding: 4vmin;
+      background: var(--white);
+    }
+
+    &__outer {
+      box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, .25);
+      padding: 4vmin;
+      position: absolute;
+      top: -7.5vmin;
+      left: 10vmin;
+      background: var(--red);
+      transform: rotate(45deg);
     }
   }
 
@@ -66,6 +84,9 @@ const HeroImageBelowTheFold = () => {
         <div className="image">
           <div className="circle__outer">
             <div className="circle__inner" />
+          </div>
+          <div className="square__outer">
+            <div className="square__inner" />
           </div>
         </div>
       </div>
