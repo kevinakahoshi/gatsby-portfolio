@@ -21,9 +21,6 @@ const HeroImageBelowTheFoldStyles = styled.div`
     background: var(--white);
     box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, .175);
     /* animation: float 5s infinite ease-in-out; */
-  }
-
-  .image {
     height: 100%;
     width: 100%;
     position: relative;

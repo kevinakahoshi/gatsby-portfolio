@@ -6,7 +6,7 @@ const HeroImageHeroStyles = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg, #e64242, #e67442);;
+  background: linear-gradient(-45deg, #e64242, #e67442);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   padding: 1.5rem;
   display: flex;
