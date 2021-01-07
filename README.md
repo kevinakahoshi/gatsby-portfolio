@@ -6,8 +6,9 @@ however I wanted to give a headless CMS a shot, so I am rebuilding it using JAM 
 ## Technologies
 
 - Gatsby.js
+- React Context
 - Styled Components
-- Sanity.io
+- Sanity Studio
 
 ## Project Status
 
