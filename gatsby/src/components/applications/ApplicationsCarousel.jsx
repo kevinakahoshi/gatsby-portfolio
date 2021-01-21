@@ -1,10 +1,12 @@
 import React, {
+  createRef,
   useEffect,
   useRef,
   useState
 } from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Slider from 'react-slick';
 
 // Components
 import ApplicationsImage from './ApplicationsImage';
@@ -34,19 +36,28 @@ const ApplicationsCarouselStyles = styled.div`
     .slides-wrapper {
       overflow: hidden;
       border-radius: .25rem;
+
+      .applications-slick-carousel {
+        .slick-track {
+          display: flex;
+
+          .slick-slide > div {
+            font-size: 0;
+          }
+        }
+      }
     }
 
     .applications-slides {
       display: grid;
-      grid-template-columns: repeat(6, 100%);
+      grid-template-columns: repeat(${({numberOfSlides}) => numberOfSlides}, 100%);
       grid-gap: 3rem;
-      transition: .5s all;
 
       a[data-deployed="false"] {
         opacity: .5;
       }
 
-      a.active,
+      /* a.active,
       a.inactive {
         &:hover {
           cursor: grab;
@@ -55,7 +66,7 @@ const ApplicationsCarouselStyles = styled.div`
         &:active {
           cursor: grabbing;
         }
-      }
+      } */
     }
 
     .controls-wrapper {
@@ -97,17 +108,16 @@ const ApplicationsCarouselStyles = styled.div`
 
 const ApplicationsCarousel = ({ projects }) => {
   const [slide, setSlide] = useState(0);
-  const [isActive, setIsActive] = useState(true);
-  // const [style, setStyle] = useState();
+  const slider = createRef();
 
   const applicationImages = projects.map((project, index) => (
     <a
-      key={project.id}
+      key={`${project.id}--${index}`}
       href={project.liveLink}
       target="_blank"
       rel="noopener noreferrer"
       data-deployed={!!project.liveLink}
-      className={index === slide ? 'active' : 'inactive'}
+      className={`carousel-image-slide${index === slide ? ' active' : ' inactive'}`}
     >
       <ApplicationsImage
         altText={project.altText}
@@ -120,7 +130,7 @@ const ApplicationsCarousel = ({ projects }) => {
 
   const applicationsDescriptions = projects.map((project, index) => (
     <ApplicationsCarouselDescription
-      key={project.id}
+      key={`${project.id}--${index}`}
       gitHubLink={project.gitHubLink}
       liveLink={project.liveLink}
       projectName={project.projectName}
@@ -129,53 +139,40 @@ const ApplicationsCarousel = ({ projects }) => {
     />
   ))
 
-  const nextSlide = () => setSlide((currentSlide) =>
-    currentSlide < projects.length - 1 ? currentSlide + 1 : 0);
+  const pauseSlides = () => slider.current.slickPause();
+  const startSlides = () => slider.current.slickPlay();
+  const previousSlide = () => slider.current.slickPrev();
+  const nextSlide = () => slider.current.slickNext();
+  const skipToSlide = (index) => slider.current.slickGoTo(index, false);
 
-  const previousSlide = () => setSlide((currentSlide) =>
-    currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
-
-  const pauseSlides = () => setIsActive((bool) => false);
-
-  const startSlides = () => setIsActive((bool) => true);
-
-  // TODO:
-  //   1. Timer start and stop
-  //   2. Infinite forward and backward sliding
-  //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
-
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(nextSlide, 10000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [slide, isActive]);
+  const settings = {
+    infinite: true,
+    speed: 350,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    className: 'applications-slick-carousel',
+    arrows: false,
+    beforeChange: (oldIndex, newIndex) => setSlide(() => newIndex),
+    slide: React.Fragment,
+    adaptiveHeight: true,
+  }
 
   return (
-    <ApplicationsCarouselStyles>
+    <ApplicationsCarouselStyles numberOfSlides={projects.length}>
       <div
         className="carousel-image-section"
-        onMouseOver={pauseSlides}
-        onMouseLeave={startSlides}
+        // onMouseOver={pauseSlides}
+        // onMouseLeave={startSlides}
       >
         <div className="slides-wrapper">
-          <div
-            className="applications-slides"
-            style={{
-              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`,
-              transitionDuration: '.3s'
-            }}
-          >
+          <Slider ref={slider} {...settings}>
             { applicationImages }
-          </div>
+          </Slider>
         </div>
         <div className="controls-wrapper">
           <ApplicationsCarouselIndicators
             numberOfApplications={projects.length}
-            setSlide={setSlide}
+            skipToSlide={skipToSlide}
             slide={slide}
           />
           <ApplicationsCarouselButtons
@@ -186,8 +183,8 @@ const ApplicationsCarousel = ({ projects }) => {
       </div>
       <div
         className="carousel-content-section"
-        onMouseOver={pauseSlides}
-        onMouseLeave={startSlides}
+        // onMouseOver={pauseSlides}
+        // onMouseLeave={startSlides}
       >
         <div className="descriptions-wrapper">
           <div className="applications-descriptions"

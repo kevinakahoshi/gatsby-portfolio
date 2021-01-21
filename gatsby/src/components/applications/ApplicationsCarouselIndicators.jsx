@@ -44,14 +44,14 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
   }
 `;
 
-const ApplicationsCarouselIndicators = ({ numberOfApplications, setSlide, slide }) => {
+const ApplicationsCarouselIndicators = ({ numberOfApplications, skipToSlide, slide }) => {
   const indicators = new Array(numberOfApplications)
     .fill(undefined)
     .map((element, index) =>
       <div
         key={index}
         className={`indicator${index === slide ? ' active' : ''}`}
-        onClick={() => setSlide((currentSlide) => index)}
+        onClick={() => skipToSlide(index)}
       />);
 
   return (

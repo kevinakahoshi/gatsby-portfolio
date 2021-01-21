@@ -22,6 +22,11 @@ const ApplicationsCardStyles = styled.div`
   height: 100%;
   width: 100%;
 
+  .application-card-image {
+    border-radius: .25rem;
+    overflow: hidden;
+  }
+
   p {
     margin-bottom: 0;
   }
@@ -59,6 +64,7 @@ const ApplicationsCard = ({ application }) => {
         target="_blank"
         rel="noopener noreferrer"
         data-deployed={!!liveLink}
+        className="application-card-image"
       >
         <ApplicationsImage
           altText={altText}

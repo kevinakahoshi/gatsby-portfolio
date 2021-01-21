@@ -17,7 +17,7 @@ const ApplicationsStyles = styled.section`
 `;
 
 const Applications = ({ projects }) => {
-  const [view, setView] = useState('grid');
+  const [view, setView] = useState('carousel');
 
   const applicationsCards = projects.map((project, index) => {
     return (
