@@ -38,9 +38,8 @@ const ApplicationsCarouselStyles = styled.div`
 
     .applications-slides {
       display: grid;
-      grid-template-columns: repeat(6, 100%);
+      grid-template-columns: repeat(${({numberOfSlides}) => numberOfSlides}, 100%);
       grid-gap: 3rem;
-      transition: .5s all;
 
       a[data-deployed="false"] {
         opacity: .5;
@@ -96,13 +95,43 @@ const ApplicationsCarouselStyles = styled.div`
 `;
 
 const ApplicationsCarousel = ({ projects }) => {
-  const [slide, setSlide] = useState(0);
+  const [slide, setSlide] = useState(1);
   const [isActive, setIsActive] = useState(true);
-  // const [style, setStyle] = useState();
+  const [slideState, setSlideState] = useState({
+    previous: 0,
+    current: 1,
+    next: 2,
+    transform: `translateX(calc(-${1 * 100}% - ${1 * 3}rem))`,
+    transition: '0.3s all'
+  });
+  const [onLastSlide, setOnLastSlide] = useState(false);
 
-  const applicationImages = projects.map((project, index) => (
+  const firstProjectLastElement = projects[0];
+  const lastProjectFirstElement = projects[projects.length - 1];
+
+  const carouselProjectsList = [
+    lastProjectFirstElement,
+    ...projects,
+    firstProjectLastElement
+  ];
+
+  const updatedNextSlide = () => {
+    setSlideState((previousState) => ({
+      previous: previousState.current,
+      current: previousState.next,
+      next: previousState.next + 1,
+      transform: `translateX(calc(-${previousState.next * 100}% - ${previousState.next * 3}rem))`,
+      transition: '0.3s all'
+    }));
+
+    if (slideState.next < carouselProjectsList.length - 1) return;
+
+    setTimeout(() => setOnLastSlide(() => true), 300);
+  }
+
+  const applicationImages = carouselProjectsList.map((project, index) => (
     <a
-      key={project.id}
+      key={`${project.id}--${index}`}
       href={project.liveLink}
       target="_blank"
       rel="noopener noreferrer"
@@ -118,9 +147,9 @@ const ApplicationsCarousel = ({ projects }) => {
     </a>
   ));
 
-  const applicationsDescriptions = projects.map((project, index) => (
+  const applicationsDescriptions = carouselProjectsList.map((project, index) => (
     <ApplicationsCarouselDescription
-      key={project.id}
+      key={`${project.id}--${index}`}
       gitHubLink={project.gitHubLink}
       liveLink={project.liveLink}
       projectName={project.projectName}
@@ -130,14 +159,14 @@ const ApplicationsCarousel = ({ projects }) => {
   ))
 
   const nextSlide = () => setSlide((currentSlide) =>
-    currentSlide < projects.length - 1 ? currentSlide + 1 : 0);
+    currentSlide < carouselProjectsList.length - 1 ? currentSlide + 1 : 0);
 
   const previousSlide = () => setSlide((currentSlide) =>
-    currentSlide > 0 ? currentSlide - 1 : projects.length - 1);
+    currentSlide > 0 ? currentSlide - 1 : carouselProjectsList.length - 1);
 
-  const pauseSlides = () => setIsActive((bool) => false);
+  const pauseSlides = () => setIsActive(() => false);
 
-  const startSlides = () => setIsActive((bool) => true);
+  const startSlides = () => setIsActive(() => true);
 
   // TODO:
   //   1. Timer start and stop
@@ -145,28 +174,48 @@ const ApplicationsCarousel = ({ projects }) => {
   //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
 
   useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(nextSlide, 10000);
-    } else {
-      clearInterval(interval);
+    if (onLastSlide) {
+      setSlideState(() => ({
+        previous: 0,
+        current: 1,
+        next: 2,
+        transform: `translateX(calc(-${1 * 100}% - ${1 * 3}rem))`,
+        transition: ''
+      }));
+      setOnLastSlide(() => false);
     }
-    return () => clearInterval(interval);
-  }, [slide, isActive]);
+
+    return () => setSlideState(({ previous, current, next, transform }) => ({
+      previous: previous,
+      current: current,
+      next: next,
+      transform: transform,
+      transition: '0.3s all'
+    }));
+    // let interval = null;
+    // if (isActive) {
+    //   interval = setInterval(nextSlide, 10000);
+    // } else {
+    //   clearInterval(interval);
+    // }
+    // return () => clearInterval(interval);
+  }, [slide, isActive, onLastSlide]);
+
+  console.table(slideState);
 
   return (
-    <ApplicationsCarouselStyles>
+    <ApplicationsCarouselStyles numberOfSlides={carouselProjectsList.length}>
       <div
         className="carousel-image-section"
-        onMouseOver={pauseSlides}
-        onMouseLeave={startSlides}
+        // onMouseOver={pauseSlides}
+        // onMouseLeave={startSlides}
       >
         <div className="slides-wrapper">
           <div
             className="applications-slides"
             style={{
-              transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`,
-              transitionDuration: '.3s'
+              transform: slideState.transform,
+              transition: slideState.transition
             }}
           >
             { applicationImages }
@@ -180,14 +229,14 @@ const ApplicationsCarousel = ({ projects }) => {
           />
           <ApplicationsCarouselButtons
             previousSlide={previousSlide}
-            nextSlide={nextSlide}
+            nextSlide={updatedNextSlide}
           />
         </div>
       </div>
       <div
         className="carousel-content-section"
-        onMouseOver={pauseSlides}
-        onMouseLeave={startSlides}
+        // onMouseOver={pauseSlides}
+        // onMouseLeave={startSlides}
       >
         <div className="descriptions-wrapper">
           <div className="applications-descriptions"

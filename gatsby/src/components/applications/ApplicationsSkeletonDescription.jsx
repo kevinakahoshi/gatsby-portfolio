@@ -48,7 +48,8 @@ const ApplicationsSkeletonDescription = ({ numberOfRows = 0 }) => {
   return (
     <ApplicationsSkeletonDescriptionStyles
       groupSelectorString={groupSelectorString}
-      numberOfRows={numberOfRows} >
+      numberOfRows={numberOfRows}
+    >
       { rowElements }
     </ApplicationsSkeletonDescriptionStyles>
   )
