@@ -6,7 +6,7 @@ const ApplicationsImageStyles = styled.div`
   position: relative;
 
   .application-image {
-    border-radius: .25rem;
+
   }
 
   .application-name {
@@ -20,6 +20,7 @@ const ApplicationsImageStyles = styled.div`
     font-weight: 400;
     width: 100%;
     padding: 1rem 1.5rem;
+    pointer-events: none;
 
     &[data-view="grid"] {
       font-size: clamp(1.75rem, 1.75vw, 2rem)

@@ -1,10 +1,12 @@
 import React, {
+  createRef,
   useEffect,
   useRef,
   useState
 } from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Slider from 'react-slick';
 
 // Components
 import ApplicationsImage from './ApplicationsImage';
@@ -34,6 +36,16 @@ const ApplicationsCarouselStyles = styled.div`
     .slides-wrapper {
       overflow: hidden;
       border-radius: .25rem;
+
+      .applications-slick-carousel {
+        .slick-track {
+          display: flex;
+
+          .slick-slide > div {
+            font-size: 0;
+          }
+        }
+      }
     }
 
     .applications-slides {
@@ -45,7 +57,7 @@ const ApplicationsCarouselStyles = styled.div`
         opacity: .5;
       }
 
-      a.active,
+      /* a.active,
       a.inactive {
         &:hover {
           cursor: grab;
@@ -54,7 +66,7 @@ const ApplicationsCarouselStyles = styled.div`
         &:active {
           cursor: grabbing;
         }
-      }
+      } */
     }
 
     .controls-wrapper {
@@ -95,48 +107,17 @@ const ApplicationsCarouselStyles = styled.div`
 `;
 
 const ApplicationsCarousel = ({ projects }) => {
-  const [slide, setSlide] = useState(1);
-  const [isActive, setIsActive] = useState(true);
-  const [slideState, setSlideState] = useState({
-    previous: 0,
-    current: 1,
-    next: 2,
-    transform: `translateX(calc(-${1 * 100}% - ${1 * 3}rem))`,
-    transition: '0.3s all'
-  });
-  const [onLastSlide, setOnLastSlide] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const slider = createRef();
 
-  const firstProjectLastElement = projects[0];
-  const lastProjectFirstElement = projects[projects.length - 1];
-
-  const carouselProjectsList = [
-    lastProjectFirstElement,
-    ...projects,
-    firstProjectLastElement
-  ];
-
-  const updatedNextSlide = () => {
-    setSlideState((previousState) => ({
-      previous: previousState.current,
-      current: previousState.next,
-      next: previousState.next + 1,
-      transform: `translateX(calc(-${previousState.next * 100}% - ${previousState.next * 3}rem))`,
-      transition: '0.3s all'
-    }));
-
-    if (slideState.next < carouselProjectsList.length - 1) return;
-
-    setTimeout(() => setOnLastSlide(() => true), 300);
-  }
-
-  const applicationImages = carouselProjectsList.map((project, index) => (
+  const applicationImages = projects.map((project, index) => (
     <a
       key={`${project.id}--${index}`}
       href={project.liveLink}
       target="_blank"
       rel="noopener noreferrer"
       data-deployed={!!project.liveLink}
-      className={index === slide ? 'active' : 'inactive'}
+      className={`carousel-image-slide${index === slide ? ' active' : ' inactive'}`}
     >
       <ApplicationsImage
         altText={project.altText}
@@ -147,7 +128,7 @@ const ApplicationsCarousel = ({ projects }) => {
     </a>
   ));
 
-  const applicationsDescriptions = carouselProjectsList.map((project, index) => (
+  const applicationsDescriptions = projects.map((project, index) => (
     <ApplicationsCarouselDescription
       key={`${project.id}--${index}`}
       gitHubLink={project.gitHubLink}
@@ -158,78 +139,45 @@ const ApplicationsCarousel = ({ projects }) => {
     />
   ))
 
-  const nextSlide = () => setSlide((currentSlide) =>
-    currentSlide < carouselProjectsList.length - 1 ? currentSlide + 1 : 0);
+  const pauseSlides = () => slider.current.slickPause();
+  const startSlides = () => slider.current.slickPlay();
+  const previousSlide = () => slider.current.slickPrev();
+  const nextSlide = () => slider.current.slickNext();
+  const skipToSlide = (index) => slider.current.slickGoTo(index, false);
 
-  const previousSlide = () => setSlide((currentSlide) =>
-    currentSlide > 0 ? currentSlide - 1 : carouselProjectsList.length - 1);
-
-  const pauseSlides = () => setIsActive(() => false);
-
-  const startSlides = () => setIsActive(() => true);
-
-  // TODO:
-  //   1. Timer start and stop
-  //   2. Infinite forward and backward sliding
-  //   3. If you are past the halfway mark, move forward to go to the first slide, etc.
-
-  useEffect(() => {
-    if (onLastSlide) {
-      setSlideState(() => ({
-        previous: 0,
-        current: 1,
-        next: 2,
-        transform: `translateX(calc(-${1 * 100}% - ${1 * 3}rem))`,
-        transition: ''
-      }));
-      setOnLastSlide(() => false);
-    }
-
-    return () => setSlideState(({ previous, current, next, transform }) => ({
-      previous: previous,
-      current: current,
-      next: next,
-      transform: transform,
-      transition: '0.3s all'
-    }));
-    // let interval = null;
-    // if (isActive) {
-    //   interval = setInterval(nextSlide, 10000);
-    // } else {
-    //   clearInterval(interval);
-    // }
-    // return () => clearInterval(interval);
-  }, [slide, isActive, onLastSlide]);
-
-  console.table(slideState);
+  const settings = {
+    infinite: true,
+    speed: 350,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    className: 'applications-slick-carousel',
+    arrows: false,
+    beforeChange: (oldIndex, newIndex) => setSlide(() => newIndex),
+    slide: React.Fragment,
+    adaptiveHeight: true,
+  }
 
   return (
-    <ApplicationsCarouselStyles numberOfSlides={carouselProjectsList.length}>
+    <ApplicationsCarouselStyles numberOfSlides={projects.length}>
       <div
         className="carousel-image-section"
         // onMouseOver={pauseSlides}
         // onMouseLeave={startSlides}
       >
         <div className="slides-wrapper">
-          <div
-            className="applications-slides"
-            style={{
-              transform: slideState.transform,
-              transition: slideState.transition
-            }}
-          >
+          <Slider ref={slider} {...settings}>
             { applicationImages }
-          </div>
+          </Slider>
         </div>
         <div className="controls-wrapper">
           <ApplicationsCarouselIndicators
             numberOfApplications={projects.length}
-            setSlide={setSlide}
+            skipToSlide={skipToSlide}
             slide={slide}
           />
           <ApplicationsCarouselButtons
             previousSlide={previousSlide}
-            nextSlide={updatedNextSlide}
+            nextSlide={nextSlide}
           />
         </div>
       </div>
