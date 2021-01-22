@@ -16,12 +16,8 @@ const ApplicationsStyles = styled.section`
   background: #ffffff;
 `;
 
-if (!window.localStorage.sectionView) {
-  window.localStorage.sectionView = 'grid';
-}
-
 const Applications = ({ projects }) => {
-  const [view, setView] = useState(window.localStorage.sectionView);
+  const [view, setView] = useState(window.localStorage.sectionView || 'grid');
 
   const applicationsCards = projects.map((project, index) => {
     return (
