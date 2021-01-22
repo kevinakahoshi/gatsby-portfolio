@@ -7,6 +7,7 @@ however I wanted to give a headless CMS a shot, so I am rebuilding it using JAM 
 
 - Gatsby.js
 - React Context
+- React Slick
 - Styled Components
 - Sanity Studio
 
