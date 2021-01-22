@@ -16,8 +16,12 @@ const ApplicationsStyles = styled.section`
   background: #ffffff;
 `;
 
+if (!window.localStorage.sectionView) {
+  window.localStorage.sectionView = 'grid';
+}
+
 const Applications = ({ projects }) => {
-  const [view, setView] = useState('carousel');
+  const [view, setView] = useState(window.localStorage.sectionView);
 
   const applicationsCards = projects.map((project, index) => {
     return (
@@ -29,7 +33,11 @@ const Applications = ({ projects }) => {
   });
 
   const handleToggle = () =>
-    setView((sectionView) => sectionView === 'grid' ? 'carousel' : 'grid');
+    setView((sectionView) => {
+      const view = sectionView === 'grid' ? 'carousel' : 'grid';
+      window.localStorage.sectionView = view;
+      return view;
+    });
 
   return (
     <ApplicationsStyles id="applications" className="section">

@@ -56,17 +56,6 @@ const ApplicationsCarouselStyles = styled.div`
       a[data-deployed="false"] {
         opacity: .5;
       }
-
-      /* a.active,
-      a.inactive {
-        &:hover {
-          cursor: grab;
-        }
-
-        &:active {
-          cursor: grabbing;
-        }
-      } */
     }
 
     .controls-wrapper {
@@ -78,7 +67,6 @@ const ApplicationsCarouselStyles = styled.div`
   }
 
   .carousel-content-section {
-    /* overflow: hidden; */
     height: 100%;
     display: flex;
 
@@ -92,16 +80,7 @@ const ApplicationsCarouselStyles = styled.div`
     }
 
     .descriptions-wrapper {
-      /* overflow: auto; */
       width: 100%;
-
-    }
-
-    .applications-descriptions {
-      /* display: grid;
-      grid-template-columns: repeat(6, 100%);
-      grid-gap: 3rem;
-      transition: .5s all; */
     }
   }
 `;
@@ -153,16 +132,16 @@ const ApplicationsCarousel = ({ projects }) => {
     className: 'applications-slick-carousel',
     arrows: false,
     beforeChange: (oldIndex, newIndex) => setSlide(() => newIndex),
-    slide: React.Fragment,
-    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 8000
   }
 
   return (
     <ApplicationsCarouselStyles numberOfSlides={projects.length}>
       <div
         className="carousel-image-section"
-        // onMouseOver={pauseSlides}
-        // onMouseLeave={startSlides}
+        onMouseOver={pauseSlides}
+        onMouseLeave={startSlides}
       >
         <div className="slides-wrapper">
           <Slider ref={slider} {...settings}>
@@ -183,15 +162,11 @@ const ApplicationsCarousel = ({ projects }) => {
       </div>
       <div
         className="carousel-content-section"
-        // onMouseOver={pauseSlides}
-        // onMouseLeave={startSlides}
+        onMouseOver={pauseSlides}
+        onMouseLeave={startSlides}
       >
         <div className="descriptions-wrapper">
-          <div className="applications-descriptions"
-            // style={{
-            //   transform: `translateX(calc(-${slide * 100}% - ${slide * 3}rem))`
-            // }}
-          >
+          <div className="applications-descriptions">
             { applicationsDescriptions[slide] }
           </div>
         </div>
