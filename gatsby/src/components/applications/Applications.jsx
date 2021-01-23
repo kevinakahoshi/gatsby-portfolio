@@ -28,12 +28,11 @@ const Applications = ({ projects }) => {
     )
   });
 
-  const handleToggle = () =>
-    setView((sectionView) => {
-      const view = sectionView === 'grid' ? 'carousel' : 'grid';
-      window.localStorage.sectionView = view;
-      return view;
-    });
+  const handleToggle = () => setView((sectionView) => {
+    const view = sectionView === 'grid' ? 'carousel' : 'grid';
+    window.localStorage.sectionView = view;
+    return view;
+  });
 
   return (
     <ApplicationsStyles id="applications" className="section">
