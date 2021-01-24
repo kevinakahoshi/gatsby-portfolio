@@ -33,7 +33,6 @@ const ContactLinksStyles = styled.div`
 `;
 
 const ContactLinks = () => {
-
   return (
     <ContactLinksStyles>
       <a

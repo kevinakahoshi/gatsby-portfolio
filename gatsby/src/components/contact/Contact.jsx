@@ -37,9 +37,7 @@ const Contact = ({ social }) => {
         <div className="contact-wrapper">
           <ContactLogoDividers />
           <ContactLinks />
-          <AboutSocialLinks
-            social={social}
-          />
+          <AboutSocialLinks social={social} />
           <ContactCopyright />
         </div>
       </SectionContentWrapper>
