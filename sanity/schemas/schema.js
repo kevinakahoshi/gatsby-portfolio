@@ -11,6 +11,7 @@ import projectContent from './projectContent';
 import toolsSection from './toolsSection';
 import technologiesSection from './technologiesSection';
 import projectsSection from './projectsSection';
+import experienceContent from './experienceContent';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +20,7 @@ export default createSchema({
     aboutMeSection,
     technologiesSection,
     toolsSection,
+    experienceContent,
     projectsSection,
     projectContent,
     socialContent,
