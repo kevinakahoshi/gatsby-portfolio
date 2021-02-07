@@ -116,7 +116,7 @@ const ApplicationsCarousel = ({ projects }) => {
       mainDescription={project.mainDescription?.replace(/\\/g, '')}
       technologiesUsed={project.technologiesUsed}
     />
-  ))
+  ));
 
   const pauseSlides = () => slider.current.slickPause();
   const startSlides = () => slider.current.slickPlay();
@@ -172,7 +172,7 @@ const ApplicationsCarousel = ({ projects }) => {
         </div>
       </div>
     </ApplicationsCarouselStyles>
-  )
+  );
 }
 
 export default ApplicationsCarousel;
