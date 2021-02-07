@@ -35,7 +35,12 @@ export default {
       name: 'technologiesUsed',
       title: 'Technologies Used',
       type: 'array',
-      of: [{ type: 'string' }]
+      of: [{
+        type: 'reference',
+        to: [{
+          type: 'technology'
+        }]
+      }],
     },
     {
       name: 'liveLink',
