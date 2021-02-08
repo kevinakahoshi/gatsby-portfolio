@@ -4,13 +4,13 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'projectName',
-      title: 'Project Name',
+      name: 'companyName',
+      title: 'Company Name',
       type: 'string'
     },
     {
-      name: 'thumbnail',
-      title: 'Thumbnail',
+      name: 'mainImage',
+      title: 'Main Image',
       type: 'image',
       options: {
         hotspot: true,
@@ -22,14 +22,11 @@ export default {
       type: 'string'
     },
     {
-      name: 'shortDescription',
-      title: 'Short Description',
-      type: 'string'
-    },
-    {
       name: 'mainDescription',
       title: 'Main Description',
-      type: 'text',
+      type: 'array', of: [{
+        type: 'block'
+      }]
     },
     {
       name: 'technologiesUsed',
