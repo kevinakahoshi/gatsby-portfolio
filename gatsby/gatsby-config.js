@@ -19,6 +19,19 @@ module.exports = {
         watchmode: true,
         token: process.env.SANITY_TOKEN
       }
+    },
+    {
+      resolve: 'gatsby-omni-font-loader',
+      options: {
+        mode: 'render-blocking',
+        enableListener: true,
+        preconnect: [],
+        custom: [{
+          name: ['Corsa Grotesk'],
+          file: '/fonts.css',
+        }, ],
+        web: [],
+      },
     }
   ],
 }

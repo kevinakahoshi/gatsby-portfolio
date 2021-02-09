@@ -12,6 +12,7 @@ import Tools from "../components/tools/Tools";
 import Applications from "../components/applications/Applications";
 import Contact from '../components/contact/Contact';
 import MenuContext from "../components/context/MenuContext";
+import Spinner from "../components/spinner/Spinner";
 
 export const query = graphql`
   query {
@@ -123,6 +124,7 @@ const Home = ({ data }) => {
       <Tools tools={tools} />
       <Applications projects={projects} />
       <Contact social={aboutMe.social} />
+      <Spinner />
     </Layout>
   )
 };
