@@ -56,7 +56,7 @@ const SpinnerStyles = styled.div`
 `;
 
 const Spinner = () => {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {

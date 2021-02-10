@@ -124,7 +124,6 @@ const Home = ({ data }) => {
       <Tools tools={tools} />
       <Applications projects={projects} />
       <Contact social={aboutMe.social} />
-      <Spinner />
     </Layout>
   )
 };

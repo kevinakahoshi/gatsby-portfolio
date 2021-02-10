@@ -69,7 +69,7 @@ const LogoStyles = styled.div`
       content: '';
       height: var(--after-size);
       width: var(--after-size);
-      top: var(--after-top);
+      /* top: var(--after-top); */
       position: absolute;
       background: var(--red);
       border-radius: 100%;

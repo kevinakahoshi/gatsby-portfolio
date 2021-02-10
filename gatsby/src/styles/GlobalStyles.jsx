@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
+import './fonts.css';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .no-js {
-    opacity: 0;
+    /* opacity: 0; */
   }
 
   @keyframes fade-up {
