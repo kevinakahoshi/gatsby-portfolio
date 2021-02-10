@@ -19,6 +19,6 @@ module.exports = {
         watchmode: true,
         token: process.env.SANITY_TOKEN
       }
-    }
+    },
   ],
 }
