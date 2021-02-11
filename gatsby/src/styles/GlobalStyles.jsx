@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .no-js {
-    /* opacity: 0; */
+    opacity: 0;
   }
 
   @keyframes fade-up {
