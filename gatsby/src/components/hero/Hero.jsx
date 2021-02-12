@@ -63,8 +63,8 @@ const Hero = () => {
         <h2>Software Engineer</h2>
       </div>
       <div className="hero-image">
-        <HeroImage />
-        {/* <HeroImageUpdate /> */}
+        {/* <HeroImage /> */}
+        <HeroImageUpdate />
       </div>
     </HeroStyles>
   )

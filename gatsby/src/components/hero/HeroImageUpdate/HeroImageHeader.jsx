@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import HeroImageLogo from './HeroImageLogo';
+
 const HeroImageHeaderStyles = styled.div`
   height: 100%;
   width: 100%;
   background: var(--white);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   padding: .5rem;
   grid-gap: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
@@ -71,10 +73,11 @@ const HeroImageHeader = () => {
 
   return (
     <HeroImageHeaderStyles>
-      <div className="logo">
+      {/* <div className="logo">
         <div className="circle" />
         <div className="text" />
-      </div>
+      </div> */}
+      <HeroImageLogo />
       <div className="link-section">
         { links }
       </div>
