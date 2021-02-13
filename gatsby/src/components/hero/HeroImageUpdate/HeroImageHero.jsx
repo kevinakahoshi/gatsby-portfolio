@@ -100,14 +100,14 @@ const HeroImageHero = () => {
   return (
     <HeroImageHeroStyles>
       <div className="hero-text-wrapper">
-        <div className="hero-text-element" />
-        <div className="hero-text-button">
-          <span className="hero-text-button-text" />
-        </div>
+        <div className="hero-text-heading" />
+        <div className="hero-text-subheading" />
       </div>
-      <div className="front-mountain" />
-      <div className="back-mountain" />
-      <div className="overlay" />
+      <div className="hero-image-wrapper">
+        <div className="floating-shadow-dom" />
+        <div className="floating-dom" />
+        <div className="floating-elements" />
+      </div>
     </HeroImageHeroStyles>
   )
 };

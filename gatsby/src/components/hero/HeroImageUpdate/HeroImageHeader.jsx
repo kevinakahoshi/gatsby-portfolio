@@ -73,10 +73,6 @@ const HeroImageHeader = () => {
 
   return (
     <HeroImageHeaderStyles>
-      {/* <div className="logo">
-        <div className="circle" />
-        <div className="text" />
-      </div> */}
       <HeroImageLogo />
       <div className="link-section">
         { links }
