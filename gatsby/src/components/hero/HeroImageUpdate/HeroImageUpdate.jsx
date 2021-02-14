@@ -13,9 +13,8 @@ const HeroImageUpdateStyles = styled.div`
   position: relative;
   transform: perspective(1250px) rotateY(-30deg) rotateX(15deg);
 
-  * {
+  *:not(.hero-image-wrapper) {
     border-radius: .25rem;
-    animation-delay: .3s;
   }
 
   @media (min-width: 851px) {
