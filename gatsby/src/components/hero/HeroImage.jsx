@@ -55,7 +55,7 @@ const HeroImageStyles = styled.div`
     .content-wrapper {
       /* display: grid;
       grid-gap: var(--content-wrapper-gap); */
-      animation: scroll 15s infinite ease-in-out;
+      /* animation: scroll 15s infinite ease-in-out; */
       animation-delay: .3s;
 
       /* @media (min-width: 851px) {

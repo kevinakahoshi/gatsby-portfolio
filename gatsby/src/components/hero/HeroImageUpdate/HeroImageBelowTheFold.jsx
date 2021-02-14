@@ -7,14 +7,11 @@ import HeroImageTextBlock from './HeroImageTextBlock';
 
 const HeroImageBelowTheFoldStyles = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 1rem;
   z-index: 3;
 
   .btf-right {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 1rem;
   }
 
   .image {
@@ -88,9 +85,6 @@ const HeroImageBelowTheFold = () => {
         </div>
       </div>
       <div className="btf-right">
-        <HeroImageTextBlock>
-          { textLines }
-        </HeroImageTextBlock>
         <HeroImageTextBlock>
           { textLines }
         </HeroImageTextBlock>

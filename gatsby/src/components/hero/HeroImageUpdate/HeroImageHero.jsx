@@ -6,93 +6,37 @@ const HeroImageHeroStyles = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(-45deg, #e64242, #e67442);
+  background: var(--white);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-  padding: 1.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: .5rem;
   align-items: center;
-  /* animation: float 5s infinite ease-in-out; */
 
   .hero-text-wrapper {
     display: grid;
     grid-gap: .5rem;
     position: relative;
     z-index: 3;
-    /* animation: element-float 7.5s infinite ease-in-out; */
+    padding: .5rem;
 
-    .hero-text-element {
-      background: var(--white);
-      padding: 1vmin;
-      width: 12.5vmin;
-      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .5);
+    .hero-text-heading {
+      padding: .35rem;
+      background: var(--dark-grey);
+      width: 60%;
     }
 
-    .hero-text-button {
-      border: .25vmin solid var(--white);
-      padding: .5vmin;
-      width: 50%;
-      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .5);
-      transition: .3s all;
-      cursor: pointer;
-
-      &:not(:hover) {
-        background: transparent;
-
-        .hero-text-button-text {
-          background: var(--white);
-        }
-      }
-
-      &:hover {
-        background: var(--white);
-
-        .hero-text-button-text {
-          background: var(--medium-grey);
-        }
-      }
-
-      .hero-text-button-text {
-        display: block;
-        padding: .25vmin;
-        width: 100%;
-      }
+    .hero-text-subheading {
+      padding: .25rem;
+      background: var(--medium-grey);
+      width: 45%;
     }
   }
 
-  .front-mountain {
-    width: 50%;
-    padding-top: 50%;
-    top: 50%;
-    position: absolute;
-    left: 10%;
-    background: linear-gradient(45deg, #f5afa3, #f4a7a2);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-    transform: rotate(45deg);
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .back-mountain {
-    width: 50%;
-    padding-top: 50%;
-    top: 75%;
-    position: absolute;
-    left: 50%;
-    background: var(--white);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-    transform: rotate(45deg);
-    opacity: .25;
-  }
-
-  .overlay {
-    background: var(--black);
-    opacity: .125;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
+  .hero-image-wrapper {
+    background: linear-gradient(-45deg, #e64242, #e67442);
+    background-position: 0% 50%;
+    height: 100%;
   }
 `;
 
@@ -107,6 +51,7 @@ const HeroImageHero = () => {
         <div className="floating-shadow-dom" />
         <div className="floating-dom" />
         <div className="floating-elements" />
+        <div className="hero-image-background" />
       </div>
     </HeroImageHeroStyles>
   )
