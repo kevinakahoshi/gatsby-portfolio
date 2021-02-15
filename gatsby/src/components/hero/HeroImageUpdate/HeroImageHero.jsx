@@ -9,7 +9,7 @@ const HeroImageHeroStyles = styled.div`
   background: var(--white);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   grid-gap: .5rem;
   align-items: center;
 
@@ -34,9 +34,53 @@ const HeroImageHeroStyles = styled.div`
   }
 
   .hero-image-wrapper {
-    background: linear-gradient(-45deg, #e64242, #e67442);
-    background-position: 0% 50%;
     height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    .floating-page {
+      padding: 40%;
+      position: absolute;
+      z-index: 1;
+
+      .floating-shadow-dom,
+      .floating-dom,
+      .floating-elements {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+        border: 1px solid var(--medium-grey);
+      }
+
+      .floating-shadow-dom {
+        top: -5%;
+        left: 5%;
+        background: var(--white);
+        opacity: .5;
+      }
+
+      .floating-dom {
+        top: 0%;
+        left: 0%;
+        background: var(--light-grey);
+      }
+
+      .floating-elements {
+        top: 5%;
+        left: -5%;
+        background: var(--white);
+      }
+    }
+
+    .transition-backround {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(-45deg, #e64242, #e67442);
+      clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
+    }
   }
 `;
 
@@ -48,10 +92,12 @@ const HeroImageHero = () => {
         <div className="hero-text-subheading" />
       </div>
       <div className="hero-image-wrapper">
-        <div className="floating-shadow-dom" />
-        <div className="floating-dom" />
-        <div className="floating-elements" />
-        <div className="hero-image-background" />
+        <div className="floating-page">
+          <div className="floating-shadow-dom" />
+          <div className="floating-dom" />
+          <div className="floating-elements" />
+        </div>
+        <div className="transition-backround" />
       </div>
     </HeroImageHeroStyles>
   )
