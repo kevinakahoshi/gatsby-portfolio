@@ -13,7 +13,7 @@ const HeroImageUpdateStyles = styled.div`
   position: relative;
   transform: perspective(1250px) rotateY(-30deg) rotateX(15deg);
 
-  *:not(.hero-image-wrapper) {
+  *:not(.transition-backround) {
     border-radius: .25rem;
   }
 
