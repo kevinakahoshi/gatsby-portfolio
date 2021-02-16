@@ -14,7 +14,7 @@ const HeroImageLogoStyles = styled.div`
     grid-gap: .125rem;
 
     .letter {
-      padding: .125rem;
+      padding: .1rem;
     }
   }
 

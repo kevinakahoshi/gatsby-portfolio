@@ -8,7 +8,7 @@ const HeroImageElementsLayoutStyles = styled.div`
   top: 1rem;
   left: -1rem;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 2fr 1fr;
   grid-gap: 1rem;
   z-index: 3;
   /* animation: float 5s infinite ease-in-out; */
