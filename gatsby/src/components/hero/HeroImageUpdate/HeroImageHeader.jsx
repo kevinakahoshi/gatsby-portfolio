@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Float } from '../../../styles/Keyframes';
 
 import HeroImageLogo from './HeroImageLogo';
 
@@ -12,13 +13,13 @@ const HeroImageHeaderStyles = styled.div`
   padding: .5rem;
   grid-gap: 1rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-  /* animation: float 5s infinite ease-in-out; */
+  animation: ${Float} 5s infinite ease-in-out;
+  animation-delay: 0s;
 
   .logo {
     position: relative;
     display: flex;
     align-items: center;
-    /* animation: element-float 7.5s infinite ease-in-out; */
     cursor: pointer;
 
     .circle {

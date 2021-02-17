@@ -82,15 +82,15 @@ const SlideOut = keyframes`
 
 const Float = keyframes`
   0% {
-    transform: translateY(0%) translateX(0%);
+    transform: translateY(0vmin) translateX(0vmin);
   }
 
   50% {
-    transform: translateY(-1.5%) translateX(-0.5%);
+    transform: translateY(-1vmin) translateX(-0.5vmin);
   }
 
   100% {
-    transform: translateY(0%) translateX(0%);
+    transform: translateY(0vmin) translateX(0vmin);
   }
 `;
 
