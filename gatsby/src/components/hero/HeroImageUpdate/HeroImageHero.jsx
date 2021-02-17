@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Float } from '../../../styles/Keyframes';
 
 const HeroImageHeroStyles = styled.div`
   height: 100%;
@@ -12,6 +13,8 @@ const HeroImageHeroStyles = styled.div`
   grid-template-columns: 1.5fr 1fr;
   grid-gap: .5rem;
   align-items: center;
+  animation: ${Float} 5s infinite ease-in-out;
+  animation-delay: 0.2s;
 
   .hero-text-wrapper {
     display: grid;
