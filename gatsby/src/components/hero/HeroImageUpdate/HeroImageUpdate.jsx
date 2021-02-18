@@ -7,7 +7,7 @@ import HeroImageBelowTheFold from './HeroImageBelowTheFold';
 import HeroImageElementsLayout from './HeroImageElementsLayout';
 import HeroImageHeader from './HeroImageHeader';
 import HeroImageHero from './HeroImageHero';
-import HeroImageSHadowDOM from './HeroImageShadowDOM';
+import HeroImageShadowDOM from './HeroImageShadowDOM';
 
 const HeroImageUpdateStyles = styled.div`
   position: relative;
@@ -18,14 +18,13 @@ const HeroImageUpdateStyles = styled.div`
   }
 
   @media (min-width: 851px) {
-    height: 50vmin;
-    width: 50vmin;
+    height: clamp(300px, 50vmin, 50vmin);
+    width: clamp(300px, 50vmin, 50vmin);
   }
 
   @media (max-width: 850px) {
-    height: 35vh;
-    width: 35vh;
-    max-width: 350px;
+    width: 80%;
+    padding-top: 80%;
   }
 `;
 
@@ -38,7 +37,7 @@ const HeroImageUpdate = () => {
         <HeroImageBelowTheFold />
       </HeroImageElementsLayout>
       <HeroImageBackground />
-      <HeroImageSHadowDOM />
+      <HeroImageShadowDOM />
     </HeroImageUpdateStyles>
   )
 };
