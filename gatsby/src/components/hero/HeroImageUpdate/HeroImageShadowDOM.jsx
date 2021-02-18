@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Float } from '../../../styles/Keyframes';
 
+// TODO: Add clamp to absolute positioning for top and left
 const HeroImageShadowDOMStyles = styled.div`
   height: 100%;
   width: 100%;
