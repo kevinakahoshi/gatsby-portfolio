@@ -17,14 +17,19 @@ const HeroImageUpdateStyles = styled.div`
     border-radius: .25rem;
   }
 
-  @media (min-width: 851px) {
-    height: clamp(300px, 50vmin, 50vmin);
-    width: clamp(300px, 50vmin, 50vmin);
+  @media (min-width: 768px) {
+    height: clamp(350px, 50vmin, 50vmin);
+    width: clamp(350px, 50vmin, 50vmin);
   }
 
-  @media (max-width: 850px) {
-    width: 80%;
-    padding-top: 80%;
+  @media (min-width: 381px) and (max-width: 767px) {
+    height: 50vmax;
+    width: 50vmax;
+  }
+
+  @media (max-width: 380px) {
+    width: 95%;
+    padding-top: 95%;
   }
 `;
 
