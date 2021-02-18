@@ -9,7 +9,7 @@ import HeroImageTextBlock from './HeroImageTextBlock';
 const HeroImageBelowTheFoldStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-gap: 1rem;
+  grid-gap: 2vmin;
   z-index: 3;
   animation: ${Float} 5s infinite ease-in-out;
   animation-delay: 0.4s;

@@ -7,8 +7,8 @@ const HeroImageShadowDOMStyles = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
-  top: -1rem;
-  left: 1rem;
+  top: -2vmin;
+  left: 2vmin;
   background: var(--white);
   opacity: .5;
   z-index: 1;

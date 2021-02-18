@@ -12,10 +12,6 @@ const HeroStyles = styled.section`
   position: relative;
 
   @media (min-width: 768px) {
-    /* background-image: url(${topographicHero}); */
-    background-repeat: no-repeat;
-    background-position: right -25vh bottom 0vh;
-    background-size: contain;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -35,7 +31,7 @@ const HeroStyles = styled.section`
     }
 
     @media (max-width: 767px) {
-      align-self: flex-start;
+      align-self: center;
       justify-self: flex-start;
     }
 
@@ -57,12 +53,20 @@ const HeroStyles = styled.section`
     }
 
     &-background {
-      position: absolute;
-      height: 100%;
-      width: 35%;
-      right: 0%;
-      background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
-      clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
+      @media (min-width: 768px) {
+        position: absolute;
+        height: 100%;
+        width: 35%;
+        right: 0%;
+        background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+        background-size: 100vh;
+        background-repeat: repeat;
+        clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
+      }
+
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
   }
 `;
@@ -78,7 +82,6 @@ const Hero = () => {
         <h2>Software Engineer</h2>
       </div>
       <div className="hero-image">
-        {/* <HeroImage /> */}
         <HeroImageUpdate />
       </div>
     </HeroStyles>

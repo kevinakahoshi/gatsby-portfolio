@@ -44,7 +44,6 @@ const HeroImageHeaderStyles = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     grid-gap: .5rem;
     align-items: center;
-    /* animation: element-float 7.5s infinite ease-in-out; */
 
     .header-link {
       padding: .25rem;
