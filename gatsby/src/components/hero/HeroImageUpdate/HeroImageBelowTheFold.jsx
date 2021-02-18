@@ -5,7 +5,7 @@ import HeroImageTextBlock from './HeroImageTextBlock';
 
 // Components
 
-
+// TODO: Add clamp to grid-gap
 const HeroImageBelowTheFoldStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;

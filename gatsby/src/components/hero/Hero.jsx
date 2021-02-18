@@ -18,6 +18,7 @@ const HeroStyles = styled.section`
       content: '';
       position: absolute;
       background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+      background-size: 150%;
       clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
       height: 100%;
       width: 35%;
