@@ -10,6 +10,7 @@ const HeroStyles = styled.section`
   display: grid;
   grid-gap: 3rem;
   position: relative;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
@@ -19,7 +20,7 @@ const HeroStyles = styled.section`
       position: absolute;
       background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
       background-size: 150%;
-      clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
+      clip-path: polygon(0% 100%, 100% -100%, 100% 100%, 0% 100%);
       height: 100%;
       width: 35%;
       right: 0;
@@ -28,6 +29,16 @@ const HeroStyles = styled.section`
 
   @media (max-width: 767px) {
     // TODO: Figure out what you want here
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+      background-size: 150%;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
+      height: 50%;
+      width: 100%;
+      right: 0;
+    }
   }
 
   .hero-text {
@@ -40,8 +51,7 @@ const HeroStyles = styled.section`
     }
 
     @media (max-width: 767px) {
-      align-self: center;
-      justify-self: flex-start;
+      margin: auto;
     }
 
     h2 {

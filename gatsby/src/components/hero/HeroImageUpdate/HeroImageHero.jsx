@@ -82,7 +82,7 @@ const HeroImageHeroStyles = styled.div`
       height: 100%;
       width: 100%;
       background: linear-gradient(-45deg, #e64242, #e67442);
-      clip-path: polygon(0% 100%,100% -100%,100% 100%,0 100%);
+      clip-path: polygon(0% 100%, 100% -100%, 100% 100%, 0 100%);
     }
   }
 `;
