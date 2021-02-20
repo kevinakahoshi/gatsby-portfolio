@@ -12,32 +12,29 @@ const HeroStyles = styled.section`
   position: relative;
   overflow: hidden;
 
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+    background-size: 150%;
+    right: 0;
+  }
+
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
 
     &::before {
-      content: '';
-      position: absolute;
-      background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
-      background-size: 150%;
       clip-path: polygon(0% 100%, 100% -100%, 100% 100%, 0% 100%);
       height: 100%;
       width: 35%;
-      right: 0;
     }
   }
 
   @media (max-width: 767px) {
-    // TODO: Figure out what you want here
     &::before {
-      content: '';
-      position: absolute;
-      background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
-      background-size: 150%;
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
       height: 50%;
       width: 100%;
-      right: 0;
     }
   }
 
