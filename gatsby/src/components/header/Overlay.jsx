@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FadeIn, FadeOut } from '../../styles/Keyframes';
 
 const OverlayStyles = styled.div`
   background: var(--black);
@@ -10,35 +11,14 @@ const OverlayStyles = styled.div`
   position: fixed;
   z-index: 19;
 
-  // TODO: Make these more DRY
   &.fade-in {
-    animation: fade-in .3s;
+    animation: ${FadeIn} .3s;
     animation-fill-mode: both;
   }
 
   &.fade-out {
-    animation: fade-out .3s;
+    animation: ${FadeOut} .3s;
     animation-fill-mode: both;
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: .5;
-    }
-  }
-
-  @keyframes fade-out {
-    0% {
-      opacity: .5;
-    }
-
-    100% {
-      opacity: 0;
-    }
   }
 `;
 

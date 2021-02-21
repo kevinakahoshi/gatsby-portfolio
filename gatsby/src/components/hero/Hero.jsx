@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import topographic from '../../assets/images/topographic.svg';
 import HeroImage from './HeroImage';
-import HeroImageWrapper from './HeroimageWrapper';
 import HeroText from './HeroText';
 
 const HeroStyles = styled.section`
@@ -56,9 +55,7 @@ const Hero = () => {
   return (
     <HeroStyles id="hero" className="section">
       <HeroText />
-      <HeroImageWrapper>
-        <HeroImage />
-      </HeroImageWrapper>
+      <HeroImage />
     </HeroStyles>
   )
 }
