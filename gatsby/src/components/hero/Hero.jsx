@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import topographic from '../../assets/images/topographic.svg';
 import HeroImage from './HeroImage';
-import HeroImageUpdate from './HeroImageUpdate/HeroImageUpdate';
+import HeroImageWrapper from './HeroimageWrapper';
+import HeroText from './HeroText';
 
 const HeroStyles = styled.section`
   background: #ffffff;
@@ -38,24 +39,6 @@ const HeroStyles = styled.section`
     }
   }
 
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: 768px) {
-      align-self: center;
-      justify-self: center;
-    }
-
-    @media (max-width: 767px) {
-      margin: auto;
-    }
-
-    h2 {
-      color: var(--link-inactive-grey);
-    }
-  }
-
   .hero-image {
     display: flex;
     justify-content: center;
@@ -72,13 +55,10 @@ const HeroStyles = styled.section`
 const Hero = () => {
   return (
     <HeroStyles id="hero" className="section">
-      <div className="hero-text">
-        <h1>Kevin Akahoshi</h1>
-        <h2>Software Engineer</h2>
-      </div>
-      <div className="hero-image">
-        <HeroImageUpdate />
-      </div>
+      <HeroText />
+      <HeroImageWrapper>
+        <HeroImage />
+      </HeroImageWrapper>
     </HeroStyles>
   )
 }

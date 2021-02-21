@@ -8,11 +8,10 @@ const HeroImageTextBlockStyles = styled.div`
   height: 100%;
 
   .row-text {
-      display: grid;
-      grid-gap: .25rem;
-      grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
-      height: 100%;
-    }
+    display: grid;
+    grid-gap: .25rem;
+    grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+    height: 100%;
   }
 `;
 

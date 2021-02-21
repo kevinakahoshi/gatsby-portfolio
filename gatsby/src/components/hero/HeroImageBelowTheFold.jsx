@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Float } from '../../../styles/Keyframes';
+import { Float } from '../../styles/Keyframes';
 import HeroImageTextBlock from './HeroImageTextBlock';
-
-// Components
 
 // TODO: Add clamp to grid-gap
 const HeroImageBelowTheFoldStyles = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Float } from '../../../styles/Keyframes';
+import { Float } from '../../styles/Keyframes';
 
 const HeroImageHeroStyles = styled.div`
   height: 100%;
