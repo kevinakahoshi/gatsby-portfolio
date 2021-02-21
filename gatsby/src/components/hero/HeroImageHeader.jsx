@@ -1,82 +1,80 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Float } from '../../styles/Keyframes';
+import HeroImageLogo from './HeroImageLogo';
 
 const HeroImageHeaderStyles = styled.div`
+  height: 100%;
+  width: 100%;
+  background: var(--white);
   display: grid;
-  grid-template-columns: 25% auto;
-  grid-gap: 5rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #CCCCCC80;
-  padding-bottom: .5rem;
+  grid-template-columns: auto 1fr;
+  padding: .5rem;
+  grid-gap: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  animation: ${Float} 5s infinite ease-in-out;
+  animation-delay: 0s;
 
-  .icon {
-    border: 2px solid var(--medium-grey);
-    border-radius: .25rem;
-    padding: .25rem;
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .circle {
+      padding: 2vmin;
+      background: var(--red);
+      border-radius: 100%;
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
+    }
+
+    .text {
+      padding: 1vmin;
+      width: 10vmin;
+      background: var(--medium-grey);
+      position: absolute;
+      left: 2vmin;
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .25);
+    }
+  }
+
+  .link-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    grid-gap: .125rem;
-
-    .letter {
-      border-radius: .25rem;
-      padding-bottom: 100%;
-
-      &:not(:nth-child(6)):not(:nth-child(11)) {
-        background: var(--medium-grey);
-      }
-
-      &:nth-child(11) {
-        background: var(--red);
-      }
-    }
-  }
-
-  .link-list {
-    display: grid;
-    grid-template-columns: 1fr .75fr .65fr 1.25fr 1fr;
-    grid-gap: .25rem;
+    grid-gap: .5rem;
     align-items: center;
 
-    .link {
-      background: var(--medium-grey);
-      border-radius: .25rem;
-      height: 25%;
-    }
-  }
+    .header-link {
+      padding: .25rem;
+      height: min-content;
+      background: var(--dark-grey);
+      box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .5);
+      cursor: pointer;
+      transition: .3s all;
 
-  .burger {
-    height: 25%;
-    background: var(--medium-grey);
-    grid-column: 5;
+      &:not(:hover) {
+        opacity: .25;
+      }
+
+      &:hover {
+        opacity: .5;
+      }
+    }
   }
 `;
 
 const HeroImageHeader = () => {
-  const letters = new Array(14)
-    .fill(undefined)
-    .map((_, index) => (
-      <div key={index} className="letter" />
-    ));
-
   const links = new Array(5)
     .fill(undefined)
     .map((_, index) => (
-      <div key={index} className="link" />
-    ));
-
-  const burger = <div className="burger" />;
-
-  const linksOrBurger = window.innerWidth > 850
-    ? links
-    : burger;
+      <div key={index} className="header-link" />
+    ))
 
   return (
     <HeroImageHeaderStyles>
-      <div className="icon">
-        { letters }
-      </div>
-      <div className="link-list">
-        { linksOrBurger }
+      <HeroImageLogo />
+      <div className="link-section">
+        { links }
       </div>
     </HeroImageHeaderStyles>
   )
