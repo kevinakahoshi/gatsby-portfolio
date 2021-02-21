@@ -8,13 +8,14 @@ import {
   FiFileText as Resume
 } from 'react-icons/fi';
 import { useState } from 'react';
+import { SlideIn } from '../../styles/Keyframes';
 
 const AboutSocialLinksStyles = styled.div`
   overflow: auto;
   min-height: 4.5rem;
 
   .social-wrapper {
-    animation: slide-up .3s;
+    animation: ${SlideIn} .3s;
     animation-fill-mode: both;
     animation-delay: .3s;
     display: grid;
@@ -36,7 +37,7 @@ const AboutSocialLinksStyles = styled.div`
     border-width: 2px;
     border-style: solid;
     border-color: var(--link-inactive-grey);
-    animation: slide-up .5s;
+    animation: ${SlideIn} .5s;
     animation-fill-mode: both;
 
     &:hover {
@@ -47,18 +48,6 @@ const AboutSocialLinksStyles = styled.div`
   .social-icon {
     width: 1.5rem;
     height: auto;
-  }
-
-  @keyframes slide-up {
-    0% {
-      opacity: 0;
-      transform: translateY(50%);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
   }
 `;
 

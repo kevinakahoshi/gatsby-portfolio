@@ -20,28 +20,6 @@ const FadeOut = keyframes`
   }
 `;
 
-const FadeUp = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-`;
-
-const SkellySwipe = keyframes`
-  0% {
-    background-position: 100%;
-  }
-
-  100% {
-    background-position: -100%;
-  }
-`;
-
 const Pulse = keyframes`
   0% {
     opacity: .5;
@@ -94,28 +72,11 @@ const Float = keyframes`
   }
 `;
 
-const ElementFloat = keyframes`
-  0% {
-    transform: translateY(0%) translateX(0%);
-  }
-
-  50% {
-    transform: translateY(-7.5%) translateX(-2.5%);
-  }
-
-  100% {
-    transform: translateY(0%) translateX(0%);
-  }
-`;
-
 export {
   FadeIn,
   FadeOut,
-  FadeUp,
-  SkellySwipe,
   Pulse,
   SlideIn,
   SlideOut,
   Float,
-  ElementFloat
 };
