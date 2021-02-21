@@ -5,20 +5,29 @@ import useMenu from '../hooks/useMenu';
 
 
 const SEO = ({ location, children }) => {
-  const {
-    site: {
-      siteMetadata: {
-        description,
-        title
-      }
+  const { metadata: {
+      siteDescription,
+      siteFavicon,
+      siteOGImage,
+      siteTitle,
+      siteUrl
     }
   } = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          description
-          title
+      metadata: sanitySiteMetadata {
+        siteUrl
+        siteTitle
+        siteOGImage {
+          asset {
+            url
+          }
         }
+        siteFavicon {
+          asset {
+            url
+          }
+        }
+        siteDescription
       }
     }
   `);
@@ -26,28 +35,27 @@ const SEO = ({ location, children }) => {
   const { openMobileNav } = useMenu();
   const bodyClass = openMobileNav ? 'no-scroll' : '';
 
-  // TODO: Replace og:image URL so that it is not the favicon
   return (
     <Helmet>
       <html lang='en-us' />
       <title>
-        { title }
+        { siteTitle }
       </title>
-      <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+      <link rel='icon' href={siteFavicon.asset.url} type='image/svg+xml' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta charset='UTF-8' />
-      <meta name='description' content={description} />
-      <meta property='og:url' content={location} />
-      <meta property='og:image' content='/favicon.svg' />
-      <meta property='og:title' content={title} key='ogtitle' />
+      <meta name='description' content={siteDescription} />
+      <meta property='og:url' content={siteUrl} />
+      <meta property='og:image' content={siteOGImage.asset.url} />
+      <meta property='og:title' content={siteTitle} key='ogtitle' />
       <meta
         property='og:site_name'
-        content={title}
+        content={siteTitle}
         key='ogsitename'
       />
       <meta
         property='og:description'
-        content={description}
+        content={siteDescription}
         key='ogdescription'
       />
       <body className={bodyClass}>
