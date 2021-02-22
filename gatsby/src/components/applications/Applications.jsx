@@ -11,15 +11,44 @@ import ApplicationsGrid from './ApplicationsGrid';
 import ApplicationsSwitchWrapper from './ApplicationsSwitchWrapper';
 import ApplicationsSwitch from './ApplicationsSwitch';
 import ApplicationsCarousel from './ApplicationsCarousel';
+import { useStaticQuery } from 'gatsby';
 
 const ApplicationsStyles = styled.section`
   background: #ffffff;
 `;
 
-const Applications = ({ projects }) => {
+const Applications = () => {
+  const {
+    allApplications: {
+      applications
+    }
+  } = useStaticQuery(graphql`
+    query {
+      allApplications: sanityProjectsSection {
+        applications: projectsSelectionAndOrder {
+          altText
+          gitHubLink
+          id
+          liveLink
+          mainDescription
+          projectName
+          shortDescription
+          technologiesUsed
+          thumbnail {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const [view, setView] = useState(window.localStorage.sectionView || 'grid');
 
-  const applicationsCards = projects.map((project, index) => {
+  const applicationsCards = applications.map((project, index) => {
     return (
       <ApplicationsCard
         key={project.id}
@@ -50,7 +79,7 @@ const Applications = ({ projects }) => {
             { applicationsCards }
           </ApplicationsGrid>
           : <ApplicationsCarousel
-              projects={projects}
+              applications={applications}
             />
         }
       </SectionContentWrapper>

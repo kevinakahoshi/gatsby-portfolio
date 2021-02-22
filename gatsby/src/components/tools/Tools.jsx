@@ -1,3 +1,4 @@
+import { useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -15,18 +16,39 @@ const ToolsStyles = styled.section`
   color: var(--white);
 `;
 
+const Tools = () => {
+  const {
+    skills: {
+      tools
+    }
+  } = useStaticQuery(graphql`
+    query {
+      skills: sanityToolsSection {
+        tools: toolsSelectionAndOrder {
+          name
+          id
+          displayText
+          altText
+          logo {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
-const Tools = ({ tools }) => {
-  const toolsUsed = tools.map((skill) => {
-    return (
-      <TechnicalSkillOrTool
-        key={skill.id}
-        src={skill.logo.asset.fluid.src}
-        altText={skill.altText}
-        displayText={skill.displayText}
-      />
-    )
-  });
+  const toolsUsed = tools.map((skill) => (
+    <TechnicalSkillOrTool
+      key={skill.id}
+      src={skill.logo.asset.fluid.src}
+      altText={skill.altText}
+      displayText={skill.displayText}
+    />
+  ));
 
   return (
     <ToolsStyles id="tools" className="section">

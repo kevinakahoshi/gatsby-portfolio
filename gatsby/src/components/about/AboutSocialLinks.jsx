@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fi';
 import { useState } from 'react';
 import { SlideIn } from '../../styles/Keyframes';
+import { useStaticQuery } from 'gatsby';
 
 const AboutSocialLinksStyles = styled.div`
   overflow: auto;
@@ -51,7 +52,35 @@ const AboutSocialLinksStyles = styled.div`
   }
 `;
 
-const AboutSocialLinks = ({ social }) => {
+const AboutSocialLinks = () => {
+  const {
+    aboutMe: {
+      social
+    }
+  } = useStaticQuery(graphql`
+    query {
+      aboutMe: sanityAboutMe {
+        social {
+          url
+          name
+          file {
+            asset {
+              url
+            }
+          }
+          logo {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          id
+        }
+      }
+    }
+  `);
+
   const processURL = (item) => item.url ? item.url : item.file.asset.url;
   const [links, setLinks] = useState(null);
   const delay = 0.1;
