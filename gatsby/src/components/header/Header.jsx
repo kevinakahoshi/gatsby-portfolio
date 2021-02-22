@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState
 } from 'react';
 import {
@@ -16,6 +17,7 @@ import NavigationMobileDrawer from './NavigationMobileDrawer';
 import NavigationDesktop from './NavigationDesktop';
 import Overlay from './Overlay';
 import useMenu from '../hooks/useMenu';
+import { useRef } from 'react';
 
 const HeaderStyles = styled.header`
   background: var(--white);
@@ -69,12 +71,13 @@ const navigationItems = [
   }
 ];
 
-const offset = -81;
-const body = document.querySelector('body');
+// const offset = -81;
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [offset, setOffset] = useState(-81);
+  const headerRef = useRef();
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const handleScrollTop = () => scroll.scrollToTop();
@@ -125,6 +128,10 @@ const Header = () => {
       />
     : null;
 
+  const memoLogo = useMemo(() => <Logo />, []);
+
+  // TODO: Research ways to make the resize more performant.  Can this be done
+  //       strictly with CSS?
   useEffect(() => {
     if (width > 850) {
       setIsDesktop(() => true);
@@ -132,22 +139,26 @@ const Header = () => {
       handleHideOverlay();
     } else {
       setIsDesktop(() => false);
+      if (width > 335 && offset === -73) {
+        setOffset(() => -81);
+      } else if (width < 336 && offset === -81) {
+        setOffset(() => -73);
+      }
     }
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [width, openMobileNav]);
 
-
   return (
     <>
-      <HeaderStyles id="header">
+      <HeaderStyles id="header" ref={headerRef}>
         <div className="header-content-wrapper">
           <div
             className="logo-wrapper"
             onClick={handleLogoClick}
           >
-            <Logo />
+            { memoLogo }
           </div>
           <div className="link-wrapper">
             { desktopOrMobile }

@@ -102,21 +102,21 @@ const Logo = () => {
   return (
     <LogoStyles>
       <div className="first-name">
-        <span>K</span>
-        <span>E</span>
-        <span>V</span>
-        <span>I</span>
-        <span>N</span>
+        <span className="letter-k">K</span>
+        <span className="letter-e">E</span>
+        <span className="letter-v">V</span>
+        <span className="letter-i">I</span>
+        <span className="letter-n">N</span>
       </div>
       <div className="last-name">
-        <span>A</span>
-        <span>K</span>
-        <span>A</span>
-        <span>H</span>
+        <span className="letter-a">A</span>
+        <span className="letter-k">K</span>
+        <span className="letter-a">A</span>
+        <span className="letter-h">H</span>
         <span className="letter-o">O</span>
-        <span>S</span>
-        <span>H</span>
-        <span>I</span>
+        <span className="letter-s">S</span>
+        <span className="letter-h">H</span>
+        <span className="letter-i">I</span>
       </div>
     </LogoStyles>
   )

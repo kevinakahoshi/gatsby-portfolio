@@ -5,7 +5,8 @@ import useMenu from '../hooks/useMenu';
 
 
 const SEO = ({ location, children }) => {
-  const { metadata: {
+  const {
+    metadata: {
       siteDescription,
       siteFavicon,
       siteOGImage,

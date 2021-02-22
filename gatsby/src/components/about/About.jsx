@@ -6,6 +6,8 @@ import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
 import AboutBioParagraphs from './AboutBioParagraphs';
 import AboutSocialLinks from './AboutSocialLinks';
+import { useState } from 'react';
+import { useStaticQuery } from 'gatsby';
 
 const AboutStyles = styled.section`
   background: var(--light-grey);
@@ -40,8 +42,51 @@ const AboutStyles = styled.section`
   }
 `;
 
-const About = ({ aboutMe }) => {
-  const { altText, bio, headshot, social } = aboutMe;
+const About = () => {
+  const {
+    aboutMe: {
+      social,
+      altText,
+      bio,
+      headshot
+    }
+  } = useStaticQuery(graphql`
+    query {
+      aboutMe: sanityAboutMe {
+        social {
+          url
+          name
+          file {
+            asset {
+              url
+            }
+          }
+          logo {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          id
+        }
+        altText
+        bio {
+          children {
+            _key
+            text
+          }
+        }
+        headshot {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid_noBase64
+            }
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <AboutStyles id="about" className="section">
