@@ -85,11 +85,11 @@ const ApplicationsCarouselStyles = styled.div`
   }
 `;
 
-const ApplicationsCarousel = ({ projects }) => {
+const ApplicationsCarousel = ({ applications }) => {
   const [slide, setSlide] = useState(0);
   const slider = createRef();
 
-  const applicationImages = projects.map((project, index) => (
+  const applicationImages = applications.map((project, index) => (
     <a
       key={`${project.id}--${index}`}
       href={project.liveLink}
@@ -107,7 +107,7 @@ const ApplicationsCarousel = ({ projects }) => {
     </a>
   ));
 
-  const applicationsDescriptions = projects.map((project, index) => (
+  const applicationsDescriptions = applications.map((project, index) => (
     <ApplicationsCarouselDescription
       key={`${project.id}--${index}`}
       gitHubLink={project.gitHubLink}
@@ -137,7 +137,7 @@ const ApplicationsCarousel = ({ projects }) => {
   }
 
   return (
-    <ApplicationsCarouselStyles numberOfSlides={projects.length}>
+    <ApplicationsCarouselStyles numberOfSlides={applications.length}>
       <div
         className="carousel-image-section"
         onMouseOver={pauseSlides}
@@ -150,7 +150,7 @@ const ApplicationsCarousel = ({ projects }) => {
         </div>
         <div className="controls-wrapper">
           <ApplicationsCarouselIndicators
-            numberOfApplications={projects.length}
+            numberOfApplications={applications.length}
             skipToSlide={skipToSlide}
             slide={slide}
           />
