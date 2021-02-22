@@ -50,23 +50,6 @@ export const query = graphql`
         }
       }
     }
-    skills: allSanityTechnologiesSection {
-      nodes {
-        tech: technologiesSelectionAndOrder {
-          name
-          id
-          displayText
-          altText
-          logo {
-            asset {
-              fluid {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
     tools: allSanityToolsSection {
       nodes {
         tools: toolsSelectionAndOrder {
@@ -110,7 +93,6 @@ export const query = graphql`
 
 const Home = ({ data }) => {
   const aboutMe = data.aboutMe.nodes[0];
-  const skills = data.skills.nodes[0].tech;
   const tools = data.tools.nodes[0].tools;
   const projects = data.projects.nodes[0].allProjects;
 
@@ -118,8 +100,8 @@ const Home = ({ data }) => {
     <Layout>
       <Header />
       <Hero />
-      <About aboutMe={aboutMe} />
-      <Skills skills={skills} />
+      <About />
+      <Skills />
       <Tools tools={tools} />
       <Applications projects={projects} />
       <Contact social={aboutMe.social} />
