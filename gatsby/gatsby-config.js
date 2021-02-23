@@ -5,7 +5,7 @@ dotenv.config({ path: '.env' });
 module.exports = {
   siteMetadata: {
     title: 'Kevin Akahoshi // Software Engineer in OC',
-    siteUrl: 'https://kevinakahoshi.com/',
+    url: 'https://kevinakahoshi.com/',
     description: 'Experienced with React.js, JavaScript (ES5 + ES6), Shopify, and more',
   },
   plugins: [

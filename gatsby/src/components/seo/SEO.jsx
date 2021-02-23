@@ -12,6 +12,13 @@ const SEO = ({ location, children }) => {
       siteOGImage,
       siteTitle,
       siteUrl
+    },
+    site: {
+      siteMetadata: {
+        title,
+        url,
+        description
+      }
     }
   } = useStaticQuery(graphql`
     query {
@@ -30,6 +37,13 @@ const SEO = ({ location, children }) => {
         }
         siteDescription
       }
+      site {
+        siteMetadata {
+          title
+          url
+          description
+        }
+      }
     }
   `);
 
@@ -45,10 +59,10 @@ const SEO = ({ location, children }) => {
       <link rel='icon' href={siteFavicon.asset.url} type='image/svg+xml' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta charset='UTF-8' />
-      <meta name='description' content={siteDescription} />
-      <meta property='og:url' content={siteUrl} />
+      <meta name='description' content={siteDescription || description} />
+      <meta property='og:url' content={siteUrl || url} />
       <meta property='og:image' content={siteOGImage.asset.url} />
-      <meta property='og:title' content={siteTitle} key='ogtitle' />
+      <meta property='og:title' content={siteTitle || title} key='ogtitle' />
       <meta
         property='og:site_name'
         content={siteTitle}
