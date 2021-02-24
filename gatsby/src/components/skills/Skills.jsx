@@ -1,7 +1,8 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, {
+  useMemo
+} from 'react';
 import styled from 'styled-components';
-import { useMemo } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import SectionHeading from '../shared/SectionHeading';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';

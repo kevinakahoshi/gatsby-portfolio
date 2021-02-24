@@ -11,7 +11,7 @@ import ApplicationsGrid from './ApplicationsGrid';
 import ApplicationsSwitchWrapper from './ApplicationsSwitchWrapper';
 import ApplicationsSwitch from './ApplicationsSwitch';
 import ApplicationsCarousel from './ApplicationsCarousel';
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const ApplicationsStyles = styled.section`
   background: #ffffff;

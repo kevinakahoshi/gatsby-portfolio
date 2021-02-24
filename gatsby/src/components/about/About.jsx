@@ -7,7 +7,7 @@ import SectionHeading from '../shared/SectionHeading';
 import AboutBioParagraphs from './AboutBioParagraphs';
 import AboutSocialLinks from './AboutSocialLinks';
 import { useState } from 'react';
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const AboutStyles = styled.section`
   background: var(--light-grey);
