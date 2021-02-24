@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fi';
 import { useState } from 'react';
 import { SlideIn } from '../../styles/Keyframes';
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const AboutSocialLinksStyles = styled.div`
   overflow: auto;
