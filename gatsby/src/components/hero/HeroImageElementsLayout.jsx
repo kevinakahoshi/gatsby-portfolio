@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// TODO: Add clamp to absolute positioning for top and left, and for grid-gap
 const HeroImageElementsLayoutStyles = styled.div`
   height: 100%;
   width: 100%;
