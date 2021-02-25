@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Float } from '../../styles/Keyframes';
 import HeroImageTextBlock from './HeroImageTextBlock';
 
-// TODO: Add clamp to grid-gap
 const HeroImageBelowTheFoldStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
