@@ -29,6 +29,7 @@ const ContactLinksStyles = styled.div`
     width: max-content;
     grid-gap: .5rem;
     margin: 0rem 1rem;
+    align-items: center;
   }
 `;
 

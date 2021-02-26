@@ -37,10 +37,11 @@ const ApplicationsToggleTooltipStyles = styled.div`
     color: var(--white);
     padding: .5rem;
     position: absolute;
-    width: max-content;
+    width: auto;
     border-radius: .25rem;
     top: -.25rem;
     transition: .3s all;
+    white-space: nowrap;
 
     &[data-direction="left"] {
       right: 1.5rem;
