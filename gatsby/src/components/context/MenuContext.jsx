@@ -3,7 +3,10 @@ import React, {
   useState
 } from 'react';
 
-const MenuContext = createContext();
+const MenuContext = createContext([
+  false,
+  () => ({})
+]);
 
 export const MenuProvider = ({ children }) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
