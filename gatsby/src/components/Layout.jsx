@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'normalize.css';
 
 // Components
 import SEO from './seo/SEO';
 
 const Layout = ({ children }) => {
-return (
-  <>
-    <SEO location={window.location.href} />
-    { children }
-  </>
+  const [browserWindow, setBrowserWindow] = useState(null);
+
+  useEffect(() => {
+    setBrowserWindow(window.location.href);
+  }, [])
+
+  return (
+    <>
+      <SEO location={browserWindow} />
+      { children }
+    </>
   )
 };
 

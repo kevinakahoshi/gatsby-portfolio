@@ -1,4 +1,5 @@
 import React, {
+  useEffect,
   useMemo,
   useState
 } from 'react';
@@ -46,7 +47,7 @@ const Applications = () => {
     }
   `);
 
-  const [view, setView] = useState(window.localStorage.sectionView || 'grid');
+  const [view, setView] = useState('grid');
 
   const applicationsCards = applications.map((project, index) => {
     return (
@@ -62,6 +63,10 @@ const Applications = () => {
     window.localStorage.sectionView = view;
     return view;
   });
+
+  useEffect(() => {
+    setView(() => window.localStorage.sectionView || 'grid');
+  },[]);
 
   return (
     <ApplicationsStyles id="applications" className="section">

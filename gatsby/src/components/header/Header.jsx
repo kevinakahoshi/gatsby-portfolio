@@ -74,7 +74,7 @@ const navigationItems = [
 // const offset = -81;
 
 const Header = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
   const [offset, setOffset] = useState(-81);
   const headerRef = useRef();
@@ -149,6 +149,10 @@ const Header = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [width, openMobileNav]);
+
+  useEffect(() => {
+    setWidth(() => window.innerWidth);
+  }, []);
 
   return (
     <>
