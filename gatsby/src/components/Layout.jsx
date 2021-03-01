@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     setBrowserWindow(window.location.href);
-  }, [])
+  }, []);
 
   return (
     <>

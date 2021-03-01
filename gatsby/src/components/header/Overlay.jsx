@@ -24,7 +24,6 @@ const OverlayStyles = styled.div`
 
 const Overlay = ({ handleClose, openMobileNav }) => {
   const fadeClass = openMobileNav ? 'fade-in' : 'fade-out';
-
   return (
     <OverlayStyles
       className={fadeClass}

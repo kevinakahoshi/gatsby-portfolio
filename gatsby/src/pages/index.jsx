@@ -1,5 +1,4 @@
 import React from "react"
-import Img from 'gatsby-image';
 
 // Components
 import Layout from '../components/Layout';
