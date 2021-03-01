@@ -3,8 +3,6 @@ import 'normalize.css';
 
 // Components
 import SEO from './seo/SEO';
-import useMenu from './hooks/useMenu';
-import Overlay from './header/Overlay';
 
 const Layout = ({ children }) => {
   const [browserWindow, setBrowserWindow] = useState(null);
