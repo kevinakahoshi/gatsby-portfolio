@@ -98,17 +98,21 @@ const Header = () => {
     handleScrollTop();
   }
 
+  const memoBurger = useMemo(() => (
+    <NavigationHamburger
+      handleOpen={handleOpen}
+      handleClose={handleClose}
+      handleHideOverlay={handleHideOverlay}
+      openMobileNav={openMobileNav}
+    />
+  ), [openMobileNav]);
+
   const desktopOrMobile = isDesktop
     ? <NavigationDesktop
         offset={offset}
         navigationItems={navigationItems}
       />
-    : <NavigationHamburger
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-        handleHideOverlay={handleHideOverlay}
-        openMobileNav={openMobileNav}
-      />;
+    : memoBurger;
 
   const includeNavDrawer = !isDesktop
     ? <NavigationMobileDrawer
