@@ -3,6 +3,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState
 } from 'react';
 import {
@@ -17,7 +18,6 @@ import NavigationMobileDrawer from './NavigationMobileDrawer';
 import NavigationDesktop from './NavigationDesktop';
 import Overlay from './Overlay';
 import useMenu from '../hooks/useMenu';
-import { useRef } from 'react';
 
 const HeaderStyles = styled.header`
   background: var(--white);
@@ -71,8 +71,6 @@ const navigationItems = [
   }
 ];
 
-// const offset = -81;
-
 const Header = () => {
   const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -98,7 +96,7 @@ const Header = () => {
     handleScrollTop();
   }
 
-  const memoBurger = useMemo(() => (
+  const hamburgerNav = useMemo(() => (
     <NavigationHamburger
       handleOpen={handleOpen}
       handleClose={handleClose}
@@ -107,22 +105,30 @@ const Header = () => {
     />
   ), [openMobileNav]);
 
+  const desktopNav = useMemo(() => (
+    <NavigationDesktop
+      offset={offset}
+      navigationItems={navigationItems}
+    />
+  ), []);
+
+  const navDrawer = useMemo(() => (
+    <NavigationMobileDrawer
+      offset={offset}
+      navigationItems={navigationItems}
+      openMobileNav={openMobileNav}
+      handleClose={handleClose}
+      handleHideOverlay={handleHideOverlay}
+      showOverlay={showOverlay}
+    />
+  ), [openMobileNav]);
+
   const desktopOrMobile = isDesktop
-    ? <NavigationDesktop
-        offset={offset}
-        navigationItems={navigationItems}
-      />
-    : memoBurger;
+    ? desktopNav
+    : hamburgerNav;
 
   const includeNavDrawer = !isDesktop
-    ? <NavigationMobileDrawer
-        offset={offset}
-        navigationItems={navigationItems}
-        openMobileNav={openMobileNav}
-        handleClose={handleClose}
-        handleHideOverlay={handleHideOverlay}
-        showOverlay={showOverlay}
-      />
+    ? navDrawer
     : null;
 
   const hideOrShowOverlay = showOverlay
@@ -132,10 +138,8 @@ const Header = () => {
       />
     : null;
 
-  const memoLogo = useMemo(() => <Logo />, []);
+  const logo = useMemo(() => <Logo />, []);
 
-  // TODO: Research ways to make the resize more performant.  Can this be done
-  //       strictly with CSS?
   useEffect(() => {
     if (width > 850) {
       setIsDesktop(() => true);
@@ -152,7 +156,7 @@ const Header = () => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [width, openMobileNav]);
+  }, [width]);
 
   useEffect(() => {
     setWidth(() => window.innerWidth);
@@ -166,7 +170,7 @@ const Header = () => {
             className="logo-wrapper"
             onClick={handleLogoClick}
           >
-            { memoLogo }
+            { logo }
           </div>
           <div className="link-wrapper">
             { desktopOrMobile }

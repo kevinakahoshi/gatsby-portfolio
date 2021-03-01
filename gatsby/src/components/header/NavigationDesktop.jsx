@@ -5,11 +5,17 @@ import styled from 'styled-components';
 import NavigationLink from './NavigationLink';
 
 const NavigationStyles = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  align-items: center;
-  justify-content: center;
-  grid-gap: 3rem;
+  @media (min-width: 851px) {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    justify-content: center;
+    grid-gap: 3rem;
+  }
+
+  @media (max-width: 850px) {
+    display: none;
+  }
 
   a {
     position: relative;
