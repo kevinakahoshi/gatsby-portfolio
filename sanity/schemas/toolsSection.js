@@ -14,5 +14,12 @@ export default {
         }]
       }]
     }
-  ]
+  ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Tools and Order'
+      };
+    }
+  }
 }
