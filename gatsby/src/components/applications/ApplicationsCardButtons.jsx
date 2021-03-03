@@ -16,10 +16,11 @@ const ApplicationsCardButtonsStyles = styled.div`
     border: 2px solid var(--link-inactive-grey);
     padding: .75rem;
     border-radius: .25rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
+    grid-gap: .5rem;
     text-decoration: none;
 
     &:hover {
