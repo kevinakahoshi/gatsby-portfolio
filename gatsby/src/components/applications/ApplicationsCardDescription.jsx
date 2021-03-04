@@ -7,14 +7,10 @@ const ApplicationsCardDescriptionStyles = styled.div`
   }
 `;
 
-const ApplicationsCardDescription = ({ shortDescription }) => {
-  return (
-    <ApplicationsCardDescriptionStyles>
-      <p>
-        { shortDescription }
-      </p>
-    </ApplicationsCardDescriptionStyles>
-  )
-};
+const ApplicationsCardDescription = ({ shortDescription }) => (
+  <ApplicationsCardDescriptionStyles>
+    <p>{ shortDescription }</p>
+  </ApplicationsCardDescriptionStyles>
+);
 
 export default ApplicationsCardDescription;
