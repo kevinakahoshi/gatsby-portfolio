@@ -37,7 +37,6 @@ const ApplicationsCarouselDescriptionStyles = styled.div`
     .technologies-used {
       display: flex;
       flex-wrap: wrap;
-      /* margin: -.125rem; */
 
       span {
         margin: .125rem;
