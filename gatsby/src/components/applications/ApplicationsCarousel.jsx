@@ -36,6 +36,7 @@ const ApplicationsCarouselStyles = styled.div`
     .slides-wrapper {
       overflow: hidden;
       border-radius: .25rem;
+      touch-action: pan-y;
 
       .applications-slick-carousel {
         .slick-track {
@@ -45,16 +46,6 @@ const ApplicationsCarouselStyles = styled.div`
             font-size: 0;
           }
         }
-      }
-    }
-
-    .applications-slides {
-      display: grid;
-      grid-template-columns: repeat(${({numberOfSlides}) => numberOfSlides}, 100%);
-      grid-gap: 3rem;
-
-      a[data-deployed="false"] {
-        opacity: .5;
       }
     }
 
@@ -143,7 +134,12 @@ const ApplicationsCarousel = ({ applications }) => {
         onMouseOver={pauseSlides}
         onMouseLeave={startSlides}
       >
-        <div className="slides-wrapper">
+        <div className="slides-wrapper"
+          onTouchStart={pauseSlides}
+          onMouseDown={pauseSlides}
+          onTouchEnd={startSlides}
+          onMouseUp={startSlides}
+        >
           <Slider ref={slider} {...settings}>
             { applicationImages }
           </Slider>
