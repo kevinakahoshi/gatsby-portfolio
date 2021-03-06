@@ -5,10 +5,6 @@ import styled from 'styled-components';
 const ApplicationsImageStyles = styled.div`
   position: relative;
 
-  .application-image {
-
-  }
-
   .application-name {
     position: absolute;
     top: 50%;

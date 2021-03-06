@@ -16,14 +16,12 @@ const ContactLogoDividersStyles = styled.div`
   }
 `;
 
-const ContactLogoDividers = () => {
-  return (
-    <ContactLogoDividersStyles>
-      <div className="divider" />
-        <Logo />
-      <div className="divider" />
-    </ContactLogoDividersStyles>
-  )
-}
+const ContactLogoDividers = () => (
+  <ContactLogoDividersStyles>
+    <div className="divider" />
+      <Logo />
+    <div className="divider" />
+  </ContactLogoDividersStyles>
+);
 
 export default ContactLogoDividers;

@@ -22,6 +22,7 @@ const ApplicationsCarouselButtonsStyles = styled.div`
     background: var(--white);
     outline: none;
     transition: .3s all;
+    padding: 0;
 
     &:not(:hover) {
       color: var(--link-inactive-grey);
