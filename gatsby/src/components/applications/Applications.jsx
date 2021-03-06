@@ -81,8 +81,8 @@ const Applications = () => {
         />
         {view === 'grid'
           ? <ApplicationsGrid>
-            { applicationsCards }
-          </ApplicationsGrid>
+              { applicationsCards }
+            </ApplicationsGrid>
           : <ApplicationsCarousel
               applications={applications}
             />
