@@ -15,14 +15,12 @@ const ApplicationsCardTechnologiesStyles = styled.div`
 `;
 
 const ApplicationsCardTechnologies = ({ technologiesUsed }) => {
-  const allBadges = technologiesUsed.map((technology, index) => {
-    return (
-      <ApplicationTechnologyBadge
-        key={`${technology.toLowerCase().replace(/\s/g, '-')}--${index}`}
-        technologyName={technology}
-      />
-    )
-  });
+  const allBadges = technologiesUsed.map((technology, index) => (
+    <ApplicationTechnologyBadge
+      key={`${technology.toLowerCase().replace(/\s/g, '-')}--${index}`}
+      technologyName={technology}
+    />
+  ));
 
   return (
     <ApplicationsCardTechnologiesStyles>

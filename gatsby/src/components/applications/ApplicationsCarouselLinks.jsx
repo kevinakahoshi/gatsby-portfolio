@@ -12,15 +12,13 @@ const ApplicationsCarouselLinksStyles = styled.div`
   justify-content: flex-start;
 `;
 
-const ApplicationsCarouselLinks = ({ gitHubLink, liveLink }) => {
-  return (
-    <ApplicationsCarouselLinksStyles>
-      <ApplicationsCardButtons
-        gitHubLink={gitHubLink}
-        liveLink={liveLink}
-      />
-    </ApplicationsCarouselLinksStyles>
-  )
-};
+const ApplicationsCarouselLinks = ({ gitHubLink, liveLink }) => (
+  <ApplicationsCarouselLinksStyles>
+    <ApplicationsCardButtons
+      gitHubLink={gitHubLink}
+      liveLink={liveLink}
+    />
+  </ApplicationsCarouselLinksStyles>
+);
 
 export default ApplicationsCarouselLinks;

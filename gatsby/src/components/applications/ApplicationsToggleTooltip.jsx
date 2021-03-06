@@ -83,13 +83,8 @@ const ApplicationsToggleTooltip = ({ children, direction, text }) => {
   return (
     <ApplicationsToggleTooltipStyles>
       <div className="message-wrapper">
-        <div
-          className="message"
-          data-direction={direction}
-        >
-          <span>
-            {text}
-          </span>
+        <div className="message" data-direction={direction}>
+          <span>{ text }</span>
         </div>
         { children }
       </div>
