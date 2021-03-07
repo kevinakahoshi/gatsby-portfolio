@@ -45,26 +45,24 @@ const NotFoundStyles = styled.section`
 
 `;
 
-const NotFound = () => {
-  return (
-    <Layout>
-      <NotFoundStyles className="section">
-        <div className="not-found-content-wrapper">
-          <div className="text-wrapper">
-            <h1>
-              Whoa there buddy!
-            </h1>
-            <h2>
-              Looks like you're lost.
-            </h2>
-          </div>
-          <Link to="/">
-            Take me home!
-          </Link>
+const NotFound = () => (
+  <Layout>
+    <NotFoundStyles className="section">
+      <div className="not-found-content-wrapper">
+        <div className="text-wrapper">
+          <h1>
+            Whoa there buddy!
+          </h1>
+          <h2>
+            Looks like you're lost.
+          </h2>
         </div>
-      </NotFoundStyles>
-    </Layout>
-  )
-}
+        <Link to="/">
+          Take me home!
+        </Link>
+      </div>
+    </NotFoundStyles>
+  </Layout>
+);
 
 export default NotFound;

@@ -58,7 +58,7 @@ const Skills = () => {
         </SkillsAndToolsGrid>
       </SectionContentWrapper>
     </SkillsStyles>
-  )
-}
+  );
+};
 
 export default Skills;

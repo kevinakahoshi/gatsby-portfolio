@@ -27,19 +27,17 @@ const TechnicalSkillOrToolStyles = styled.div`
   }
 `;
 
-const TechnicalSkillOrTool = ({ src, altText, displayText }) => {
-  return (
-    <TechnicalSkillOrToolStyles className="technical">
-      <img
-        src={src}
-        alt={altText}
-        title={altText}
-      />
-      <p>
-        {displayText}
-      </p>
-    </TechnicalSkillOrToolStyles>
-  )
-}
+const TechnicalSkillOrTool = ({ src, altText, displayText }) => (
+  <TechnicalSkillOrToolStyles className="technical">
+    <img
+      src={src}
+      alt={altText}
+      title={altText}
+    />
+    <p>
+      {displayText}
+    </p>
+  </TechnicalSkillOrToolStyles>
+);
 
 export default TechnicalSkillOrTool;

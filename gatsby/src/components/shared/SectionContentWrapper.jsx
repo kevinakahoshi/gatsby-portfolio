@@ -6,12 +6,10 @@ const SectionContentWrapperStyles = styled.div`
   margin: auto;
 `;
 
-const SectionContentWrapper = ({ children }) => {
-  return (
-    <SectionContentWrapperStyles>
-      { children }
-    </SectionContentWrapperStyles>
-  )
-}
+const SectionContentWrapper = ({ children }) => (
+  <SectionContentWrapperStyles>
+    { children }
+  </SectionContentWrapperStyles>
+);
 
 export default SectionContentWrapper;
