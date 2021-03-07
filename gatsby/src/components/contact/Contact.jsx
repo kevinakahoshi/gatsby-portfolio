@@ -30,19 +30,17 @@ const ContactStyles = styled.footer`
   }
 `;
 
-const Contact = ({ social }) => {
-  return (
-    <ContactStyles id="contact" className="section">
-      <SectionContentWrapper>
-        <div className="contact-wrapper">
-          <ContactLogoDividers />
-          <ContactLinks />
-          <AboutSocialLinks social={social} />
-          <ContactCopyright />
-        </div>
-      </SectionContentWrapper>
-    </ContactStyles>
-  )
-}
+const Contact = ({ social }) => (
+  <ContactStyles id="contact" className="section">
+    <SectionContentWrapper>
+      <div className="contact-wrapper">
+        <ContactLogoDividers />
+        <ContactLinks />
+        <AboutSocialLinks social={social} />
+        <ContactCopyright />
+      </div>
+    </SectionContentWrapper>
+  </ContactStyles>
+);
 
 export default Contact;

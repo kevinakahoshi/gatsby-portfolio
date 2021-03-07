@@ -169,6 +169,6 @@ const ApplicationsCarousel = ({ applications }) => {
       </div>
     </ApplicationsCarouselStyles>
   );
-}
+};
 
 export default ApplicationsCarousel;

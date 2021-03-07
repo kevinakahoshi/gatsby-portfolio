@@ -35,33 +35,31 @@ const ApplicationsSwitchWrapperStyles = styled.div`
   }
 `;
 
-const ApplicationsSwitchWrapper = ({ handleToggle, setView, view }) => {
-  return (
-    <ApplicationsSwitchWrapperStyles>
-      <div className="toggle-switch-container">
-        <ApplicationsToggleTooltip
-          direction="left"
-          text="Grid View">
-          <Grid
-            onClick={() => view !== 'grid' && setView('grid')}
-            className="icons"
-          />
-        </ApplicationsToggleTooltip>
-        <ApplicationsSwitch
-          handleToggle={handleToggle}
-          view={view}
+const ApplicationsSwitchWrapper = ({ handleToggle, setView, view }) => (
+  <ApplicationsSwitchWrapperStyles>
+    <div className="toggle-switch-container">
+      <ApplicationsToggleTooltip
+        direction="left"
+        text="Grid View">
+        <Grid
+          onClick={() => view !== 'grid' && setView('grid')}
+          className="icons"
         />
-        <ApplicationsToggleTooltip
-          direction="right"
-          text="Carousel View">
-          <Carousel
-            onClick={() => view !== 'carousel' && setView('carousel')}
-            className="icons"
-          />
-        </ApplicationsToggleTooltip>
-      </div>
-    </ApplicationsSwitchWrapperStyles>
-  )
-};
+      </ApplicationsToggleTooltip>
+      <ApplicationsSwitch
+        handleToggle={handleToggle}
+        view={view}
+      />
+      <ApplicationsToggleTooltip
+        direction="right"
+        text="Carousel View">
+        <Carousel
+          onClick={() => view !== 'carousel' && setView('carousel')}
+          className="icons"
+        />
+      </ApplicationsToggleTooltip>
+    </div>
+  </ApplicationsSwitchWrapperStyles>
+);
 
 export default ApplicationsSwitchWrapper;

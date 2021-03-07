@@ -49,25 +49,23 @@ const ApplicationsCarouselButtonsStyles = styled.div`
   }
 `;
 
-const ApplicationsCarouselButtons = ({ previousSlide, nextSlide }) => {
-  return (
-    <ApplicationsCarouselButtonsStyles>
-      <button
-        className="previous"
-        onClick={previousSlide}
-        role="button"
-      >
-        <Previous className="chevron" />
-      </button>
-      <button
-        className="next"
-        onClick={nextSlide}
-        role="button"
-      >
-        <Next className="chevron" />
-      </button>
-    </ApplicationsCarouselButtonsStyles>
-  )
-};
+const ApplicationsCarouselButtons = ({ previousSlide, nextSlide }) => (
+  <ApplicationsCarouselButtonsStyles>
+    <button
+      className="previous"
+      onClick={previousSlide}
+      role="button"
+    >
+      <Previous className="chevron" />
+    </button>
+    <button
+      className="next"
+      onClick={nextSlide}
+      role="button"
+    >
+      <Next className="chevron" />
+    </button>
+  </ApplicationsCarouselButtonsStyles>
+);
 
 export default ApplicationsCarouselButtons;

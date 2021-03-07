@@ -16,10 +16,6 @@ const HeroImageShadowDOMStyles = styled.div`
   animation-delay: .8s;
 `;
 
-const HeroImageShadowDOM = () => {
-  return (
-    <HeroImageShadowDOMStyles />
-  )
-};
+const HeroImageShadowDOM = () => <HeroImageShadowDOMStyles />;
 
 export default HeroImageShadowDOM;

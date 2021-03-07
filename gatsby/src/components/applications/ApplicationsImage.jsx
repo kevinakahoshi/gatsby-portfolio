@@ -28,22 +28,20 @@ const ApplicationsImageStyles = styled.div`
   }
 `;
 
-const ApplicationsImage = ({ altText, projectName, thumbnail, view }) => {
-  return (
-    <ApplicationsImageStyles>
-      <Img
-        fluid={thumbnail.asset.fluid}
-        alt={altText}
-        className="application-image"
-      />
-      <h4
-        className="application-name"
-        data-view={view}
-      >
-        { projectName }
-      </h4>
-    </ApplicationsImageStyles>
-  )
-};
+const ApplicationsImage = ({ altText, projectName, thumbnail, view }) => (
+  <ApplicationsImageStyles>
+    <Img
+      fluid={thumbnail.asset.fluid}
+      alt={altText}
+      className="application-image"
+    />
+    <h4
+      className="application-name"
+      data-view={view}
+    >
+      { projectName }
+    </h4>
+  </ApplicationsImageStyles>
+);
 
 export default ApplicationsImage;

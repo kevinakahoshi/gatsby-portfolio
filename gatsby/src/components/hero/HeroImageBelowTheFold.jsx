@@ -56,7 +56,7 @@ const HeroImageBelowTheFold = () => {
         </HeroImageTextBlock>
       </div>
     </HeroImageBelowTheFoldStyles>
-  )
+  );
 };
 
 export default HeroImageBelowTheFold;

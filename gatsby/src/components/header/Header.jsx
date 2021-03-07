@@ -181,6 +181,6 @@ const Header = () => {
       { hideOrShowOverlay }
     </>
   )
-}
+};
 
 export default Header;

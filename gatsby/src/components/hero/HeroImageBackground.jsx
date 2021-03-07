@@ -15,10 +15,6 @@ const HeroImageBackgroundStyles = styled.div`
   animation-delay: 0.6s;
 `;
 
-const HeroImageBackground = () => {
-  return (
-    <HeroImageBackgroundStyles />
-  )
-};
+const HeroImageBackground = () => <HeroImageBackgroundStyles />;
 
 export default HeroImageBackground;

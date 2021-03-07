@@ -77,7 +77,7 @@ const HeroImageHeader = () => {
         { links }
       </div>
     </HeroImageHeaderStyles>
-  )
+  );
 };
 
 export default HeroImageHeader;

@@ -15,14 +15,12 @@ const HeroImageTextBlockStyles = styled.div`
   }
 `;
 
-const HeroImageTextBlock = ({ children }) => {
-  return (
-    <HeroImageTextBlockStyles>
-      <div className="row-text">
-        { children }
-      </div>
-    </HeroImageTextBlockStyles>
-  )
-};
+const HeroImageTextBlock = ({ children }) => (
+  <HeroImageTextBlockStyles>
+    <div className="row-text">
+      { children }
+    </div>
+  </HeroImageTextBlockStyles>
+);
 
 export default HeroImageTextBlock;

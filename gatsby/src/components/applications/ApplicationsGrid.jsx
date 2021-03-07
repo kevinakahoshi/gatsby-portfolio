@@ -19,12 +19,10 @@ const ApplicationsGridStyles = styled.div`
   }
 `;
 
-const ApplicationsGrid = ({ children }) => {
-  return (
-    <ApplicationsGridStyles>
-      { children }
-    </ApplicationsGridStyles>
-  )
-}
+const ApplicationsGrid = ({ children }) => (
+  <ApplicationsGridStyles>
+    { children }
+  </ApplicationsGridStyles>
+);
 
 export default ApplicationsGrid;

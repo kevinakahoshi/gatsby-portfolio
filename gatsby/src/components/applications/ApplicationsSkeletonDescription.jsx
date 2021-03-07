@@ -39,6 +39,6 @@ const ApplicationsSkeletonDescription = ({ numberOfRows = 0 }) => {
       { rowElements }
     </ApplicationsSkeletonDescriptionStyles>
   )
-}
+};
 
 export default ApplicationsSkeletonDescription;
