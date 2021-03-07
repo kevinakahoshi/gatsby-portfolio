@@ -79,7 +79,7 @@ const SEO = ({ location, children }) => {
         { children }
       </body>
     </Helmet>
-  )
-}
+  );
+};
 
 export default SEO;

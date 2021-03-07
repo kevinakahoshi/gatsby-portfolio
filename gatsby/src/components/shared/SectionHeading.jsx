@@ -8,12 +8,10 @@ const SectionHeadingStyles = styled.h3`
   text-align: center;
 `;
 
-const SectionHeading = ({ children }) => {
-  return (
-    <SectionHeadingStyles>
-      { children }
-    </SectionHeadingStyles>
-  )
-};
+const SectionHeading = ({ children }) => (
+  <SectionHeadingStyles>
+    { children }
+  </SectionHeadingStyles>
+);
 
 export default SectionHeading;

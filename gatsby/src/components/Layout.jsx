@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
       <SEO location={browserWindow} />
       { children }
     </>
-  )
+  );
 };
 
 

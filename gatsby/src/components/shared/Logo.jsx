@@ -97,28 +97,26 @@ const LogoStyles = styled.div`
   }
 `;
 
-const Logo = () => {
-  return (
-    <LogoStyles>
-      <div className="first-name">
-        <span className="letter-k">K</span>
-        <span className="letter-e">E</span>
-        <span className="letter-v">V</span>
-        <span className="letter-i">I</span>
-        <span className="letter-n">N</span>
-      </div>
-      <div className="last-name">
-        <span className="letter-a">A</span>
-        <span className="letter-k">K</span>
-        <span className="letter-a">A</span>
-        <span className="letter-h">H</span>
-        <span className="letter-o">O</span>
-        <span className="letter-s">S</span>
-        <span className="letter-h">H</span>
-        <span className="letter-i">I</span>
-      </div>
-    </LogoStyles>
-  )
-}
+const Logo = () => (
+  <LogoStyles>
+    <div className="first-name">
+      <span className="letter-k">K</span>
+      <span className="letter-e">E</span>
+      <span className="letter-v">V</span>
+      <span className="letter-i">I</span>
+      <span className="letter-n">N</span>
+    </div>
+    <div className="last-name">
+      <span className="letter-a">A</span>
+      <span className="letter-k">K</span>
+      <span className="letter-a">A</span>
+      <span className="letter-h">H</span>
+      <span className="letter-o">O</span>
+      <span className="letter-s">S</span>
+      <span className="letter-h">H</span>
+      <span className="letter-i">I</span>
+    </div>
+  </LogoStyles>
+);
 
 export default Logo;
