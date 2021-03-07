@@ -87,23 +87,21 @@ const HeroImageHeroStyles = styled.div`
   }
 `;
 
-const HeroImageHero = () => {
-  return (
-    <HeroImageHeroStyles>
-      <div className="hero-text-wrapper">
-        <div className="hero-text-heading" />
-        <div className="hero-text-subheading" />
+const HeroImageHero = () => (
+  <HeroImageHeroStyles>
+    <div className="hero-text-wrapper">
+      <div className="hero-text-heading" />
+      <div className="hero-text-subheading" />
+    </div>
+    <div className="hero-image-wrapper">
+      <div className="floating-page">
+        <div className="floating-shadow-dom" />
+        <div className="floating-dom" />
+        <div className="floating-elements" />
       </div>
-      <div className="hero-image-wrapper">
-        <div className="floating-page">
-          <div className="floating-shadow-dom" />
-          <div className="floating-dom" />
-          <div className="floating-elements" />
-        </div>
-        <div className="transition-backround" />
-      </div>
-    </HeroImageHeroStyles>
-  )
-};
+      <div className="transition-backround" />
+    </div>
+  </HeroImageHeroStyles>
+);
 
 export default HeroImageHero;

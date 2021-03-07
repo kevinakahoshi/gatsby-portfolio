@@ -32,18 +32,16 @@ const HeroImageStyles = styled.div`
   }
 `;
 
-const HeroImageContents = () => {
-  return (
-    <HeroImageStyles>
-      <HeroImageElementsLayout>
-        <HeroImageHeader />
-        <HeroImageHero />
-        <HeroImageBelowTheFold />
-      </HeroImageElementsLayout>
-      <HeroImageBackground />
-      <HeroImageShadowDOM />
-    </HeroImageStyles>
-  )
-};
+const HeroImageContents = () => (
+  <HeroImageStyles>
+    <HeroImageElementsLayout>
+      <HeroImageHeader />
+      <HeroImageHero />
+      <HeroImageBelowTheFold />
+    </HeroImageElementsLayout>
+    <HeroImageBackground />
+    <HeroImageShadowDOM />
+  </HeroImageStyles>
+);
 
 export default HeroImageContents;

@@ -75,10 +75,7 @@ const ApplicationsCard = ({ application }) => {
       </a>
       { descriptionBlock }
       { technologiesBlock }
-      <ApplicationsCardButtons
-        gitHubLink={gitHubLink}
-        liveLink={liveLink}
-      />
+      <ApplicationsCardButtons gitHubLink={gitHubLink} liveLink={liveLink} />
     </ApplicationsCardStyles>
   )
 };

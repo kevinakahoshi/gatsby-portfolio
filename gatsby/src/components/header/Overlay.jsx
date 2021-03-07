@@ -30,6 +30,6 @@ const Overlay = ({ handleClose, openMobileNav }) => {
       onClick={handleClose}
     />
   );
-}
+};
 
 export default Overlay;

@@ -47,6 +47,6 @@ const ApplicationsSkeletonTechnologies = ({ technologiesUsed }) => {
       </div>
     </ApplicationsSkeletonTechnologiesStyles>
   )
-}
+};
 
 export default ApplicationsSkeletonTechnologies;

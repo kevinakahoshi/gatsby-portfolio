@@ -138,6 +138,6 @@ const NavigationMobileDrawer = ({
       </div>
     </NavigationMobileDrawerStyles>
   );
-}
+};
 
 export default NavigationMobileDrawer;

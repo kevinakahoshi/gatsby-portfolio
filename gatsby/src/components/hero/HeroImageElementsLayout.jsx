@@ -13,12 +13,10 @@ const HeroImageElementsLayoutStyles = styled.div`
   z-index: 3;
 `;
 
-const HeroImageElementsLayout = ({ children }) => {
-  return (
-    <HeroImageElementsLayoutStyles>
-      { children }
-    </HeroImageElementsLayoutStyles>
-  )
-};
+const HeroImageElementsLayout = ({ children }) => (
+  <HeroImageElementsLayoutStyles>
+    { children }
+  </HeroImageElementsLayoutStyles>
+);
 
 export default HeroImageElementsLayout;

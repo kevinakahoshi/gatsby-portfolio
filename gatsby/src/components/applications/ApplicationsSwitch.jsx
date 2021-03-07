@@ -37,18 +37,16 @@ const ApplicationsSwitchStyles = styled.button`
   }
 `;
 
-const ApplicationsSwitch = ({ handleToggle, view }) => {
-  return (
-    <ApplicationsSwitchStyles
-      role="button"
-      onClick={handleToggle}
-    >
-      <div
-        className="toggler"
-        data-view={view}
-      />
-    </ApplicationsSwitchStyles>
-  )
-};
+const ApplicationsSwitch = ({ handleToggle, view }) => (
+  <ApplicationsSwitchStyles
+    role="button"
+    onClick={handleToggle}
+  >
+    <div
+      className="toggler"
+      data-view={view}
+    />
+  </ApplicationsSwitchStyles>
+);
 
 export default ApplicationsSwitch;

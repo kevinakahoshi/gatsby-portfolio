@@ -114,6 +114,6 @@ const AboutSocialLinks = () => {
       </div>
     </AboutSocialLinksStyles>
   )
-}
+};
 
 export default AboutSocialLinks;

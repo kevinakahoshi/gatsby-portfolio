@@ -51,13 +51,11 @@ const HeroStyles = styled.section`
   }
 `;
 
-const Hero = () => {
-  return (
-    <HeroStyles id="hero" className="section">
-      <HeroText />
-      <HeroImage />
-    </HeroStyles>
-  )
-}
+const Hero = () => (
+  <HeroStyles id="hero" className="section">
+    <HeroText />
+    <HeroImage />
+  </HeroStyles>
+);
 
 export default Hero;

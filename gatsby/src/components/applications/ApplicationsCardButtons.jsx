@@ -30,37 +30,35 @@ const ApplicationsCardButtonsStyles = styled.div`
   }
 `;
 
-const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
-  return (
-    <ApplicationsCardButtonsStyles>
-      <a
-        disabled={gitHubLink}
-        href={gitHubLink}
-        rel="noopener noreferrer"
-        target="_blank"
-        data-deployed={!!liveLink}
-        disabled={!liveLink}
-      >
-        <GitHub className="icon" />
-        <span>
-          GitHub
-        </span>
-      </a>
-      <a
-        disabled={liveLink}
-        href={liveLink}
-        rel="noopener noreferrer"
-        target="_blank"
-        data-deployed={!!liveLink}
-        disabled={!liveLink}
-      >
-        <ExternalLink className="icon" />
-        <span>
-          Live
-        </span>
-      </a>
-    </ApplicationsCardButtonsStyles>
-  )
-};
+const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => (
+  <ApplicationsCardButtonsStyles>
+    <a
+      disabled={gitHubLink}
+      href={gitHubLink}
+      rel="noopener noreferrer"
+      target="_blank"
+      data-deployed={!!liveLink}
+      disabled={!liveLink}
+    >
+      <GitHub className="icon" />
+      <span>
+        GitHub
+      </span>
+    </a>
+    <a
+      disabled={liveLink}
+      href={liveLink}
+      rel="noopener noreferrer"
+      target="_blank"
+      data-deployed={!!liveLink}
+      disabled={!liveLink}
+    >
+      <ExternalLink className="icon" />
+      <span>
+        Live
+      </span>
+    </a>
+  </ApplicationsCardButtonsStyles>
+);
 
 export default ApplicationsCardButtons;

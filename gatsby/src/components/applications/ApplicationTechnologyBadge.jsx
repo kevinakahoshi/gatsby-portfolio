@@ -19,12 +19,10 @@ const ApplicationTechnologyBadgeStyles = styled.span`
   margin: .125rem;
 `;
 
-const ApplicationTechnologyBadge = ({ technologyName }) => {
-  return (
-    <ApplicationTechnologyBadgeStyles>
-      { technologyName }
-    </ApplicationTechnologyBadgeStyles>
-  )
-}
+const ApplicationTechnologyBadge = ({ technologyName }) => (
+  <ApplicationTechnologyBadgeStyles>
+    { technologyName }
+  </ApplicationTechnologyBadgeStyles>
+);
 
 export default ApplicationTechnologyBadge;

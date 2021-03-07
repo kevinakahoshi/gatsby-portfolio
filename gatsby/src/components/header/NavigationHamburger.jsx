@@ -70,6 +70,6 @@ const NavigationHamburger = ({ handleOpen, handleClose, handleHideOverlay, openM
       <div className="hamburger-bar" id="bar-3" />
     </NavigationHamburgerStyles>
   )
-}
+};
 
 export default NavigationHamburger;

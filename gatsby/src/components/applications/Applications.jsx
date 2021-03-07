@@ -90,6 +90,6 @@ const Applications = () => {
       </SectionContentWrapper>
     </ApplicationsStyles>
   )
-}
+};
 
 export default Applications;

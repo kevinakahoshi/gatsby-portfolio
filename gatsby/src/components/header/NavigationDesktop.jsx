@@ -77,6 +77,6 @@ const NavigationDesktop = ({ offset, navigationItems }) => {
       { desktopNavigationLinks }
     </NavigationStyles>
   );
-}
+};
 
 export default NavigationDesktop;

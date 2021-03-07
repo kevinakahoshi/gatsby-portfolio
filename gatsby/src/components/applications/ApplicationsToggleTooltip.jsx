@@ -79,17 +79,15 @@ const ApplicationsToggleTooltipStyles = styled.div`
   }
 `;
 
-const ApplicationsToggleTooltip = ({ children, direction, text }) => {
-  return (
-    <ApplicationsToggleTooltipStyles>
-      <div className="message-wrapper">
-        <div className="message" data-direction={direction}>
-          <span>{ text }</span>
-        </div>
-        { children }
+const ApplicationsToggleTooltip = ({ children, direction, text }) => (
+  <ApplicationsToggleTooltipStyles>
+    <div className="message-wrapper">
+      <div className="message" data-direction={direction}>
+        <span>{ text }</span>
       </div>
-    </ApplicationsToggleTooltipStyles>
-  )
-}
+      { children }
+    </div>
+  </ApplicationsToggleTooltipStyles>
+);
 
 export default ApplicationsToggleTooltip;

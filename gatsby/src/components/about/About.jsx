@@ -115,6 +115,6 @@ const About = () => {
       </SectionContentWrapper>
     </AboutStyles>
   )
-}
+};
 
 export default About;
