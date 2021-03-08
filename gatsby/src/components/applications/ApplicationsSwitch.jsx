@@ -39,7 +39,9 @@ const ApplicationsSwitchStyles = styled.button`
 
 const ApplicationsSwitch = ({ handleToggle, view }) => (
   <ApplicationsSwitchStyles
+    aria-label="applications-switch"
     role="button"
+    name="applications-switch"
     onClick={handleToggle}
   >
     <div

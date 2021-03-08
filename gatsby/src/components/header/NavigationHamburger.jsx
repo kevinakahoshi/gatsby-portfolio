@@ -62,8 +62,11 @@ const NavigationHamburger = ({ handleOpen, handleClose, handleHideOverlay, openM
 
   return (
     <NavigationHamburgerStyles
+      aria-label="hamburger-nav"
       data-nav-open={openMobileNav}
+      name="hamburger-nav"
       onClick={handleClick}
+      role="button"
     >
       <div className="hamburger-bar" id="bar-1" />
       <div className="hamburger-bar" id="bar-2" />

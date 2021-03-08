@@ -33,6 +33,7 @@ const ApplicationsCardButtonsStyles = styled.div`
 const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => (
   <ApplicationsCardButtonsStyles>
     <a
+      aria-hidden={!liveLink}
       disabled={gitHubLink}
       href={gitHubLink}
       rel="noopener noreferrer"
@@ -41,11 +42,12 @@ const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => (
       disabled={!liveLink}
     >
       <GitHub className="icon" />
-      <span>
+      <span aria-hidden={!liveLink}>
         GitHub
       </span>
     </a>
     <a
+      aria-hidden={!liveLink}
       disabled={liveLink}
       href={liveLink}
       rel="noopener noreferrer"
@@ -54,7 +56,7 @@ const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => (
       disabled={!liveLink}
     >
       <ExternalLink className="icon" />
-      <span>
+      <span aria-hidden={!liveLink}>
         Live
       </span>
     </a>

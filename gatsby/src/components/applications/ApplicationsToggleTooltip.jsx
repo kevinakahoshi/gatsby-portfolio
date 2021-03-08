@@ -5,6 +5,9 @@ const ApplicationsToggleTooltipStyles = styled.div`
   position: relative;
 
   .message-wrapper {
+    display: flex;
+    align-items: center;
+
     @media (min-width: 768px) {
       .message {
         display: flex;
@@ -39,7 +42,6 @@ const ApplicationsToggleTooltipStyles = styled.div`
     position: absolute;
     width: auto;
     border-radius: .25rem;
-    top: -.25rem;
     transition: .3s all;
     white-space: nowrap;
 
@@ -73,8 +75,12 @@ const ApplicationsToggleTooltipStyles = styled.div`
 
     span {
       font-size: .75rem;
-      line-height: .75;
       z-index: 1;
+      height: .6rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: -1px;
     }
   }
 `;
