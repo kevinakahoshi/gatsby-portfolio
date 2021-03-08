@@ -52,14 +52,18 @@ const ApplicationsCarouselButtonsStyles = styled.div`
 const ApplicationsCarouselButtons = ({ previousSlide, nextSlide }) => (
   <ApplicationsCarouselButtonsStyles>
     <button
+      aria-label="previous-slide"
       className="previous"
+      name="previous-slide"
       onClick={previousSlide}
       role="button"
     >
       <Previous className="chevron" />
     </button>
     <button
+      aria-label="next-slide"
       className="next"
+      name="next-slide"
       onClick={nextSlide}
       role="button"
     >

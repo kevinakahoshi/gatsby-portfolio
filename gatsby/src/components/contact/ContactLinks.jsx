@@ -36,27 +36,33 @@ const ContactLinksStyles = styled.div`
 const ContactLinks = () => (
   <ContactLinksStyles>
     <a
-      target="_blank"
       className="animated-underline"
-      href="https://www.google.com/maps/place/Orange+County,+CA/@33.6410077,-118.0496294,10z/data=!3m1!4b1!4m5!3m4!1s0x80dc925c54d5f7cf:0xdea6c3618ff0d607!8m2!3d33.7174708!4d-117.8311428">
+      href="https://www.google.com/maps/place/Orange+County,+CA/@33.6410077,-118.0496294,10z/data=!3m1!4b1!4m5!3m4!1s0x80dc925c54d5f7cf:0xdea6c3618ff0d607!8m2!3d33.7174708!4d-117.8311428"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <LocationPin />
       <span>
         Orange County
       </span>
     </a>
     <a
-      target="_blank"
       className="animated-underline"
-      href="tel:+19492027141">
+      href="tel:+19492027141"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <Phone />
       <span>
         949-202-7141
       </span>
     </a>
     <a
-      target="_blank"
       className="animated-underline"
-      href="mailto:kevin.akahoshi@gmail.com">
+      href="mailto:kevin.akahoshi@gmail.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <Email />
       <span>
         kevin.akahoshi@gmail.com

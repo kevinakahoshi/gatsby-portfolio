@@ -50,16 +50,10 @@ const NotFound = () => (
     <NotFoundStyles className="section">
       <div className="not-found-content-wrapper">
         <div className="text-wrapper">
-          <h1>
-            Whoa there buddy!
-          </h1>
-          <h2>
-            Looks like you're lost.
-          </h2>
+          <h1>Whoa there buddy!</h1>
+          <h2>Looks like you're lost.</h2>
         </div>
-        <Link to="/">
-          Take me home!
-        </Link>
+        <Link to="/">Take me home!</Link>
       </div>
     </NotFoundStyles>
   </Layout>
