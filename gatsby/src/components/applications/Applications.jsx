@@ -4,6 +4,7 @@ import React, {
   useState
 } from 'react';
 import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
@@ -12,7 +13,6 @@ import ApplicationsGrid from './ApplicationsGrid';
 import ApplicationsSwitchWrapper from './ApplicationsSwitchWrapper';
 import ApplicationsSwitch from './ApplicationsSwitch';
 import ApplicationsCarousel from './ApplicationsCarousel';
-import { graphql, useStaticQuery } from 'gatsby';
 
 const ApplicationsStyles = styled.section`
   background: #ffffff;

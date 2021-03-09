@@ -180,7 +180,7 @@ const Header = () => {
       </HeaderStyles>
       { hideOrShowOverlay }
     </>
-  )
+  );
 };
 
 export default Header;

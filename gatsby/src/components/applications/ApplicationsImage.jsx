@@ -5,6 +5,11 @@ import styled from 'styled-components';
 const ApplicationsImageStyles = styled.div`
   position: relative;
 
+  &[data-disabled="true"] {
+    opacity: .5;
+    pointer-events: none;
+  }
+
   .application-name {
     position: absolute;
     top: 50%;
@@ -28,8 +33,14 @@ const ApplicationsImageStyles = styled.div`
   }
 `;
 
-const ApplicationsImage = ({ altText, projectName, thumbnail, view }) => (
-  <ApplicationsImageStyles>
+const ApplicationsImage = ({
+  altText,
+  projectName,
+  thumbnail,
+  view,
+  disabled = false
+}) => (
+  <ApplicationsImageStyles data-disabled={disabled}>
     <Img
       fluid={thumbnail.asset.fluid}
       alt={altText}

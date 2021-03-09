@@ -38,6 +38,11 @@ const ApplicationsCarouselStyles = styled.div`
       border-radius: .25rem;
       touch-action: pan-y;
 
+      div[data-deployed="false"] {
+        opacity: .5;
+        pointer-events: none;
+      }
+
       .applications-slick-carousel {
         .slick-track {
           display: flex;
@@ -80,23 +85,43 @@ const ApplicationsCarousel = ({ applications }) => {
   const [slide, setSlide] = useState(0);
   const slider = createRef();
 
-  const applicationImages = applications.map((project, index) => (
-    <a
-      key={`${project.id}--${index}`}
-      href={project.liveLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      data-deployed={!!project.liveLink}
-      className={`carousel-image-slide${index === slide ? ' active' : ' inactive'}`}
-    >
-      <ApplicationsImage
-        altText={project.altText}
-        projectName={project.projectName}
-        thumbnail={project.thumbnail}
-        view="carousel"
-      />
-    </a>
-  ));
+  const applicationImages = applications.map((project, index) => {
+    if (!project.liveLink) {
+      return (
+      <div
+        className={`carousel-image-slide${index === slide
+          ? ' active'
+          : ' inactive'}`}
+        data-deployed={!!project.liveLink}
+      >
+        <ApplicationsImage
+          altText={project.altText}
+          projectName={project.projectName}
+          thumbnail={project.thumbnail}
+          view="carousel"
+        />
+      </div>
+      )
+    } else {
+      return (
+        <a
+          key={`${project.id}--${index}`}
+          href={project.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-deployed={!!project.liveLink}
+          className={`carousel-image-slide${index === slide ? ' active' : ' inactive'}`}
+        >
+          <ApplicationsImage
+            altText={project.altText}
+            projectName={project.projectName}
+            thumbnail={project.thumbnail}
+            view="carousel"
+          />
+        </a>
+      )
+    }
+  });
 
   const applicationsDescriptions = applications.map((project, index) => (
     <ApplicationsCarouselDescription
