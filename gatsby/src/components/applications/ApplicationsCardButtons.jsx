@@ -30,37 +30,41 @@ const ApplicationsCardButtonsStyles = styled.div`
   }
 `;
 
-const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => (
-  <ApplicationsCardButtonsStyles>
-    <a
-      aria-hidden={!liveLink}
-      disabled={gitHubLink}
-      href={gitHubLink}
-      rel="noopener noreferrer"
-      target="_blank"
-      data-deployed={!!liveLink}
-      disabled={!liveLink}
-    >
-      <GitHub className="icon" />
-      <span aria-hidden={!liveLink}>
-        GitHub
-      </span>
-    </a>
-    <a
-      aria-hidden={!liveLink}
-      disabled={liveLink}
-      href={liveLink}
-      rel="noopener noreferrer"
-      target="_blank"
-      data-deployed={!!liveLink}
-      disabled={!liveLink}
-    >
-      <ExternalLink className="icon" />
-      <span aria-hidden={!liveLink}>
-        Live
-      </span>
-    </a>
-  </ApplicationsCardButtonsStyles>
-);
+const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
+  // TODO: Add conditional rendering based on liveLink to either be an `<a>` tag
+  //       or a span tag that looks like the same style.
+  return (
+    <ApplicationsCardButtonsStyles>
+      <a
+        aria-hidden={!liveLink}
+        disabled={gitHubLink}
+        href={gitHubLink}
+        rel="noopener noreferrer"
+        target="_blank"
+        data-deployed={!!liveLink}
+        disabled={!liveLink}
+      >
+        <GitHub className="icon" />
+        <span aria-hidden={!liveLink}>
+          GitHub
+        </span>
+      </a>
+      <a
+        aria-hidden={!liveLink}
+        disabled={liveLink}
+        href={liveLink}
+        rel="noopener noreferrer"
+        target="_blank"
+        data-deployed={!!liveLink}
+        disabled={!liveLink}
+      >
+        <ExternalLink className="icon" />
+        <span aria-hidden={!liveLink}>
+          Live
+        </span>
+      </a>
+    </ApplicationsCardButtonsStyles>
+  )
+};
 
 export default ApplicationsCardButtons;

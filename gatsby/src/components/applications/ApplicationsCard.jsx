@@ -47,19 +47,8 @@ const ApplicationsCard = ({ application }) => {
     thumbnail
   } = application;
 
-  const descriptionBlock = liveLink
-    ? <ApplicationsCardDescription shortDescription={shortDescription} />
-    : <ApplicationsCardSkeletonDescription />;
-
-  const technologiesBlock = liveLink
-    ? <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
-    : <div className="skeleton-wrapper">
-        <ApplicationsSkeletonTechnologies />
-      </div>;
-
-  return (
-    <ApplicationsCardStyles>
-      <a
+  const imageBlock = liveLink
+    ? <a
         href={liveLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -73,6 +62,29 @@ const ApplicationsCard = ({ application }) => {
           view="grid"
         />
       </a>
+    : <div className="application-card-image">
+        <ApplicationsImage
+          altText={altText}
+          projectName={projectName}
+          thumbnail={thumbnail}
+          view="grid"
+          disabled={true}
+        />
+      </div>
+
+  const descriptionBlock = liveLink
+    ? <ApplicationsCardDescription shortDescription={shortDescription} />
+    : <ApplicationsCardSkeletonDescription />;
+
+  const technologiesBlock = liveLink
+    ? <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
+    : <div className="skeleton-wrapper">
+        <ApplicationsSkeletonTechnologies />
+      </div>;
+
+  return (
+    <ApplicationsCardStyles>
+      { imageBlock }
       { descriptionBlock }
       { technologiesBlock }
       <ApplicationsCardButtons gitHubLink={gitHubLink} liveLink={liveLink} />
