@@ -10,7 +10,7 @@ const ApplicationsCardButtonsStyles = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 
-  a {
+  a, span.faux-button {
     text-align: center;
     color: var(--link-inactive-grey);
     border: 2px solid var(--link-inactive-grey);
@@ -22,22 +22,52 @@ const ApplicationsCardButtonsStyles = styled.div`
     justify-content: center;
     grid-gap: .5rem;
     text-decoration: none;
+  }
 
-    &:hover {
-      color: #000000B3;
-      border-color: #000000B3;
-    }
+  a:hover {
+    color: #000000B3;
+    border-color: #000000B3;
+  }
+
+  .faux-button {
+    opacity: .5;
+    pointer-events: none;
   }
 `;
 
 const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
-  // TODO: Add conditional rendering based on liveLink to either be an `<a>` tag
-  //       or a span tag that looks like the same style.
+  if (!liveLink) {
+    return (
+      <ApplicationsCardButtonsStyles>
+        <span
+          aria-hidden={!liveLink}
+          data-deployed={!!liveLink}
+          disabled={!liveLink}
+          className="faux-button"
+        >
+          <GitHub className="icon" />
+          <span aria-hidden={!liveLink}>
+            GitHub
+          </span>
+        </span>
+        <span
+          aria-hidden={!liveLink}
+          data-deployed={!!liveLink}
+          disabled={!liveLink}
+          className="faux-button"
+        >
+          <ExternalLink className="icon" />
+          <span aria-hidden={!liveLink}>
+            Live
+          </span>
+        </span>
+      </ApplicationsCardButtonsStyles>
+    )
+  }
+
   return (
     <ApplicationsCardButtonsStyles>
       <a
-        aria-hidden={!liveLink}
-        disabled={gitHubLink}
         href={gitHubLink}
         rel="noopener noreferrer"
         target="_blank"
@@ -45,13 +75,11 @@ const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
         disabled={!liveLink}
       >
         <GitHub className="icon" />
-        <span aria-hidden={!liveLink}>
+        <span>
           GitHub
         </span>
       </a>
       <a
-        aria-hidden={!liveLink}
-        disabled={liveLink}
         href={liveLink}
         rel="noopener noreferrer"
         target="_blank"
@@ -59,7 +87,7 @@ const ApplicationsCardButtons = ({ gitHubLink, liveLink }) => {
         disabled={!liveLink}
       >
         <ExternalLink className="icon" />
-        <span aria-hidden={!liveLink}>
+        <span>
           Live
         </span>
       </a>
