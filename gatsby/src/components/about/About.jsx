@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
 import AboutBioParagraphs from './AboutBioParagraphs';
 import AboutSocialLinks from './AboutSocialLinks';
-import { useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 
 const AboutStyles = styled.section`
   background: var(--light-grey);
