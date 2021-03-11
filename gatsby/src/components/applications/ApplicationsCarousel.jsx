@@ -4,7 +4,6 @@ import React, {
   useRef,
   useState
 } from 'react';
-import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
