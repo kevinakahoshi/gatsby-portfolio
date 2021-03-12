@@ -5,6 +5,9 @@ dotenv.config({
 });
 
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true
+  },
   siteMetadata: {
     title: 'Kevin Akahoshi // Software Engineer in OC',
     url: 'https://kevinakahoshi.com/',
@@ -21,8 +24,5 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp'
   ],
 }
