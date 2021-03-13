@@ -6,9 +6,8 @@ import topographic from '../../assets/images/topographic.svg';
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
 import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
-import TechnicalSkillOrToolFallback from '../shared/TechnicalSkillOrToolFallback';
+import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
-const TechnicalSkillOrTool = lazy(() => import('../shared/TechnicalSkillOrTool'));
 
 const ToolsStyles = styled.section`
   background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
@@ -44,17 +43,12 @@ const Tools = () => {
   `)
 
   const toolsUsed = tools.map((skill) => (
-    <Suspense
+    <TechnicalSkillOrTool
       key={skill.id}
-      fallback={<TechnicalSkillOrToolFallback />}
-    >
-      <TechnicalSkillOrTool
-        key={skill.id}
-        src={skill.logo.asset.fluid.src}
-        altText={skill.altText}
-        displayText={skill.displayText}
-      />
-    </Suspense>
+      src={skill.logo.asset.fluid.src}
+      altText={skill.altText}
+      displayText={skill.displayText}
+    />
   ));
 
   return (

@@ -33,6 +33,8 @@ const TechnicalSkillOrTool = ({ src, altText, displayText }) => (
       src={src}
       alt={altText}
       title={altText}
+      width="100%"
+      height="auto"
     />
     <p>
       {displayText}

@@ -9,9 +9,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import SectionHeading from '../shared/SectionHeading';
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
-import TechnicalSkillOrToolFallback from '../shared/TechnicalSkillOrToolFallback';
-
-const TechnicalSkillOrTool = lazy(() => import('../shared/TechnicalSkillOrTool'));
+import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const SkillsStyles = styled.section`
   background: #ffffff;
@@ -43,17 +41,12 @@ const Skills = () => {
   `);
 
   const technicalSkills = technologies.map((skill) => (
-    <Suspense
-      fallback={<TechnicalSkillOrToolFallback />}
+    <TechnicalSkillOrTool
       key={skill.id}
-    >
-      <TechnicalSkillOrTool
-        key={skill.id}
-        src={skill.logo.asset.fluid.src}
-        altText={skill.altText}
-        displayText={skill.displayText}
-      />
-    </Suspense>
+      src={skill.logo.asset.fluid.src}
+      altText={skill.altText}
+      displayText={skill.displayText}
+    />
   ));
 
   return (
