@@ -10,6 +10,16 @@ const FadeIn = keyframes`
   }
 `;
 
+const FadeIn100 = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
 const FadeOut = keyframes`
   0% {
     opacity: 0.5;
@@ -74,6 +84,7 @@ const Float = keyframes`
 
 export {
   FadeIn,
+  FadeIn100,
   FadeOut,
   Pulse,
   SlideIn,

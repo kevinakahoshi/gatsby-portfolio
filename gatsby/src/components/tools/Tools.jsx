@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -6,7 +6,9 @@ import topographic from '../../assets/images/topographic.svg';
 import SectionContentWrapper from '../shared/SectionContentWrapper';
 import SectionHeading from '../shared/SectionHeading';
 import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
-import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
+import TechnicalSkillOrToolFallback from '../shared/TechnicalSkillOrToolFallback';
+
+const TechnicalSkillOrTool = lazy(() => import('../shared/TechnicalSkillOrTool'));
 
 const ToolsStyles = styled.section`
   background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
@@ -42,12 +44,17 @@ const Tools = () => {
   `)
 
   const toolsUsed = tools.map((skill) => (
-    <TechnicalSkillOrTool
+    <Suspense
       key={skill.id}
-      src={skill.logo.asset.fluid.src}
-      altText={skill.altText}
-      displayText={skill.displayText}
-    />
+      fallback={<TechnicalSkillOrToolFallback />}
+    >
+      <TechnicalSkillOrTool
+        key={skill.id}
+        src={skill.logo.asset.fluid.src}
+        altText={skill.altText}
+        displayText={skill.displayText}
+      />
+    </Suspense>
   ));
 
   return (

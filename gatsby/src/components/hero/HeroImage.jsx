@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import HeroImageContents from './HeroImageContents';
+import { FadeIn100 } from '../../styles/Keyframes';
 
 const HeroImageStyles = styled.div`
   display: flex;
@@ -8,6 +9,10 @@ const HeroImageStyles = styled.div`
   align-items: center;
   position: relative;
   transform: translate3d(0,0,0);
+  opacity: 0;
+  animation: ${FadeIn100} .125s ease-in-out;
+  animation-delay: .25s;
+  animation-fill-mode: forwards;
 
   @media (max-width: 767px) {
     grid-row: 1;
