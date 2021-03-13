@@ -92,6 +92,7 @@ const ApplicationsCarousel = ({ applications }) => {
           ? ' active'
           : ' inactive'}`}
         data-deployed={!!project.liveLink}
+        key={`${project.id}--${index}`}
       >
         <ApplicationsImage
           altText={project.altText}
