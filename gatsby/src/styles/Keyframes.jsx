@@ -69,7 +69,7 @@ const SlideOut = keyframes`
 `;
 
 const Float = keyframes`
-  0% {
+  /* 0% {
     transform: translateY(0vmin) translateX(0vmin);
   }
 
@@ -79,7 +79,7 @@ const Float = keyframes`
 
   100% {
     transform: translateY(0vmin) translateX(0vmin);
-  }
+  } */
 `;
 
 export {

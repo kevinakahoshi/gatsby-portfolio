@@ -9,8 +9,9 @@ const TechnicalSkillOrToolStyles = styled.div`
   grid-gap: 1rem;
 
   img {
-    width: 100%;
+    width: var(--logo-width);
     max-width: var(--logo-width);
+    height: var(--logo-width);
     margin: auto;
   }
 
