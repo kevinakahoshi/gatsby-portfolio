@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import './fonts.css';
 import { SlideIn, SlideOut } from './Keyframes';
 
 const GlobalStyles = createGlobalStyle`

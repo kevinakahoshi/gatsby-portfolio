@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Corsa Grotesk';
+  font-family: Corsa Grotesk;
   src:
     url('../assets/fonts/corsa-grotesk-regular.woff2') format('woff2'),
     url('../assets/fonts/corsa-grotesk-regular.woff') format('woff');
@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-family: 'Corsa Grotesk';
+  font-family: Corsa Grotesk;
   src:
     url('../assets/fonts/corsa-grotesk-medium.woff2') format('woff2'),
     url('../assets/fonts/corsa-grotesk-medium.woff') format('woff');

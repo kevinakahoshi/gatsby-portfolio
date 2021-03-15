@@ -105,13 +105,15 @@ const ApplicationsCarousel = ({ applications }) => {
     } else {
       return (
         <a
-          key={`${project.id}--${index}`}
-          href={project.liveLink}
-          target="_blank"
-          rel="noopener noreferrer"
+          className={`carousel-image-slide${index === slide
+            ? ' active'
+            : ' inactive'}`}
           data-deployed={!!project.liveLink}
-          className={`carousel-image-slide${index === slide ? ' active' : ' inactive'}`}
-        >
+          href={project.liveLink}
+          key={`${project.id}--${index}`}
+          rel="noopener noreferrer"
+          target="_blank"
+          >
           <ApplicationsImage
             altText={project.altText}
             projectName={project.projectName}

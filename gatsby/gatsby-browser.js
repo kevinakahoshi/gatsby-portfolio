@@ -2,6 +2,8 @@ import React from 'react';
 import { MenuProvider } from './src/components/context/MenuContext';
 import GlobalStyles from './src/styles/GlobalStyles';
 import Typography from './src/styles/Typography';
+import './src/styles/fonts.css';
+import 'normalize.css';
 
 export const wrapRootElement = ({ element }) => (
   <MenuProvider>
