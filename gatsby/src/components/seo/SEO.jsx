@@ -48,7 +48,7 @@ const SEO = ({ location, children }) => {
   `);
 
   const { openMobileNav } = useMenu();
-  const bodyClass = openMobileNav ? 'no-scroll' : '';
+  const noScrollClass = openMobileNav ? 'no-scroll' : '';
 
   return (
     <Helmet>
@@ -75,7 +75,7 @@ const SEO = ({ location, children }) => {
         content={siteDescription}
         key='ogdescription'
       />
-      <body className={bodyClass}>
+      <body className={noScrollClass}>
         { children }
       </body>
     </Helmet>

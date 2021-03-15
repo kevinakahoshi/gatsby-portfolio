@@ -11,10 +11,22 @@ export const wrapRootElement = ({ element }) => (
   </MenuProvider>
 );
 
+// TODO: Figure out what's going on with loading the page
 export const onClientEntry = () => {
-  window.addEventListener('load', () => {
+  // window.addEventListener('load', () => {
+  //   document.body.className = document.body.className.replace(/\bno-js\b/, '');
+  // });
+
+  const removeClass = () =>
     document.body.className = document.body.className.replace(/\bno-js\b/, '');
-  });
+
+  const documentReady = (callback) => {
+    document.readyState === 'complete'
+      ? callback()
+      : document.addEventListener('DOMContentLoaded', callback);
+  }
+
+  documentReady(removeClass);
 }
 
 export const wrapPageElement = ({ element }) => (
