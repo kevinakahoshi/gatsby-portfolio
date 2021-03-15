@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import './fonts.css';
 import { SlideIn, SlideOut } from './Keyframes';
+import 'normalize.css';
 
 const GlobalStyles = createGlobalStyle`
   :root {

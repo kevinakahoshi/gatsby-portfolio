@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import 'normalize.css';
 
 // Components
 import SEO from './seo/SEO';
