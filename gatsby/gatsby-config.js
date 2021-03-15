@@ -13,7 +13,10 @@ module.exports = {
     url: 'https://kevinakahoshi.com/',
     description: 'Experienced with React.js, JavaScript (ES5 + ES6), Shopify, and more',
   },
-  plugins: [{
+  plugins: [
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: '4l2zpa34',
@@ -22,7 +25,5 @@ module.exports = {
         token: process.env.SANITY_TOKEN
       }
     },
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
   ],
 }

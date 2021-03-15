@@ -1,18 +1,14 @@
 import React from 'react';
-import {
-  MenuProvider
-} from './src/components/context/MenuContext';
+import { MenuProvider } from './src/components/context/MenuContext';
 import GlobalStyles from './src/styles/GlobalStyles';
 import Typography from './src/styles/Typography';
 import './src/styles/fonts.css';
+import 'normalize.css';
 
-export const wrapRootElement = ({
-  element
-}) => ( <
-  MenuProvider > {
-    element
-  } <
-  /MenuProvider>
+export const wrapRootElement = ({ element }) => (
+  <MenuProvider>
+    { element }
+  </MenuProvider>
 );
 
 export const onClientEntry = () => {
@@ -21,15 +17,10 @@ export const onClientEntry = () => {
   });
 }
 
-export const wrapPageElement = ({
-  element
-}) => ( <
-  >
-  <
-  GlobalStyles / >
-  <
-  Typography / > {
-    element
-  } <
-  />
+export const wrapPageElement = ({ element }) => (
+  <>
+    <GlobalStyles />
+    <Typography />
+    { element }
+  </>
 );
