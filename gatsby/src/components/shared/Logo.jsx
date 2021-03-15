@@ -21,6 +21,10 @@ const LogoStyles = styled.div`
 
   span {
     font-size: var(--logo-font-size);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (min-width: ${mobileWidth + 1}px) {
@@ -59,10 +63,10 @@ const LogoStyles = styled.div`
   }
 
   .letter-o {
-    position: relative;
+    /* position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     color: transparent;
 
     &::after {
