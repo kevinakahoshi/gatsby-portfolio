@@ -25,7 +25,7 @@ export const onClientEntry = () => {
       ? callback()
       : setTimeout(() => {
         documentReady(callback);
-      }, 75);
+      }, 50);
   }
 
   documentReady(removeAttribute);
@@ -33,8 +33,8 @@ export const onClientEntry = () => {
 
 export const wrapPageElement = ({ element }) => (
   <>
-    <GlobalStyles />
     <Typography />
+    <GlobalStyles />
     { element }
   </>
 );
