@@ -50,8 +50,14 @@ const GlobalStyles = createGlobalStyle`
     overflow: hidden;
   }
 
-  .no-js {
+  .no-js,
+  &[data-opacity="0"] {
     opacity: 0;
+  }
+
+  &[data-opacity="1"] {
+    opacity: 1;
+    transition: .3s opacity;
   }
 `;
 
