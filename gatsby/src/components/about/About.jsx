@@ -48,7 +48,8 @@ const About = () => {
       altText,
       bio,
       headshot
-    }
+    },
+    test
   } = useStaticQuery(graphql`
     query {
       aboutMe: sanityAboutMe {
