@@ -63,10 +63,6 @@ const LogoStyles = styled.div`
   }
 
   .letter-o {
-    /* position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
     color: transparent;
 
     &::after {
@@ -76,16 +72,13 @@ const LogoStyles = styled.div`
       position: absolute;
       background: var(--red);
       border-radius: 100%;
-      left: 0;
 
       @media (min-width: ${mobileWidth + 1}px) {
         --after-size: 10px;
-        --after-top: 3px;
       }
 
       @media (max-width: ${mobileWidth}px) {
         --after-size: 9px;
-        --after-top: 3px;
       }
     }
   }
