@@ -38,7 +38,7 @@ const Applications = () => {
           thumbnail {
             asset {
               fluid {
-                ...GatsbySanityImageFluid_noBase64
+                ...GatsbySanityImageFluid
               }
             }
           }
