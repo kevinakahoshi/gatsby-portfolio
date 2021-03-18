@@ -8,6 +8,10 @@ const Typography = createGlobalStyle`
     color: var(--dark-grey)
   }
 
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
   .center {
     text-align: center;
   }
