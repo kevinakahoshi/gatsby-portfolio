@@ -9,17 +9,16 @@ const NavigationMobileDrawerStyles = styled.aside`
   width: 80%;
   max-width: 400px;
   position: fixed;
-  top: var(--offset);
   right: 0;
   transition: transform .3s, box-shadow .3s;
   z-index: 1;
 
   @media (min-width: 336px) {
-    --offset: 81px;
+    --offset: ${({ offset }) => offset}px;
   }
 
   @media (max-width: 335px) {
-    --offset: 73px;
+    --offset: ${({ offset }) => offset}px;
   }
 
   &[data-open="false"] {
@@ -135,7 +134,9 @@ const NavigationMobileDrawer = ({
   return (
     <NavigationMobileDrawerStyles
       data-open={openMobileNav}
-      onTransitionEnd={handleTransition}>
+      onTransitionEnd={handleTransition}
+      offset={offset}
+    >
       <div className="drawer" >
         { navDrawerLinks }
       </div>

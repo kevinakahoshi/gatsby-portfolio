@@ -71,7 +71,7 @@ const NavigationDesktop = ({ offset, navigationItems }) => {
     <NavigationLink
       key={navItem.to}
       to={navItem.to}
-      offset={offset}
+      offset={offset * -1}
       text={navItem.text}
     />
   ));

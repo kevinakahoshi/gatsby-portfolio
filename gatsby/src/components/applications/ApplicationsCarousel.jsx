@@ -36,6 +36,7 @@ const ApplicationsCarouselStyles = styled.div`
       overflow: hidden;
       border-radius: .25rem;
       touch-action: pan-y;
+      transform: translate3d(0, 0 ,0);
 
       div[data-deployed="false"] {
         opacity: .5;
