@@ -72,10 +72,10 @@ const navigationItems = [
 ];
 
 const Header = () => {
+  const headerRef = useRef();
   const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
   const [offset, setOffset] = useState(headerRef?.current?.offsetHeight || 83);
-  const headerRef = useRef();
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const handleScrollTop = () => scroll.scrollToTop();
