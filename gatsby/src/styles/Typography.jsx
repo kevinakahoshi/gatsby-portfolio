@@ -5,11 +5,9 @@ import {
 const Typography = createGlobalStyle`
   html {
     font-family: Corsa Grotesk, sans-serif;
-    color: var(--dark-grey)
-  }
-
-  body {
+    color: var(--dark-grey);
     -webkit-font-smoothing: subpixel-antialiased;
+    text-size-adjust: none;
   }
 
   .center {
