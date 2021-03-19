@@ -11,7 +11,7 @@ const NavigationMobileDrawerStyles = styled.aside`
   position: fixed;
   top: var(--offset);
   right: 0;
-  transition: .3s all;
+  transition: transform .3s, box-shadow .3s;
   z-index: 1;
 
   @media (min-width: 336px) {
@@ -41,7 +41,6 @@ const NavigationMobileDrawerStyles = styled.aside`
     grid-gap: 2rem;
     grid-template-rows: repeat(auto-fill, minmax(3rem, 1fr));
     background: #ffffff;
-    transition: .3s all;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -55,7 +54,7 @@ const NavigationMobileDrawerStyles = styled.aside`
   a {
     position: relative;
     padding: .5rem 0;
-    transition: .3s all;
+    transition: color .3s;
     text-align: center;
     font-size: 1.25rem;
     width: fit-content;
@@ -65,12 +64,21 @@ const NavigationMobileDrawerStyles = styled.aside`
       color: var(--link-inactive-grey);
     }
 
+    &::after {
+      background: linear-gradient(-45deg, #e64242, #e67442);
+    }
+
+    &:not(:hover) {
+      &::after {
+        width: 0%;
+      }
+    }
+
     &:hover {
       color: var(--link-inactive-hover-grey);
 
       &::after {
         width: 100%;
-        transition: .3s all;
       }
     }
 
@@ -91,12 +99,7 @@ const NavigationMobileDrawerStyles = styled.aside`
       background-color: transparent;
       z-index: 1;
       display: inline-block;
-      transition: .3s all;
-    }
-
-    &::after {
-      width: 0%;
-      background: linear-gradient(-45deg, #e64242, #e67442);
+      transition: width .3s;
     }
   }
 `;

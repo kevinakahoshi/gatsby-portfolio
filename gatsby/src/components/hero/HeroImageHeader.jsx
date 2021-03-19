@@ -50,7 +50,7 @@ const HeroImageHeaderStyles = styled.div`
       background: var(--dark-grey);
       box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .5);
       cursor: pointer;
-      transition: .3s all;
+      transition: opacity .3s;
 
       &:not(:hover) {
         opacity: .25;

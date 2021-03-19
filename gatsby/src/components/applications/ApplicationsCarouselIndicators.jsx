@@ -16,7 +16,7 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
       border-width: 1px;
       border-style: solid;
       border-radius: 1rem;
-      transition: .3s all;
+      transition: border-color .3s, background .3s;
       cursor: pointer;
 
       &:not(.active) {

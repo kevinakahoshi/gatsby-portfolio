@@ -17,12 +17,14 @@ const ApplicationsToggleTooltipStyles = styled.div`
 
       &:not(:hover) {
         .message {
+          visibility: hidden;
           opacity: 0;
         }
       }
 
       &:hover {
         .message {
+          visibility: visible;
           opacity: 1;
         }
       }
@@ -42,7 +44,7 @@ const ApplicationsToggleTooltipStyles = styled.div`
     position: absolute;
     width: auto;
     border-radius: .25rem;
-    transition: .3s all;
+    transition: opacity .3s;
     white-space: nowrap;
 
     &[data-direction="left"] {

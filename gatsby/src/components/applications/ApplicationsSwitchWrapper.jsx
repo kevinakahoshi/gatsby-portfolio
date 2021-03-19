@@ -12,7 +12,7 @@ import ApplicationsToggleTooltip from './ApplicationsToggleTooltip';
 const ApplicationsSwitchWrapperStyles = styled.div`
   display: flex;
   margin: 2rem 0;
-  transition: .3s all;
+  transition: color .3s;
   justify-content: center;
 
   .toggle-switch-container {

@@ -51,7 +51,7 @@ const NavigationHamburgerStyles = styled.button`
     height: 2px;
     background: var(--black);
     position: absolute;
-    transition: .3s all;
+    transition: transform .3s, opacity .3s;
   }
 `;
 
