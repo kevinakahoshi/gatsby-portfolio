@@ -21,7 +21,7 @@ const ApplicationsCarouselButtonsStyles = styled.div`
     position: relative;
     background: var(--white);
     outline: none;
-    transition: .3s all;
+    transition: color .3s, border-color .3s, box-shadow .3s;
     padding: 0;
 
     &:not(:hover) {

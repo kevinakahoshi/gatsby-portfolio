@@ -5,7 +5,6 @@ const ApplicationTechnologyBadgeStyles = styled.span`
   background-image: linear-gradient(-45deg, #e64242, #e67442);
   color: var(--white);
   width: fit-content;
-  transition: .3s all;
   font-weight: 300;
   display: inline-block;
   padding: .25em .4em;

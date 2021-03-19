@@ -9,7 +9,7 @@ const ApplicationsSwitchStyles = styled.button`
   padding: 0;
   outline: none;
   border: none;
-  transition: .3s all;
+  transition: background .3s;
 
   &:not(:hover) {
     background: var(--link-inactive-grey);
@@ -25,7 +25,7 @@ const ApplicationsSwitchStyles = styled.button`
     border: 1px solid var(--medium-grey);
     border-radius: .25rem;
     background: var(--white);
-    transition: .3s all;
+    transition: transform .3s;
 
     &[data-view="grid"] {
       transform: translateX(0%);

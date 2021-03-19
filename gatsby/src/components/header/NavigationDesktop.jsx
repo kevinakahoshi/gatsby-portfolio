@@ -20,10 +20,16 @@ const NavigationStyles = styled.div`
   a {
     position: relative;
     padding: .5rem 0;
-    transition: .3s all;
+    transition: color .3s;
 
     &:not(.active) {
       color: var(--link-inactive-grey);
+    }
+
+    &:not(:hover) {
+      &::after {
+        width: 0%;
+      }
     }
 
     &:hover {
@@ -31,7 +37,6 @@ const NavigationStyles = styled.div`
 
       &::after {
         width: 100%;
-        transition: .3s all;
       }
     }
 
@@ -52,11 +57,10 @@ const NavigationStyles = styled.div`
       background-color: transparent;
       z-index: 1;
       display: inline-block;
-      transition: .3s all;
+      transition: width .3s, backround .3s;
     }
 
     &::after {
-      width: 0%;
       background: linear-gradient(-45deg, #e64242, #e67442);
     }
   }

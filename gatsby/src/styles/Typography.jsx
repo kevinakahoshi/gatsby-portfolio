@@ -54,7 +54,7 @@ const Typography = createGlobalStyle`
   }
 
   a {
-    transition: .3s all;
+    transition: color .3s;
 
     &:not(.active) {
       color: var(--link-inactive-grey);
@@ -76,7 +76,6 @@ const Typography = createGlobalStyle`
     &.animated-underline {
       position: relative;
       padding: .5rem 0;
-      transition: .3s all;
       text-align: center;
       font-size: 1.25rem;
       width: fit-content;
@@ -92,7 +91,6 @@ const Typography = createGlobalStyle`
 
         &::after {
           width: 100%;
-          transition: .3s all;
         }
       }
 
@@ -113,7 +111,7 @@ const Typography = createGlobalStyle`
         background-color: transparent;
         z-index: 1;
         display: inline-block;
-        transition: .3s all;
+        transition: width .3s;
       }
 
       &::after {

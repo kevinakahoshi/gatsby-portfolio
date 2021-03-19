@@ -57,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
 
   &[data-opacity="1"] {
     opacity: 1;
-    transition: .3s opacity;
+    transition: opacity .3s;
   }
 `;
 
