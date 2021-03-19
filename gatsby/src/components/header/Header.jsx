@@ -74,7 +74,7 @@ const navigationItems = [
 const Header = () => {
   const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [offset, setOffset] = useState(-81);
+  const [offset, setOffset] = useState(headerRef?.current?.offsetHeight || 83);
   const headerRef = useRef();
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
@@ -121,7 +121,7 @@ const Header = () => {
       handleHideOverlay={handleHideOverlay}
       showOverlay={showOverlay}
     />
-  ), [openMobileNav]);
+  ), [openMobileNav, offset]);
 
   const desktopOrMobile = isDesktop
     ? desktopNav
@@ -147,11 +147,7 @@ const Header = () => {
       handleHideOverlay();
     } else {
       setIsDesktop(() => false);
-      if (width > 335 && offset === -73) {
-        setOffset(() => -81);
-      } else if (width < 336 && offset === -81) {
-        setOffset(() => -73);
-      }
+      setOffset(() => headerRef?.current?.offsetHeight);
     }
 
     window.addEventListener('resize', handleResize);

@@ -21,6 +21,7 @@ const LogoStyles = styled.div`
 
   span {
     font-size: var(--logo-font-size);
+    line-height: normal;
     position: relative;
     display: flex;
     justify-content: center;
