@@ -24,7 +24,6 @@ const HeaderStyles = styled.header`
   position: sticky;
   top: 0;
   z-index: 20;
-  font-size: 0;
 
   .header-content-wrapper {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
