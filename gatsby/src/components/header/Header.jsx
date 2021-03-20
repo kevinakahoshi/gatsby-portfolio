@@ -24,6 +24,7 @@ const HeaderStyles = styled.header`
   position: sticky;
   top: 0;
   z-index: 20;
+  font-size: 0;
 
   .header-content-wrapper {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
@@ -75,7 +76,7 @@ const Header = () => {
   const headerRef = useRef();
   const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [offset, setOffset] = useState(headerRef?.current?.offsetHeight || 83);
+  const [offset, setOffset] = useState(headerRef?.current?.offsetHeight);
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const handleScrollTop = () => scroll.scrollToTop();
@@ -139,6 +140,10 @@ const Header = () => {
     : null;
 
   const logo = useMemo(() => <Logo />, []);
+
+  useEffect(() => {
+    setOffset(() => headerRef?.current?.offsetHeight);
+  }, [headerRef?.current?.offsetHeight]);
 
   useEffect(() => {
     if (width > 850) {
