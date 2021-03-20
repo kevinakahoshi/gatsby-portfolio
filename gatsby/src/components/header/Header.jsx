@@ -75,7 +75,7 @@ const Header = () => {
   const headerRef = useRef();
   const [width, setWidth] = useState(851);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [offset, setOffset] = useState(headerRef?.current?.offsetHeight || 83);
+  const [offset, setOffset] = useState(headerRef?.current?.offsetHeight);
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
   const handleScrollTop = () => scroll.scrollToTop();
@@ -139,6 +139,10 @@ const Header = () => {
     : null;
 
   const logo = useMemo(() => <Logo />, []);
+
+  useEffect(() => {
+    setOffset(() => headerRef?.current?.offsetHeight);
+  }, [headerRef?.current?.offsetHeight]);
 
   useEffect(() => {
     if (width > 850) {

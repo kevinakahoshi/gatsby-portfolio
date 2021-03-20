@@ -9,6 +9,7 @@ const NavigationMobileDrawerStyles = styled.aside`
   width: 80%;
   max-width: 400px;
   position: fixed;
+  top: var(--offset);
   right: 0;
   transition: transform .3s, box-shadow .3s;
   z-index: 1;
