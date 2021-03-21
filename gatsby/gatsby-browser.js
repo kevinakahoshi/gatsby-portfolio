@@ -12,10 +12,6 @@ export const wrapRootElement = ({ element }) => (
 );
 
 export const onClientEntry = () => {
-  // window.addEventListener('load', () => {
-  //   document.body.className = document.body.className.replace(/\bno-js\b/, '');
-  // });
-
   const removeAttribute = () => {
     document.body.setAttribute('data-opacity', 1);
   }
@@ -24,8 +20,8 @@ export const onClientEntry = () => {
     document.readyState === 'complete'
       ? callback()
       : setTimeout(() => {
-        documentReady(callback);
-      }, 50);
+          documentReady(callback);
+        }, 50);
   }
 
   documentReady(removeAttribute);
