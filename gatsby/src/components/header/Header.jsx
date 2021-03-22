@@ -110,7 +110,7 @@ const Header = () => {
       offset={offset}
       navigationItems={navigationItems}
     />
-  ), []);
+  ), [offset]);
 
   const navDrawer = useMemo(() => (
     <NavigationMobileDrawer
