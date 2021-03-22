@@ -107,8 +107,7 @@ const AboutSocialLinks = () => {
   ))
 
   return (
-    <AboutSocialLinksStyles
-      onAnimationEnd={() => setLinks(allLinks)}>
+    <AboutSocialLinksStyles onAnimationEnd={() => setLinks(allLinks)}>
       <div className="social-wrapper">
         { links }
       </div>

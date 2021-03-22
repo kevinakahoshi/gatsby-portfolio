@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { SlideIn, SlideOut } from './Keyframes';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -34,16 +33,6 @@ const GlobalStyles = createGlobalStyle`
 
   .section {
     padding: 5rem 1rem;
-  }
-
-  .slide-in {
-    animation: ${SlideIn} .75s forwards;
-    animation-fill-mode: both;
-  }
-
-  .slide-out {
-    animation: ${SlideOut} .75s forwards;
-    animation-fill-mode: both;
   }
 
   .no-scroll {

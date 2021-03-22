@@ -42,9 +42,7 @@ const ContactLinks = () => (
       target="_blank"
     >
       <LocationPin />
-      <span>
-        Orange County
-      </span>
+      <span>Orange County</span>
     </a>
     <a
       className="animated-underline"
@@ -53,9 +51,7 @@ const ContactLinks = () => (
       target="_blank"
     >
       <Phone />
-      <span>
-        949-202-7141
-      </span>
+      <span>949-202-7141</span>
     </a>
     <a
       className="animated-underline"
@@ -64,9 +60,7 @@ const ContactLinks = () => (
       target="_blank"
     >
       <Email />
-      <span>
-        kevin.akahoshi@gmail.com
-      </span>
+      <span>kevin.akahoshi@gmail.com</span>
     </a>
   </ContactLinksStyles>
 );

@@ -24,9 +24,7 @@ const ApplicationsCardTechnologies = ({ technologiesUsed }) => {
 
   return (
     <ApplicationsCardTechnologiesStyles>
-      <h5>
-        Developed Using
-      </h5>
+      <h5>Developed Using</h5>
       <div className="technologies-wrapper">
         { allBadges }
       </div>

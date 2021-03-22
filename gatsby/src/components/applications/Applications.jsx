@@ -49,14 +49,12 @@ const Applications = () => {
 
   const [view, setView] = useState('grid');
 
-  const applicationsCards = applications.map((project, index) => {
-    return (
-      <ApplicationsCard
-        key={project.id}
-        application={project}
-      />
-    )
-  });
+  const applicationsCards = applications.map((project, index) => (
+    <ApplicationsCard
+      key={project.id}
+      application={project}
+    />
+  ));
 
   const handleToggle = () => setView((sectionView) => {
     const view = sectionView === 'grid' ? 'carousel' : 'grid';
@@ -85,8 +83,7 @@ const Applications = () => {
             </ApplicationsGrid>
           : <ApplicationsCarousel
               applications={applications}
-            />
-        }
+            />}
       </SectionContentWrapper>
     </ApplicationsStyles>
   )
