@@ -39,9 +39,7 @@ const ApplicationsSkeletonTechnologies = ({ technologiesUsed }) => {
 
   return (
     <ApplicationsSkeletonTechnologiesStyles>
-      <h5>
-        Coming Soon
-      </h5>
+      <h5>Coming Soon</h5>
       <div className="skeleton-badge-wrapper">
         { allSkeletonTech }
       </div>

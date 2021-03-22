@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Float } from '../../styles/Keyframes';
 
 const HeroImageBackgroundStyles = styled.div`
   height: 100%;
@@ -11,8 +10,6 @@ const HeroImageBackgroundStyles = styled.div`
   left: 0;
   z-index: 2;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-  animation: ${Float} 5s infinite ease-in-out;
-  animation-delay: 0.6s;
 `;
 
 const HeroImageBackground = () => <HeroImageBackgroundStyles />;

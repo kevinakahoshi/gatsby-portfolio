@@ -55,7 +55,12 @@ const NavigationHamburgerStyles = styled.button`
   }
 `;
 
-const NavigationHamburger = ({ handleOpen, handleClose, handleHideOverlay, openMobileNav }) => {
+const NavigationHamburger = ({
+  handleOpen,
+  handleClose,
+  handleHideOverlay,
+  openMobileNav
+}) => {
   const handleClick = () => {
     openMobileNav ? handleClose() : handleOpen();
   }

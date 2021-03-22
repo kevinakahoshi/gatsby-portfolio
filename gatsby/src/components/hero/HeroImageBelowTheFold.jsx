@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Float } from '../../styles/Keyframes';
 import HeroImageTextBlock from './HeroImageTextBlock';
 
 const HeroImageBelowTheFoldStyles = styled.div`
@@ -8,8 +7,6 @@ const HeroImageBelowTheFoldStyles = styled.div`
   grid-template-columns: 1fr 3fr;
   grid-gap: 2vmin;
   z-index: 3;
-  animation: ${Float} 5s infinite ease-in-out;
-  animation-delay: 0.4s;
 
   .image {
     background: var(--white);

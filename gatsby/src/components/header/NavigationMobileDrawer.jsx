@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SlideIn, SlideOut } from '../../styles/Keyframes';
 
 // Components
 import NavigationLink from './NavigationLink';
@@ -101,6 +102,16 @@ const NavigationMobileDrawerStyles = styled.aside`
       display: inline-block;
       transition: width .3s;
     }
+  }
+
+  .slide-in {
+    animation: ${SlideIn} .75s forwards;
+    animation-fill-mode: both;
+  }
+
+  .slide-out {
+    animation: ${SlideOut} .75s forwards;
+    animation-fill-mode: both;
   }
 `;
 
