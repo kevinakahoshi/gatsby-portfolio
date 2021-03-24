@@ -25,5 +25,11 @@ module.exports = {
         token: process.env.SANITY_TOKEN
       }
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-155193586-1',
+      },
+    },
   ],
 }
