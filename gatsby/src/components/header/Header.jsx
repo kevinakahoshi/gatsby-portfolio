@@ -78,7 +78,9 @@ const Header = () => {
   const [offset, setOffset] = useState(headerRef?.current?.offsetHeight || 83);
 
   const handleResize = useCallback(() => setWidth(window.innerWidth), [width]);
+
   const handleScrollTop = () => scroll.scrollToTop();
+
   const {
     openMobileNav,
     showOverlay,
