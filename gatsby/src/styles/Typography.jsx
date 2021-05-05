@@ -1,6 +1,4 @@
-import {
-  createGlobalStyle
-} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const Typography = createGlobalStyle`
   html {
@@ -46,7 +44,14 @@ const Typography = createGlobalStyle`
     margin-top: 0;
     line-height: 1.5rem;
     font-size: 1rem;
+  }
+
+  p:not(:last-child) {
     margin-bottom: 1rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 
   a {

@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
 
   a, button {
     cursor: pointer;
+    touch-action: manipulation;
   }
 
   .section {

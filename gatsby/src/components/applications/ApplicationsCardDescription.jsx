@@ -1,16 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const ApplicationsCardDescriptionStyles = styled.div`
-  p {
-    margin-bottom: 0;
-  }
-`;
 
 const ApplicationsCardDescription = ({ shortDescription }) => (
-  <ApplicationsCardDescriptionStyles>
-    <p>{ shortDescription }</p>
-  </ApplicationsCardDescriptionStyles>
+  <div>
+    <p>{shortDescription}</p>
+  </div>
 );
 
 export default ApplicationsCardDescription;

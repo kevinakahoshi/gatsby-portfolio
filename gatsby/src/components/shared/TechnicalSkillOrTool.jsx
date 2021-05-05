@@ -22,24 +22,12 @@ const TechnicalSkillOrToolStyles = styled.div`
   @media (max-width: 550px) {
     --logo-width: 80px;
   }
-
-  p {
-    margin: 0;
-  }
 `;
 
 const TechnicalSkillOrTool = ({ src, altText, displayText }) => (
   <TechnicalSkillOrToolStyles className="technical">
-    <img
-      src={src}
-      alt={altText}
-      title={altText}
-      width="100%"
-      height="auto"
-    />
-    <p>
-      {displayText}
-    </p>
+    <img src={src} alt={altText} title={altText} width="100%" height="auto" />
+    <p>{displayText}</p>
   </TechnicalSkillOrToolStyles>
 );
 

@@ -12,12 +12,8 @@ const ApplicationsCarouselDescriptionStyles = styled.div`
   grid-gap: 1rem;
 
   .project-description-wrapper {
-    h4[data-deployed="false"] {
-      opacity: .5;
-    }
-
-    p {
-      margin-bottom: 0;
+    h4[data-deployed='false'] {
+      opacity: 0.5;
     }
   }
 
@@ -39,7 +35,7 @@ const ApplicationsCarouselDescriptionStyles = styled.div`
       flex-wrap: wrap;
 
       span {
-        margin: .125rem;
+        margin: 0.125rem;
       }
     }
   }
@@ -50,43 +46,40 @@ const ApplicationsCarouselDescription = ({
   liveLink,
   projectName,
   mainDescription,
-  technologiesUsed
+  technologiesUsed,
 }) => {
+  const descriptionBlock = liveLink ? (
+    <p>{mainDescription}</p>
+  ) : (
+    <div className="skeleton-wrapper">
+      <ApplicationSkeletonDescription numberOfRows={4} />
+    </div>
+  );
 
-  const descriptionBlock = liveLink
-    ? <p>{ mainDescription }</p>
-    : <div className="skeleton-wrapper">
-        <ApplicationSkeletonDescription numberOfRows={4} />
-      </div>
-
-  const technologiesBlock = liveLink
-    ? technologiesUsed.map((technology) =>
-        <ApplicationTechnologyBadge
-          key={technology}
-          technologyName={technology}
-        />)
-    : <ApplicationsSkeletonTechnologies />;
+  const technologiesBlock = liveLink ? (
+    technologiesUsed.map(technology => (
+      <ApplicationTechnologyBadge
+        key={technology}
+        technologyName={technology}
+      />
+    ))
+  ) : (
+    <ApplicationsSkeletonTechnologies />
+  );
 
   return (
     <ApplicationsCarouselDescriptionStyles>
       <div className="project-description-wrapper">
-        <h4 data-deployed={!!liveLink}>
-          { projectName }
-        </h4>
-        { descriptionBlock }
+        <h4 data-deployed={!!liveLink}>{projectName}</h4>
+        {descriptionBlock}
       </div>
       <div className="technologies-wrapper">
-        { liveLink && <h5>Developed Using</h5> }
-        <div className="technologies-used">
-          { technologiesBlock }
-        </div>
+        {liveLink && <h5>Developed Using</h5>}
+        <div className="technologies-used">{technologiesBlock}</div>
       </div>
-      <ApplicationsCarouselLinks
-        liveLink={liveLink}
-        gitHubLink={gitHubLink}
-      />
+      <ApplicationsCarouselLinks liveLink={liveLink} gitHubLink={gitHubLink} />
     </ApplicationsCarouselDescriptionStyles>
-  )
-}
+  );
+};
 
 export default ApplicationsCarouselDescription;
