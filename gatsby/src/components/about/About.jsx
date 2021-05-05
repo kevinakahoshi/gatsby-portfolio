@@ -43,12 +43,7 @@ const AboutStyles = styled.section`
 
 const About = () => {
   const {
-    aboutMe: {
-      social,
-      altText,
-      bio,
-      headshot
-    }
+    aboutMe: { social, altText, bio, headshot },
   } = useStaticQuery(graphql`
     query {
       aboutMe: sanityAboutMe {
@@ -92,9 +87,7 @@ const About = () => {
       <SectionContentWrapper>
         <div className="about-wrapper">
           <div className="image-wrapper">
-            <SectionHeading>
-              About Me
-            </SectionHeading>
+            <SectionHeading>About Me</SectionHeading>
             <Img
               alt={altText}
               fluid={headshot.asset.fluid}
@@ -103,9 +96,7 @@ const About = () => {
             <AboutSocialLinks social={social} />
           </div>
           <div className="bio-wrapper">
-            <SectionHeading>
-              About Me
-            </SectionHeading>
+            <SectionHeading>About Me</SectionHeading>
             <div className="bio-content-wrapper">
               <AboutBioParagraphs bio={bio} />
             </div>
@@ -113,7 +104,7 @@ const About = () => {
         </div>
       </SectionContentWrapper>
     </AboutStyles>
-  )
+  );
 };
 
 export default About;
