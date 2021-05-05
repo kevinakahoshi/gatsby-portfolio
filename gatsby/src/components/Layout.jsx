@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   const [browserWindow, setBrowserWindow] = useState(null);
 
   useEffect(() => {
-    setBrowserWindow(window.location.href);
+    setBrowserWindow(() => window.location.href)
   }, []);
 
   return (

@@ -4,11 +4,9 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState
+  useState,
 } from 'react';
-import {
-  animateScroll as scroll
-} from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 import styled from 'styled-components';
 
 // Components
@@ -26,7 +24,7 @@ const HeaderStyles = styled.header`
   z-index: 20;
 
   .header-content-wrapper {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: auto 1fr;
@@ -36,7 +34,7 @@ const HeaderStyles = styled.header`
 
     .logo-wrapper {
       cursor: pointer;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     .link-wrapper {
@@ -51,24 +49,24 @@ const HeaderStyles = styled.header`
 const navigationItems = [
   {
     to: 'about',
-    text: 'About Me'
+    text: 'About Me',
   },
   {
     to: 'skills',
-    text: 'Skills'
+    text: 'Skills',
   },
   {
     to: 'tools',
-    text: 'Tools'
+    text: 'Tools',
   },
   {
     to: 'applications',
-    text: 'Applications'
+    text: 'Applications',
   },
   {
     to: 'contact',
-    text: 'Contact'
-  }
+    text: 'Contact',
+  },
 ];
 
 const Header = () => {
@@ -87,7 +85,7 @@ const Header = () => {
     handleShowOverlay,
     handleHideOverlay,
     handleClose,
-    handleOpen
+    handleOpen,
   } = useMenu();
 
   const handleLogoClick = () => {
@@ -96,49 +94,48 @@ const Header = () => {
       handleHideOverlay();
     }
     handleScrollTop();
-  }
+  };
 
-  const hamburgerNav = useMemo(() => (
-    <NavigationHamburger
-      handleOpen={handleOpen}
-      handleClose={handleClose}
-      handleHideOverlay={handleHideOverlay}
-      openMobileNav={openMobileNav}
-    />
-  ), [openMobileNav]);
-
-  const desktopNav = useMemo(() => (
-    <NavigationDesktop
-      offset={offset}
-      navigationItems={navigationItems}
-    />
-  ), [offset]);
-
-  const navDrawer = useMemo(() => (
-    <NavigationMobileDrawer
-      offset={offset}
-      navigationItems={navigationItems}
-      openMobileNav={openMobileNav}
-      handleClose={handleClose}
-      handleHideOverlay={handleHideOverlay}
-      showOverlay={showOverlay}
-    />
-  ), [openMobileNav, offset]);
-
-  const desktopOrMobile = isDesktop
-    ? desktopNav
-    : hamburgerNav;
-
-  const includeNavDrawer = !isDesktop
-    ? navDrawer
-    : null;
-
-  const hideOrShowOverlay = showOverlay
-    ? <Overlay
+  const hamburgerNav = useMemo(
+    () => (
+      <NavigationHamburger
+        handleOpen={handleOpen}
         handleClose={handleClose}
+        handleHideOverlay={handleHideOverlay}
         openMobileNav={openMobileNav}
       />
-    : null;
+    ),
+    [openMobileNav]
+  );
+
+  const desktopNav = useMemo(
+    () => (
+      <NavigationDesktop offset={offset} navigationItems={navigationItems} />
+    ),
+    [offset]
+  );
+
+  const navDrawer = useMemo(
+    () => (
+      <NavigationMobileDrawer
+        offset={offset}
+        navigationItems={navigationItems}
+        openMobileNav={openMobileNav}
+        handleClose={handleClose}
+        handleHideOverlay={handleHideOverlay}
+        showOverlay={showOverlay}
+      />
+    ),
+    [openMobileNav, offset]
+  );
+
+  const desktopOrMobile = isDesktop ? desktopNav : hamburgerNav;
+
+  const includeNavDrawer = !isDesktop ? navDrawer : null;
+
+  const hideOrShowOverlay = showOverlay ? (
+    <Overlay handleClose={handleClose} openMobileNav={openMobileNav} />
+  ) : null;
 
   const logo = useMemo(() => <Logo />, []);
 
@@ -168,19 +165,14 @@ const Header = () => {
     <>
       <HeaderStyles id="header" ref={headerRef}>
         <div className="header-content-wrapper">
-          <div
-            className="logo-wrapper"
-            onClick={handleLogoClick}
-          >
-            { logo }
+          <div className="logo-wrapper" onClick={handleLogoClick}>
+            {logo}
           </div>
-          <div className="link-wrapper">
-            { desktopOrMobile }
-          </div>
+          <div className="link-wrapper">{desktopOrMobile}</div>
         </div>
-        { includeNavDrawer }
+        {includeNavDrawer}
       </HeaderStyles>
-      { hideOrShowOverlay }
+      {hideOrShowOverlay}
     </>
   );
 };

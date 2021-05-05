@@ -19,8 +19,8 @@ const NavigationStyles = styled.div`
 
   a {
     position: relative;
-    padding: .5rem 0;
-    transition: color .3s;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
 
     &:not(.active) {
       color: var(--link-inactive-grey);
@@ -45,7 +45,7 @@ const NavigationStyles = styled.div`
     }
 
     &::before,
-    &::after  {
+    &::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -57,7 +57,7 @@ const NavigationStyles = styled.div`
       background-color: transparent;
       z-index: 1;
       display: inline-block;
-      transition: width .3s, backround .3s;
+      transition: width 0.3s, backround 0.3s;
     }
 
     &::after {
@@ -67,20 +67,11 @@ const NavigationStyles = styled.div`
 `;
 
 const NavigationDesktop = ({ offset, navigationItems }) => {
-  const desktopNavigationLinks = navigationItems.map((navItem) => (
-    <NavigationLink
-      key={navItem.to}
-      to={navItem.to}
-      offset={offset}
-      text={navItem.text}
-    />
+  const desktopNavigationLinks = navigationItems.map(({ to, text }) => (
+    <NavigationLink key={to} to={to} offset={offset} text={text} />
   ));
 
-  return (
-    <NavigationStyles>
-      { desktopNavigationLinks }
-    </NavigationStyles>
-  );
+  return <NavigationStyles>{desktopNavigationLinks}</NavigationStyles>;
 };
 
 export default NavigationDesktop;

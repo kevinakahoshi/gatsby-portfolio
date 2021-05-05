@@ -12,7 +12,7 @@ const NavigationMobileDrawerStyles = styled.aside`
   position: fixed;
   top: var(--offset);
   right: 0;
-  transition: transform .3s, box-shadow .3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   z-index: 1;
 
   @media (min-width: 336px) {
@@ -23,14 +23,14 @@ const NavigationMobileDrawerStyles = styled.aside`
     --offset: ${({ offset }) => offset}px;
   }
 
-  &[data-open="false"] {
+  &[data-open='false'] {
     transform: translateX(100%);
     box-shadow: none;
   }
 
-  &[data-open="true"] {
+  &[data-open='true'] {
     transform: translateX(0%);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   }
 
   .drawer {
@@ -54,8 +54,8 @@ const NavigationMobileDrawerStyles = styled.aside`
 
   a {
     position: relative;
-    padding: .5rem 0;
-    transition: color .3s;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
     text-align: center;
     font-size: 1.25rem;
     width: fit-content;
@@ -88,7 +88,7 @@ const NavigationMobileDrawerStyles = styled.aside`
     }
 
     &::before,
-    &::after  {
+    &::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -100,17 +100,17 @@ const NavigationMobileDrawerStyles = styled.aside`
       background-color: transparent;
       z-index: 1;
       display: inline-block;
-      transition: width .3s;
+      transition: width 0.3s;
     }
   }
 
   .slide-in {
-    animation: ${SlideIn} .75s forwards;
+    animation: ${SlideIn} 0.75s forwards;
     animation-fill-mode: both;
   }
 
   .slide-out {
-    animation: ${SlideOut} .75s forwards;
+    animation: ${SlideOut} 0.75s forwards;
     animation-fill-mode: both;
   }
 `;
@@ -122,7 +122,7 @@ const NavigationMobileDrawer = ({
   sliding,
   handleClose,
   handleHideOverlay,
-  showOverlay
+  showOverlay,
 }) => {
   const navDrawerLinks = navigationItems.map((navItem, index) => (
     <NavigationLink
@@ -133,7 +133,7 @@ const NavigationMobileDrawer = ({
       handleClose={handleClose}
       customClass={openMobileNav ? 'slide-in' : 'slide-out'}
       customInlineStyles={{
-        animationDelay: `${index * 0.1}s`
+        animationDelay: `${index * 0.1}s`,
       }}
     />
   ));
@@ -141,7 +141,7 @@ const NavigationMobileDrawer = ({
   const handleTransition = () => {
     if (openMobileNav || !showOverlay) return;
     handleHideOverlay();
-  }
+  };
 
   return (
     <NavigationMobileDrawerStyles
@@ -149,9 +149,7 @@ const NavigationMobileDrawer = ({
       onTransitionEnd={handleTransition}
       offset={offset}
     >
-      <div className="drawer" >
-        { navDrawerLinks }
-      </div>
+      <div className="drawer">{navDrawerLinks}</div>
     </NavigationMobileDrawerStyles>
   );
 };

@@ -12,24 +12,19 @@ const OverlayStyles = styled.div`
   z-index: 19;
 
   &.fade-in {
-    animation: ${FadeIn} .3s;
+    animation: ${FadeIn} 0.3s;
     animation-fill-mode: both;
   }
 
   &.fade-out {
-    animation: ${FadeOut} .3s;
+    animation: ${FadeOut} 0.3s;
     animation-fill-mode: both;
   }
 `;
 
 const Overlay = ({ handleClose, openMobileNav }) => {
   const fadeClass = openMobileNav ? 'fade-in' : 'fade-out';
-  return (
-    <OverlayStyles
-      className={fadeClass}
-      onClick={handleClose}
-    />
-  );
+  return <OverlayStyles className={fadeClass} onClick={handleClose} />;
 };
 
 export default Overlay;
