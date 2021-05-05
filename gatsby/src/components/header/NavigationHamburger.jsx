@@ -14,7 +14,7 @@ const NavigationHamburgerStyles = styled.button`
   justify-content: center;
   align-items: center;
 
-  &[data-nav-open="false"] {
+  &[data-nav-open='false'] {
     .hamburger-bar {
       &#bar-1 {
         transform: translateY(-8px) rotate(0deg);
@@ -30,7 +30,7 @@ const NavigationHamburgerStyles = styled.button`
     }
   }
 
-  &[data-nav-open="true"] {
+  &[data-nav-open='true'] {
     .hamburger-bar {
       &#bar-1 {
         transform: translateY(0px) rotate(45deg);
@@ -51,7 +51,7 @@ const NavigationHamburgerStyles = styled.button`
     height: 2px;
     background: var(--black);
     position: absolute;
-    transition: transform .3s, opacity .3s;
+    transition: transform 0.3s, opacity 0.3s;
   }
 `;
 
@@ -59,11 +59,11 @@ const NavigationHamburger = ({
   handleOpen,
   handleClose,
   handleHideOverlay,
-  openMobileNav
+  openMobileNav,
 }) => {
   const handleClick = () => {
     openMobileNav ? handleClose() : handleOpen();
-  }
+  };
 
   return (
     <NavigationHamburgerStyles
@@ -77,7 +77,7 @@ const NavigationHamburger = ({
       <div className="hamburger-bar" id="bar-2" />
       <div className="hamburger-bar" id="bar-3" />
     </NavigationHamburgerStyles>
-  )
+  );
 };
 
 export default NavigationHamburger;

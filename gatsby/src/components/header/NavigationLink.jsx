@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Link
-} from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const NavigationLink = ({
   to,
@@ -9,7 +7,7 @@ const NavigationLink = ({
   text,
   handleClose = null,
   customClass = null,
-  customInlineStyles = null
+  customInlineStyles = null,
 }) => (
   <Link
     activeClass="active"
@@ -22,7 +20,7 @@ const NavigationLink = ({
     className={customClass}
     style={customInlineStyles}
   >
-    { text }
+    {text}
   </Link>
 );
 
