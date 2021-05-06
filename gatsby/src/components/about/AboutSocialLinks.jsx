@@ -5,23 +5,24 @@ import {
   FiPhoneCall as Phone,
   FiLinkedin as LinkedIn,
   FiMail as Email,
-  FiFileText as Resume
+  FiFileText as Resume,
 } from 'react-icons/fi';
 import { useState } from 'react';
 import { SlideIn } from '../../styles/Keyframes';
 import { graphql, useStaticQuery } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 const AboutSocialLinksStyles = styled.div`
   overflow: auto;
   min-height: 4.5rem;
 
   .social-wrapper {
-    animation: ${SlideIn} .3s;
+    animation: ${SlideIn} 0.3s;
     animation-fill-mode: both;
-    animation-delay: .3s;
+    animation-delay: 0.3s;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: .5rem;
+    grid-gap: 0.5rem;
     width: max-content;
     margin: 1rem auto;
   }
@@ -38,7 +39,7 @@ const AboutSocialLinksStyles = styled.div`
     border-width: 2px;
     border-style: solid;
     border-color: var(--link-inactive-grey);
-    animation: ${SlideIn} .5s;
+    animation: ${SlideIn} 0.5s;
     animation-fill-mode: both;
 
     &:hover {
@@ -54,9 +55,7 @@ const AboutSocialLinksStyles = styled.div`
 
 const AboutSocialLinks = () => {
   const {
-    aboutMe: {
-      social
-    }
+    aboutMe: { social },
   } = useStaticQuery(graphql`
     query {
       aboutMe: sanityAboutMe {
@@ -81,19 +80,19 @@ const AboutSocialLinks = () => {
     }
   `);
 
-  const processURL = (item) => item.url ? item.url : item.file.asset.url;
+  const processURL = (item) => (item.url ? item.url : item.file.asset.url);
   const [links, setLinks] = useState(null);
   const delay = 0.1;
   const socialIcons = {
-    GitHub: <GitHub className="social-icon"  />,
+    GitHub: <GitHub className="social-icon" />,
     LinkedIn: <LinkedIn className="social-icon" />,
-    Phone: <Phone className="social-icon"  />,
-    Email: <Email className="social-icon"  />,
-    Resume: <Resume className="social-icon"  />
-  }
+    Phone: <Phone className="social-icon" />,
+    Email: <Email className="social-icon" />,
+    Resume: <Resume className="social-icon" />,
+  };
 
   const allLinks = social.map((item, index) => (
-    <a
+    <OutboundLink
       key={item.id}
       title={item.name}
       href={processURL(item)}
@@ -102,17 +101,15 @@ const AboutSocialLinks = () => {
       download={!!item.file}
       style={{ animationDelay: `${index * delay}s` }}
     >
-      { socialIcons[item.name] }
-    </a>
-  ))
+      {socialIcons[item.name]}
+    </OutboundLink>
+  ));
 
   return (
     <AboutSocialLinksStyles onAnimationEnd={() => setLinks(allLinks)}>
-      <div className="social-wrapper">
-        { links }
-      </div>
+      <div className="social-wrapper">{links}</div>
     </AboutSocialLinksStyles>
-  )
+  );
 };
 
 export default AboutSocialLinks;

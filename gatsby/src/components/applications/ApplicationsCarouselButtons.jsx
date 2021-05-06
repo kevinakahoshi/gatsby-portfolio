@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   FiChevronLeft as Previous,
-  FiChevronRight as Next
+  FiChevronRight as Next,
 } from 'react-icons/fi';
 
 const ApplicationsCarouselButtonsStyles = styled.div`
@@ -14,14 +14,14 @@ const ApplicationsCarouselButtonsStyles = styled.div`
   .next {
     height: 3.125rem;
     width: 3.125rem;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     background: var(--white);
     outline: none;
-    transition: color .3s, border-color .3s, box-shadow .3s;
+    transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
     padding: 0;
 
     &:not(:hover) {
@@ -35,11 +35,11 @@ const ApplicationsCarouselButtonsStyles = styled.div`
     }
 
     &:focus:not(:hover) {
-      box-shadow: 0rem 0rem 0rem .125rem var(--link-inactive-grey);
+      box-shadow: 0rem 0rem 0rem 0.125rem var(--link-inactive-grey);
     }
 
     &:focus:hover {
-      box-shadow: 0rem 0rem 0rem .125rem var(--link-inactive-hover-grey);
+      box-shadow: 0rem 0rem 0rem 0.125rem var(--link-inactive-hover-grey);
     }
 
     .chevron {

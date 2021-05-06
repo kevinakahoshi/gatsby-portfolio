@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 import ApplicationsImage from './ApplicationsImage';
 import ApplicationsCardDescription from './ApplicationsCardDescription';
@@ -10,8 +11,8 @@ import ApplicationsSkeletonTechnologies from './ApplicationsSkeletonTechnologies
 
 const ApplicationsCardStyles = styled.div`
   background: var(--white);
-  border-radius: .25rem;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   padding: 1rem;
   display: grid;
   grid-gap: 1rem;
@@ -22,12 +23,8 @@ const ApplicationsCardStyles = styled.div`
   width: 100%;
 
   .application-card-image {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     overflow: hidden;
-  }
-
-  p {
-    margin-bottom: 0;
   }
 
   .skeleton-wrapper {
@@ -43,52 +40,58 @@ const ApplicationsCard = ({ application }) => {
     projectName,
     shortDescription,
     technologiesUsed,
-    thumbnail
+    thumbnail,
   } = application;
 
-  const imageBlock = liveLink
-    ? <a
-        href={liveLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-deployed={!!liveLink}
-        className="application-card-image"
-      >
-        <ApplicationsImage
-          altText={altText}
-          projectName={projectName}
-          thumbnail={thumbnail}
-          view="grid"
-        />
-      </a>
-    : <div className="application-card-image">
-        <ApplicationsImage
-          altText={altText}
-          projectName={projectName}
-          thumbnail={thumbnail}
-          view="grid"
-          disabled={true}
-        />
-      </div>
+  const imageBlock = liveLink ? (
+    <OutboundLink
+      href={liveLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-deployed={!!liveLink}
+      className="application-card-image"
+    >
+      <ApplicationsImage
+        altText={altText}
+        projectName={projectName}
+        thumbnail={thumbnail}
+        view="grid"
+      />
+    </OutboundLink>
+  ) : (
+    <div className="application-card-image">
+      <ApplicationsImage
+        altText={altText}
+        projectName={projectName}
+        thumbnail={thumbnail}
+        view="grid"
+        disabled={true}
+      />
+    </div>
+  );
 
-  const descriptionBlock = liveLink
-    ? <ApplicationsCardDescription shortDescription={shortDescription} />
-    : <ApplicationsCardSkeletonDescription />;
+  const descriptionBlock = liveLink ? (
+    <ApplicationsCardDescription shortDescription={shortDescription} />
+  ) : (
+    <ApplicationsCardSkeletonDescription />
+  );
 
-  const technologiesBlock = liveLink
-    ? <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
-    : <div className="skeleton-wrapper">
-        <ApplicationsSkeletonTechnologies />
-      </div>;
+  const technologiesBlock = liveLink ? (
+    <ApplicationsCardTechnologies technologiesUsed={technologiesUsed} />
+  ) : (
+    <div className="skeleton-wrapper">
+      <ApplicationsSkeletonTechnologies />
+    </div>
+  );
 
   return (
     <ApplicationsCardStyles>
-      { imageBlock }
-      { descriptionBlock }
-      { technologiesBlock }
+      {imageBlock}
+      {descriptionBlock}
+      {technologiesBlock}
       <ApplicationsCardButtons gitHubLink={gitHubLink} liveLink={liveLink} />
     </ApplicationsCardStyles>
-  )
+  );
 };
 
 export default ApplicationsCard;

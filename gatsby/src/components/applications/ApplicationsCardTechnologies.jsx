@@ -25,11 +25,9 @@ const ApplicationsCardTechnologies = ({ technologiesUsed }) => {
   return (
     <ApplicationsCardTechnologiesStyles>
       <h5>Developed Using</h5>
-      <div className="technologies-wrapper">
-        { allBadges }
-      </div>
+      <div className="technologies-wrapper">{allBadges}</div>
     </ApplicationsCardTechnologiesStyles>
-  )
+  );
 };
 
 export default ApplicationsCardTechnologies;

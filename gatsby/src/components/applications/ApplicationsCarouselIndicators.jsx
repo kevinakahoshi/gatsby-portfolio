@@ -16,7 +16,7 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
       border-width: 1px;
       border-style: solid;
       border-radius: 1rem;
-      transition: border-color .3s, background .3s;
+      transition: border-color 0.3s, background 0.3s;
       cursor: pointer;
 
       &:not(.active) {
@@ -44,21 +44,24 @@ const ApplicationsCarouselIndicatorsStyles = styled.div`
   }
 `;
 
-const ApplicationsCarouselIndicators = ({ numberOfApplications, skipToSlide, slide }) => {
+const ApplicationsCarouselIndicators = ({
+  numberOfApplications,
+  skipToSlide,
+  slide,
+}) => {
   const indicators = new Array(numberOfApplications)
     .fill(undefined)
-    .map((element, index) =>
+    .map((element, index) => (
       <div
         key={index}
         className={`indicator${index === slide ? ' active' : ''}`}
         onClick={() => skipToSlide(index)}
-      />);
+      />
+    ));
 
   return (
     <ApplicationsCarouselIndicatorsStyles>
-      <div className="indicators-wrapper">
-        { indicators }
-      </div>
+      <div className="indicators-wrapper">{indicators}</div>
     </ApplicationsCarouselIndicatorsStyles>
   );
 };
