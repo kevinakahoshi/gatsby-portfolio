@@ -1,11 +1,7 @@
-import React, {
-  createRef,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 // Components
 import ApplicationsImage from './ApplicationsImage';
@@ -34,12 +30,12 @@ const ApplicationsCarouselStyles = styled.div`
 
     .slides-wrapper {
       overflow: hidden;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       touch-action: pan-y;
-      transform: translate3d(0, 0 ,0);
+      transform: translate3d(0, 0, 0);
 
-      div[data-deployed="false"] {
-        opacity: .5;
+      div[data-deployed='false'] {
+        opacity: 0.5;
         pointer-events: none;
       }
 
@@ -88,41 +84,41 @@ const ApplicationsCarousel = ({ applications }) => {
   const applicationImages = applications.map((project, index) => {
     if (!project.liveLink) {
       return (
-      <div
-        className={`carousel-image-slide${index === slide
-          ? ' active'
-          : ' inactive'}`}
-        data-deployed={!!project.liveLink}
-        key={`${project.id}--${index}`}
-      >
-        <ApplicationsImage
-          altText={project.altText}
-          projectName={project.projectName}
-          thumbnail={project.thumbnail}
-          view="carousel"
-        />
-      </div>
-      )
-    } else {
-      return (
-        <a
-          className={`carousel-image-slide${index === slide
-            ? ' active'
-            : ' inactive'}`}
+        <div
+          className={`carousel-image-slide${
+            index === slide ? ' active' : ' inactive'
+          }`}
           data-deployed={!!project.liveLink}
-          href={project.liveLink}
           key={`${project.id}--${index}`}
-          rel="noopener noreferrer"
-          target="_blank"
-          >
+        >
           <ApplicationsImage
             altText={project.altText}
             projectName={project.projectName}
             thumbnail={project.thumbnail}
             view="carousel"
           />
-        </a>
-      )
+        </div>
+      );
+    } else {
+      return (
+        <OutboundLink
+          className={`carousel-image-slide${
+            index === slide ? ' active' : ' inactive'
+          }`}
+          data-deployed={!!project.liveLink}
+          href={project.liveLink}
+          key={`${project.id}--${index}`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <ApplicationsImage
+            altText={project.altText}
+            projectName={project.projectName}
+            thumbnail={project.thumbnail}
+            view="carousel"
+          />
+        </OutboundLink>
+      );
     }
   });
 
@@ -152,8 +148,8 @@ const ApplicationsCarousel = ({ applications }) => {
     arrows: false,
     beforeChange: (oldIndex, newIndex) => setSlide(() => newIndex),
     autoplay: true,
-    autoplaySpeed: 8000
-  }
+    autoplaySpeed: 8000,
+  };
 
   return (
     <ApplicationsCarouselStyles numberOfSlides={applications.length}>
@@ -162,14 +158,15 @@ const ApplicationsCarousel = ({ applications }) => {
         onMouseOver={pauseSlides}
         onMouseLeave={startSlides}
       >
-        <div className="slides-wrapper"
+        <div
+          className="slides-wrapper"
           onTouchStart={pauseSlides}
           onMouseDown={pauseSlides}
           onTouchEnd={startSlides}
           onMouseUp={startSlides}
         >
           <Slider ref={slider} {...settings}>
-            { applicationImages }
+            {applicationImages}
           </Slider>
         </div>
         <div className="controls-wrapper">
@@ -191,7 +188,7 @@ const ApplicationsCarousel = ({ applications }) => {
       >
         <div className="descriptions-wrapper">
           <div className="applications-descriptions">
-            { applicationsDescriptions[slide] }
+            {applicationsDescriptions[slide]}
           </div>
         </div>
       </div>

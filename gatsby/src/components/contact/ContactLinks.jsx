@@ -5,9 +5,10 @@ import {
   FiPhoneCall as Phone,
   FiLinkedin as LinkedIn,
   FiMail as Email,
-  FiFileText as Resume
+  FiFileText as Resume,
 } from 'react-icons/fi';
 import styled from 'styled-components';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 const ContactLinksStyles = styled.div`
   @media (min-width: 768px) {
@@ -27,7 +28,7 @@ const ContactLinksStyles = styled.div`
     display: grid;
     grid-template-columns: auto auto;
     width: max-content;
-    grid-gap: .5rem;
+    grid-gap: 0.5rem;
     margin: 0rem 1rem;
     align-items: center;
   }
@@ -35,7 +36,7 @@ const ContactLinksStyles = styled.div`
 
 const ContactLinks = () => (
   <ContactLinksStyles>
-    <a
+    <OutboundLink
       className="animated-underline"
       href="https://www.google.com/maps/place/Orange+County,+CA/@33.6410077,-118.0496294,10z/data=!3m1!4b1!4m5!3m4!1s0x80dc925c54d5f7cf:0xdea6c3618ff0d607!8m2!3d33.7174708!4d-117.8311428"
       rel="noopener noreferrer"
@@ -43,8 +44,8 @@ const ContactLinks = () => (
     >
       <LocationPin />
       <span>Orange County</span>
-    </a>
-    <a
+    </OutboundLink>
+    <OutboundLink
       className="animated-underline"
       href="tel:+19492027141"
       rel="noopener noreferrer"
@@ -52,8 +53,8 @@ const ContactLinks = () => (
     >
       <Phone />
       <span>949-202-7141</span>
-    </a>
-    <a
+    </OutboundLink>
+    <OutboundLink
       className="animated-underline"
       href="mailto:kevin.akahoshi@gmail.com"
       rel="noopener noreferrer"
@@ -61,7 +62,7 @@ const ContactLinks = () => (
     >
       <Email />
       <span>kevin.akahoshi@gmail.com</span>
-    </a>
+    </OutboundLink>
   </ContactLinksStyles>
 );
 

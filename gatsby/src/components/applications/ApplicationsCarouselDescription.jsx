@@ -57,7 +57,7 @@ const ApplicationsCarouselDescription = ({
   );
 
   const technologiesBlock = liveLink ? (
-    technologiesUsed.map(technology => (
+    technologiesUsed.map((technology) => (
       <ApplicationTechnologyBadge
         key={technology}
         technologyName={technology}
