@@ -10,7 +10,7 @@ const HeroImageBelowTheFoldStyles = styled.div`
 
   .image {
     background: var(--white);
-    box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, .175);
+    box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.175);
     height: 100%;
     width: 100%;
     position: relative;
@@ -18,14 +18,14 @@ const HeroImageBelowTheFoldStyles = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .5rem;
+    padding: 0.5rem;
   }
 
   .circle {
     padding: 40%;
     background: var(--red);
-    opacity: .25;
-    border-radius: 10rem!important;
+    opacity: 0.25;
+    border-radius: 10rem !important;
   }
 
   .text-line {
@@ -37,7 +37,7 @@ const HeroImageBelowTheFoldStyles = styled.div`
 const HeroImageBelowTheFold = () => {
   const textLines = new Array(5)
     .fill(undefined)
-    .map((_, index) => <div key={index} className="text-line" />)
+    .map((_, index) => <div key={index} className="text-line" />);
 
   return (
     <HeroImageBelowTheFoldStyles>
@@ -48,9 +48,7 @@ const HeroImageBelowTheFold = () => {
         </div>
       </div>
       <div className="btf-right">
-        <HeroImageTextBlock>
-          { textLines }
-        </HeroImageTextBlock>
+        <HeroImageTextBlock>{textLines}</HeroImageTextBlock>
       </div>
     </HeroImageBelowTheFoldStyles>
   );

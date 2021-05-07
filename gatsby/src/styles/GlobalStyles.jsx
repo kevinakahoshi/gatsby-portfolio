@@ -22,14 +22,10 @@ const GlobalStyles = createGlobalStyle`
     outline-color: var(--red);
   }
 
-  button,
-  a {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-  }
-
   a, button {
     cursor: pointer;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
   .section {

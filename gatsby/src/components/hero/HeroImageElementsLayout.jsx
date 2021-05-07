@@ -14,9 +14,7 @@ const HeroImageElementsLayoutStyles = styled.div`
 `;
 
 const HeroImageElementsLayout = ({ children }) => (
-  <HeroImageElementsLayoutStyles>
-    { children }
-  </HeroImageElementsLayoutStyles>
+  <HeroImageElementsLayoutStyles>{children}</HeroImageElementsLayoutStyles>
 );
 
 export default HeroImageElementsLayout;

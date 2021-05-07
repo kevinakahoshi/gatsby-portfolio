@@ -8,9 +8,9 @@ import SectionHeading from '../shared/SectionHeading';
 import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
-
 const ToolsStyles = styled.section`
-  background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+  background-image: linear-gradient(-45deg, #e64242ef, #e67342ef),
+    url(${topographic});
   background-position: center;
   background-size: contain;
   background-repeat: repeat;
@@ -19,9 +19,7 @@ const ToolsStyles = styled.section`
 
 const Tools = () => {
   const {
-    skills: {
-      tools
-    }
+    skills: { tools },
   } = useStaticQuery(graphql`
     query {
       skills: sanityToolsSection {
@@ -40,7 +38,7 @@ const Tools = () => {
         }
       }
     }
-  `)
+  `);
 
   const toolsUsed = tools.map((skill) => (
     <TechnicalSkillOrTool
@@ -54,15 +52,11 @@ const Tools = () => {
   return (
     <ToolsStyles id="tools" className="section">
       <SectionContentWrapper>
-        <SectionHeading>
-          Tools
-        </SectionHeading>
-        <SkillsAndToolsGrid>
-          { toolsUsed }
-        </SkillsAndToolsGrid>
+        <SectionHeading>Tools</SectionHeading>
+        <SkillsAndToolsGrid>{toolsUsed}</SkillsAndToolsGrid>
       </SectionContentWrapper>
     </ToolsStyles>
-  )
-}
+  );
+};
 
 export default Tools;

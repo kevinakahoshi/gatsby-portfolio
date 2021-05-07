@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeroImageTextBlockStyles = styled.div`
-  padding: .5rem;
+  padding: 0.5rem;
   background: var(--white);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   height: 100%;
 
   .row-text {
     display: grid;
-    grid-gap: .25rem;
+    grid-gap: 0.25rem;
     grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
     height: 100%;
   }
@@ -17,9 +17,7 @@ const HeroImageTextBlockStyles = styled.div`
 
 const HeroImageTextBlock = ({ children }) => (
   <HeroImageTextBlockStyles>
-    <div className="row-text">
-      { children }
-    </div>
+    <div className="row-text">{children}</div>
   </HeroImageTextBlockStyles>
 );
 

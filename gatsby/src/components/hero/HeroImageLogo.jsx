@@ -4,17 +4,17 @@ import styled from 'styled-components';
 const HeroImageLogoStyles = styled.div`
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: .5rem;
-  padding: .25rem;
+  grid-gap: 0.5rem;
+  padding: 0.25rem;
   border: 2px solid var(--medium-grey);
 
   .first-name,
   .last-name {
     display: grid;
-    grid-gap: .125rem;
+    grid-gap: 0.125rem;
 
     .letter {
-      padding: .1rem;
+      padding: 0.1rem;
     }
   }
 
