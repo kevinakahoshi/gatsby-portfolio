@@ -14,7 +14,8 @@ const NotFoundStyles = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+  background-image: linear-gradient(-45deg, #e64242ef, #e67342ef),
+    url(${topographic});
   background-position: center;
   background-size: contain;
   background-repeat: repeat;
@@ -33,16 +34,15 @@ const NotFoundStyles = styled.section`
       text-align: center;
       color: var(--white);
       border: 2px solid var(--white);
-      padding: .75rem;
-      border-radius: .25rem;
-      gap: .5rem;
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+      gap: 0.5rem;
       text-decoration: none;
       display: block;
       width: fit-content;
       margin: auto;
     }
   }
-
 `;
 
 const NotFound = () => (

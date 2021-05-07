@@ -15,7 +15,8 @@ const HeroStyles = styled.section`
   &::before {
     content: '';
     position: absolute;
-    background-image: linear-gradient(-45deg, #e64242ef, #e67342ef), url(${topographic});
+    background-image: linear-gradient(-45deg, #e64242ef, #e67342ef),
+      url(${topographic});
     background-size: 150%;
     right: 0;
   }
@@ -43,7 +44,7 @@ const HeroStyles = styled.section`
     justify-content: center;
     align-items: center;
     position: relative;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
 
     @media (max-width: 767px) {
       grid-row: 1;

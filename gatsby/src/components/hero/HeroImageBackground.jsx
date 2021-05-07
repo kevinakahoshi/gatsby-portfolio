@@ -9,7 +9,7 @@ const HeroImageBackgroundStyles = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 `;
 
 const HeroImageBackground = () => <HeroImageBackgroundStyles />;

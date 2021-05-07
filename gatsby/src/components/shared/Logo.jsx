@@ -31,13 +31,13 @@ const LogoStyles = styled.div`
   @media (min-width: ${mobileWidth + 1}px) {
     --logo-gap: 1.5rem;
     --logo-padding: 1rem;
-    --logo-font-size: .75rem;
+    --logo-font-size: 0.75rem;
   }
 
   @media (max-width: ${mobileWidth}px) {
     --logo-gap: 1.25rem;
-    --logo-padding: .75rem;
-    --logo-font-size: .75rem;
+    --logo-padding: 0.75rem;
+    --logo-font-size: 0.75rem;
   }
 
   .first-name,
@@ -47,11 +47,11 @@ const LogoStyles = styled.div`
     align-items: center;
 
     @media (min-width: ${mobileWidth + 1}px) {
-      grid-gap: .5rem;
+      grid-gap: 0.5rem;
     }
 
     @media (max-width: ${mobileWidth}px) {
-      grid-gap: .4rem;
+      grid-gap: 0.4rem;
     }
   }
 

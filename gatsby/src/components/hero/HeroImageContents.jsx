@@ -13,7 +13,7 @@ const HeroImageStyles = styled.div`
   display: grid;
 
   *:not(.transition-backround) {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 
   @media (min-width: 768px) {

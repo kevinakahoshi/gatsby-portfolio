@@ -7,27 +7,27 @@ const HeroImageHeroStyles = styled.div`
   position: relative;
   overflow: hidden;
   background: var(--white);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   align-items: center;
 
   .hero-text-wrapper {
     display: grid;
-    grid-gap: .5rem;
+    grid-gap: 0.5rem;
     position: relative;
     z-index: 3;
-    padding: .5rem;
+    padding: 0.5rem;
 
     .hero-text-heading {
-      padding: .35rem;
+      padding: 0.35rem;
       background: var(--dark-grey);
       width: 60%;
     }
 
     .hero-text-subheading {
-      padding: .25rem;
+      padding: 0.25rem;
       background: var(--medium-grey);
       width: 45%;
     }
@@ -59,7 +59,7 @@ const HeroImageHeroStyles = styled.div`
         top: -5%;
         left: 5%;
         background: var(--white);
-        opacity: .5;
+        opacity: 0.5;
       }
 
       .floating-dom {

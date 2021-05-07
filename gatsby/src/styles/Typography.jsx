@@ -36,10 +36,6 @@ const Typography = createGlobalStyle`
     font-size: 1.25rem;
   }
 
-  h6 {
-
-  }
-
   p {
     margin-top: 0;
     line-height: 1.5rem;

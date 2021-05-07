@@ -8,10 +8,10 @@ const HeroImageStyles = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   opacity: 0;
-  animation: ${FadeIn100} .125s ease-in-out;
-  animation-delay: .25s;
+  animation: ${FadeIn100} 0.125s ease-in-out;
+  animation-delay: 0.25s;
   animation-fill-mode: forwards;
 
   @media (max-width: 767px) {

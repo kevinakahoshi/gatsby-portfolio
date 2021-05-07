@@ -8,9 +8,9 @@ const HeroImageShadowDOMStyles = styled.div`
   top: -2vmin;
   left: 2vmin;
   background: var(--white);
-  opacity: .5;
+  opacity: 0.5;
   z-index: 1;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 `;
 
 const HeroImageShadowDOM = () => <HeroImageShadowDOMStyles />;

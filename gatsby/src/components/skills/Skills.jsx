@@ -1,8 +1,4 @@
-import React, {
-  lazy,
-  Suspense,
-  useMemo
-} from 'react';
+import React, { lazy, Suspense, useMemo } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -17,9 +13,7 @@ const SkillsStyles = styled.section`
 
 const Skills = () => {
   const {
-    skills: {
-      technologies
-    }
+    skills: { technologies },
   } = useStaticQuery(graphql`
     query {
       skills: sanityTechnologiesSection {
@@ -52,12 +46,8 @@ const Skills = () => {
   return (
     <SkillsStyles id="skills" className="section">
       <SectionContentWrapper>
-        <SectionHeading>
-          Technical Skills
-        </SectionHeading>
-        <SkillsAndToolsGrid>
-          { technicalSkills }
-        </SkillsAndToolsGrid>
+        <SectionHeading>Technical Skills</SectionHeading>
+        <SkillsAndToolsGrid>{technicalSkills}</SkillsAndToolsGrid>
       </SectionContentWrapper>
     </SkillsStyles>
   );
