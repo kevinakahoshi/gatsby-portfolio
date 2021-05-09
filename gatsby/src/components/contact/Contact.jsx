@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  FiMapPin as LocationPin
-} from 'react-icons/fi';
+import { FiMapPin as LocationPin } from 'react-icons/fi';
 
 import Logo from '../shared/Logo';
 import SectionContentWrapper from '../shared/SectionContentWrapper';

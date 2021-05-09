@@ -40,45 +40,45 @@ const ApplicationsToggleTooltipStyles = styled.div`
   .message {
     background: var(--dark-grey);
     color: var(--white);
-    padding: .5rem;
+    padding: 0.5rem;
     position: absolute;
     width: auto;
-    border-radius: .25rem;
-    transition: opacity .3s;
+    border-radius: 0.25rem;
+    transition: opacity 0.3s;
     white-space: nowrap;
 
-    &[data-direction="left"] {
+    &[data-direction='left'] {
       right: 1.5rem;
 
       &::after {
         content: '';
-        height: .8rem;
-        width: .8rem;
+        height: 0.8rem;
+        width: 0.8rem;
         background: var(--dark-grey);
         position: absolute;
-        right: -.25rem;
+        right: -0.25rem;
         transform: rotate(45deg);
       }
     }
 
-    &[data-direction="right"] {
+    &[data-direction='right'] {
       left: 1.5rem;
 
       &::before {
         content: '';
-        height: .8rem;
-        width: .8rem;
+        height: 0.8rem;
+        width: 0.8rem;
         background: var(--dark-grey);
         position: absolute;
-        left: -.25rem;
+        left: -0.25rem;
         transform: rotate(45deg);
       }
     }
 
     span {
-      font-size: .75rem;
+      font-size: 0.75rem;
       z-index: 1;
-      height: .6rem;
+      height: 0.6rem;
       display: flex;
       align-items: center;
       position: relative;
@@ -91,9 +91,9 @@ const ApplicationsToggleTooltip = ({ children, direction, text }) => (
   <ApplicationsToggleTooltipStyles>
     <div className="message-wrapper">
       <div className="message" data-direction={direction}>
-        <span>{ text }</span>
+        <span>{text}</span>
       </div>
-      { children }
+      {children}
     </div>
   </ApplicationsToggleTooltipStyles>
 );

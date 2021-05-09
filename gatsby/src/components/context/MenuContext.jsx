@@ -1,26 +1,17 @@
-import React, {
-  createContext,
-  useState
-} from 'react';
+import React, { createContext, useState } from 'react';
 
-const MenuContext = createContext([
-  false,
-  () => ({})
-]);
+const MenuContext = createContext([false, () => ({})]);
 
 export const MenuProvider = ({ children }) => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
-  const menuContextValue = [
-    openMobileNav,
-    setOpenMobileNav,
-  ];
+  const menuContextValue = [openMobileNav, setOpenMobileNav];
 
   return (
     <MenuContext.Provider value={menuContextValue}>
-      { children }
+      {children}
     </MenuContext.Provider>
-  )
+  );
 };
 
 export default MenuContext;
