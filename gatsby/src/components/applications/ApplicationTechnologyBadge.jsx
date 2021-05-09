@@ -7,20 +7,20 @@ const ApplicationTechnologyBadgeStyles = styled.span`
   width: fit-content;
   font-weight: 300;
   display: inline-block;
-  padding: .25em .4em;
+  padding: 0.25em 0.4em;
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25rem;
-  margin: .125rem;
+  border-radius: 0.25rem;
+  margin: 0.125rem;
 `;
 
 const ApplicationTechnologyBadge = ({ technologyName }) => (
   <ApplicationTechnologyBadgeStyles>
-    { technologyName }
+    {technologyName}
   </ApplicationTechnologyBadgeStyles>
 );
 

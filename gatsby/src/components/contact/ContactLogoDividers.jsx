@@ -19,7 +19,7 @@ const ContactLogoDividersStyles = styled.div`
 const ContactLogoDividers = () => (
   <ContactLogoDividersStyles>
     <div className="divider" />
-      <Logo />
+    <Logo />
     <div className="divider" />
   </ContactLogoDividersStyles>
 );
