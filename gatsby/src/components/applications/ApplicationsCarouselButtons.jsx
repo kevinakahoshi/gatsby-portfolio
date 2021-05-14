@@ -14,7 +14,7 @@ const ApplicationsCarouselButtonsStyles = styled.div`
   .next {
     height: 3.125rem;
     width: 3.125rem;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     display: flex;
     justify-content: center;
     align-items: center;

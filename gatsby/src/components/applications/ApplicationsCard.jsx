@@ -11,7 +11,7 @@ import ApplicationsSkeletonTechnologies from './ApplicationsSkeletonTechnologies
 
 const ApplicationsCardStyles = styled.div`
   background: var(--white);
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   padding: 1rem;
   display: grid;
@@ -23,7 +23,7 @@ const ApplicationsCardStyles = styled.div`
   width: 100%;
 
   .application-card-image {
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     overflow: hidden;
   }
 

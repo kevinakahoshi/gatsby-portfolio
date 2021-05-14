@@ -17,7 +17,7 @@ const ApplicationsCardButtonsStyles = styled.div`
     color: var(--link-inactive-grey);
     border: 2px solid var(--link-inactive-grey);
     padding: 0.75rem;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;

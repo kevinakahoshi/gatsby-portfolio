@@ -13,6 +13,8 @@ const LogoStyles = styled.div`
   pointer-events: none;
   width: max-content;
   background: var(--white);
+  border-radius: var(--border-radius);
+  justify-self: center;
 
   &:focus,
   &:active {

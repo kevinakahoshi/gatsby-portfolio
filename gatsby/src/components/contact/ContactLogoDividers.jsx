@@ -8,11 +8,13 @@ const ContactLogoDividersStyles = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5rem;
   align-items: center;
+  justify-content: center;
 
   .divider {
-    height: 1px;
+    height: 2px;
     width: 100%;
     background: var(--medium-grey);
+    border-radius: var(--border-radius);
   }
 `;
 
