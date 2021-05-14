@@ -43,7 +43,7 @@ const ApplicationsToggleTooltipStyles = styled.div`
     padding: 0.5rem;
     position: absolute;
     width: auto;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     transition: opacity 0.3s;
     white-space: nowrap;
 

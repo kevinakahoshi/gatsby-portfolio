@@ -52,6 +52,7 @@ const NavigationHamburgerStyles = styled.button`
     background: var(--black);
     position: absolute;
     transition: transform 0.3s, opacity 0.3s;
+    border-radius: var(--border-radius);
   }
 `;
 

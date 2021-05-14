@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ApplicationsSwitchStyles = styled.button`
   width: 3rem;
   margin: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   font-size: 0;
   padding: 0;
   outline: none;
@@ -23,7 +23,7 @@ const ApplicationsSwitchStyles = styled.button`
     height: 1.5rem;
     width: 1.5rem;
     border: 1px solid var(--medium-grey);
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius);
     background: var(--white);
     transition: transform 0.3s;
 

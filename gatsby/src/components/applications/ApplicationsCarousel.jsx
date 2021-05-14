@@ -30,7 +30,7 @@ const ApplicationsCarouselStyles = styled.div`
 
     .slides-wrapper {
       overflow: hidden;
-      border-radius: 0.25rem;
+      border-radius: var(--border-radius);
       touch-action: pan-y;
       transform: translate3d(0, 0, 0);
 

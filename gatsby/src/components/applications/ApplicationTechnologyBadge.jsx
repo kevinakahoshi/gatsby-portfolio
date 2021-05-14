@@ -14,7 +14,7 @@ const ApplicationTechnologyBadgeStyles = styled.span`
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   margin: 0.125rem;
 `;
 

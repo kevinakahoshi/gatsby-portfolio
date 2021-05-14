@@ -35,7 +35,7 @@ const NotFoundStyles = styled.section`
       color: var(--white);
       border: 2px solid var(--white);
       padding: 0.75rem;
-      border-radius: 0.25rem;
+      border-radius: var(--border-radius);
       gap: 0.5rem;
       text-decoration: none;
       display: block;

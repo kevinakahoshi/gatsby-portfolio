@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --link-inactive-grey: #767676;
     --link-inactive-hover-grey: #4C4C4C;
     --link-active-grey: #191919;
+    --border-radius: 0.25rem;
   }
 
   * {
