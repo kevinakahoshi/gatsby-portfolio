@@ -109,6 +109,7 @@ const Typography = createGlobalStyle`
         z-index: 1;
         display: inline-block;
         transition: width .3s;
+        border-radius: var(--border-radius);
       }
 
       &::after {

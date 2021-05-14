@@ -30,7 +30,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .section {
-    padding: 5rem 1rem;
+    @media (min-width: 768px) {
+      padding: 5rem 1rem;
+    }
+
+    @media (max-width: 767px) {
+      padding: 3.5rem 1rem;
+    }
   }
 
   .no-scroll {

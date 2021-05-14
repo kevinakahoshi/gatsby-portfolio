@@ -58,6 +58,7 @@ const NavigationStyles = styled.div`
       z-index: 1;
       display: inline-block;
       transition: width 0.3s, backround 0.3s;
+      border-radius: var(--border-radius);
     }
 
     &::after {
