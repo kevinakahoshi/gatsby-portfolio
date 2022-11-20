@@ -8,7 +8,7 @@ import SkillsAndToolsGrid from '../shared/SkillsAndToolsGrid';
 import TechnicalSkillOrTool from '../shared/TechnicalSkillOrTool';
 
 const SkillsStyles = styled.section`
-  background: #ffffff;
+  background: var(--white);
 `;
 
 const Skills = () => {

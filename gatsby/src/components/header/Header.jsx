@@ -59,10 +59,10 @@ const navigationItems = [
     to: 'tools',
     text: 'Tools',
   },
-  {
-    to: 'applications',
-    text: 'Applications',
-  },
+  // {
+  //   to: 'applications',
+  //   text: 'Applications',
+  // },
   {
     to: 'contact',
     text: 'Contact',

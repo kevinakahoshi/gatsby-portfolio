@@ -9,9 +9,7 @@ const SectionHeadingStyles = styled.h3`
 `;
 
 const SectionHeading = ({ children }) => (
-  <SectionHeadingStyles>
-    { children }
-  </SectionHeadingStyles>
+  <SectionHeadingStyles>{children}</SectionHeadingStyles>
 );
 
 export default SectionHeading;

@@ -21,9 +21,7 @@ const SkillsAndToolsGridStyles = styled.div`
 `;
 
 const SkillsAndToolsGrid = ({ children }) => (
-  <SkillsAndToolsGridStyles>
-    { children }
-  </SkillsAndToolsGridStyles>
+  <SkillsAndToolsGridStyles>{children}</SkillsAndToolsGridStyles>
 );
 
 export default SkillsAndToolsGrid;

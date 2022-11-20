@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useState
-} from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -15,14 +11,12 @@ import ApplicationsSwitch from './ApplicationsSwitch';
 import ApplicationsCarousel from './ApplicationsCarousel';
 
 const ApplicationsStyles = styled.section`
-  background: #ffffff;
+  background: var(--white);
 `;
 
 const Applications = () => {
   const {
-    allApplications: {
-      applications
-    }
+    allApplications: { applications },
   } = useStaticQuery(graphql`
     query {
       allApplications: sanityProjectsSection {
@@ -50,43 +44,37 @@ const Applications = () => {
   const [view, setView] = useState('grid');
 
   const applicationsCards = applications.map((project, index) => (
-    <ApplicationsCard
-      key={project.id}
-      application={project}
-    />
+    <ApplicationsCard key={project.id} application={project} />
   ));
 
-  const handleToggle = () => setView((sectionView) => {
-    const view = sectionView === 'grid' ? 'carousel' : 'grid';
-    window.localStorage.sectionView = view;
-    return view;
-  });
+  const handleToggle = () =>
+    setView((sectionView) => {
+      const view = sectionView === 'grid' ? 'carousel' : 'grid';
+      window.localStorage.sectionView = view;
+      return view;
+    });
 
   useEffect(() => {
     setView(() => window.localStorage.sectionView || 'grid');
-  },[]);
+  }, []);
 
   return (
     <ApplicationsStyles id="applications" className="section">
       <SectionContentWrapper>
-        <SectionHeading>
-          Applications
-        </SectionHeading>
+        <SectionHeading>Applications</SectionHeading>
         <ApplicationsSwitchWrapper
           handleToggle={handleToggle}
           setView={setView}
           view={view}
         />
-        {view === 'grid'
-          ? <ApplicationsGrid>
-              { applicationsCards }
-            </ApplicationsGrid>
-          : <ApplicationsCarousel
-              applications={applications}
-            />}
+        {view === 'grid' ? (
+          <ApplicationsGrid>{applicationsCards}</ApplicationsGrid>
+        ) : (
+          <ApplicationsCarousel applications={applications} />
+        )}
       </SectionContentWrapper>
     </ApplicationsStyles>
-  )
+  );
 };
 
 export default Applications;

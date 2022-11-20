@@ -7,9 +7,7 @@ const SectionContentWrapperStyles = styled.div`
 `;
 
 const SectionContentWrapper = ({ children }) => (
-  <SectionContentWrapperStyles>
-    { children }
-  </SectionContentWrapperStyles>
+  <SectionContentWrapperStyles>{children}</SectionContentWrapperStyles>
 );
 
 export default SectionContentWrapper;
