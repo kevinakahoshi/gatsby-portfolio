@@ -9,7 +9,7 @@ const CloseButtonStyles = styled.button`
   align-items: center;
   position: relative;
   transform: rotate(45deg);
-  background: #ffffff;
+  background: var(--white);
   border: none;
   border-radius: 100%;
 

@@ -5,7 +5,7 @@ import HeroImage from './HeroImage';
 import HeroText from './HeroText';
 
 const HeroStyles = styled.section`
-  background: #ffffff;
+  background: var(--white);
   min-height: 75vh;
   display: grid;
   grid-gap: 3rem;

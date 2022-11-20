@@ -1,13 +1,13 @@
-import React from "react"
+import React from 'react';
 
 // Components
 import Layout from '../components/Layout';
-import Header from "../components/header/Header";
-import Hero from "../components/hero/Hero";
-import About from "../components/about/About";
+import Header from '../components/header/Header';
+import Hero from '../components/hero/Hero';
+import About from '../components/about/About';
 import Skills from '../components/skills/Skills';
-import Tools from "../components/tools/Tools";
-import Applications from "../components/applications/Applications";
+import Tools from '../components/tools/Tools';
+import Applications from '../components/applications/Applications';
 import Contact from '../components/contact/Contact';
 
 const Home = () => (
@@ -17,7 +17,7 @@ const Home = () => (
     <About />
     <Skills />
     <Tools />
-    <Applications />
+    {/* <Applications /> */}
     <Contact />
   </Layout>
 );

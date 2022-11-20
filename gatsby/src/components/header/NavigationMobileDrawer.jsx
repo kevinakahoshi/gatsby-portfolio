@@ -36,12 +36,12 @@ const NavigationMobileDrawerStyles = styled.aside`
   .drawer {
     grid-column: 2;
     padding: 2rem 1rem 1rem;
-    background: #ffffff;
+    background: var(--white);
     display: grid;
     align-items: center;
     grid-gap: 2rem;
     grid-template-rows: repeat(auto-fill, minmax(3rem, 1fr));
-    background: #ffffff;
+    background: var(--white);
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
