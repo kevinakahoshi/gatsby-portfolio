@@ -8,8 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "dev": "sanity dev",
-    "test": "sanity check"
+    "dev": "sanity dev"
   },
   "keywords": [
     "sanity"
